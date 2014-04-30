@@ -1,7 +1,81 @@
+package asgn2CarParks;
 
+import asgn2Exceptions.SimulationException;
+import asgn2Exceptions.VehicleException;
+import asgn2Simulators.Simulator;
 
-
+public class CarPark {
+	
+	//CarPark constructor sets the basic size parameters. Uses default parameters
+	public CarPark() {
 		
+	}
+	
+	//CarPark constructor sets the basic size parameters.
+	public CarPark(int maxCarSpaces, int maxSmallCarSpaces, int maxMotorCycleSpaces, int maxQueueSize) {
+		
+
+	}
+	
+	// Archives vehicles exiting the car park after a successful stay. Includes transition via Vehicle.exitParkedState().
+	public void archiveDepartingVehicles(int time, boolean force)
+			throws VehicleException, SimulationException {
+	
+	}
+	
+	// Method to archive new vehicles that don't get parked or queued and are turned away.
+	public void archiveNewVehicle(Vehicle v) throws SimulationException {
+		
+	}
+	
+	// Archive vehicles which have stayed in the queue too long.
+	public void archiveQueueFailures(int time) throws VehicleException {
+		
+	}
+	
+	// Simple status showing whether carPark is empty.
+	public boolean carParkEmpty() {
+		return false;
+	}
+	
+	// Simple status showing whether carPark is full.
+	public boolean carParkFull() {
+		return false;
+	}
+	
+	// Method to add vehicle successfully to the queue Precondition is a test that spaces are available
+	// includes transition through Vehicle.enterQueuedState.
+	public void enterQueue(Vehicle v) throws SimulationException, VehicleException {
+		
+	}
+	
+	// Method to remove vehicle from the queue after which it will be parked or removed altogether.
+	// Includes transition through Vehicle.exitQueuedState.
+	public void exitQueue(Vehicle v, int exitTime) throws SimulationException, VehicleException {
+		
+	}
+	
+
+	// State dump intended for use in logging the final state of the carpark All spaces and queue positions should be empty and so we dump the archive
+	public java.lang.String finalState() {
+		
+	}
+	
+	// Simple getter for number of cars in the car park.
+	public int getNumCars() {
+		return 123456;
+	}
+	
+	// Simple getter for number of motorcycles in the car park.
+	public int getNumMotorCycles() {
+		return 123456;
+	}
+	
+	public int getNumSmallCars() {
+		return 123456;
+	}
+	
+	
 	/**
      * **USE, BUT YOU MAY NEED TO CHANGE THE VAR NAMES ***
 	 * Method used to provide the current status of the car park. 
@@ -55,3 +129,59 @@
 	}
 
 	
+	// Simple status showing number of vehicles in the queue.
+	public int numVehiclesInQueue() {
+		return 123456;
+	}
+	
+	// Method to add vehicle successfully to the car park store. Precondition is a test that spaces are available. 
+	// Includes transition via Vehicle.enterParkedState.
+	public void parkVehicle(Vehicle v, int time, int intendedDuration)
+			throws SimulationException, VehicleException {
+		
+	}
+	
+	// Silently process elements in the queue, whether empty or not. If possible, add them to the car park. 
+	// Includes transition via exitQueuedState where appropriate Block when we reach the first element that can't be parked.
+	public void processQueue(int time, Simulator sim) 
+			throws VehicleException, SimulationException {
+		
+	}
+	
+	// Simple status showing whether queue is empty.
+	public boolean queueEmpty() {
+		return false;
+	}
+	
+	// Simple status showing whether queue is full
+	public boolean queueFull() {
+		return false;
+	}
+	
+	// Method determines, given a vehicle of a particular type, whether there are spaces available for that type
+	// in the car park under the parking policy in the class header.
+	public boolean spacesAvailable(Vehicle v) {
+		return false;
+	}
+	
+	
+	// Overrides: toString in class java.lang.Object 
+	public java.lang.String toString() {
+		return "Insert String Here.";
+	}
+	
+	// Method to try to create new vehicles (one trial per vehicle type per time point)
+	// and to then try to park or queue (or archive) any vehicles that are created.
+	public void tryProcessNewVehicles(int time, Simulator sim)
+			throws VehicleException, SimulationException {
+		
+	}
+	
+	// Method to remove vehicle from the carpark. For symmetry with parkVehicle, include transition via Vehicle.exitParkedState. 
+	// So vehicle should be in parked state prior to entry to this method.
+	public void unparkVehicle(Vehicle v, int departureTime)
+			throws VehicleException, SimulationException {
+		
+	}
+	
+}
