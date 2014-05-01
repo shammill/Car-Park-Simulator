@@ -1,6 +1,7 @@
 package asgn2Vehicles;
 
 import asgn2Exceptions.VehicleException;
+import asgn2Simulators.Constants;
 
 public abstract class Vehicle {
 	
@@ -23,6 +24,9 @@ public abstract class Vehicle {
 	public void enterParkedState(int parkingTime, int intendedDuration)
 			throws VehicleException {
 		
+		if  /*if the vehicle is already in a parked or queued state,
+		 	if parkingTime < 0, or
+			if intendedDuration is less than the minimum prescribed in asgnSimulators.Constants*/
 	}
 	
 	// Transition vehicle to queued state (mutator) Queuing formally starts on arrival and ceases with a call to exitQueuedState
@@ -46,25 +50,25 @@ public abstract class Vehicle {
 
     // Simple getter for the arrival time.
     public int getArrivalTime() {
-    	return 123456;
+    	return arrivalTime;
     }
     
     // Simple getter for the departure time from the car park Note: result may be 0 before parking, show intended 
     // departure time while parked; and actual when archived.
     public int getDepartureTime() {
-    	return 123456;    	
+    	return departureTime;    	
     }
     
     
     // Simple getter for the parking time Note: result may be 0 before parking
     public int getParkingTime() {
-    	return 123456;
+    	return parkingTime;
     }
     
     
     // Simple getter for the vehicle ID
     public java.lang.String getVehID() {
-    	return "Insert String Here";
+    	return vehID;
     }
     
     // Boolean status indicating whether vehicle is currently parked.
