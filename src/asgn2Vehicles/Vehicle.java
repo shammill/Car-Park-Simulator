@@ -4,10 +4,19 @@ import asgn2Exceptions.VehicleException;
 
 public abstract class Vehicle {
 	
+	private String vehID;
+	private int arrivalTime;
+	
 	// Vehicle Constructor
 	public Vehicle(java.lang.String vehID, int arrivalTime)
 			throws VehicleException {
 		
+		if (arrivalTime <= 0) {
+			throw new VehicleException("Arrival Time Must Be Greater Than 0.");
+		}
+		
+		this.vehID = vehID;
+		this.arrivalTime = arrivalTime;
 	}
 	
 	// Transition vehicle to parked state (mutator) Parking starts on arrival or on exit from the queue, but time is set here
