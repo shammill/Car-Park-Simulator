@@ -3,24 +3,42 @@ package asgn2CarParks;
 import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
 import asgn2Simulators.Simulator;
+import asgn2Simulators.Constants;
+import asgn2Vehicles.Vehicle;
 
 public class CarPark {
 	
+	private final int maxCarSpaces;
+	private final int maxSmallCarSpaces;
+    private final int maxMotorCycleSpaces;
+    private final int maxQueueSize;
+    
+    private int numCars;
+    private int shit;
+    
 	//CarPark constructor sets the basic size parameters. Uses default parameters
 	public CarPark() {
-		
+		maxCarSpaces = Constants.DEFAULT_MAX_CAR_SPACES;
+	    maxSmallCarSpaces = Constants.DEFAULT_MAX_SMALL_CAR_SPACES;
+	    maxMotorCycleSpaces = Constants.DEFAULT_MAX_MOTORCYCLE_SPACES;
+	    maxQueueSize = Constants.DEFAULT_MAX_QUEUE_SIZE;
 	}
 	
 	//CarPark constructor sets the basic size parameters.
 	public CarPark(int maxCarSpaces, int maxSmallCarSpaces, int maxMotorCycleSpaces, int maxQueueSize) {
-		
+		this.maxCarSpaces = maxCarSpaces;
+		this.maxSmallCarSpaces = maxSmallCarSpaces;
+		this.maxMotorCycleSpaces = maxMotorCycleSpaces;
+		this.maxQueueSize = maxQueueSize;
 
 	}
 	
 	// Archives vehicles exiting the car park after a successful stay. Includes transition via Vehicle.exitParkedState().
 	public void archiveDepartingVehicles(int time, boolean force)
 			throws VehicleException, SimulationException {
-	
+		if () {
+			;
+		}
 	}
 	
 	// Method to archive new vehicles that don't get parked or queued and are turned away.
