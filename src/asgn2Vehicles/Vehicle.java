@@ -3,20 +3,18 @@ package asgn2Vehicles;
 import asgn2Exceptions.VehicleException;
 import asgn2Simulators.Constants;
 
-public abstract class Vehicle {
+public abstract class Vehicle extends java.lang.Object {
 	
 	private String vehID;
 	private int arrivalTime;
 	private int departureTime;
 	private int parkingTime;
 	
-	private int exitQueueTime;		// This might get the axe.
-	
-	private boolean isQueued;
-	private boolean isParked;
-	private boolean isSatisfied;
-	private boolean wasQueued;
-	private boolean wasParked;
+	private boolean isQueued = false;
+	private boolean isParked = false;
+	private boolean isSatisfied = false;
+	private boolean wasQueued = false;
+	private boolean wasParked = false;
 	
 	// Vehicle Constructor
 	public Vehicle(java.lang.String vehID, int arrivalTime)
@@ -28,10 +26,11 @@ public abstract class Vehicle {
 		
 		this.vehID = vehID;
 		this.arrivalTime = arrivalTime;
+
 	}
 	
 	
-	// Transition vehicle to parked state (mutator) Parking starts on arrival or on exit from the queue, but time is set here
+	// Transition vehicle to parked state (mutator) Parking starts on arrival or on exit from the queue, but time is set here.
 	public void enterParkedState(int parkingTime, int intendedDuration)
 			throws VehicleException {
 		
@@ -107,10 +106,10 @@ public abstract class Vehicle {
 		}
 		
 		isQueued = false;
-		exitQueueTime = exitTime; 	// This might need to be changed to exitQueueTime = arrivalTime, as it is never used elsewhere, 
-									// and has no getter, but they want us to set it... We'll see...
+		// Here we exit and set the time at which the vehicle left the queue. <-- Not sure what the API is referring to here...
 	}
 
+    
     // Simple getter for the arrival time.
     public int getArrivalTime() {
     	return arrivalTime;
@@ -131,7 +130,7 @@ public abstract class Vehicle {
     
     // Simple getter for the vehicle ID
     public java.lang.String getVehID() {
-    	return vehID;								// Unsure how to do override. Will come back to this.
+    	return vehID;
     }
     
     // Boolean status indicating whether vehicle is currently parked.
@@ -165,6 +164,5 @@ public abstract class Vehicle {
     public boolean wasQueued() {
     	return wasQueued;
     }
-    
             
 }
