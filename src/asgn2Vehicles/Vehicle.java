@@ -69,7 +69,6 @@ public abstract class Vehicle {
 		
 		this.vehID = vehID;
 		this.arrivalTime = arrivalTime;
-
 	}
 	
 	
@@ -169,7 +168,7 @@ public abstract class Vehicle {
 		}
 		
 		isQueued = false;
-		// Here we exit and set the time at which the vehicle left the queue. <-- Not sure what the API is referring to here...
+		this.departureTime = exitTime; 
 	}
 
     
