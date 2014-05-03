@@ -1,14 +1,39 @@
+/**
+ * 
+ * This file is part of the CarParkSimulator Project, written as 
+ * part of the assessment for INB370, semester 1, 2014. 
+ *
+ * CarParkSimulator
+ * asgn2Vehicles 
+ * 20/04/2014
+ * 
+ */
 package asgn2Vehicles;
 
-import asgn2Vehicles.Vehicle;
+
+/**
+ * The Car class is a specialisation of the Vehicle class to cater for production cars
+ * This version of the class does not cater for model types, but records whether or not the 
+ * vehicle can use a small parking space. 
+ * 
+ * @author hogan
+ *
+ */
 import asgn2Exceptions.VehicleException;
 
 public class Car extends Vehicle {
 	
-	private final boolean isSmall;
+	private boolean small;
 	
-	public Car(java.lang.String vehID, int arrivalTime, boolean small)
-			throws VehicleException {
+	/**
+	 * The Car Constructor - small set at creation, not mutable. 
+	 * @param vehID - identification number or plate of the vehicle
+	 * @param arrivalTime - time (minutes) at which the vehicle arrives and is 
+	 *        either queued or given entry to the carpark 
+	 * @param small - indicator whether car is regarded as small or not
+	 * @throws VehicleException if arrivalTime is <= 0  
+	 */
+	public Car(String vehID, int arrivalTime, boolean small) throws VehicleException {
 		
 		super(vehID, arrivalTime);
 		
@@ -16,18 +41,25 @@ public class Car extends Vehicle {
 			throw new VehicleException("arrivalTime must be > 0.");
 		}
 		
-		isSmall = small; 
+		this.small = small;
 	}
 	
 	
-	// Boolean status indicating whether car is small enough for small car parking spaces
+	/**
+	 * Boolean status indicating whether car is small enough for small 
+	 * car parking spaces  
+	 * @return true if small parking space, false otherwise
+	 */
 	public boolean isSmall() {
-		return isSmall;
+		return this.small;
 	}
+
 	
-	// Overrides: toString in class Vehicle 
-	public java.lang.String toString() {
-		return "string override";
+	/* (non-Javadoc)
+	 * @see asgn2Vehicles.Vehicle#toString()
+	 */
+	@Override
+	public String toString() {
+		return "STRING!";
 	}
-	
 }
