@@ -61,7 +61,7 @@ public abstract class Vehicle {
 	 *        either queued, given entry to the car park or forced to leave
 	 * @throws VehicleException if arrivalTime is <= 0 
 	 */
-	public Vehicle(String vehID,int arrivalTime) throws VehicleException  {
+	public Vehicle(String vehID, int arrivalTime) throws VehicleException  {
 		
 		if (arrivalTime <= 0) {
 			throw new VehicleException("Arrival Time Must Be Greater Than 0.");
@@ -83,7 +83,7 @@ public abstract class Vehicle {
 	 */
 	public void enterParkedState(int parkingTime, int intendedDuration) throws VehicleException {
 		
-		if (isQueued == true | isParked == true) {
+		if (isQueued | isParked) {
 			throw new VehicleException("Unable to queue, car already queued or parked.");
 		}
 		
@@ -96,7 +96,7 @@ public abstract class Vehicle {
 		}
 		
 		this.parkingTime = parkingTime;
-		departureTime = parkingTime + intendedDuration;
+		this.departureTime = parkingTime + intendedDuration;
 		
 		isParked = true;
 		wasParked = true;
@@ -111,7 +111,7 @@ public abstract class Vehicle {
 	 */
 	public void enterQueuedState() throws VehicleException {
 		
-		if (isQueued == true | isParked == true) {
+		if (isQueued | isParked) {
 			throw new VehicleException("Unable to queue, car already queued or parked.");
 		}
 		
@@ -128,11 +128,11 @@ public abstract class Vehicle {
 	 */
 	public void exitParkedState(int departureTime) throws VehicleException {
 		
-		if (isParked == false) {
+		if (!isParked) {
 			throw new VehicleException("Unable to exitParkedState. Vehicle is not currently parked.");
 		}	
 		
-		if (isQueued == true) {
+		if (isQueued) {
 			throw new VehicleException("Unable to exitParkedState. Vehicle is currently in the queue.");
 		}	
 		
@@ -155,11 +155,11 @@ public abstract class Vehicle {
 	 */
 	public void exitQueuedState(int exitTime) throws VehicleException {
     	
-		if (isParked == true) {
+		if (isParked) {
 			throw new VehicleException("Unable to exitQueuedState. Vehicle is currently parked.");
 		}	
 		
-		if (isQueued == false) {
+		if (!isQueued) {
 			throw new VehicleException("Unable to exitQueuedState. Vehicle is not currently queued.");
 		}	
 		
@@ -168,7 +168,7 @@ public abstract class Vehicle {
 		}
 		
 		isQueued = false;
-		this.departureTime = exitTime; 
+		departureTime = exitTime; 
 	}
 
     

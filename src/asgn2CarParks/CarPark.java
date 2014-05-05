@@ -152,11 +152,9 @@ public class CarPark {
 	 * @return true if car park empty, false otherwise
 	 */
 	public boolean carParkEmpty() {
-		if (spaces.size() == 0) {
-			return true;
-		}
-		return false;
+		return (spaces.size() == 0);
 	}
+
 	
 	
 	/**
@@ -164,10 +162,7 @@ public class CarPark {
 	 * @return true if car park full, false otherwise
 	 */
 	public boolean carParkFull() {
-		if (spaces.size() == (maxCarSpaces + maxMotorCycleSpaces)) {
-				return true;
-			}
-		return false;
+		return (spaces.size() == (maxCarSpaces + maxMotorCycleSpaces));
 	}
 	
 	
@@ -330,12 +325,12 @@ public class CarPark {
 		spaces.add(v);
 		
 		if (v instanceof Car) {
-			if (((Car)v).isSmall() == true) {
+			if (((Car)v).isSmall()) {
 				numSmallCars++;
 				numCars++;
 			}
 			
-			else if (((Car)v).isSmall() == false) {
+			else if (!((Car)v).isSmall()) {
 				numCars++;
 			}
 		}
@@ -359,9 +354,13 @@ public class CarPark {
 		while (i.hasNext() & ableToPark) {
 			Vehicle v = i.next();
 			
-			/* if vehicle has space for it to park
-			 * go ahead and park & change states.
-			 */
+			if (spacesAvailable(v)) {
+				exitQueue(v, time);
+				parkVehicle(v, time, sim.setDuration());
+			}
+			else {
+				ableToPark = false;
+			}
 		}
 	}
 	
@@ -371,10 +370,7 @@ public class CarPark {
 	 * @return true if queue empty, false otherwise
 	 */
 	public boolean queueEmpty() {
-		if (queue.size() == 0) {
-			return true;
-		}
-		return false;
+		return (queue.size() == 0);
 	}
 	
 	
@@ -383,10 +379,7 @@ public class CarPark {
 	 * @return true if queue full, false otherwise
 	 */
 	public boolean queueFull() {
-		if (queue.size() == maxQueueSize) {
-			return true;
-		}
-		return false;
+		return (queue.size() == maxQueueSize);
 	}
 	
 	
@@ -399,33 +392,20 @@ public class CarPark {
 	public boolean spacesAvailable(Vehicle v) {			// this needs to be broken down. ugly.
 		
 		if (v instanceof Car) {
-			
 			if (((Car)v).isSmall() == true) {
-				
 				if ((numSmallCars < maxSmallCarSpaces) | (numCars < maxCarSpaces)) {
 					return true;
 				}
-				else {
-					return false;
-				}
 			}
-			
 			else if (((Car)v).isSmall() == false) {
 				if (numCars < (maxCarSpaces - maxSmallCarSpaces)) {
 					return true;
 				}
-				else {
-					return false;
-				}
 			}
 		}
-		
 		else if (v instanceof MotorCycle) {
 			if ((numMotorCycles < maxMotorCycleSpaces) | (numSmallCars < maxSmallCarSpaces)) {
 				return true;
-			}
-			else {
-				return false;
 			}
 		}
 		return false;
@@ -448,8 +428,37 @@ public class CarPark {
 	 * @throws SimulationException if no suitable spaces available when operation attempted 
 	 * @throws VehicleException if vehicle creation violates constraints 
 	 */
-	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {
-		//loop through each minute in time, do stuff...
+	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// ugly, but done. needs to be broken down too.
+		if (sim.newCarTrial()) {
+			boolean isSmall = sim.smallCarTrial();
+			Vehicle v = new Car("123-123", time, isSmall);
+			if (spacesAvailable(v)) {
+				parkVehicle(v, time, sim.setDuration());
+			} 
+			else {
+				if (!queueFull()) {
+					enterQueue(v);
+				}
+				else {
+					archiveNewVehicle(v);
+				}
+			}
+		}
+
+		if (sim.motorCycleTrial()) {
+			Vehicle v = new MotorCycle("123-123", time);
+			if (spacesAvailable(v)) {
+				parkVehicle(v, time, sim.setDuration());
+			} 
+			else {
+				if (!queueFull()) {
+					enterQueue(v);
+				}
+				else {
+					archiveNewVehicle(v);
+				}
+			}
+		}
 	}
 	
 	
