@@ -93,10 +93,22 @@ public class CarPark {
 	 * @throws VehicleException if vehicle to be archived is not in the correct state 
 	 * @throws SimulationException if one or more departing vehicles are not in the car park when operation applied
 	 */
-	public void archiveDepartingVehicles(int time, boolean force)
-			throws VehicleException, SimulationException {
-		// loop through all parked vehicles at the end of the day and release them clearing the spaces.
-		// Reset num vars at the top?
+	public void archiveDepartingVehicles(int time, boolean force) throws VehicleException, SimulationException {
+		
+		Iterator<Vehicle> i = spaces.iterator();
+		while (i.hasNext()) {
+			Vehicle v = i.next();
+			
+			if (!v.isParked()) {
+				throw new SimulationException("Vehicle must be parked before it can depart the Car Park.");
+			}
+			
+		    if (time >= v.getDepartureTime() | (force)) {
+		    	spaces.remove(v);
+		    	v.exitParkedState(time);
+				past.add(v);
+		    }
+		}
 	}
 	
 	
@@ -122,7 +134,16 @@ public class CarPark {
 	 */
 	public void archiveQueueFailures(int time) throws VehicleException {
 		
-		// loop through all cars in queue, compare arrivalTime to time and see if they are tired of waiting (MAXIMUM_QUEUE_TIME). If so, archive.
+		Iterator<Vehicle> i = queue.iterator();
+		while (i.hasNext()) {
+			Vehicle v = i.next();
+		    if (time - v.getArrivalTime() > Constants.MAXIMUM_QUEUE_TIME) {
+		    	queue.remove(v);
+		    	v.exitQueuedState(time);
+				past.add(v);
+				numDissatisfied++;
+		    }
+		}
 	}
 	
 	
@@ -178,7 +199,7 @@ public class CarPark {
 	 * constraints are violated
 	 */
 	public void exitQueue(Vehicle v, int exitTime) throws SimulationException, VehicleException {
-		if (!(queue.contains(v))){
+		if (!queue.contains(v)){
 			throw new SimulationException("Vehicle must first be in queue to be able to exit it.");
 		}
 		v.exitQueuedState(exitTime);
@@ -302,7 +323,7 @@ public class CarPark {
 	 * @throws VehicleException if vehicle not in the correct state or timing constraints are violated
 	 */
 	public void parkVehicle(Vehicle v, int time, int intendedDuration) throws SimulationException, VehicleException {
-		if (!(spacesAvailable(v))) {
+		if (!spacesAvailable(v)) {
 			throw new SimulationException("No spaces available for parking.");
 		}
 		v.enterParkedState(time, intendedDuration);
@@ -333,7 +354,15 @@ public class CarPark {
 	 * @throws VehicleException if state is incorrect, or timing constraints are violated
 	 */
 	public void processQueue(int time, Simulator sim) throws VehicleException, SimulationException {
-		
+		Iterator<Vehicle> i = queue.iterator();
+		boolean ableToPark = true;
+		while (i.hasNext() & ableToPark) {
+			Vehicle v = i.next();
+			
+			/* if vehicle has space for it to park
+			 * go ahead and park & change states.
+			 */
+		}
 	}
 	
 	
@@ -433,7 +462,7 @@ public class CarPark {
 	 * @throws SimulationException if vehicle is not in car park
 	 */
 	public void unparkVehicle(Vehicle v, int departureTime) throws VehicleException, SimulationException {
-		if (!(spaces.contains(v))){
+		if (!spaces.contains(v)){
 			throw new SimulationException("Vehicle must first be in a parking space to be able to exit.");
 		}
 		v.exitParkedState(departureTime);
