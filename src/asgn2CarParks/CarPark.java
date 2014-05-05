@@ -311,6 +311,7 @@ public class CarPark {
 		if (v instanceof Car) {
 			if (((Car)v).isSmall() == true) {
 				numSmallCars++;
+				numCars++;
 			}
 			
 			else if (((Car)v).isSmall() == false) {
@@ -438,7 +439,18 @@ public class CarPark {
 		v.exitParkedState(departureTime);
 		spaces.remove(v);
 		
-		// remove count... yes, but what count if we don't track what vehicle takes what space... waiting for clarification on this.
+		if (v instanceof Car) {
+			if (((Car)v).isSmall()) {
+				numSmallCars--;
+				numCars--;
+			}
+			else {
+				numCars--;
+			}
+		}
+		else if (v instanceof MotorCycle){
+			numMotorCycles--;
+		}
 	}
 	
 	
