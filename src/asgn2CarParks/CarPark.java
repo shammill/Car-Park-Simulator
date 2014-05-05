@@ -432,6 +432,7 @@ public class CarPark {
 		if (sim.newCarTrial()) {
 			boolean isSmall = sim.smallCarTrial();
 			Vehicle v = new Car("123-123", time, isSmall);
+			count++;
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
 			} 
@@ -447,6 +448,7 @@ public class CarPark {
 
 		if (sim.motorCycleTrial()) {
 			Vehicle v = new MotorCycle("123-123", time);
+			count++;
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
 			} 
