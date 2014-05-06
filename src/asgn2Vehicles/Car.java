@@ -12,11 +12,11 @@ package asgn2Vehicles;
 
 
 /**
+ * 
  * The Car class is a specialisation of the Vehicle class to cater for production cars
  * This version of the class does not cater for model types, but records whether or not the 
  * vehicle can use a small parking space. 
- * 
- * @author hogan
+ * @author Samuel Hammill
  *
  */
 import asgn2Exceptions.VehicleException;
@@ -32,6 +32,7 @@ public class Car extends Vehicle {
 	 *        either queued or given entry to the carpark 
 	 * @param small - indicator whether car is regarded as small or not
 	 * @throws VehicleException if arrivalTime is <= 0  
+	 * @author Samuel Hammill
 	 */
 	public Car(String vehID, int arrivalTime, boolean small) throws VehicleException {
 		
@@ -44,6 +45,7 @@ public class Car extends Vehicle {
 	 * Boolean status indicating whether car is small enough for small 
 	 * car parking spaces  
 	 * @return true if small parking space, false otherwise
+	 * @author Samuel Hammill
 	 */
 	public boolean isSmall() {
 		return this.small;
