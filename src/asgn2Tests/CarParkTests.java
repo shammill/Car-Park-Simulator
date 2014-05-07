@@ -11,6 +11,10 @@
 package asgn2Tests;
 
 import static org.junit.Assert.*;
+import asgn2CarParks.CarPark;
+import asgn2Vehicles.MotorCycle;
+import asgn2Vehicles.Vehicle;
+import asgn2Vehicles.Car;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,6 +26,8 @@ import org.junit.Test;
  */
 public class CarParkTests {
 
+	CarPark CarP;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -66,6 +72,9 @@ public class CarParkTests {
 	@Test
 	public void testCarParkEmpty() {
 		fail("Not yet implemented"); // TODO
+		CarP = new CarPark(15,5,2,5);
+		MotorCycle bike = new MotorCycle;
+		
 	}
 
 	/**
