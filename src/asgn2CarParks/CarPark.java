@@ -35,7 +35,7 @@ import asgn2Vehicles.Vehicle;
  * The class relies heavily on the asgn2.Vehicle hierarchy, and provides a series of reports 
  * used by the logger. 
  * 
- * @author Samuel Hammill
+ * @author Samuel Hammill //// update test 1 day5
  *
  */
 public class CarPark {
