@@ -83,8 +83,8 @@ public class CarPark {
 		this.maxMotorCycleSpaces = maxMotorCycleSpaces;
 		this.maxQueueSize = maxQueueSize;
 
-		this.spaces = new ArrayList<Vehicle>(maxCarSpaces + maxMotorCycleSpaces);
-	}
+		this.spaces = new ArrayList<Vehicle>(maxCarSpaces + maxMotorCycleSpaces); 
+		}
 	
 	
 	/**
@@ -310,11 +310,6 @@ public class CarPark {
 	}
 
 	
-	/**
-	 * Simple status showing number of vehicles in the queue 
-	 * @return number of vehicles in the queue
-	 * @author Samuel Hammill
-	 */
 	public int numVehiclesInQueue() {
 		return queue.size();
 	}
