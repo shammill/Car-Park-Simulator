@@ -435,7 +435,13 @@ public class CarPark {
 	 */
 	@Override
 	public String toString() {
-		return "Insert String Here.";
+		return "CarPark [count: " + count
+				+ " numCars: " + numCars
+				+ " numSmallCars: " + numSmallCars
+				+ " numMotorCycles: " + numMotorCycles
+				+ " queue: " + (queue.size()) 
+				+ " numDissatisfied: " + numDissatisfied
+				+ " past: " + past.size() + "]";
 	}
 	
 	
@@ -449,8 +455,7 @@ public class CarPark {
 	 */
 	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// ugly, but done. needs to be broken down too.
 		if (sim.newCarTrial()) {
-			boolean isSmall = sim.smallCarTrial();
-			Vehicle v = new Car("123-123", time, isSmall);
+			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
 			count++;
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
@@ -466,7 +471,7 @@ public class CarPark {
 		}
 
 		if (sim.motorCycleTrial()) {
-			Vehicle v = new MotorCycle("123-123", time);
+			Vehicle v = new MotorCycle("M"+this.count, time);
 			count++;
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());

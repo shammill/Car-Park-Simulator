@@ -259,7 +259,7 @@ public abstract class Vehicle {
 	 */
 	@Override
 	public String toString() {		
-    	return "Insert String Here";					// Unsure how to do override. Will come back to this.
+    	return this.getVehID();					// Unsure how to do override. Will come back to this.
     }
     
 	
