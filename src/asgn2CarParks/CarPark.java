@@ -35,7 +35,7 @@ import asgn2Vehicles.Vehicle;
  * The class relies heavily on the asgn2.Vehicle hierarchy, and provides a series of reports 
  * used by the logger. 
  * 
- * @author Samuel Hammill //// update test 1 day5
+ * @author Samuel Hammill ////
  *
  */
 public class CarPark {
@@ -84,7 +84,7 @@ public class CarPark {
 		this.maxQueueSize = maxQueueSize;
 
 		this.spaces = new ArrayList<Vehicle>(maxCarSpaces + maxMotorCycleSpaces); 
-		}
+	}
 	
 	
 	/**
@@ -107,8 +107,8 @@ public class CarPark {
 			}
 			
 		    if (time >= v.getDepartureTime() | (force)) {
-		    	spaces.remove(v);
 		    	v.exitParkedState(time);
+		    	i.remove();
 				past.add(v);
 		    }
 		}
@@ -143,7 +143,7 @@ public class CarPark {
 		while (i.hasNext()) {
 			Vehicle v = i.next();
 		    if (time - v.getArrivalTime() > Constants.MAXIMUM_QUEUE_TIME) {
-		    	queue.remove(v);
+		    	i.remove();
 		    	v.exitQueuedState(time);
 				past.add(v);
 				numDissatisfied++;
@@ -310,6 +310,11 @@ public class CarPark {
 	}
 
 	
+	/**
+	 * Simple status showing number of vehicles in the queue 
+	 * @return number of vehicles in the queue
+	 * @author Samuel Hammill
+	 */	
 	public int numVehiclesInQueue() {
 		return queue.size();
 	}

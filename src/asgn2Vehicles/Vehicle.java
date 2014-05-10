@@ -91,11 +91,11 @@ public abstract class Vehicle {
 			throw new VehicleException("Unable to queue, car already queued or parked.");
 		}
 		
-		if (parkingTime <= 0) {  // should this be <= or < ? I just changed it to =< cause none can park for 0 right?
+		if (parkingTime <= 0) {
 		 	throw new VehicleException("Parking Time Must Be Greater Than 0.");
 		}
 		
-		if (intendedDuration < Constants.MINIMUM_STAY) { // again here, should be at least the minimum defined.
+		if (intendedDuration < Constants.MINIMUM_STAY) {
 			throw new VehicleException("Stay duration must be greater than or equal to the minimum defined.");
 		}
 		
