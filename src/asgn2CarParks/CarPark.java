@@ -362,8 +362,8 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public void processQueue(int time, Simulator sim) throws VehicleException, SimulationException {
+		
 		boolean ableToPark = true;
-
 		while (ableToPark) {
 			Vehicle v = queue.peek();
 			
@@ -453,8 +453,8 @@ public class CarPark {
 	 */
 	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// ugly, but done. needs to be broken down too.
 		if (sim.newCarTrial()) {
-			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
 			count++;
+			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
 			} 
@@ -469,8 +469,8 @@ public class CarPark {
 		}
 
 		if (sim.motorCycleTrial()) {
-			Vehicle v = new MotorCycle("M"+this.count, time);
 			count++;
+			Vehicle v = new MotorCycle("MC"+this.count, time);
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
 			} 
