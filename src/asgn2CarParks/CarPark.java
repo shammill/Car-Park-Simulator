@@ -40,12 +40,12 @@ import asgn2Vehicles.Vehicle;
  */
 public class CarPark {
 	
-	int count;
-	int numCars;
-	int numSmallCars;
-	int numMotorCycles;
-	int numDissatisfied;
-	String status;
+	private int count;
+	private int numCars;
+	private int numSmallCars;
+	private int numMotorCycles;
+	private int numDissatisfied;
+	private String status;
 	
 	private final int maxCarSpaces;
 	private final int maxSmallCarSpaces;
@@ -98,17 +98,15 @@ public class CarPark {
 	 */
 	public void archiveDepartingVehicles(int time, boolean force) throws VehicleException, SimulationException {
 		
-		Iterator<Vehicle> i = spaces.iterator();
-		while (i.hasNext()) {
-			Vehicle v = i.next();
+		for(int i = 0; i < spaces.size(); i++){
+			Vehicle v = spaces.get(i);
 			
 			if (!v.isParked()) {
 				throw new SimulationException("Vehicle must be parked before it can depart the Car Park.");
 			}
 			
 		    if (time >= v.getDepartureTime() | (force)) {
-		    	v.exitParkedState(time);
-		    	i.remove();
+		    	unparkVehicle(v, time);
 				past.add(v);
 		    }
 		}
@@ -142,7 +140,7 @@ public class CarPark {
 		Iterator<Vehicle> i = queue.iterator();
 		while (i.hasNext()) {
 			Vehicle v = i.next();
-		    if (time - v.getArrivalTime() > Constants.MAXIMUM_QUEUE_TIME) {
+		    if (time - v.getArrivalTime() >= Constants.MAXIMUM_QUEUE_TIME) {
 		    	i.remove();
 		    	v.exitQueuedState(time);
 				past.add(v);
@@ -364,10 +362,10 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public void processQueue(int time, Simulator sim) throws VehicleException, SimulationException {
-		Iterator<Vehicle> i = queue.iterator();
 		boolean ableToPark = true;
-		while (i.hasNext() & ableToPark) {
-			Vehicle v = i.next();
+
+		while (ableToPark) {
+			Vehicle v = queue.peek();
 			
 			if (spacesAvailable(v)) {
 				exitQueue(v, time);

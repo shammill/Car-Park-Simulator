@@ -55,7 +55,6 @@ public abstract class Vehicle {
 	private boolean wasQueued = false;
 	private boolean wasParked = false;
 	
-	
 	/**
 	 * Vehicle Constructor
 	 * @param vehID String identification number or plate of the vehicle
@@ -72,6 +71,7 @@ public abstract class Vehicle {
 		
 		this.vehID = vehID;
 		this.arrivalTime = arrivalTime;
+
 	}
 	
 	
@@ -147,7 +147,7 @@ public abstract class Vehicle {
 		}	
 		
 		isParked = false;
-		this.departureTime = departureTime; 
+		this.departureTime = departureTime;
 	}
 	
 	
@@ -258,8 +258,35 @@ public abstract class Vehicle {
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() {		
-    	return this.getVehID();					// Unsure how to do override. Will come back to this.
+	public String toString() {
+		String str = "";
+    	str += "Vehicle vehID: " + this.getVehID() + "\n"
+    			+ "Arrival Time: " + this.getArrivalTime() + "\n";
+    			
+    	if (this.wasQueued()) {
+    		if (this.wasParked()) {
+    			str += "Exit from Queue: " + this.getParkingTime() + "\n"
+    					+ "Queuing Time: " + (this.getParkingTime() - this.getArrivalTime()) + "\n";	
+    		}
+    		else {
+    			str += "Exit from Queue: " + this.getDepartureTime() + "\n"
+    					+ "Queuing Time: " + (this.getDepartureTime() - this.getArrivalTime()) + "\n";
+    		}
+    	}
+    	else {
+    		str += "Vehicle was not queued.\n";
+    	}
+    	
+    	if (this.wasParked()) {
+    			str += "Entry to Car Park: " + this.getParkingTime() + "\n"
+        			+ "Exit from Car Park: " + this.getDepartureTime() + "\n"
+        			+ "Parking Time: " +  (this.getDepartureTime() - this.getParkingTime()) + "\n"
+        			+ "Customer was satisfied.\n";
+    	}
+    	else {
+    		str += "Customer was not satisfied.\n";
+    	}
+    	return str;
     }
     
 	

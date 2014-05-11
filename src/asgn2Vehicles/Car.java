@@ -57,6 +57,40 @@ public class Car extends Vehicle {
 	 */
 	@Override
 	public String toString() {
-		return this.getVehID();
+		String str = "";
+    	str += "Vehicle vehID: " + this.getVehID() + "\n"
+    			+ "Arrival Time: " + this.getArrivalTime() + "\n";
+    			
+    	if (this.wasQueued()) {
+    		if (this.wasParked()) {
+    			str += "Exit from Queue: " + this.getParkingTime() + "\n"
+    					+ "Queuing Time: " + (this.getParkingTime() - this.getArrivalTime()) + "\n";	
+    		}
+    		else {
+    			str += "Exit from Queue: " + this.getDepartureTime() + "\n"
+    					+ "Queuing Time: " + (this.getDepartureTime() - this.getArrivalTime()) + "\n";
+    		}
+    	}
+    	else {
+    		str += "Vehicle was not queued.\n";
+    	}
+    	
+    	if (this.wasParked()) {
+    			str += "Entry to Car Park: " + this.getParkingTime() + "\n"
+        			+ "Exit from Car Park: " + this.getDepartureTime() + "\n"
+        			+ "Parking Time: " +  (this.getDepartureTime() - this.getParkingTime()) + "\n"
+        			+ "Customer was satisfied.\n";
+    	}
+    	else {
+    		str += "Customer was not satisfied.\n";
+    	}
+    			
+    	if (this.isSmall()) {
+			str += "Car can use small car parking space.\n";
+    	}
+    	else {
+    		str += "Car can not use small car parking space.\n";
+    	}
+    	return str;
 	}
 }
