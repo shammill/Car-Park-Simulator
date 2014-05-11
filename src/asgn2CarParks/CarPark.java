@@ -40,12 +40,12 @@ import asgn2Vehicles.Vehicle;
  */
 public class CarPark {
 	
-	int count;
-	int numCars;
-	int numSmallCars;
-	int numMotorCycles;
-	int numDissatisfied;
-	String status;
+	private int count;
+	private int numCars;
+	private int numSmallCars;
+	private int numMotorCycles;
+	private int numDissatisfied;
+	private String status;
 	
 	private final int maxCarSpaces;
 	private final int maxSmallCarSpaces;
@@ -83,7 +83,7 @@ public class CarPark {
 		this.maxMotorCycleSpaces = maxMotorCycleSpaces;
 		this.maxQueueSize = maxQueueSize;
 
-		this.spaces = new ArrayList<Vehicle>(maxCarSpaces + maxMotorCycleSpaces);
+		this.spaces = new ArrayList<Vehicle>(maxCarSpaces + maxMotorCycleSpaces); 
 	}
 	
 	
@@ -98,17 +98,15 @@ public class CarPark {
 	 */
 	public void archiveDepartingVehicles(int time, boolean force) throws VehicleException, SimulationException {
 		
-		Iterator<Vehicle> i = spaces.iterator();
-		while (i.hasNext()) {
-			Vehicle v = i.next();
+		for(int i = 0; i < spaces.size(); i++){
+			Vehicle v = spaces.get(i);
 			
 			if (!v.isParked()) {
 				throw new SimulationException("Vehicle must be parked before it can depart the Car Park.");
 			}
 			
 		    if (time >= v.getDepartureTime() | (force)) {
-		    	spaces.remove(v);
-		    	v.exitParkedState(time);
+		    	unparkVehicle(v, time);
 				past.add(v);
 		    }
 		}
@@ -142,8 +140,8 @@ public class CarPark {
 		Iterator<Vehicle> i = queue.iterator();
 		while (i.hasNext()) {
 			Vehicle v = i.next();
-		    if (time - v.getArrivalTime() > Constants.MAXIMUM_QUEUE_TIME) {
-		    	queue.remove(v);
+		    if (time - v.getArrivalTime() >= Constants.MAXIMUM_QUEUE_TIME) {
+		    	i.remove();
 		    	v.exitQueuedState(time);
 				past.add(v);
 				numDissatisfied++;
@@ -314,7 +312,7 @@ public class CarPark {
 	 * Simple status showing number of vehicles in the queue 
 	 * @return number of vehicles in the queue
 	 * @author Samuel Hammill
-	 */
+	 */	
 	public int numVehiclesInQueue() {
 		return queue.size();
 	}
@@ -364,10 +362,10 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public void processQueue(int time, Simulator sim) throws VehicleException, SimulationException {
-		Iterator<Vehicle> i = queue.iterator();
 		boolean ableToPark = true;
-		while (i.hasNext() & ableToPark) {
-			Vehicle v = i.next();
+
+		while (ableToPark) {
+			Vehicle v = queue.peek();
 			
 			if (spacesAvailable(v)) {
 				exitQueue(v, time);
@@ -435,7 +433,13 @@ public class CarPark {
 	 */
 	@Override
 	public String toString() {
-		return "Insert String Here.";
+		return "CarPark [count: " + count
+				+ " numCars: " + numCars
+				+ " numSmallCars: " + numSmallCars
+				+ " numMotorCycles: " + numMotorCycles
+				+ " queue: " + (queue.size()) 
+				+ " numDissatisfied: " + numDissatisfied
+				+ " past: " + past.size() + "]";
 	}
 	
 	
@@ -449,8 +453,7 @@ public class CarPark {
 	 */
 	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// ugly, but done. needs to be broken down too.
 		if (sim.newCarTrial()) {
-			boolean isSmall = sim.smallCarTrial();
-			Vehicle v = new Car("123-123", time, isSmall);
+			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
 			count++;
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
@@ -466,7 +469,7 @@ public class CarPark {
 		}
 
 		if (sim.motorCycleTrial()) {
-			Vehicle v = new MotorCycle("123-123", time);
+			Vehicle v = new MotorCycle("M"+this.count, time);
 			count++;
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
