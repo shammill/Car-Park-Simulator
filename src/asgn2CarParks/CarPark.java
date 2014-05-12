@@ -98,7 +98,7 @@ public class CarPark {
 	 */
 	public void archiveDepartingVehicles(int time, boolean force) throws VehicleException, SimulationException {
 		
-		for(int i = 0; i < spaces.size(); i++){
+		for (int i = 0; i < spaces.size(); ){
 			Vehicle v = spaces.get(i);
 			
 			if (!v.isParked()) {
@@ -109,6 +109,9 @@ public class CarPark {
 				past.add(v);
 		    	unparkVehicle(v, time);
 				status += setVehicleMsg(v, "P", "A");
+		    }
+		    else {
+		    	i++;
 		    }
 		}
 	}
@@ -409,24 +412,18 @@ public class CarPark {
 	 * @return true if space available for v, false otherwise
 	 * @author Samuel Hammill
 	 */
-	public boolean spacesAvailable(Vehicle v) {			// this needs to be broken down. ugly.
+	public boolean spacesAvailable(Vehicle v) {
 		
 		if (v instanceof Car) {
-			if (((Car)v).isSmall() == true) {
-				if ((numSmallCars < maxSmallCarSpaces) | (numCars < maxCarSpaces)) {
+			if (((Car)v).isSmall() == true & (numCars < maxCarSpaces)) {
 					return true;
-				}
 			}
-			else if (((Car)v).isSmall() == false) {
-				if ((numCars - numSmallCars) < (maxCarSpaces - maxSmallCarSpaces)) {
+			else if (((Car)v).isSmall() == false & ((numCars - numSmallCars) < (maxCarSpaces - maxSmallCarSpaces) & (numCars < maxCarSpaces))) {
 					return true;
-				}
 			}
 		}
-		else if (v instanceof MotorCycle) {
-			if ((numMotorCycles < maxMotorCycleSpaces) | (numSmallCars < maxSmallCarSpaces)) {
+		else if (v instanceof MotorCycle & ((numMotorCycles < maxMotorCycleSpaces) | (numSmallCars < maxSmallCarSpaces))) {
 				return true;
-			}
 		}
 		return false;
 	}
@@ -455,7 +452,7 @@ public class CarPark {
 	 * @throws VehicleException if vehicle creation violates constraints
 	 * @author Samuel Hammill
 	 */
-	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// ugly, but done. needs to be broken down too.
+	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// Duplicate code. Privatize this.
 		if (sim.newCarTrial()) {
 			count++;
 			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
