@@ -39,14 +39,14 @@ import asgn2Vehicles.Vehicle;
  *
  */
 public class CarPark {
-	
+
 	private int count;
 	private int numCars;
 	private int numSmallCars;
 	private int numMotorCycles;
 	private int numDissatisfied;
 	private String status;
-	
+
 	private final int maxCarSpaces;
 	private final int maxSmallCarSpaces;
     private final int maxMotorCycleSpaces;
@@ -106,8 +106,9 @@ public class CarPark {
 			}
 			
 		    if (time >= v.getDepartureTime() | (force)) {
-		    	unparkVehicle(v, time);
 				past.add(v);
+		    	unparkVehicle(v, time);
+				status += setVehicleMsg(v, "P", "A");
 		    }
 		}
 	}
@@ -141,10 +142,12 @@ public class CarPark {
 		while (i.hasNext()) {
 			Vehicle v = i.next();
 		    if (time - v.getArrivalTime() >= Constants.MAXIMUM_QUEUE_TIME) {
-		    	i.remove();
-		    	v.exitQueuedState(time);
 				past.add(v);
+		    	v.exitQueuedState(time);
+		    	//exitQueue(v, time);
+		    	i.remove();
 				numDissatisfied++;
+				status += setVehicleMsg(v, "Q", "A");
 		    }
 		}
 	}
@@ -370,6 +373,7 @@ public class CarPark {
 			if (spacesAvailable(v)) {
 				exitQueue(v, time);
 				parkVehicle(v, time, sim.setDuration());
+				status += setVehicleMsg(v, "Q", "P");
 			}
 			else {
 				ableToPark = false;
@@ -414,7 +418,7 @@ public class CarPark {
 				}
 			}
 			else if (((Car)v).isSmall() == false) {
-				if (numCars < (maxCarSpaces - maxSmallCarSpaces)) {
+				if ((numCars - numSmallCars) < (maxCarSpaces - maxSmallCarSpaces)) {
 					return true;
 				}
 			}
@@ -457,14 +461,15 @@ public class CarPark {
 			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
+				status += setVehicleMsg(v, "N", "P");
 			} 
+			else if (!queueFull()) {
+				enterQueue(v);
+				status += setVehicleMsg(v, "N", "Q");
+			}
 			else {
-				if (!queueFull()) {
-					enterQueue(v);
-				}
-				else {
-					archiveNewVehicle(v);
-				}
+				archiveNewVehicle(v);
+				status += setVehicleMsg(v, "N", "A");
 			}
 		}
 
@@ -473,14 +478,15 @@ public class CarPark {
 			Vehicle v = new MotorCycle("MC"+this.count, time);
 			if (spacesAvailable(v)) {
 				parkVehicle(v, time, sim.setDuration());
+				status += setVehicleMsg(v, "N", "P");
 			} 
+			else if (!queueFull()) {
+				enterQueue(v);
+				status += setVehicleMsg(v, "N", "Q");
+			}
 			else {
-				if (!queueFull()) {
-					enterQueue(v);
-				}
-				else {
-					archiveNewVehicle(v);
-				}
+				archiveNewVehicle(v);
+				status += setVehicleMsg(v, "N", "A");
 			}
 		}
 	}
@@ -524,7 +530,7 @@ public class CarPark {
 	 * @param target String holding finishing state of vehicle (Q,P,A) 
 	 * @return String containing transition in the form: |(S|C|M):(N|Q|P|A)>(Q|P|A)| 
 	 */
-	private String setVehicleMsg(Vehicle v,String source, String target) {
+	private String setVehicleMsg(Vehicle v, String source, String target) {
 		String str="";
 		if (v instanceof Car) {
 			if (((Car)v).isSmall()) {
