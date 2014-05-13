@@ -72,7 +72,7 @@ public class Car extends Vehicle {
     		}
     	}
     	else {
-    		str += "Vehicle was not queued\n";
+    		str += "Vehicle was not queued.\n";
     	}
     	
     	if (this.wasParked()) {
@@ -82,14 +82,14 @@ public class Car extends Vehicle {
         			+ "Customer was satisfied.\n";
     	}
     	else {
-    		str += "Vehicle was not Parked\nCustomer was not satisfied\n";
+    		str += "Customer was not satisfied.\n";
     	}
     			
     	if (this.isSmall()) {
-			str += "Car can use small car parking space\n";
+			str += "Car can use small car parking space.\n";
     	}
     	else {
-    		str += "Car cannot use small parking space\n";
+    		str += "Car can not use small car parking space.\n";
     	}
     	return str;
 	}

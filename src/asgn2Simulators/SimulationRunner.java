@@ -23,6 +23,16 @@ import asgn2Exceptions.VehicleException;
  *
  */
 public class SimulationRunner {
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int z = 0;
+	double f = 0;
+	double g = 0;
+	double h = 0;
+	double i = 0;
+	double j = 0;
 	private CarPark carPark;
 	private Simulator sim;
 	
@@ -78,8 +88,20 @@ public class SimulationRunner {
 	/**
 	 * Main program for the simulation 
 	 * @param args Arguments to the simulation 
+	 * @throws SimulationException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SimulationException {
+		int a = 0;
+		int b = 0;
+		int c = 0;
+		int d = 0;
+		int z = 0;
+		double f = 0;
+		double g = 0;
+		double h = 0;
+		double i = 0;
+		double j = 0;
+			
 		CarPark cp = new CarPark();
 		Simulator s = null;
 		Log l = null; 
@@ -92,7 +114,38 @@ public class SimulationRunner {
 		}
 		
 		//TODO: Implement Argument Processing 
+        System.out.println(" enter 10 numbers 5 ints, 5 doubles into main");
 		
+		if (args.length != 10){
+			System.out.println(" You need to enter 10 numbers 5 ints, 5 doubles into main!!!!!!");
+}
+		try
+		{a = Integer.parseInt(args[0]);
+		b = Integer.parseInt(args[1]);
+		c = Integer.parseInt(args[2]);
+		d = Integer.parseInt(args[3]);
+		z = Integer.parseInt(args[4]);
+		} catch (Exception e)
+		{System.out.println("Wrong input needs to be an int");
+		}
+		
+		try
+		{f = Double.parseDouble(args[5]);
+		g = Double.parseDouble(args[6]);
+		h = Double.parseDouble(args[7]);
+		i = Double.parseDouble(args[8]);
+		j = Double.parseDouble(args[9]);
+		} catch (Exception e)
+		{System.out.println("Wrong input needs to be a double");
+		}
+		if (f <=0 || f >1 || g <=0 || g >1 || h <=0 || h >1 || i <=0 || i >1 || j <=0 || j >1){
+		System.out.println("Wrong input needs to be between 0 and 1 inclusive");}
+			
+			System.out.print(a +"  "  +b  +"  " + c  +"  "  +d  +"  " +z +" ");
+			System.out.print(f  + "  " +g  +"  " + h  +"  " + i  +"  "+ j);
+		
+			cp = new CarPark(a,b,c,d);
+			s =  new Simulator(z,f,g,h,i,j);
 		//Run the simulation 
 		SimulationRunner sr = new SimulationRunner(cp,s,l);
 		try {

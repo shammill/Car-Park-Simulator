@@ -274,17 +274,17 @@ public abstract class Vehicle {
     		}
     	}
     	else {
-    		str += "Vehicle was not queued\n";
+    		str += "Vehicle was not queued.\n";
     	}
     	
     	if (this.wasParked()) {
     			str += "Entry to Car Park: " + this.getParkingTime() + "\n"
         			+ "Exit from Car Park: " + this.getDepartureTime() + "\n"
         			+ "Parking Time: " +  (this.getDepartureTime() - this.getParkingTime()) + "\n"
-        			+ "Customer was satisfied\n";
+        			+ "Customer was satisfied.\n";
     	}
     	else {
-    		str += "Customer was not satisfied\n";
+    		str += "Customer was not satisfied.\n";
     	}
     	return str;
     }
