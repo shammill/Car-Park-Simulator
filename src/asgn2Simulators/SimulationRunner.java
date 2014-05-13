@@ -114,8 +114,9 @@ public class SimulationRunner {
 		}
 		
 		//TODO: Implement Argument Processing 
-        System.out.println(" enter 10 numbers 5 ints, 5 doubles into main");
+    //    System.out.println(" enter 10 numbers 5 ints, 5 doubles into main");
 		
+		if (args.length != 0){
 		if (args.length != 10){
 			System.out.println(" You need to enter 10 numbers 5 ints, 5 doubles into main!!!!!!");
 }
@@ -141,11 +142,12 @@ public class SimulationRunner {
 		if (f <=0 || f >1 || g <=0 || g >1 || h <=0 || h >1 || i <=0 || i >1 || j <=0 || j >1){
 		System.out.println("Wrong input needs to be between 0 and 1 inclusive");}
 			
-			System.out.print(a +"  "  +b  +"  " + c  +"  "  +d  +"  " +z +" ");
-			System.out.print(f  + "  " +g  +"  " + h  +"  " + i  +"  "+ j);
+		//	System.out.print(a +"  "  +b  +"  " + c  +"  "  +d  +"  " +z +" ");
+		//	System.out.print(f  + "  " +g  +"  " + h  +"  " + i  +"  "+ j);
 		
 			cp = new CarPark(a,b,c,d);
 			s =  new Simulator(z,f,g,h,i,j);
+		}
 		//Run the simulation 
 		SimulationRunner sr = new SimulationRunner(cp,s,l);
 		try {
