@@ -35,7 +35,6 @@ public class Car extends Vehicle {
 	 * @author Samuel Hammill
 	 */
 	public Car(String vehID, int arrivalTime, boolean small) throws VehicleException {
-		
 		super(vehID, arrivalTime);
 		this.small = small;
 	}
