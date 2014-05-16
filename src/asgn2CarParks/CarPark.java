@@ -45,7 +45,7 @@ public class CarPark {
 	private int numSmallCars;
 	private int numMotorCycles;
 	private int numDissatisfied;
-	private String status = '';
+	private String status;
 
 	private final int maxCarSpaces;
 	private final int maxSmallCarSpaces;

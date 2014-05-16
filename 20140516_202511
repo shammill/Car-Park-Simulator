@@ -1,4 +1,4 @@
-20140512_232455: Start of Simulation
+20140516_202511: Start of Simulation
 Simulator [meanStay=120.0, sdStay=39.6, seed=100, carProb=1.0, smallCarProb=0.2, mcProb=0.05]
 CarPark [maxCarSpaces: 100 maxSmallCarSpaces: 20 maxMotorCycleSpaces: 20 maxQueueSize: 10]
 
@@ -1084,7 +1084,7 @@ CarPark [maxCarSpaces: 100 maxSmallCarSpaces: 20 maxMotorCycleSpaces: 20 maxQueu
 1079::1069::P:61::C:58::S:16::M:3::D:168::A:1008::Q:0
 1080::1069::P:0::C:0::S:0::M:0::D:168::A:1069::Q:0|C:P>A||C:P>A||S:P>A||C:P>A||C:P>A||S:P>A||S:P>A||C:P>A||C:P>A||C:P>A||S:P>A||C:P>A||C:P>A||C:P>A||C:P>A||C:P>A||C:P>A||S:P>A||S:P>A||C:P>A||S:P>A||C:P>A||C:P>A||C:P>A||M:P>A||M:P>A||C:P>A||C:P>A||C:P>A||C:P>A||S:P>A||C:P>A||M:P>A||C:P>A||C:P>A||C:P>A||C:P>A||S:P>A||C:P>A||S:P>A||C:P>A||C:P>A||S:P>A||S:P>A||C:P>A||C:P>A||C:P>A||C:P>A||S:P>A||S:P>A||C:P>A||C:P>A||C:P>A||S:P>A||C:P>A||C:P>A||C:P>A||C:P>A||C:P>A||C:P>A||S:P>A|
 
-20140512_232455: End of Simulation
+20140516_202511: End of Simulation
 Vehicles Processed: count:1069, logged: 1069
 Vehicle Record: 
 Vehicle vehID: C18
@@ -1093,7 +1093,7 @@ Vehicle was not queued
 Entry to Car Park: 17
 Exit from Car Park: 37
 Parking Time: 20
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1103,7 +1103,7 @@ Vehicle was not queued
 Entry to Car Park: 36
 Exit from Car Park: 60
 Parking Time: 24
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1113,7 +1113,7 @@ Vehicle was not queued
 Entry to Car Park: 6
 Exit from Car Park: 61
 Parking Time: 55
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1123,7 +1123,7 @@ Vehicle was not queued
 Entry to Car Park: 8
 Exit from Car Park: 61
 Parking Time: 53
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1133,7 +1133,7 @@ Vehicle was not queued
 Entry to Car Park: 15
 Exit from Car Park: 70
 Parking Time: 55
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1143,7 +1143,7 @@ Vehicle was not queued
 Entry to Car Park: 12
 Exit from Car Park: 92
 Parking Time: 80
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1153,7 +1153,7 @@ Vehicle was not queued
 Entry to Car Park: 5
 Exit from Car Park: 98
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1163,7 +1163,7 @@ Vehicle was not queued
 Entry to Car Park: 20
 Exit from Car Park: 102
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1173,7 +1173,7 @@ Vehicle was not queued
 Entry to Car Park: 35
 Exit from Car Park: 108
 Parking Time: 73
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1183,7 +1183,7 @@ Vehicle was not queued
 Entry to Car Park: 42
 Exit from Car Park: 108
 Parking Time: 66
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1193,7 +1193,7 @@ Vehicle was not queued
 Entry to Car Park: 7
 Exit from Car Park: 112
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1203,7 +1203,7 @@ Vehicle was not queued
 Entry to Car Park: 29
 Exit from Car Park: 112
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1213,7 +1213,7 @@ Vehicle was not queued
 Entry to Car Park: 22
 Exit from Car Park: 114
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1223,7 +1223,7 @@ Vehicle was not queued
 Entry to Car Park: 58
 Exit from Car Park: 116
 Parking Time: 58
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1233,7 +1233,7 @@ Vehicle was not queued
 Entry to Car Park: 37
 Exit from Car Park: 118
 Parking Time: 81
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1243,7 +1243,7 @@ Vehicle was not queued
 Entry to Car Park: 10
 Exit from Car Park: 120
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1253,7 +1253,7 @@ Vehicle was not queued
 Entry to Car Park: 32
 Exit from Car Park: 121
 Parking Time: 89
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1263,7 +1263,7 @@ Vehicle was not queued
 Entry to Car Park: 64
 Exit from Car Park: 121
 Parking Time: 57
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1273,7 +1273,7 @@ Vehicle was not queued
 Entry to Car Park: 3
 Exit from Car Park: 122
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1283,7 +1283,7 @@ Vehicle was not queued
 Entry to Car Park: 71
 Exit from Car Park: 123
 Parking Time: 52
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1293,7 +1293,7 @@ Vehicle was not queued
 Entry to Car Park: 9
 Exit from Car Park: 124
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1303,7 +1303,7 @@ Vehicle was not queued
 Entry to Car Park: 104
 Exit from Car Park: 124
 Parking Time: 20
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1313,7 +1313,7 @@ Vehicle was not queued
 Entry to Car Park: 25
 Exit from Car Park: 128
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1332,7 +1332,7 @@ Vehicle was not queued
 Entry to Car Park: 30
 Exit from Car Park: 130
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1342,7 +1342,7 @@ Vehicle was not queued
 Entry to Car Park: 111
 Exit from Car Park: 131
 Parking Time: 20
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1352,7 +1352,7 @@ Vehicle was not queued
 Entry to Car Park: 28
 Exit from Car Park: 132
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1363,7 +1363,7 @@ Queuing Time: 2
 Entry to Car Park: 112
 Exit from Car Park: 132
 Parking Time: 20
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1373,7 +1373,7 @@ Vehicle was not queued
 Entry to Car Park: 4
 Exit from Car Park: 134
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1383,7 +1383,7 @@ Vehicle was not queued
 Entry to Car Park: 52
 Exit from Car Park: 135
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1393,7 +1393,7 @@ Vehicle was not queued
 Entry to Car Park: 89
 Exit from Car Park: 135
 Parking Time: 46
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1403,7 +1403,7 @@ Vehicle was not queued
 Entry to Car Park: 41
 Exit from Car Park: 136
 Parking Time: 95
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1413,7 +1413,7 @@ Vehicle was not queued
 Entry to Car Park: 13
 Exit from Car Park: 138
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1423,7 +1423,7 @@ Vehicle was not queued
 Entry to Car Park: 63
 Exit from Car Park: 138
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1433,7 +1433,7 @@ Vehicle was not queued
 Entry to Car Park: 11
 Exit from Car Park: 139
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1443,7 +1443,7 @@ Vehicle was not queued
 Entry to Car Park: 50
 Exit from Car Park: 140
 Parking Time: 90
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1453,7 +1453,7 @@ Vehicle was not queued
 Entry to Car Park: 54
 Exit from Car Park: 141
 Parking Time: 87
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1471,7 +1471,7 @@ Vehicle was not queued
 Entry to Car Park: 1
 Exit from Car Park: 147
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1481,7 +1481,7 @@ Vehicle was not queued
 Entry to Car Park: 19
 Exit from Car Park: 147
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1491,7 +1491,7 @@ Vehicle was not queued
 Entry to Car Park: 38
 Exit from Car Park: 147
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1510,7 +1510,7 @@ Vehicle was not queued
 Entry to Car Park: 48
 Exit from Car Park: 151
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1520,7 +1520,7 @@ Vehicle was not queued
 Entry to Car Park: 77
 Exit from Car Park: 151
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1530,7 +1530,7 @@ Vehicle was not queued
 Entry to Car Park: 93
 Exit from Car Park: 151
 Parking Time: 58
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1540,7 +1540,7 @@ Vehicle was not queued
 Entry to Car Park: 51
 Exit from Car Park: 153
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1559,7 +1559,7 @@ Vehicle was not queued
 Entry to Car Park: 55
 Exit from Car Park: 154
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1569,7 +1569,7 @@ Vehicle was not queued
 Entry to Car Park: 47
 Exit from Car Park: 155
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1579,7 +1579,7 @@ Vehicle was not queued
 Entry to Car Park: 31
 Exit from Car Park: 156
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1606,7 +1606,7 @@ Vehicle was not queued
 Entry to Car Park: 27
 Exit from Car Park: 158
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1616,7 +1616,7 @@ Vehicle was not queued
 Entry to Car Park: 90
 Exit from Car Park: 159
 Parking Time: 69
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1626,7 +1626,7 @@ Vehicle was not queued
 Entry to Car Park: 26
 Exit from Car Park: 160
 Parking Time: 134
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1636,7 +1636,7 @@ Vehicle was not queued
 Entry to Car Park: 59
 Exit from Car Park: 161
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1646,7 +1646,7 @@ Vehicle was not queued
 Entry to Car Park: 81
 Exit from Car Park: 163
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1656,7 +1656,7 @@ Vehicle was not queued
 Entry to Car Park: 62
 Exit from Car Park: 164
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1674,7 +1674,7 @@ Vehicle was not queued
 Entry to Car Park: 2
 Exit from Car Park: 166
 Parking Time: 164
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1684,7 +1684,7 @@ Vehicle was not queued
 Entry to Car Park: 88
 Exit from Car Park: 166
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1694,7 +1694,7 @@ Vehicle was not queued
 Entry to Car Park: 45
 Exit from Car Park: 167
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1704,7 +1704,7 @@ Vehicle was not queued
 Entry to Car Park: 67
 Exit from Car Park: 167
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1714,7 +1714,7 @@ Vehicle was not queued
 Entry to Car Park: 18
 Exit from Car Park: 168
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1724,7 +1724,7 @@ Vehicle was not queued
 Entry to Car Park: 57
 Exit from Car Park: 168
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1734,7 +1734,7 @@ Vehicle was not queued
 Entry to Car Park: 76
 Exit from Car Park: 168
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1744,7 +1744,7 @@ Vehicle was not queued
 Entry to Car Park: 40
 Exit from Car Park: 169
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1754,7 +1754,7 @@ Vehicle was not queued
 Entry to Car Park: 39
 Exit from Car Park: 170
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1764,7 +1764,7 @@ Vehicle was not queued
 Entry to Car Park: 61
 Exit from Car Park: 170
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1774,7 +1774,7 @@ Vehicle was not queued
 Entry to Car Park: 56
 Exit from Car Park: 173
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1784,7 +1784,7 @@ Vehicle was not queued
 Entry to Car Park: 14
 Exit from Car Park: 176
 Parking Time: 162
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1802,7 +1802,7 @@ Vehicle was not queued
 Entry to Car Park: 33
 Exit from Car Park: 179
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1820,7 +1820,7 @@ Vehicle was not queued
 Entry to Car Park: 24
 Exit from Car Park: 181
 Parking Time: 157
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1830,7 +1830,7 @@ Vehicle was not queued
 Entry to Car Park: 23
 Exit from Car Park: 182
 Parking Time: 159
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1840,7 +1840,7 @@ Vehicle was not queued
 Entry to Car Park: 69
 Exit from Car Park: 183
 Parking Time: 114
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1858,7 +1858,7 @@ Vehicle was not queued
 Entry to Car Park: 49
 Exit from Car Park: 185
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1868,7 +1868,7 @@ Vehicle was not queued
 Entry to Car Park: 83
 Exit from Car Park: 185
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1878,7 +1878,7 @@ Vehicle was not queued
 Entry to Car Park: 108
 Exit from Car Park: 185
 Parking Time: 77
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1888,7 +1888,7 @@ Vehicle was not queued
 Entry to Car Park: 21
 Exit from Car Park: 188
 Parking Time: 167
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1898,7 +1898,7 @@ Vehicle was not queued
 Entry to Car Park: 72
 Exit from Car Park: 188
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1908,7 +1908,7 @@ Vehicle was not queued
 Entry to Car Park: 95
 Exit from Car Park: 188
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1918,7 +1918,7 @@ Vehicle was not queued
 Entry to Car Park: 68
 Exit from Car Park: 190
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -1928,7 +1928,7 @@ Vehicle was not queued
 Entry to Car Park: 84
 Exit from Car Park: 190
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1938,7 +1938,7 @@ Vehicle was not queued
 Entry to Car Park: 99
 Exit from Car Park: 190
 Parking Time: 91
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1948,7 +1948,7 @@ Vehicle was not queued
 Entry to Car Park: 87
 Exit from Car Park: 192
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1959,7 +1959,7 @@ Queuing Time: 2
 Entry to Car Park: 116
 Exit from Car Park: 192
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -1969,7 +1969,7 @@ Vehicle was not queued
 Entry to Car Park: 16
 Exit from Car Park: 194
 Parking Time: 178
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2012,7 +2012,7 @@ Vehicle was not queued
 Entry to Car Park: 66
 Exit from Car Park: 200
 Parking Time: 134
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2023,7 +2023,7 @@ Queuing Time: 5
 Entry to Car Park: 121
 Exit from Car Park: 201
 Parking Time: 80
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2050,7 +2050,7 @@ Queuing Time: 11
 Entry to Car Park: 151
 Exit from Car Park: 204
 Parking Time: 53
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2060,7 +2060,7 @@ Vehicle was not queued
 Entry to Car Park: 96
 Exit from Car Park: 205
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2070,7 +2070,7 @@ Vehicle was not queued
 Entry to Car Park: 74
 Exit from Car Park: 206
 Parking Time: 132
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2080,7 +2080,7 @@ Vehicle was not queued
 Entry to Car Park: 79
 Exit from Car Park: 206
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2090,7 +2090,7 @@ Vehicle was not queued
 Entry to Car Park: 80
 Exit from Car Park: 206
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2100,7 +2100,7 @@ Vehicle was not queued
 Entry to Car Park: 46
 Exit from Car Park: 208
 Parking Time: 162
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2126,7 +2126,7 @@ Vehicle was not queued
 Entry to Car Park: 44
 Exit from Car Park: 212
 Parking Time: 168
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2152,7 +2152,7 @@ Vehicle was not queued
 Entry to Car Park: 53
 Exit from Car Park: 215
 Parking Time: 162
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2162,7 +2162,7 @@ Vehicle was not queued
 Entry to Car Park: 78
 Exit from Car Park: 215
 Parking Time: 137
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2172,7 +2172,7 @@ Vehicle was not queued
 Entry to Car Park: 73
 Exit from Car Park: 216
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2214,7 +2214,7 @@ Vehicle was not queued
 Entry to Car Park: 101
 Exit from Car Park: 222
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2224,7 +2224,7 @@ Vehicle was not queued
 Entry to Car Park: 105
 Exit from Car Park: 222
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2242,7 +2242,7 @@ Vehicle was not queued
 Entry to Car Park: 102
 Exit from Car Park: 225
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2253,7 +2253,7 @@ Queuing Time: 11
 Entry to Car Park: 164
 Exit from Car Park: 225
 Parking Time: 61
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2263,7 +2263,7 @@ Vehicle was not queued
 Entry to Car Park: 34
 Exit from Car Park: 226
 Parking Time: 192
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2283,7 +2283,7 @@ Queuing Time: 7
 Entry to Car Park: 128
 Exit from Car Park: 227
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2294,7 +2294,7 @@ Queuing Time: 12
 Entry to Car Park: 153
 Exit from Car Park: 227
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2304,7 +2304,7 @@ Vehicle was not queued
 Entry to Car Park: 86
 Exit from Car Park: 229
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2315,7 +2315,7 @@ Queuing Time: 9
 Entry to Car Park: 138
 Exit from Car Park: 230
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2326,7 +2326,7 @@ Queuing Time: 13
 Entry to Car Park: 190
 Exit from Car Park: 230
 Parking Time: 40
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2337,7 +2337,7 @@ Queuing Time: 9
 Entry to Car Park: 168
 Exit from Car Park: 231
 Parking Time: 63
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2348,7 +2348,7 @@ Queuing Time: 5
 Entry to Car Park: 124
 Exit from Car Park: 232
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2359,7 +2359,7 @@ Queuing Time: 12
 Entry to Car Park: 155
 Exit from Car Park: 232
 Parking Time: 77
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2369,7 +2369,7 @@ Vehicle was not queued
 Entry to Car Park: 92
 Exit from Car Park: 233
 Parking Time: 141
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2379,7 +2379,7 @@ Vehicle was not queued
 Entry to Car Park: 82
 Exit from Car Park: 235
 Parking Time: 153
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2389,7 +2389,7 @@ Vehicle was not queued
 Entry to Car Park: 43
 Exit from Car Park: 236
 Parking Time: 193
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2399,7 +2399,7 @@ Vehicle was not queued
 Entry to Car Park: 85
 Exit from Car Park: 238
 Parking Time: 153
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2409,7 +2409,7 @@ Vehicle was not queued
 Entry to Car Park: 98
 Exit from Car Park: 240
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2429,7 +2429,7 @@ Queuing Time: 8
 Entry to Car Park: 135
 Exit from Car Park: 241
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2456,7 +2456,7 @@ Queuing Time: 9
 Entry to Car Park: 132
 Exit from Car Park: 244
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2483,7 +2483,7 @@ Queuing Time: 11
 Entry to Car Park: 147
 Exit from Car Park: 247
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2494,7 +2494,7 @@ Queuing Time: 8
 Entry to Car Park: 168
 Exit from Car Park: 247
 Parking Time: 79
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2504,7 +2504,7 @@ Vehicle was not queued
 Entry to Car Park: 103
 Exit from Car Park: 248
 Parking Time: 145
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2515,7 +2515,7 @@ Queuing Time: 5
 Entry to Car Park: 123
 Exit from Car Park: 248
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2526,7 +2526,7 @@ Queuing Time: 5
 Entry to Car Park: 122
 Exit from Car Park: 249
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2536,7 +2536,7 @@ Vehicle was not queued
 Entry to Car Park: 106
 Exit from Car Park: 250
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2547,7 +2547,7 @@ Queuing Time: 7
 Entry to Car Park: 170
 Exit from Car Park: 250
 Parking Time: 80
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2557,7 +2557,7 @@ Vehicle was not queued
 Entry to Car Park: 75
 Exit from Car Park: 252
 Parking Time: 177
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2568,7 +2568,7 @@ Queuing Time: 10
 Entry to Car Park: 147
 Exit from Car Park: 253
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2579,7 +2579,7 @@ Queuing Time: 12
 Entry to Car Park: 179
 Exit from Car Park: 253
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2589,7 +2589,7 @@ Vehicle was not queued
 Entry to Car Park: 91
 Exit from Car Park: 255
 Parking Time: 164
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2600,7 +2600,7 @@ Queuing Time: 13
 Entry to Car Park: 158
 Exit from Car Park: 257
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2610,7 +2610,7 @@ Vehicle was not queued
 Entry to Car Park: 70
 Exit from Car Park: 258
 Parking Time: 188
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2621,7 +2621,7 @@ Queuing Time: 3
 Entry to Car Park: 118
 Exit from Car Park: 258
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2632,7 +2632,7 @@ Queuing Time: 14
 Entry to Car Park: 201
 Exit from Car Park: 258
 Parking Time: 57
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2643,7 +2643,7 @@ Queuing Time: 9
 Entry to Car Park: 147
 Exit from Car Park: 259
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2653,7 +2653,7 @@ Vehicle was not queued
 Entry to Car Park: 97
 Exit from Car Park: 261
 Parking Time: 164
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2664,7 +2664,7 @@ Queuing Time: 8
 Entry to Car Park: 138
 Exit from Car Park: 262
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2675,7 +2675,7 @@ Queuing Time: 10
 Entry to Car Park: 160
 Exit from Car Park: 263
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2686,7 +2686,7 @@ Queuing Time: 9
 Entry to Car Park: 170
 Exit from Car Park: 263
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2697,7 +2697,7 @@ Queuing Time: 10
 Entry to Car Park: 134
 Exit from Car Park: 264
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2708,7 +2708,7 @@ Queuing Time: 11
 Entry to Car Park: 163
 Exit from Car Park: 264
 Parking Time: 101
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2718,7 +2718,7 @@ Vehicle was not queued
 Entry to Car Park: 112
 Exit from Car Park: 266
 Parking Time: 154
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2729,7 +2729,7 @@ Queuing Time: 11
 Entry to Car Park: 160
 Exit from Car Park: 266
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2740,7 +2740,7 @@ Queuing Time: 12
 Entry to Car Park: 166
 Exit from Car Park: 266
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2751,7 +2751,7 @@ Queuing Time: 11
 Entry to Car Park: 166
 Exit from Car Park: 266
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2762,7 +2762,7 @@ Queuing Time: 12
 Entry to Car Park: 154
 Exit from Car Park: 269
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2773,7 +2773,7 @@ Queuing Time: 1
 Entry to Car Park: 114
 Exit from Car Park: 270
 Parking Time: 156
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2784,7 +2784,7 @@ Queuing Time: 7
 Entry to Car Park: 140
 Exit from Car Park: 270
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2795,7 +2795,7 @@ Queuing Time: 8
 Entry to Car Park: 136
 Exit from Car Park: 271
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2805,7 +2805,7 @@ Vehicle was not queued
 Entry to Car Park: 65
 Exit from Car Park: 274
 Parking Time: 209
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2815,7 +2815,7 @@ Vehicle was not queued
 Entry to Car Park: 94
 Exit from Car Park: 274
 Parking Time: 180
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2835,7 +2835,7 @@ Queuing Time: 8
 Entry to Car Park: 170
 Exit from Car Park: 277
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2846,7 +2846,7 @@ Queuing Time: 14
 Entry to Car Park: 188
 Exit from Car Park: 277
 Parking Time: 89
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2856,7 +2856,7 @@ Vehicle was not queued
 Entry to Car Park: 120
 Exit from Car Park: 278
 Parking Time: 158
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2867,7 +2867,7 @@ Queuing Time: 15
 Entry to Car Park: 227
 Exit from Car Park: 279
 Parking Time: 52
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2878,7 +2878,7 @@ Queuing Time: 11
 Entry to Car Park: 192
 Exit from Car Park: 281
 Parking Time: 89
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2888,7 +2888,7 @@ Vehicle was not queued
 Entry to Car Park: 60
 Exit from Car Park: 282
 Parking Time: 222
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2899,7 +2899,7 @@ Queuing Time: 7
 Entry to Car Park: 141
 Exit from Car Park: 284
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2910,7 +2910,7 @@ Queuing Time: 10
 Entry to Car Park: 132
 Exit from Car Park: 285
 Parking Time: 153
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2920,7 +2920,7 @@ Vehicle was not queued
 Entry to Car Park: 100
 Exit from Car Park: 286
 Parking Time: 186
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2931,7 +2931,7 @@ Queuing Time: 11
 Entry to Car Park: 159
 Exit from Car Park: 287
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2942,7 +2942,7 @@ Queuing Time: 14
 Entry to Car Park: 185
 Exit from Car Park: 287
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2952,7 +2952,7 @@ Vehicle was not queued
 Entry to Car Park: 132
 Exit from Car Park: 288
 Parking Time: 156
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -2963,7 +2963,7 @@ Queuing Time: 11
 Entry to Car Park: 190
 Exit from Car Park: 288
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -2974,7 +2974,7 @@ Queuing Time: 10
 Entry to Car Park: 176
 Exit from Car Park: 292
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3002,7 +3002,7 @@ Queuing Time: 9
 Entry to Car Park: 253
 Exit from Car Park: 294
 Parking Time: 41
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3012,7 +3012,7 @@ Vehicle was not queued
 Entry to Car Park: 109
 Exit from Car Park: 295
 Parking Time: 186
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3023,7 +3023,7 @@ Queuing Time: 12
 Entry to Car Park: 151
 Exit from Car Park: 295
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3034,7 +3034,7 @@ Queuing Time: 8
 Entry to Car Park: 236
 Exit from Car Park: 297
 Parking Time: 61
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3045,7 +3045,7 @@ Queuing Time: 13
 Entry to Car Park: 181
 Exit from Car Park: 298
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3055,7 +3055,7 @@ Vehicle was not queued
 Entry to Car Park: 107
 Exit from Car Park: 299
 Parking Time: 192
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3066,7 +3066,7 @@ Queuing Time: 9
 Entry to Car Park: 173
 Exit from Car Park: 299
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3076,7 +3076,7 @@ Vehicle was not queued
 Entry to Car Park: 126
 Exit from Car Park: 300
 Parking Time: 174
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3087,7 +3087,7 @@ Queuing Time: 18
 Entry to Car Park: 226
 Exit from Car Park: 302
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3097,7 +3097,7 @@ Vehicle was not queued
 Entry to Car Park: 147
 Exit from Car Park: 303
 Parking Time: 156
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3131,7 +3131,7 @@ Vehicle was not queued
 Entry to Car Park: 131
 Exit from Car Park: 307
 Parking Time: 176
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3142,7 +3142,7 @@ Queuing Time: 7
 Entry to Car Park: 233
 Exit from Car Park: 307
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3152,7 +3152,7 @@ Vehicle was not queued
 Entry to Car Park: 135
 Exit from Car Park: 309
 Parking Time: 174
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3171,7 +3171,7 @@ Queuing Time: 12
 Entry to Car Park: 185
 Exit from Car Park: 310
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3182,7 +3182,7 @@ Queuing Time: 12
 Entry to Car Park: 182
 Exit from Car Park: 311
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3193,7 +3193,7 @@ Queuing Time: 10
 Entry to Car Park: 192
 Exit from Car Park: 311
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3213,7 +3213,7 @@ Queuing Time: 14
 Entry to Car Park: 208
 Exit from Car Park: 312
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3232,7 +3232,7 @@ Queuing Time: 10
 Entry to Car Park: 240
 Exit from Car Park: 314
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3267,7 +3267,7 @@ Queuing Time: 10
 Entry to Car Park: 161
 Exit from Car Park: 318
 Parking Time: 157
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3278,7 +3278,7 @@ Queuing Time: 14
 Entry to Car Park: 200
 Exit from Car Park: 318
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3289,7 +3289,7 @@ Queuing Time: 7
 Entry to Car Park: 232
 Exit from Car Park: 318
 Parking Time: 86
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3309,7 +3309,7 @@ Queuing Time: 14
 Entry to Car Park: 206
 Exit from Car Park: 321
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3320,7 +3320,7 @@ Queuing Time: 15
 Entry to Car Park: 204
 Exit from Car Park: 322
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3331,7 +3331,7 @@ Queuing Time: 13
 Entry to Car Park: 230
 Exit from Car Park: 324
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3342,7 +3342,7 @@ Queuing Time: 8
 Entry to Car Park: 235
 Exit from Car Park: 326
 Parking Time: 91
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3352,7 +3352,7 @@ Vehicle was not queued
 Entry to Car Park: 188
 Exit from Car Park: 327
 Parking Time: 139
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3363,7 +3363,7 @@ Queuing Time: 15
 Entry to Car Park: 215
 Exit from Car Park: 327
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3374,7 +3374,7 @@ Queuing Time: 18
 Entry to Car Park: 225
 Exit from Car Park: 328
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3385,7 +3385,7 @@ Queuing Time: 13
 Entry to Car Park: 206
 Exit from Car Park: 329
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3404,7 +3404,7 @@ Queuing Time: 9
 Entry to Car Park: 194
 Exit from Car Park: 332
 Parking Time: 138
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3439,7 +3439,7 @@ Queuing Time: 11
 Entry to Car Park: 167
 Exit from Car Park: 336
 Parking Time: 169
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3458,7 +3458,7 @@ Queuing Time: 10
 Entry to Car Park: 135
 Exit from Car Park: 338
 Parking Time: 203
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3469,7 +3469,7 @@ Queuing Time: 19
 Entry to Car Park: 215
 Exit from Car Park: 339
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3488,7 +3488,7 @@ Queuing Time: 10
 Entry to Car Park: 168
 Exit from Car Park: 340
 Parking Time: 172
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3499,7 +3499,7 @@ Queuing Time: 13
 Entry to Car Park: 188
 Exit from Car Park: 341
 Parking Time: 153
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3510,7 +3510,7 @@ Queuing Time: 15
 Entry to Car Park: 205
 Exit from Car Park: 341
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3530,7 +3530,7 @@ Queuing Time: 14
 Entry to Car Park: 229
 Exit from Car Park: 344
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3565,7 +3565,7 @@ Queuing Time: 9
 Entry to Car Park: 258
 Exit from Car Park: 348
 Parking Time: 90
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3584,7 +3584,7 @@ Queuing Time: 18
 Entry to Car Park: 227
 Exit from Car Park: 350
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3595,7 +3595,7 @@ Queuing Time: 12
 Entry to Car Park: 156
 Exit from Car Park: 351
 Parking Time: 195
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3606,7 +3606,7 @@ Queuing Time: 7
 Entry to Car Park: 278
 Exit from Car Park: 351
 Parking Time: 73
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3616,7 +3616,7 @@ Vehicle was not queued
 Entry to Car Park: 183
 Exit from Car Park: 353
 Parking Time: 170
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3627,7 +3627,7 @@ Queuing Time: 10
 Entry to Car Park: 300
 Exit from Car Park: 353
 Parking Time: 53
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3638,7 +3638,7 @@ Queuing Time: 7
 Entry to Car Park: 258
 Exit from Car Park: 354
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3649,7 +3649,7 @@ Queuing Time: 8
 Entry to Car Park: 261
 Exit from Car Park: 354
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3660,7 +3660,7 @@ Queuing Time: 14
 Entry to Car Park: 247
 Exit from Car Park: 355
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3671,7 +3671,7 @@ Queuing Time: 6
 Entry to Car Park: 264
 Exit from Car Park: 356
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3682,7 +3682,7 @@ Queuing Time: 13
 Entry to Car Park: 247
 Exit from Car Park: 357
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3693,7 +3693,7 @@ Queuing Time: 13
 Entry to Car Park: 185
 Exit from Car Park: 358
 Parking Time: 173
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3712,7 +3712,7 @@ Vehicle was not queued
 Entry to Car Park: 169
 Exit from Car Park: 359
 Parking Time: 190
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3723,7 +3723,7 @@ Queuing Time: 7
 Entry to Car Park: 263
 Exit from Car Park: 359
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3734,7 +3734,7 @@ Queuing Time: 10
 Entry to Car Park: 299
 Exit from Car Park: 361
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3745,7 +3745,7 @@ Queuing Time: 18
 Entry to Car Park: 222
 Exit from Car Park: 362
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3756,7 +3756,7 @@ Queuing Time: 19
 Entry to Car Park: 225
 Exit from Car Park: 362
 Parking Time: 137
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3767,7 +3767,7 @@ Queuing Time: 14
 Entry to Car Park: 230
 Exit from Car Park: 363
 Parking Time: 133
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3778,7 +3778,7 @@ Queuing Time: 15
 Entry to Car Park: 216
 Exit from Car Park: 365
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3789,7 +3789,7 @@ Queuing Time: 9
 Entry to Car Park: 286
 Exit from Car Park: 368
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3808,7 +3808,7 @@ Queuing Time: 12
 Entry to Car Park: 248
 Exit from Car Park: 370
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3819,7 +3819,7 @@ Queuing Time: 12
 Entry to Car Park: 249
 Exit from Car Park: 370
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3830,7 +3830,7 @@ Queuing Time: 7
 Entry to Car Park: 266
 Exit from Car Park: 371
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3841,7 +3841,7 @@ Queuing Time: 10
 Entry to Car Park: 292
 Exit from Car Park: 371
 Parking Time: 79
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3852,7 +3852,7 @@ Queuing Time: 5
 Entry to Car Park: 270
 Exit from Car Park: 372
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3863,7 +3863,7 @@ Queuing Time: 7
 Entry to Car Park: 274
 Exit from Car Park: 372
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3874,7 +3874,7 @@ Queuing Time: 12
 Entry to Car Park: 250
 Exit from Car Park: 373
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3885,7 +3885,7 @@ Queuing Time: 14
 Entry to Car Park: 190
 Exit from Car Park: 375
 Parking Time: 185
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3896,7 +3896,7 @@ Queuing Time: 9
 Entry to Car Park: 231
 Exit from Car Park: 375
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3907,7 +3907,7 @@ Queuing Time: 7
 Entry to Car Park: 264
 Exit from Car Park: 375
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3918,7 +3918,7 @@ Queuing Time: 8
 Entry to Car Park: 255
 Exit from Car Park: 376
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3929,7 +3929,7 @@ Queuing Time: 8
 Entry to Car Park: 258
 Exit from Car Park: 377
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -3940,7 +3940,7 @@ Queuing Time: 9
 Entry to Car Park: 238
 Exit from Car Park: 378
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3951,7 +3951,7 @@ Queuing Time: 11
 Entry to Car Park: 298
 Exit from Car Park: 380
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3962,7 +3962,7 @@ Queuing Time: 8
 Entry to Car Park: 288
 Exit from Car Park: 381
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3973,7 +3973,7 @@ Queuing Time: 21
 Entry to Car Park: 324
 Exit from Car Park: 381
 Parking Time: 57
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3984,7 +3984,7 @@ Queuing Time: 9
 Entry to Car Park: 284
 Exit from Car Park: 384
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -3995,7 +3995,7 @@ Queuing Time: 15
 Entry to Car Park: 206
 Exit from Car Park: 387
 Parking Time: 181
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4014,7 +4014,7 @@ Queuing Time: 9
 Entry to Car Park: 232
 Exit from Car Park: 389
 Parking Time: 157
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4025,7 +4025,7 @@ Queuing Time: 6
 Entry to Car Park: 269
 Exit from Car Park: 390
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4036,7 +4036,7 @@ Queuing Time: 11
 Entry to Car Park: 303
 Exit from Car Park: 390
 Parking Time: 87
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4047,7 +4047,7 @@ Queuing Time: 12
 Entry to Car Park: 252
 Exit from Car Park: 392
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4058,7 +4058,7 @@ Queuing Time: 9
 Entry to Car Park: 257
 Exit from Car Park: 392
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4069,7 +4069,7 @@ Queuing Time: 15
 Entry to Car Park: 314
 Exit from Car Park: 393
 Parking Time: 79
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4080,7 +4080,7 @@ Queuing Time: 19
 Entry to Car Park: 327
 Exit from Car Park: 394
 Parking Time: 67
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4091,7 +4091,7 @@ Queuing Time: 5
 Entry to Car Park: 271
 Exit from Car Park: 396
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4101,7 +4101,7 @@ Vehicle was not queued
 Entry to Car Park: 323
 Exit from Car Park: 396
 Parking Time: 73
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4112,7 +4112,7 @@ Queuing Time: 13
 Entry to Car Park: 307
 Exit from Car Park: 397
 Parking Time: 90
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4123,7 +4123,7 @@ Queuing Time: 8
 Entry to Car Park: 281
 Exit from Car Park: 398
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4134,7 +4134,7 @@ Queuing Time: 6
 Entry to Car Park: 270
 Exit from Car Park: 400
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4145,7 +4145,7 @@ Queuing Time: 18
 Entry to Car Park: 329
 Exit from Car Park: 401
 Parking Time: 72
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4156,7 +4156,7 @@ Queuing Time: 17
 Entry to Car Park: 212
 Exit from Car Park: 402
 Parking Time: 190
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4167,7 +4167,7 @@ Queuing Time: 7
 Entry to Car Park: 259
 Exit from Car Park: 403
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4186,7 +4186,7 @@ Queuing Time: 8
 Entry to Car Park: 277
 Exit from Car Park: 405
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4197,7 +4197,7 @@ Queuing Time: 8
 Entry to Car Park: 282
 Exit from Car Park: 406
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4208,7 +4208,7 @@ Queuing Time: 13
 Entry to Car Park: 248
 Exit from Car Park: 407
 Parking Time: 159
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4235,7 +4235,7 @@ Queuing Time: 11
 Entry to Car Park: 297
 Exit from Car Park: 410
 Parking Time: 113
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4270,7 +4270,7 @@ Queuing Time: 6
 Entry to Car Park: 266
 Exit from Car Park: 414
 Parking Time: 148
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4281,7 +4281,7 @@ Queuing Time: 12
 Entry to Car Park: 253
 Exit from Car Park: 415
 Parking Time: 162
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4292,7 +4292,7 @@ Queuing Time: 9
 Entry to Car Park: 285
 Exit from Car Park: 415
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4311,7 +4311,7 @@ Queuing Time: 8
 Entry to Car Park: 287
 Exit from Car Park: 418
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4330,7 +4330,7 @@ Queuing Time: 21
 Entry to Car Park: 348
 Exit from Car Park: 420
 Parking Time: 72
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4341,7 +4341,7 @@ Queuing Time: 11
 Entry to Car Park: 302
 Exit from Car Park: 421
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4352,7 +4352,7 @@ Queuing Time: 18
 Entry to Car Park: 318
 Exit from Car Park: 421
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4363,7 +4363,7 @@ Queuing Time: 11
 Entry to Car Park: 295
 Exit from Car Park: 422
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4374,7 +4374,7 @@ Queuing Time: 6
 Entry to Car Park: 274
 Exit from Car Park: 423
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4385,7 +4385,7 @@ Queuing Time: 9
 Entry to Car Park: 287
 Exit from Car Park: 423
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4396,7 +4396,7 @@ Queuing Time: 4
 Entry to Car Park: 266
 Exit from Car Park: 426
 Parking Time: 160
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4407,7 +4407,7 @@ Queuing Time: 11
 Entry to Car Park: 299
 Exit from Car Park: 426
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4418,7 +4418,7 @@ Queuing Time: 17
 Entry to Car Park: 222
 Exit from Car Park: 427
 Parking Time: 205
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4429,7 +4429,7 @@ Queuing Time: 12
 Entry to Car Park: 244
 Exit from Car Park: 428
 Parking Time: 184
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4440,7 +4440,7 @@ Queuing Time: 11
 Entry to Car Park: 250
 Exit from Car Park: 429
 Parking Time: 179
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4451,7 +4451,7 @@ Queuing Time: 7
 Entry to Car Park: 279
 Exit from Car Park: 429
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4462,7 +4462,7 @@ Queuing Time: 10
 Entry to Car Park: 241
 Exit from Car Park: 432
 Parking Time: 191
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4472,7 +4472,7 @@ Vehicle was not queued
 Entry to Car Park: 321
 Exit from Car Park: 433
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4483,7 +4483,7 @@ Queuing Time: 5
 Entry to Car Park: 266
 Exit from Car Park: 434
 Parking Time: 168
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4494,7 +4494,7 @@ Queuing Time: 14
 Entry to Car Park: 311
 Exit from Car Park: 434
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4536,7 +4536,7 @@ Vehicle was not queued
 Entry to Car Park: 331
 Exit from Car Park: 440
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4555,7 +4555,7 @@ Queuing Time: 18
 Entry to Car Park: 344
 Exit from Car Park: 442
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4566,7 +4566,7 @@ Queuing Time: 7
 Entry to Car Park: 359
 Exit from Car Park: 443
 Parking Time: 84
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4577,7 +4577,7 @@ Queuing Time: 12
 Entry to Car Park: 307
 Exit from Car Park: 444
 Parking Time: 137
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4588,7 +4588,7 @@ Queuing Time: 22
 Entry to Car Park: 350
 Exit from Car Park: 444
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4631,7 +4631,7 @@ Vehicle was not queued
 Entry to Car Park: 322
 Exit from Car Park: 449
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4642,7 +4642,7 @@ Queuing Time: 13
 Entry to Car Park: 353
 Exit from Car Park: 449
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4661,7 +4661,7 @@ Queuing Time: 13
 Entry to Car Park: 354
 Exit from Car Park: 452
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4672,7 +4672,7 @@ Queuing Time: 11
 Entry to Car Park: 370
 Exit from Car Park: 452
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4683,7 +4683,7 @@ Queuing Time: 14
 Entry to Car Park: 310
 Exit from Car Park: 453
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4694,7 +4694,7 @@ Queuing Time: 8
 Entry to Car Park: 362
 Exit from Car Park: 453
 Parking Time: 91
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4705,7 +4705,7 @@ Queuing Time: 10
 Entry to Car Park: 368
 Exit from Car Park: 456
 Parking Time: 88
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4716,7 +4716,7 @@ Queuing Time: 12
 Entry to Car Park: 354
 Exit from Car Park: 457
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4751,7 +4751,7 @@ Queuing Time: 13
 Entry to Car Park: 311
 Exit from Car Park: 461
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4762,7 +4762,7 @@ Queuing Time: 9
 Entry to Car Park: 357
 Exit from Car Park: 461
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4791,7 +4791,7 @@ Queuing Time: 13
 Entry to Car Park: 410
 Exit from Car Park: 462
 Parking Time: 52
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4802,7 +4802,7 @@ Queuing Time: 17
 Entry to Car Park: 318
 Exit from Car Park: 463
 Parking Time: 145
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4813,7 +4813,7 @@ Queuing Time: 8
 Entry to Car Park: 359
 Exit from Car Park: 463
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4833,7 +4833,7 @@ Queuing Time: 10
 Entry to Car Park: 371
 Exit from Car Park: 466
 Parking Time: 95
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4852,7 +4852,7 @@ Queuing Time: 9
 Entry to Car Park: 429
 Exit from Car Park: 468
 Parking Time: 39
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4863,7 +4863,7 @@ Queuing Time: 7
 Entry to Car Park: 363
 Exit from Car Park: 469
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4890,7 +4890,7 @@ Queuing Time: 11
 Entry to Car Park: 407
 Exit from Car Park: 472
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4901,7 +4901,7 @@ Queuing Time: 18
 Entry to Car Park: 452
 Exit from Car Park: 472
 Parking Time: 20
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4912,7 +4912,7 @@ Queuing Time: 22
 Entry to Car Park: 351
 Exit from Car Park: 473
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4923,7 +4923,7 @@ Queuing Time: 7
 Entry to Car Park: 288
 Exit from Car Park: 474
 Parking Time: 186
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4934,7 +4934,7 @@ Queuing Time: 10
 Entry to Car Park: 396
 Exit from Car Park: 474
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4945,7 +4945,7 @@ Queuing Time: 6
 Entry to Car Park: 377
 Exit from Car Park: 475
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4956,7 +4956,7 @@ Queuing Time: 12
 Entry to Car Park: 355
 Exit from Car Park: 476
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4967,7 +4967,7 @@ Queuing Time: 9
 Entry to Car Park: 398
 Exit from Car Park: 476
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -4978,7 +4978,7 @@ Queuing Time: 11
 Entry to Car Park: 294
 Exit from Car Park: 477
 Parking Time: 183
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -4989,7 +4989,7 @@ Queuing Time: 8
 Entry to Car Park: 263
 Exit from Car Park: 478
 Parking Time: 215
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5000,7 +5000,7 @@ Queuing Time: 15
 Entry to Car Park: 351
 Exit from Car Park: 479
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5010,7 +5010,7 @@ Vehicle was not queued
 Entry to Car Park: 335
 Exit from Car Park: 481
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5021,7 +5021,7 @@ Queuing Time: 21
 Entry to Car Park: 340
 Exit from Car Park: 482
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5041,7 +5041,7 @@ Queuing Time: 10
 Entry to Car Park: 397
 Exit from Car Park: 483
 Parking Time: 86
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5052,7 +5052,7 @@ Queuing Time: 8
 Entry to Car Park: 375
 Exit from Car Park: 484
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5063,7 +5063,7 @@ Queuing Time: 18
 Entry to Car Park: 328
 Exit from Car Park: 485
 Parking Time: 157
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5074,7 +5074,7 @@ Queuing Time: 24
 Entry to Car Park: 336
 Exit from Car Park: 485
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5085,7 +5085,7 @@ Queuing Time: 8
 Entry to Car Park: 262
 Exit from Car Park: 487
 Parking Time: 225
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5096,7 +5096,7 @@ Queuing Time: 21
 Entry to Car Park: 341
 Exit from Car Park: 488
 Parking Time: 147
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5107,7 +5107,7 @@ Queuing Time: 8
 Entry to Car Park: 361
 Exit from Car Park: 488
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5118,7 +5118,7 @@ Queuing Time: 17
 Entry to Car Park: 341
 Exit from Car Park: 489
 Parking Time: 148
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5129,7 +5129,7 @@ Queuing Time: 8
 Entry to Car Park: 365
 Exit from Car Park: 491
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5140,7 +5140,7 @@ Queuing Time: 19
 Entry to Car Park: 326
 Exit from Car Park: 492
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5151,7 +5151,7 @@ Queuing Time: 7
 Entry to Car Park: 381
 Exit from Car Park: 492
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5162,7 +5162,7 @@ Queuing Time: 8
 Entry to Car Park: 358
 Exit from Car Park: 493
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5173,7 +5173,7 @@ Queuing Time: 7
 Entry to Car Park: 277
 Exit from Car Park: 494
 Parking Time: 217
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5184,7 +5184,7 @@ Queuing Time: 11
 Entry to Car Park: 389
 Exit from Car Park: 494
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5195,7 +5195,7 @@ Queuing Time: 12
 Entry to Car Park: 356
 Exit from Car Park: 495
 Parking Time: 139
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5206,7 +5206,7 @@ Queuing Time: 7
 Entry to Car Park: 380
 Exit from Car Park: 495
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5217,7 +5217,7 @@ Queuing Time: 10
 Entry to Car Park: 402
 Exit from Car Park: 497
 Parking Time: 95
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5228,7 +5228,7 @@ Queuing Time: 6
 Entry to Car Park: 376
 Exit from Car Park: 499
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5239,7 +5239,7 @@ Queuing Time: 15
 Entry to Car Park: 442
 Exit from Car Park: 499
 Parking Time: 57
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5250,7 +5250,7 @@ Queuing Time: 9
 Entry to Car Park: 375
 Exit from Car Park: 502
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5261,7 +5261,7 @@ Queuing Time: 6
 Entry to Car Park: 381
 Exit from Car Park: 502
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5271,7 +5271,7 @@ Vehicle was not queued
 Entry to Car Park: 318
 Exit from Car Park: 503
 Parking Time: 185
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5282,7 +5282,7 @@ Queuing Time: 10
 Entry to Car Park: 370
 Exit from Car Park: 504
 Parking Time: 134
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5293,7 +5293,7 @@ Queuing Time: 15
 Entry to Car Park: 353
 Exit from Car Park: 505
 Parking Time: 152
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5304,7 +5304,7 @@ Queuing Time: 13
 Entry to Car Park: 453
 Exit from Car Park: 505
 Parking Time: 52
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5315,7 +5315,7 @@ Queuing Time: 10
 Entry to Car Park: 295
 Exit from Car Park: 507
 Parking Time: 212
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5326,7 +5326,7 @@ Queuing Time: 10
 Entry to Car Park: 392
 Exit from Car Park: 511
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5353,7 +5353,7 @@ Queuing Time: 11
 Entry to Car Park: 396
 Exit from Car Park: 514
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5364,7 +5364,7 @@ Queuing Time: 8
 Entry to Car Park: 372
 Exit from Car Park: 515
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5383,7 +5383,7 @@ Queuing Time: 7
 Entry to Car Park: 362
 Exit from Car Park: 517
 Parking Time: 155
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5394,7 +5394,7 @@ Queuing Time: 15
 Entry to Car Park: 415
 Exit from Car Park: 517
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5405,7 +5405,7 @@ Queuing Time: 16
 Entry to Car Park: 341
 Exit from Car Park: 518
 Parking Time: 177
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5416,7 +5416,7 @@ Queuing Time: 9
 Entry to Car Park: 372
 Exit from Car Park: 518
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5427,7 +5427,7 @@ Queuing Time: 24
 Entry to Car Park: 338
 Exit from Car Park: 519
 Parking Time: 181
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5438,7 +5438,7 @@ Queuing Time: 18
 Entry to Car Park: 420
 Exit from Car Park: 522
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5449,7 +5449,7 @@ Queuing Time: 10
 Entry to Car Park: 387
 Exit from Car Park: 523
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5460,7 +5460,7 @@ Queuing Time: 10
 Entry to Car Park: 401
 Exit from Car Park: 523
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5479,7 +5479,7 @@ Queuing Time: 13
 Entry to Car Park: 423
 Exit from Car Park: 526
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5490,7 +5490,7 @@ Queuing Time: 8
 Entry to Car Park: 429
 Exit from Car Park: 526
 Parking Time: 97
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5501,7 +5501,7 @@ Queuing Time: 11
 Entry to Car Park: 390
 Exit from Car Park: 528
 Parking Time: 138
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5512,7 +5512,7 @@ Queuing Time: 10
 Entry to Car Park: 403
 Exit from Car Park: 528
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5523,7 +5523,7 @@ Queuing Time: 18
 Entry to Car Park: 421
 Exit from Car Park: 528
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5534,7 +5534,7 @@ Queuing Time: 10
 Entry to Car Park: 400
 Exit from Car Park: 529
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5545,7 +5545,7 @@ Queuing Time: 12
 Entry to Car Park: 426
 Exit from Car Park: 529
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5556,7 +5556,7 @@ Queuing Time: 8
 Entry to Car Park: 373
 Exit from Car Park: 532
 Parking Time: 159
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5567,7 +5567,7 @@ Queuing Time: 18
 Entry to Car Park: 449
 Exit from Car Park: 532
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5603,7 +5603,7 @@ Queuing Time: 16
 Entry to Car Park: 414
 Exit from Car Park: 537
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5614,7 +5614,7 @@ Queuing Time: 10
 Entry to Car Park: 394
 Exit from Car Park: 538
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5625,7 +5625,7 @@ Queuing Time: 10
 Entry to Car Park: 433
 Exit from Car Park: 539
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5636,7 +5636,7 @@ Queuing Time: 9
 Entry to Car Park: 477
 Exit from Car Park: 540
 Parking Time: 63
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5647,7 +5647,7 @@ Queuing Time: 7
 Entry to Car Park: 375
 Exit from Car Park: 541
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5683,7 +5683,7 @@ Queuing Time: 9
 Entry to Car Park: 371
 Exit from Car Park: 544
 Parking Time: 173
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5694,7 +5694,7 @@ Queuing Time: 16
 Entry to Car Park: 423
 Exit from Car Park: 545
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5705,7 +5705,7 @@ Queuing Time: 19
 Entry to Car Park: 321
 Exit from Car Park: 546
 Parking Time: 225
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5716,7 +5716,7 @@ Queuing Time: 10
 Entry to Car Park: 393
 Exit from Car Park: 546
 Parking Time: 153
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5727,7 +5727,7 @@ Queuing Time: 14
 Entry to Car Park: 444
 Exit from Car Park: 547
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5738,7 +5738,7 @@ Queuing Time: 10
 Entry to Car Park: 428
 Exit from Car Park: 548
 Parking Time: 120
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5749,7 +5749,7 @@ Queuing Time: 8
 Entry to Car Park: 484
 Exit from Car Park: 549
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5785,7 +5785,7 @@ Queuing Time: 16
 Entry to Car Park: 415
 Exit from Car Park: 553
 Parking Time: 138
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5804,7 +5804,7 @@ Queuing Time: 11
 Entry to Car Park: 427
 Exit from Car Park: 555
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5815,7 +5815,7 @@ Queuing Time: 11
 Entry to Car Park: 406
 Exit from Car Park: 556
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5826,7 +5826,7 @@ Queuing Time: 12
 Entry to Car Park: 473
 Exit from Car Park: 556
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5837,7 +5837,7 @@ Queuing Time: 16
 Entry to Car Park: 421
 Exit from Car Park: 557
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5848,7 +5848,7 @@ Queuing Time: 10
 Entry to Car Park: 390
 Exit from Car Park: 558
 Parking Time: 168
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5859,7 +5859,7 @@ Queuing Time: 6
 Entry to Car Park: 495
 Exit from Car Park: 558
 Parking Time: 63
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5870,7 +5870,7 @@ Queuing Time: 16
 Entry to Car Park: 461
 Exit from Car Park: 559
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -5881,7 +5881,7 @@ Queuing Time: 11
 Entry to Car Park: 476
 Exit from Car Park: 559
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5892,7 +5892,7 @@ Queuing Time: 6
 Entry to Car Park: 494
 Exit from Car Park: 563
 Parking Time: 69
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5903,7 +5903,7 @@ Queuing Time: 17
 Entry to Car Park: 461
 Exit from Car Park: 564
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5914,7 +5914,7 @@ Queuing Time: 11
 Entry to Car Park: 405
 Exit from Car Park: 565
 Parking Time: 160
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5925,7 +5925,7 @@ Queuing Time: 11
 Entry to Car Park: 475
 Exit from Car Park: 566
 Parking Time: 91
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5936,7 +5936,7 @@ Queuing Time: 9
 Entry to Car Park: 434
 Exit from Car Park: 567
 Parking Time: 133
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5947,7 +5947,7 @@ Queuing Time: 16
 Entry to Car Park: 472
 Exit from Car Park: 568
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5966,7 +5966,7 @@ Queuing Time: 17
 Entry to Car Park: 418
 Exit from Car Park: 570
 Parking Time: 152
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -5985,7 +5985,7 @@ Queuing Time: 10
 Entry to Car Park: 432
 Exit from Car Park: 572
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6012,7 +6012,7 @@ Queuing Time: 7
 Entry to Car Park: 494
 Exit from Car Park: 575
 Parking Time: 81
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6023,7 +6023,7 @@ Queuing Time: 8
 Entry to Car Park: 384
 Exit from Car Park: 576
 Parking Time: 192
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6043,7 +6043,7 @@ Queuing Time: 10
 Entry to Car Park: 511
 Exit from Car Park: 576
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6054,7 +6054,7 @@ Queuing Time: 15
 Entry to Car Park: 472
 Exit from Car Park: 577
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6065,7 +6065,7 @@ Queuing Time: 8
 Entry to Car Park: 481
 Exit from Car Park: 579
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6084,7 +6084,7 @@ Queuing Time: 13
 Entry to Car Park: 462
 Exit from Car Park: 580
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6095,7 +6095,7 @@ Queuing Time: 13
 Entry to Car Park: 466
 Exit from Car Park: 581
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6114,7 +6114,7 @@ Queuing Time: 15
 Entry to Car Park: 443
 Exit from Car Park: 584
 Parking Time: 141
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6125,7 +6125,7 @@ Queuing Time: 11
 Entry to Car Park: 474
 Exit from Car Park: 585
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6136,7 +6136,7 @@ Queuing Time: 6
 Entry to Car Park: 378
 Exit from Car Park: 586
 Parking Time: 208
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6147,7 +6147,7 @@ Queuing Time: 16
 Entry to Car Park: 422
 Exit from Car Park: 587
 Parking Time: 165
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6158,7 +6158,7 @@ Queuing Time: 9
 Entry to Car Park: 478
 Exit from Car Park: 587
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6169,7 +6169,7 @@ Queuing Time: 8
 Entry to Car Park: 488
 Exit from Car Park: 587
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6213,7 +6213,7 @@ Queuing Time: 11
 Entry to Car Park: 526
 Exit from Car Park: 593
 Parking Time: 67
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6232,7 +6232,7 @@ Queuing Time: 14
 Entry to Car Park: 440
 Exit from Car Park: 595
 Parking Time: 155
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6251,7 +6251,7 @@ Queuing Time: 14
 Entry to Car Park: 456
 Exit from Car Park: 597
 Parking Time: 141
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6262,7 +6262,7 @@ Queuing Time: 7
 Entry to Car Park: 502
 Exit from Car Park: 598
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6273,7 +6273,7 @@ Queuing Time: 11
 Entry to Car Park: 392
 Exit from Car Park: 599
 Parking Time: 207
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6293,7 +6293,7 @@ Queuing Time: 7
 Entry to Car Park: 503
 Exit from Car Park: 599
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6304,7 +6304,7 @@ Queuing Time: 12
 Entry to Car Park: 556
 Exit from Car Park: 599
 Parking Time: 43
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6315,7 +6315,7 @@ Queuing Time: 7
 Entry to Car Park: 492
 Exit from Car Park: 600
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6326,7 +6326,7 @@ Queuing Time: 11
 Entry to Car Park: 549
 Exit from Car Park: 600
 Parking Time: 51
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6337,7 +6337,7 @@ Queuing Time: 9
 Entry to Car Park: 529
 Exit from Car Park: 601
 Parking Time: 72
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6348,7 +6348,7 @@ Queuing Time: 10
 Entry to Car Park: 476
 Exit from Car Park: 603
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6359,7 +6359,7 @@ Queuing Time: 8
 Entry to Car Park: 491
 Exit from Car Park: 603
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6370,7 +6370,7 @@ Queuing Time: 12
 Entry to Car Park: 474
 Exit from Car Park: 605
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6399,7 +6399,7 @@ Queuing Time: 10
 Entry to Car Park: 434
 Exit from Car Park: 607
 Parking Time: 173
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6410,7 +6410,7 @@ Queuing Time: 7
 Entry to Car Park: 479
 Exit from Car Park: 609
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6429,7 +6429,7 @@ Queuing Time: 7
 Entry to Car Park: 485
 Exit from Car Park: 611
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6440,7 +6440,7 @@ Queuing Time: 12
 Entry to Car Park: 518
 Exit from Car Park: 611
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6476,7 +6476,7 @@ Queuing Time: 14
 Entry to Car Park: 469
 Exit from Car Park: 615
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6487,7 +6487,7 @@ Queuing Time: 14
 Entry to Car Park: 468
 Exit from Car Park: 616
 Parking Time: 148
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6498,7 +6498,7 @@ Queuing Time: 7
 Entry to Car Park: 504
 Exit from Car Park: 616
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6509,7 +6509,7 @@ Queuing Time: 10
 Entry to Car Park: 528
 Exit from Car Park: 617
 Parking Time: 89
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6528,7 +6528,7 @@ Queuing Time: 7
 Entry to Car Park: 489
 Exit from Car Park: 620
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6539,7 +6539,7 @@ Queuing Time: 19
 Entry to Car Park: 452
 Exit from Car Park: 621
 Parking Time: 169
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6550,7 +6550,7 @@ Queuing Time: 6
 Entry to Car Park: 497
 Exit from Car Park: 621
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6561,7 +6561,7 @@ Queuing Time: 13
 Entry to Car Park: 546
 Exit from Car Park: 621
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6572,7 +6572,7 @@ Queuing Time: 15
 Entry to Car Park: 444
 Exit from Car Park: 622
 Parking Time: 178
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6583,7 +6583,7 @@ Queuing Time: 14
 Entry to Car Park: 457
 Exit from Car Park: 622
 Parking Time: 165
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6594,7 +6594,7 @@ Queuing Time: 13
 Entry to Car Park: 463
 Exit from Car Park: 622
 Parking Time: 159
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6605,7 +6605,7 @@ Queuing Time: 11
 Entry to Car Park: 426
 Exit from Car Park: 623
 Parking Time: 197
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6616,7 +6616,7 @@ Queuing Time: 14
 Entry to Car Park: 576
 Exit from Car Park: 623
 Parking Time: 47
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6627,7 +6627,7 @@ Queuing Time: 5
 Entry to Car Park: 495
 Exit from Car Park: 624
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6638,7 +6638,7 @@ Queuing Time: 8
 Entry to Car Park: 502
 Exit from Car Park: 624
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6649,7 +6649,7 @@ Queuing Time: 13
 Entry to Car Park: 523
 Exit from Car Park: 626
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6660,7 +6660,7 @@ Queuing Time: 14
 Entry to Car Park: 553
 Exit from Car Park: 626
 Parking Time: 73
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6671,7 +6671,7 @@ Queuing Time: 18
 Entry to Car Park: 453
 Exit from Car Park: 628
 Parking Time: 175
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6682,7 +6682,7 @@ Queuing Time: 14
 Entry to Car Park: 545
 Exit from Car Park: 629
 Parking Time: 84
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6693,7 +6693,7 @@ Queuing Time: 8
 Entry to Car Park: 487
 Exit from Car Park: 630
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6704,7 +6704,7 @@ Queuing Time: 8
 Entry to Car Park: 492
 Exit from Car Park: 630
 Parking Time: 138
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6715,7 +6715,7 @@ Queuing Time: 12
 Entry to Car Park: 526
 Exit from Car Park: 631
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6726,7 +6726,7 @@ Queuing Time: 6
 Entry to Car Park: 499
 Exit from Car Park: 632
 Parking Time: 133
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6737,7 +6737,7 @@ Queuing Time: 10
 Entry to Car Park: 565
 Exit from Car Park: 632
 Parking Time: 67
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6747,7 +6747,7 @@ Vehicle was not queued
 Entry to Car Park: 572
 Exit from Car Park: 633
 Parking Time: 61
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6758,7 +6758,7 @@ Queuing Time: 7
 Entry to Car Park: 499
 Exit from Car Park: 635
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6769,7 +6769,7 @@ Queuing Time: 11
 Entry to Car Park: 519
 Exit from Car Park: 636
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6780,7 +6780,7 @@ Queuing Time: 14
 Entry to Car Park: 546
 Exit from Car Park: 636
 Parking Time: 90
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6791,7 +6791,7 @@ Queuing Time: 7
 Entry to Car Park: 493
 Exit from Car Park: 639
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6802,7 +6802,7 @@ Queuing Time: 12
 Entry to Car Park: 523
 Exit from Car Park: 639
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6813,7 +6813,7 @@ Queuing Time: 6
 Entry to Car Park: 505
 Exit from Car Park: 641
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6824,7 +6824,7 @@ Queuing Time: 10
 Entry to Car Park: 532
 Exit from Car Park: 643
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6835,7 +6835,7 @@ Queuing Time: 12
 Entry to Car Park: 514
 Exit from Car Park: 644
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6864,7 +6864,7 @@ Queuing Time: 8
 Entry to Car Park: 482
 Exit from Car Park: 648
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -6884,7 +6884,7 @@ Queuing Time: 12
 Entry to Car Park: 539
 Exit from Car Park: 648
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6895,7 +6895,7 @@ Queuing Time: 11
 Entry to Car Park: 463
 Exit from Car Park: 651
 Parking Time: 188
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6946,7 +6946,7 @@ Queuing Time: 11
 Entry to Car Park: 528
 Exit from Car Park: 657
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6957,7 +6957,7 @@ Queuing Time: 12
 Entry to Car Park: 557
 Exit from Car Park: 657
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6968,7 +6968,7 @@ Queuing Time: 17
 Entry to Car Park: 449
 Exit from Car Park: 658
 Parking Time: 209
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6979,7 +6979,7 @@ Queuing Time: 9
 Entry to Car Park: 528
 Exit from Car Park: 659
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -6990,7 +6990,7 @@ Queuing Time: 11
 Entry to Car Park: 548
 Exit from Car Park: 659
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7001,7 +7001,7 @@ Queuing Time: 11
 Entry to Car Park: 518
 Exit from Car Park: 660
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7020,7 +7020,7 @@ Queuing Time: 12
 Entry to Car Park: 540
 Exit from Car Park: 664
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7031,7 +7031,7 @@ Queuing Time: 12
 Entry to Car Park: 517
 Exit from Car Park: 665
 Parking Time: 148
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7051,7 +7051,7 @@ Queuing Time: 3
 Entry to Car Park: 632
 Exit from Car Park: 665
 Parking Time: 33
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7062,7 +7062,7 @@ Queuing Time: 12
 Entry to Car Park: 515
 Exit from Car Park: 666
 Parking Time: 151
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7073,7 +7073,7 @@ Queuing Time: 11
 Entry to Car Park: 611
 Exit from Car Park: 667
 Parking Time: 56
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7084,7 +7084,7 @@ Queuing Time: 11
 Entry to Car Park: 558
 Exit from Car Park: 668
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7095,7 +7095,7 @@ Queuing Time: 5
 Entry to Car Park: 626
 Exit from Car Park: 670
 Parking Time: 44
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7106,7 +7106,7 @@ Queuing Time: 12
 Entry to Car Park: 541
 Exit from Car Park: 671
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7117,7 +7117,7 @@ Queuing Time: 17
 Entry to Car Park: 597
 Exit from Car Park: 672
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7136,7 +7136,7 @@ Queuing Time: 17
 Entry to Car Park: 587
 Exit from Car Park: 674
 Parking Time: 87
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7147,7 +7147,7 @@ Queuing Time: 9
 Entry to Car Park: 532
 Exit from Car Park: 675
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7158,7 +7158,7 @@ Queuing Time: 10
 Entry to Car Park: 567
 Exit from Car Park: 676
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7169,7 +7169,7 @@ Queuing Time: 7
 Entry to Car Park: 505
 Exit from Car Park: 677
 Parking Time: 172
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7180,7 +7180,7 @@ Queuing Time: 8
 Entry to Car Park: 529
 Exit from Car Park: 678
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7191,7 +7191,7 @@ Queuing Time: 12
 Entry to Car Park: 538
 Exit from Car Park: 679
 Parking Time: 141
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7202,7 +7202,7 @@ Queuing Time: 11
 Entry to Car Park: 570
 Exit from Car Park: 680
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7229,7 +7229,7 @@ Queuing Time: 16
 Entry to Car Park: 580
 Exit from Car Park: 683
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7240,7 +7240,7 @@ Queuing Time: 10
 Entry to Car Park: 611
 Exit from Car Park: 683
 Parking Time: 72
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7251,7 +7251,7 @@ Queuing Time: 13
 Entry to Car Park: 517
 Exit from Car Park: 684
 Parking Time: 167
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7262,7 +7262,7 @@ Queuing Time: 10
 Entry to Car Park: 568
 Exit from Car Park: 686
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7281,7 +7281,7 @@ Queuing Time: 7
 Entry to Car Park: 507
 Exit from Car Park: 688
 Parking Time: 181
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7300,7 +7300,7 @@ Queuing Time: 8
 Entry to Car Park: 485
 Exit from Car Park: 690
 Parking Time: 205
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7311,7 +7311,7 @@ Queuing Time: 13
 Entry to Car Park: 563
 Exit from Car Park: 690
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7322,7 +7322,7 @@ Queuing Time: 11
 Entry to Car Park: 587
 Exit from Car Park: 690
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7333,7 +7333,7 @@ Queuing Time: 10
 Entry to Car Park: 622
 Exit from Car Park: 691
 Parking Time: 69
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7353,7 +7353,7 @@ Queuing Time: 16
 Entry to Car Park: 581
 Exit from Car Park: 693
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7364,7 +7364,7 @@ Queuing Time: 12
 Entry to Car Park: 600
 Exit from Car Park: 694
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7375,7 +7375,7 @@ Queuing Time: 18
 Entry to Car Park: 586
 Exit from Car Park: 695
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7386,7 +7386,7 @@ Queuing Time: 7
 Entry to Car Park: 488
 Exit from Car Park: 696
 Parking Time: 208
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7397,7 +7397,7 @@ Queuing Time: 15
 Entry to Car Park: 556
 Exit from Car Park: 696
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7407,7 +7407,7 @@ Vehicle was not queued
 Entry to Car Park: 581
 Exit from Car Park: 697
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7418,7 +7418,7 @@ Queuing Time: 10
 Entry to Car Park: 668
 Exit from Car Park: 697
 Parking Time: 29
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7429,7 +7429,7 @@ Queuing Time: 13
 Entry to Car Park: 522
 Exit from Car Park: 699
 Parking Time: 177
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7440,7 +7440,7 @@ Queuing Time: 11
 Entry to Car Park: 564
 Exit from Car Park: 699
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7451,7 +7451,7 @@ Queuing Time: 15
 Entry to Car Park: 576
 Exit from Car Park: 699
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7462,7 +7462,7 @@ Queuing Time: 13
 Entry to Car Park: 600
 Exit from Car Park: 699
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7473,7 +7473,7 @@ Queuing Time: 8
 Entry to Car Park: 483
 Exit from Car Park: 700
 Parking Time: 217
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7493,7 +7493,7 @@ Queuing Time: 12
 Entry to Car Park: 601
 Exit from Car Park: 703
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7504,7 +7504,7 @@ Queuing Time: 15
 Entry to Car Park: 575
 Exit from Car Park: 704
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7515,7 +7515,7 @@ Queuing Time: 11
 Entry to Car Park: 559
 Exit from Car Park: 708
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7526,7 +7526,7 @@ Queuing Time: 10
 Entry to Car Park: 566
 Exit from Car Park: 708
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7537,7 +7537,7 @@ Queuing Time: 13
 Entry to Car Park: 599
 Exit from Car Park: 708
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7548,7 +7548,7 @@ Queuing Time: 13
 Entry to Car Park: 621
 Exit from Car Park: 708
 Parking Time: 87
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7559,7 +7559,7 @@ Queuing Time: 10
 Entry to Car Park: 603
 Exit from Car Park: 709
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7570,7 +7570,7 @@ Queuing Time: 9
 Entry to Car Park: 607
 Exit from Car Park: 710
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7590,7 +7590,7 @@ Queuing Time: 18
 Entry to Car Park: 584
 Exit from Car Park: 712
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7601,7 +7601,7 @@ Queuing Time: 14
 Entry to Car Park: 544
 Exit from Car Park: 715
 Parking Time: 171
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7620,7 +7620,7 @@ Queuing Time: 17
 Entry to Car Park: 595
 Exit from Car Park: 716
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7631,7 +7631,7 @@ Queuing Time: 10
 Entry to Car Park: 609
 Exit from Car Park: 717
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7642,7 +7642,7 @@ Queuing Time: 12
 Entry to Car Park: 587
 Exit from Car Park: 719
 Parking Time: 132
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7669,7 +7669,7 @@ Queuing Time: 13
 Entry to Car Park: 547
 Exit from Car Park: 722
 Parking Time: 175
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7680,7 +7680,7 @@ Queuing Time: 5
 Entry to Car Park: 628
 Exit from Car Park: 722
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7691,7 +7691,7 @@ Queuing Time: 6
 Entry to Car Park: 624
 Exit from Car Park: 723
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7702,7 +7702,7 @@ Queuing Time: 15
 Entry to Car Park: 555
 Exit from Car Park: 724
 Parking Time: 169
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7713,7 +7713,7 @@ Queuing Time: 12
 Entry to Car Park: 558
 Exit from Car Park: 725
 Parking Time: 167
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7756,7 +7756,7 @@ Queuing Time: 10
 Entry to Car Park: 559
 Exit from Car Park: 730
 Parking Time: 171
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7767,7 +7767,7 @@ Queuing Time: 6
 Entry to Car Park: 644
 Exit from Car Park: 732
 Parking Time: 88
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7778,7 +7778,7 @@ Queuing Time: 14
 Entry to Car Park: 657
 Exit from Car Park: 733
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7788,7 +7788,7 @@ Vehicle was not queued
 Entry to Car Park: 696
 Exit from Car Park: 733
 Parking Time: 37
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7799,7 +7799,7 @@ Queuing Time: 13
 Entry to Car Park: 537
 Exit from Car Park: 734
 Parking Time: 197
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7810,7 +7810,7 @@ Queuing Time: 12
 Entry to Car Park: 616
 Exit from Car Park: 735
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7821,7 +7821,7 @@ Queuing Time: 14
 Entry to Car Park: 659
 Exit from Car Park: 735
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7832,7 +7832,7 @@ Queuing Time: 14
 Entry to Car Park: 683
 Exit from Car Park: 736
 Parking Time: 53
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7843,7 +7843,7 @@ Queuing Time: 15
 Entry to Car Park: 599
 Exit from Car Park: 739
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7854,7 +7854,7 @@ Queuing Time: 16
 Entry to Car Park: 598
 Exit from Car Park: 740
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7865,7 +7865,7 @@ Queuing Time: 16
 Entry to Car Park: 665
 Exit from Car Park: 740
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7876,7 +7876,7 @@ Queuing Time: 11
 Entry to Car Park: 622
 Exit from Car Park: 741
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -7887,7 +7887,7 @@ Queuing Time: 5
 Entry to Car Park: 629
 Exit from Car Park: 741
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7898,7 +7898,7 @@ Queuing Time: 4
 Entry to Car Park: 639
 Exit from Car Park: 741
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7909,7 +7909,7 @@ Queuing Time: 4
 Entry to Car Park: 631
 Exit from Car Park: 742
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7936,7 +7936,7 @@ Queuing Time: 5
 Entry to Car Park: 630
 Exit from Car Park: 748
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7947,7 +7947,7 @@ Queuing Time: 6
 Entry to Car Park: 623
 Exit from Car Park: 749
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7958,7 +7958,7 @@ Queuing Time: 4
 Entry to Car Park: 626
 Exit from Car Park: 749
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7969,7 +7969,7 @@ Queuing Time: 14
 Entry to Car Park: 620
 Exit from Car Park: 751
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7980,7 +7980,7 @@ Queuing Time: 12
 Entry to Car Park: 621
 Exit from Car Park: 751
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -7991,7 +7991,7 @@ Queuing Time: 8
 Entry to Car Park: 605
 Exit from Car Park: 752
 Parking Time: 147
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8002,7 +8002,7 @@ Queuing Time: 12
 Entry to Car Park: 678
 Exit from Car Park: 753
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8013,7 +8013,7 @@ Queuing Time: 13
 Entry to Car Park: 616
 Exit from Car Park: 754
 Parking Time: 138
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8032,7 +8032,7 @@ Queuing Time: 4
 Entry to Car Park: 636
 Exit from Car Park: 757
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8043,7 +8043,7 @@ Queuing Time: 4
 Entry to Car Park: 635
 Exit from Car Park: 758
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8054,7 +8054,7 @@ Queuing Time: 7
 Entry to Car Park: 622
 Exit from Car Park: 759
 Parking Time: 137
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8073,7 +8073,7 @@ Queuing Time: 13
 Entry to Car Park: 699
 Exit from Car Park: 761
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8084,7 +8084,7 @@ Queuing Time: 8
 Entry to Car Park: 603
 Exit from Car Park: 762
 Parking Time: 159
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8095,7 +8095,7 @@ Queuing Time: 15
 Entry to Car Park: 657
 Exit from Car Park: 762
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8106,7 +8106,7 @@ Queuing Time: 14
 Entry to Car Park: 577
 Exit from Car Park: 763
 Parking Time: 186
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8125,7 +8125,7 @@ Queuing Time: 7
 Entry to Car Park: 623
 Exit from Car Park: 766
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8136,7 +8136,7 @@ Queuing Time: 14
 Entry to Car Park: 621
 Exit from Car Park: 767
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8147,7 +8147,7 @@ Queuing Time: 4
 Entry to Car Park: 630
 Exit from Car Park: 767
 Parking Time: 137
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8158,7 +8158,7 @@ Queuing Time: 13
 Entry to Car Park: 696
 Exit from Car Park: 767
 Parking Time: 71
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8169,7 +8169,7 @@ Queuing Time: 18
 Entry to Car Park: 585
 Exit from Car Park: 768
 Parking Time: 183
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8180,7 +8180,7 @@ Queuing Time: 10
 Entry to Car Park: 651
 Exit from Car Park: 768
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8191,7 +8191,7 @@ Queuing Time: 13
 Entry to Car Park: 615
 Exit from Car Park: 771
 Parking Time: 156
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8202,7 +8202,7 @@ Queuing Time: 9
 Entry to Car Park: 712
 Exit from Car Park: 771
 Parking Time: 59
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8213,7 +8213,7 @@ Queuing Time: 15
 Entry to Car Park: 666
 Exit from Car Park: 773
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8224,7 +8224,7 @@ Queuing Time: 13
 Entry to Car Park: 660
 Exit from Car Park: 774
 Parking Time: 114
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8235,7 +8235,7 @@ Queuing Time: 12
 Entry to Car Park: 617
 Exit from Car Park: 775
 Parking Time: 158
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8246,7 +8246,7 @@ Queuing Time: 15
 Entry to Car Park: 694
 Exit from Car Park: 775
 Parking Time: 81
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8257,7 +8257,7 @@ Queuing Time: 5
 Entry to Car Park: 641
 Exit from Car Park: 776
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8268,7 +8268,7 @@ Queuing Time: 11
 Entry to Car Park: 672
 Exit from Car Park: 776
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8278,7 +8278,7 @@ Vehicle was not queued
 Entry to Car Park: 712
 Exit from Car Park: 776
 Parking Time: 64
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8289,7 +8289,7 @@ Queuing Time: 6
 Entry to Car Park: 643
 Exit from Car Park: 779
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8300,7 +8300,7 @@ Queuing Time: 13
 Entry to Car Park: 659
 Exit from Car Park: 779
 Parking Time: 120
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8311,7 +8311,7 @@ Queuing Time: 14
 Entry to Car Park: 599
 Exit from Car Park: 781
 Parking Time: 182
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8322,7 +8322,7 @@ Queuing Time: 9
 Entry to Car Park: 648
 Exit from Car Park: 782
 Parking Time: 134
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8333,7 +8333,7 @@ Queuing Time: 12
 Entry to Car Park: 677
 Exit from Car Park: 785
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8360,7 +8360,7 @@ Queuing Time: 4
 Entry to Car Park: 632
 Exit from Car Park: 788
 Parking Time: 156
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8379,7 +8379,7 @@ Queuing Time: 14
 Entry to Car Park: 690
 Exit from Car Park: 790
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8406,7 +8406,7 @@ Queuing Time: 11
 Entry to Car Park: 708
 Exit from Car Park: 793
 Parking Time: 85
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8417,7 +8417,7 @@ Queuing Time: 9
 Entry to Car Park: 708
 Exit from Car Park: 794
 Parking Time: 86
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8436,7 +8436,7 @@ Queuing Time: 16
 Entry to Car Park: 688
 Exit from Car Park: 796
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8446,7 +8446,7 @@ Vehicle was not queued
 Entry to Car Park: 693
 Exit from Car Park: 796
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8457,7 +8457,7 @@ Queuing Time: 3
 Entry to Car Park: 636
 Exit from Car Park: 797
 Parking Time: 161
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8467,7 +8467,7 @@ Vehicle was not queued
 Entry to Car Park: 685
 Exit from Car Park: 799
 Parking Time: 114
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8478,7 +8478,7 @@ Queuing Time: 12
 Entry to Car Park: 719
 Exit from Car Park: 800
 Parking Time: 81
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8489,7 +8489,7 @@ Queuing Time: 12
 Entry to Car Park: 676
 Exit from Car Park: 801
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8500,7 +8500,7 @@ Queuing Time: 8
 Entry to Car Park: 699
 Exit from Car Park: 801
 Parking Time: 102
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8511,7 +8511,7 @@ Queuing Time: 14
 Entry to Car Park: 724
 Exit from Car Park: 802
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8522,7 +8522,7 @@ Queuing Time: 12
 Entry to Car Park: 680
 Exit from Car Park: 803
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8533,7 +8533,7 @@ Queuing Time: 8
 Entry to Car Park: 741
 Exit from Car Park: 803
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8544,7 +8544,7 @@ Queuing Time: 16
 Entry to Car Park: 593
 Exit from Car Park: 805
 Parking Time: 212
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8555,7 +8555,7 @@ Queuing Time: 17
 Entry to Car Park: 733
 Exit from Car Park: 807
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8598,7 +8598,7 @@ Queuing Time: 3
 Entry to Car Park: 633
 Exit from Car Park: 812
 Parking Time: 179
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8618,7 +8618,7 @@ Queuing Time: 14
 Entry to Car Park: 722
 Exit from Car Park: 812
 Parking Time: 90
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8629,7 +8629,7 @@ Queuing Time: 13
 Entry to Car Park: 683
 Exit from Car Park: 814
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8672,7 +8672,7 @@ Queuing Time: 14
 Entry to Car Park: 658
 Exit from Car Park: 819
 Parking Time: 161
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8682,7 +8682,7 @@ Vehicle was not queued
 Entry to Car Park: 675
 Exit from Car Park: 819
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8693,7 +8693,7 @@ Queuing Time: 9
 Entry to Car Park: 699
 Exit from Car Park: 819
 Parking Time: 120
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8704,7 +8704,7 @@ Queuing Time: 15
 Entry to Car Park: 686
 Exit from Car Park: 820
 Parking Time: 134
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8715,7 +8715,7 @@ Queuing Time: 10
 Entry to Car Park: 708
 Exit from Car Park: 822
 Parking Time: 114
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8726,7 +8726,7 @@ Queuing Time: 12
 Entry to Car Park: 767
 Exit from Car Park: 823
 Parking Time: 56
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8737,7 +8737,7 @@ Queuing Time: 11
 Entry to Car Park: 716
 Exit from Car Park: 824
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8748,7 +8748,7 @@ Queuing Time: 12
 Entry to Car Park: 674
 Exit from Car Park: 825
 Parking Time: 151
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8768,7 +8768,7 @@ Queuing Time: 7
 Entry to Car Park: 708
 Exit from Car Park: 826
 Parking Time: 118
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8779,7 +8779,7 @@ Queuing Time: 13
 Entry to Car Park: 766
 Exit from Car Park: 826
 Parking Time: 60
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8790,7 +8790,7 @@ Queuing Time: 16
 Entry to Car Park: 735
 Exit from Car Park: 827
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8801,7 +8801,7 @@ Queuing Time: 8
 Entry to Car Park: 700
 Exit from Car Park: 828
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8812,7 +8812,7 @@ Queuing Time: 9
 Entry to Car Park: 703
 Exit from Car Park: 828
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8823,7 +8823,7 @@ Queuing Time: 4
 Entry to Car Park: 624
 Exit from Car Park: 830
 Parking Time: 206
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8834,7 +8834,7 @@ Queuing Time: 16
 Entry to Car Park: 690
 Exit from Car Park: 830
 Parking Time: 140
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8845,7 +8845,7 @@ Queuing Time: 15
 Entry to Car Park: 665
 Exit from Car Park: 831
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8881,7 +8881,7 @@ Queuing Time: 16
 Entry to Car Park: 664
 Exit from Car Park: 837
 Parking Time: 173
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8892,7 +8892,7 @@ Queuing Time: 10
 Entry to Car Park: 667
 Exit from Car Park: 838
 Parking Time: 171
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8903,7 +8903,7 @@ Queuing Time: 19
 Entry to Car Park: 730
 Exit from Car Park: 838
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8914,7 +8914,7 @@ Queuing Time: 9
 Entry to Car Park: 741
 Exit from Car Park: 838
 Parking Time: 97
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8925,7 +8925,7 @@ Queuing Time: 15
 Entry to Car Park: 740
 Exit from Car Park: 840
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8944,7 +8944,7 @@ Queuing Time: 13
 Entry to Car Park: 697
 Exit from Car Park: 843
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8970,7 +8970,7 @@ Vehicle was not queued
 Entry to Car Park: 730
 Exit from Car Park: 846
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -8981,7 +8981,7 @@ Queuing Time: 16
 Entry to Car Park: 739
 Exit from Car Park: 846
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -8991,7 +8991,7 @@ Vehicle was not queued
 Entry to Car Park: 700
 Exit from Car Park: 848
 Parking Time: 148
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9002,7 +9002,7 @@ Queuing Time: 14
 Entry to Car Park: 736
 Exit from Car Park: 848
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9013,7 +9013,7 @@ Queuing Time: 8
 Entry to Car Park: 648
 Exit from Car Park: 849
 Parking Time: 201
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9024,7 +9024,7 @@ Queuing Time: 11
 Entry to Car Park: 699
 Exit from Car Park: 849
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9035,7 +9035,7 @@ Queuing Time: 11
 Entry to Car Park: 751
 Exit from Car Park: 849
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9046,7 +9046,7 @@ Queuing Time: 17
 Entry to Car Park: 734
 Exit from Car Park: 850
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9057,7 +9057,7 @@ Queuing Time: 7
 Entry to Car Park: 741
 Exit from Car Park: 851
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9068,7 +9068,7 @@ Queuing Time: 7
 Entry to Car Park: 742
 Exit from Car Park: 852
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9079,7 +9079,7 @@ Queuing Time: 13
 Entry to Car Park: 767
 Exit from Car Park: 853
 Parking Time: 86
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9090,7 +9090,7 @@ Queuing Time: 5
 Entry to Car Park: 639
 Exit from Car Park: 854
 Parking Time: 215
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9101,7 +9101,7 @@ Queuing Time: 11
 Entry to Car Park: 671
 Exit from Car Park: 854
 Parking Time: 183
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9112,7 +9112,7 @@ Queuing Time: 9
 Entry to Car Park: 768
 Exit from Car Park: 854
 Parking Time: 86
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9123,7 +9123,7 @@ Queuing Time: 19
 Entry to Car Park: 733
 Exit from Car Park: 855
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9134,7 +9134,7 @@ Queuing Time: 12
 Entry to Car Park: 761
 Exit from Car Park: 855
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9145,7 +9145,7 @@ Queuing Time: 19
 Entry to Car Park: 732
 Exit from Car Park: 856
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9156,7 +9156,7 @@ Queuing Time: 12
 Entry to Car Park: 679
 Exit from Car Park: 859
 Parking Time: 180
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9167,7 +9167,7 @@ Queuing Time: 16
 Entry to Car Park: 696
 Exit from Car Park: 861
 Parking Time: 165
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9178,7 +9178,7 @@ Queuing Time: 14
 Entry to Car Park: 723
 Exit from Car Park: 861
 Parking Time: 138
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9189,7 +9189,7 @@ Queuing Time: 9
 Entry to Car Park: 771
 Exit from Car Park: 861
 Parking Time: 90
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9200,7 +9200,7 @@ Queuing Time: 15
 Entry to Car Park: 794
 Exit from Car Park: 861
 Parking Time: 67
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9211,7 +9211,7 @@ Queuing Time: 9
 Entry to Car Park: 740
 Exit from Car Park: 864
 Parking Time: 124
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9222,7 +9222,7 @@ Queuing Time: 10
 Entry to Car Park: 807
 Exit from Car Park: 866
 Parking Time: 59
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9290,7 +9290,7 @@ Queuing Time: 10
 Entry to Car Park: 768
 Exit from Car Park: 874
 Parking Time: 106
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9301,7 +9301,7 @@ Queuing Time: 6
 Entry to Car Park: 776
 Exit from Car Park: 874
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9312,7 +9312,7 @@ Queuing Time: 16
 Entry to Car Park: 800
 Exit from Car Park: 874
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9323,7 +9323,7 @@ Queuing Time: 11
 Entry to Car Park: 754
 Exit from Car Park: 876
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9334,7 +9334,7 @@ Queuing Time: 13
 Entry to Car Park: 812
 Exit from Car Park: 877
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9361,7 +9361,7 @@ Queuing Time: 13
 Entry to Car Park: 757
 Exit from Car Park: 880
 Parking Time: 123
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9372,7 +9372,7 @@ Queuing Time: 9
 Entry to Car Park: 775
 Exit from Car Park: 880
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9383,7 +9383,7 @@ Queuing Time: 7
 Entry to Car Park: 709
 Exit from Car Park: 882
 Parking Time: 173
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9402,7 +9402,7 @@ Queuing Time: 9
 Entry to Car Park: 803
 Exit from Car Park: 885
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9420,7 +9420,7 @@ Vehicle was not queued
 Entry to Car Park: 724
 Exit from Car Park: 887
 Parking Time: 163
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9448,7 +9448,7 @@ Queuing Time: 11
 Entry to Car Park: 717
 Exit from Car Park: 888
 Parking Time: 171
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9468,7 +9468,7 @@ Queuing Time: 11
 Entry to Car Park: 670
 Exit from Car Park: 890
 Parking Time: 220
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9479,7 +9479,7 @@ Queuing Time: 17
 Entry to Car Park: 822
 Exit from Car Park: 891
 Parking Time: 69
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9506,7 +9506,7 @@ Queuing Time: 13
 Entry to Car Park: 801
 Exit from Car Park: 893
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9525,7 +9525,7 @@ Queuing Time: 8
 Entry to Car Park: 782
 Exit from Car Park: 895
 Parking Time: 113
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9536,7 +9536,7 @@ Queuing Time: 8
 Entry to Car Park: 828
 Exit from Car Park: 895
 Parking Time: 67
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9547,7 +9547,7 @@ Queuing Time: 16
 Entry to Car Park: 799
 Exit from Car Park: 896
 Parking Time: 97
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9558,7 +9558,7 @@ Queuing Time: 18
 Entry to Car Park: 877
 Exit from Car Park: 897
 Parking Time: 20
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9577,7 +9577,7 @@ Queuing Time: 16
 Entry to Car Park: 796
 Exit from Car Park: 900
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9588,7 +9588,7 @@ Queuing Time: 12
 Entry to Car Park: 838
 Exit from Car Park: 900
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9599,7 +9599,7 @@ Queuing Time: 12
 Entry to Car Park: 749
 Exit from Car Park: 901
 Parking Time: 152
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9610,7 +9610,7 @@ Queuing Time: 15
 Entry to Car Park: 693
 Exit from Car Park: 903
 Parking Time: 210
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9621,7 +9621,7 @@ Queuing Time: 15
 Entry to Car Park: 797
 Exit from Car Park: 904
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9640,7 +9640,7 @@ Queuing Time: 13
 Entry to Car Park: 758
 Exit from Car Park: 907
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9651,7 +9651,7 @@ Queuing Time: 10
 Entry to Car Park: 767
 Exit from Car Park: 909
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9662,7 +9662,7 @@ Queuing Time: 7
 Entry to Car Park: 779
 Exit from Car Park: 909
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9673,7 +9673,7 @@ Queuing Time: 8
 Entry to Car Park: 781
 Exit from Car Park: 910
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9684,7 +9684,7 @@ Queuing Time: 8
 Entry to Car Park: 776
 Exit from Car Park: 912
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9695,7 +9695,7 @@ Queuing Time: 8
 Entry to Car Park: 859
 Exit from Car Park: 913
 Parking Time: 54
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9706,7 +9706,7 @@ Queuing Time: 12
 Entry to Car Park: 716
 Exit from Car Park: 914
 Parking Time: 198
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9717,7 +9717,7 @@ Queuing Time: 17
 Entry to Car Park: 735
 Exit from Car Park: 914
 Parking Time: 179
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9728,7 +9728,7 @@ Queuing Time: 10
 Entry to Car Park: 771
 Exit from Car Park: 914
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9739,7 +9739,7 @@ Queuing Time: 9
 Entry to Car Park: 805
 Exit from Car Park: 914
 Parking Time: 109
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9750,7 +9750,7 @@ Queuing Time: 13
 Entry to Car Park: 690
 Exit from Car Park: 916
 Parking Time: 226
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9761,7 +9761,7 @@ Queuing Time: 11
 Entry to Car Park: 752
 Exit from Car Park: 916
 Parking Time: 164
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9772,7 +9772,7 @@ Queuing Time: 12
 Entry to Car Park: 762
 Exit from Car Park: 916
 Parking Time: 154
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9783,7 +9783,7 @@ Queuing Time: 12
 Entry to Car Park: 751
 Exit from Car Park: 918
 Parking Time: 167
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9793,7 +9793,7 @@ Vehicle was not queued
 Entry to Car Park: 853
 Exit from Car Park: 918
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9804,7 +9804,7 @@ Queuing Time: 13
 Entry to Car Park: 843
 Exit from Car Park: 919
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9815,7 +9815,7 @@ Queuing Time: 14
 Entry to Car Park: 812
 Exit from Car Park: 920
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9826,7 +9826,7 @@ Queuing Time: 10
 Entry to Car Park: 774
 Exit from Car Park: 921
 Parking Time: 147
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9837,7 +9837,7 @@ Queuing Time: 10
 Entry to Car Park: 785
 Exit from Car Park: 921
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9848,7 +9848,7 @@ Queuing Time: 9
 Entry to Car Park: 704
 Exit from Car Park: 922
 Parking Time: 218
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9859,7 +9859,7 @@ Queuing Time: 11
 Entry to Car Park: 840
 Exit from Car Park: 923
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9870,7 +9870,7 @@ Queuing Time: 13
 Entry to Car Park: 790
 Exit from Car Park: 925
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9890,7 +9890,7 @@ Queuing Time: 11
 Entry to Car Park: 762
 Exit from Car Park: 926
 Parking Time: 164
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9901,7 +9901,7 @@ Queuing Time: 13
 Entry to Car Park: 851
 Exit from Car Park: 927
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9912,7 +9912,7 @@ Queuing Time: 16
 Entry to Car Park: 820
 Exit from Car Park: 930
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9923,7 +9923,7 @@ Queuing Time: 17
 Entry to Car Park: 823
 Exit from Car Park: 930
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9934,7 +9934,7 @@ Queuing Time: 8
 Entry to Car Park: 830
 Exit from Car Park: 930
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9954,7 +9954,7 @@ Queuing Time: 13
 Entry to Car Park: 826
 Exit from Car Park: 931
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9964,7 +9964,7 @@ Vehicle was not queued
 Entry to Car Park: 866
 Exit from Car Park: 931
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -9975,7 +9975,7 @@ Queuing Time: 12
 Entry to Car Park: 837
 Exit from Car Park: 932
 Parking Time: 95
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9986,7 +9986,7 @@ Queuing Time: 12
 Entry to Car Park: 748
 Exit from Car Park: 933
 Parking Time: 185
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -9997,7 +9997,7 @@ Queuing Time: 8
 Entry to Car Park: 775
 Exit from Car Park: 933
 Parking Time: 158
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10008,7 +10008,7 @@ Queuing Time: 18
 Entry to Car Park: 819
 Exit from Car Park: 933
 Parking Time: 114
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10019,7 +10019,7 @@ Queuing Time: 16
 Entry to Car Park: 801
 Exit from Car Park: 938
 Parking Time: 137
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10030,7 +10030,7 @@ Queuing Time: 11
 Entry to Car Park: 749
 Exit from Car Park: 939
 Parking Time: 190
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10041,7 +10041,7 @@ Queuing Time: 12
 Entry to Car Park: 788
 Exit from Car Park: 939
 Parking Time: 151
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10052,7 +10052,7 @@ Queuing Time: 13
 Entry to Car Park: 825
 Exit from Car Park: 939
 Parking Time: 114
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10063,7 +10063,7 @@ Queuing Time: 11
 Entry to Car Park: 753
 Exit from Car Park: 940
 Parking Time: 187
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10074,7 +10074,7 @@ Queuing Time: 17
 Entry to Car Park: 824
 Exit from Car Park: 940
 Parking Time: 116
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10085,7 +10085,7 @@ Queuing Time: 14
 Entry to Car Park: 814
 Exit from Car Park: 941
 Parking Time: 127
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10096,7 +10096,7 @@ Queuing Time: 7
 Entry to Car Park: 854
 Exit from Car Park: 942
 Parking Time: 88
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10107,7 +10107,7 @@ Queuing Time: 11
 Entry to Car Park: 854
 Exit from Car Park: 943
 Parking Time: 89
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10118,7 +10118,7 @@ Queuing Time: 10
 Entry to Car Park: 773
 Exit from Car Park: 945
 Parking Time: 172
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10129,7 +10129,7 @@ Queuing Time: 7
 Entry to Car Park: 830
 Exit from Car Park: 947
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10140,7 +10140,7 @@ Queuing Time: 20
 Entry to Car Park: 880
 Exit from Car Park: 948
 Parking Time: 68
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10151,7 +10151,7 @@ Queuing Time: 11
 Entry to Car Park: 759
 Exit from Car Park: 950
 Parking Time: 191
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10162,7 +10162,7 @@ Queuing Time: 7
 Entry to Car Park: 828
 Exit from Car Park: 950
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10173,7 +10173,7 @@ Queuing Time: 10
 Entry to Car Park: 803
 Exit from Car Park: 952
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10184,7 +10184,7 @@ Queuing Time: 15
 Entry to Car Park: 848
 Exit from Car Park: 952
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10195,7 +10195,7 @@ Queuing Time: 15
 Entry to Car Park: 796
 Exit from Car Park: 954
 Parking Time: 158
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10206,7 +10206,7 @@ Queuing Time: 6
 Entry to Car Park: 861
 Exit from Car Park: 954
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10217,7 +10217,7 @@ Queuing Time: 6
 Entry to Car Park: 921
 Exit from Car Park: 961
 Parking Time: 40
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10227,7 +10227,7 @@ Vehicle was not queued
 Entry to Car Park: 884
 Exit from Car Park: 962
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10238,7 +10238,7 @@ Queuing Time: 20
 Entry to Car Park: 900
 Exit from Car Park: 962
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10249,7 +10249,7 @@ Queuing Time: 17
 Entry to Car Park: 819
 Exit from Car Park: 964
 Parking Time: 145
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10260,7 +10260,7 @@ Queuing Time: 10
 Entry to Car Park: 838
 Exit from Car Park: 966
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10271,7 +10271,7 @@ Queuing Time: 12
 Entry to Car Park: 802
 Exit from Car Park: 967
 Parking Time: 165
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10298,7 +10298,7 @@ Queuing Time: 8
 Entry to Car Park: 779
 Exit from Car Park: 970
 Parking Time: 191
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10309,7 +10309,7 @@ Queuing Time: 16
 Entry to Car Park: 819
 Exit from Car Park: 970
 Parking Time: 151
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10328,7 +10328,7 @@ Queuing Time: 17
 Entry to Car Park: 874
 Exit from Car Park: 973
 Parking Time: 99
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10347,7 +10347,7 @@ Queuing Time: 14
 Entry to Car Park: 846
 Exit from Car Park: 975
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10358,7 +10358,7 @@ Queuing Time: 12
 Entry to Car Park: 826
 Exit from Car Park: 976
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10394,7 +10394,7 @@ Queuing Time: 15
 Entry to Car Park: 793
 Exit from Car Park: 979
 Parking Time: 186
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10405,7 +10405,7 @@ Queuing Time: 23
 Entry to Car Park: 885
 Exit from Car Park: 979
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10416,7 +10416,7 @@ Queuing Time: 12
 Entry to Car Park: 851
 Exit from Car Park: 980
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10435,7 +10435,7 @@ Queuing Time: 7
 Entry to Car Park: 776
 Exit from Car Park: 983
 Parking Time: 207
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10446,7 +10446,7 @@ Queuing Time: 18
 Entry to Car Park: 876
 Exit from Car Park: 984
 Parking Time: 108
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10457,7 +10457,7 @@ Queuing Time: 23
 Entry to Car Park: 890
 Exit from Car Park: 984
 Parking Time: 94
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10484,7 +10484,7 @@ Queuing Time: 11
 Entry to Car Park: 914
 Exit from Car Park: 988
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10510,7 +10510,7 @@ Vehicle was not queued
 Entry to Car Park: 865
 Exit from Car Park: 991
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10521,7 +10521,7 @@ Queuing Time: 7
 Entry to Car Park: 918
 Exit from Car Park: 992
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10531,7 +10531,7 @@ Vehicle was not queued
 Entry to Car Park: 924
 Exit from Car Park: 992
 Parking Time: 68
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10566,7 +10566,7 @@ Queuing Time: 9
 Entry to Car Park: 861
 Exit from Car Park: 997
 Parking Time: 136
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10577,7 +10577,7 @@ Queuing Time: 14
 Entry to Car Park: 973
 Exit from Car Park: 997
 Parking Time: 24
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10588,7 +10588,7 @@ Queuing Time: 8
 Entry to Car Park: 854
 Exit from Car Park: 998
 Parking Time: 144
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10599,7 +10599,7 @@ Queuing Time: 21
 Entry to Car Park: 895
 Exit from Car Park: 998
 Parking Time: 103
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10619,7 +10619,7 @@ Queuing Time: 2
 Entry to Car Park: 941
 Exit from Car Park: 999
 Parking Time: 58
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10630,7 +10630,7 @@ Queuing Time: 3
 Entry to Car Park: 950
 Exit from Car Park: 1000
 Parking Time: 50
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10641,7 +10641,7 @@ Queuing Time: 11
 Entry to Car Park: 763
 Exit from Car Park: 1001
 Parking Time: 238
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10652,7 +10652,7 @@ Queuing Time: 13
 Entry to Car Park: 909
 Exit from Car Park: 1002
 Parking Time: 93
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10663,7 +10663,7 @@ Queuing Time: 2
 Entry to Car Park: 945
 Exit from Car Park: 1002
 Parking Time: 57
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10673,7 +10673,7 @@ Vehicle was not queued
 Entry to Car Park: 940
 Exit from Car Park: 1003
 Parking Time: 63
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10684,7 +10684,7 @@ Queuing Time: 8
 Entry to Car Park: 827
 Exit from Car Park: 1004
 Parking Time: 177
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10694,7 +10694,7 @@ Vehicle was not queued
 Entry to Car Park: 920
 Exit from Car Park: 1004
 Parking Time: 84
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10705,7 +10705,7 @@ Queuing Time: 8
 Entry to Car Park: 921
 Exit from Car Park: 1004
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10716,7 +10716,7 @@ Queuing Time: 11
 Entry to Car Park: 838
 Exit from Car Park: 1005
 Parking Time: 167
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10727,7 +10727,7 @@ Queuing Time: 6
 Entry to Car Park: 855
 Exit from Car Park: 1005
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10737,7 +10737,7 @@ Vehicle was not queued
 Entry to Car Park: 881
 Exit from Car Park: 1006
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10748,7 +10748,7 @@ Queuing Time: 20
 Entry to Car Park: 896
 Exit from Car Park: 1008
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10759,7 +10759,7 @@ Queuing Time: 15
 Entry to Car Park: 846
 Exit from Car Park: 1012
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10770,7 +10770,7 @@ Queuing Time: 12
 Entry to Car Park: 849
 Exit from Car Park: 1014
 Parking Time: 165
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10781,7 +10781,7 @@ Queuing Time: 13
 Entry to Car Park: 913
 Exit from Car Park: 1014
 Parking Time: 101
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10792,7 +10792,7 @@ Queuing Time: 18
 Entry to Car Park: 900
 Exit from Car Park: 1015
 Parking Time: 115
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10803,7 +10803,7 @@ Queuing Time: 5
 Entry to Car Park: 926
 Exit from Car Park: 1015
 Parking Time: 89
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10813,7 +10813,7 @@ Vehicle was not queued
 Entry to Car Park: 918
 Exit from Car Park: 1016
 Parking Time: 98
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10824,7 +10824,7 @@ Queuing Time: 7
 Entry to Car Park: 855
 Exit from Car Park: 1017
 Parking Time: 162
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10835,7 +10835,7 @@ Queuing Time: 6
 Entry to Car Park: 856
 Exit from Car Park: 1017
 Parking Time: 161
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10845,7 +10845,7 @@ Vehicle was not queued
 Entry to Car Park: 907
 Exit from Car Park: 1018
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10856,7 +10856,7 @@ Queuing Time: 5
 Entry to Car Park: 927
 Exit from Car Park: 1018
 Parking Time: 91
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10866,7 +10866,7 @@ Vehicle was not queued
 Entry to Car Park: 908
 Exit from Car Park: 1019
 Parking Time: 111
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10877,7 +10877,7 @@ Queuing Time: 7
 Entry to Car Park: 831
 Exit from Car Park: 1022
 Parking Time: 191
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10888,7 +10888,7 @@ Queuing Time: 14
 Entry to Car Park: 912
 Exit from Car Park: 1025
 Parking Time: 113
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10898,7 +10898,7 @@ Vehicle was not queued
 Entry to Car Park: 967
 Exit from Car Park: 1028
 Parking Time: 61
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10927,7 +10927,7 @@ Queuing Time: 15
 Entry to Car Park: 849
 Exit from Car Park: 1032
 Parking Time: 183
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10938,7 +10938,7 @@ Queuing Time: 20
 Entry to Car Park: 897
 Exit from Car Park: 1032
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10948,7 +10948,7 @@ Vehicle was not queued
 Entry to Car Park: 894
 Exit from Car Park: 1033
 Parking Time: 139
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10959,7 +10959,7 @@ Queuing Time: 15
 Entry to Car Park: 903
 Exit from Car Park: 1033
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10970,7 +10970,7 @@ Queuing Time: 1
 Entry to Car Park: 933
 Exit from Car Park: 1033
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -10981,7 +10981,7 @@ Queuing Time: 18
 Entry to Car Park: 874
 Exit from Car Park: 1034
 Parking Time: 160
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -10991,7 +10991,7 @@ Vehicle was not queued
 Entry to Car Park: 901
 Exit from Car Park: 1034
 Parking Time: 133
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11002,7 +11002,7 @@ Queuing Time: 9
 Entry to Car Park: 964
 Exit from Car Park: 1036
 Parking Time: 72
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11013,7 +11013,7 @@ Queuing Time: 7
 Entry to Car Park: 861
 Exit from Car Park: 1037
 Parking Time: 176
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11024,7 +11024,7 @@ Queuing Time: 4
 Entry to Car Park: 931
 Exit from Car Park: 1038
 Parking Time: 107
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11035,7 +11035,7 @@ Queuing Time: 3
 Entry to Car Park: 947
 Exit from Car Park: 1038
 Parking Time: 91
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11054,7 +11054,7 @@ Vehicle was not queued
 Entry to Car Park: 929
 Exit from Car Park: 1041
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11065,7 +11065,7 @@ Queuing Time: 2
 Entry to Car Park: 940
 Exit from Car Park: 1041
 Parking Time: 101
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11076,7 +11076,7 @@ Queuing Time: 14
 Entry to Car Park: 909
 Exit from Car Park: 1042
 Parking Time: 133
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11087,7 +11087,7 @@ Queuing Time: 12
 Entry to Car Park: 914
 Exit from Car Park: 1042
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11098,7 +11098,7 @@ Queuing Time: 8
 Entry to Car Park: 962
 Exit from Car Park: 1042
 Parking Time: 80
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11109,7 +11109,7 @@ Queuing Time: 18
 Entry to Car Park: 998
 Exit from Car Park: 1043
 Parking Time: 45
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11120,7 +11120,7 @@ Queuing Time: 13
 Entry to Car Park: 910
 Exit from Car Park: 1045
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11131,7 +11131,7 @@ Queuing Time: 9
 Entry to Car Park: 914
 Exit from Car Park: 1045
 Parking Time: 131
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11142,7 +11142,7 @@ Queuing Time: 18
 Entry to Car Park: 991
 Exit from Car Park: 1045
 Parking Time: 54
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11153,7 +11153,7 @@ Queuing Time: 12
 Entry to Car Park: 852
 Exit from Car Park: 1047
 Parking Time: 195
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11164,7 +11164,7 @@ Queuing Time: 21
 Entry to Car Park: 882
 Exit from Car Park: 1047
 Parking Time: 165
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11175,7 +11175,7 @@ Queuing Time: 15
 Entry to Car Park: 904
 Exit from Car Park: 1047
 Parking Time: 143
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11186,7 +11186,7 @@ Queuing Time: 4
 Entry to Car Park: 930
 Exit from Car Park: 1047
 Parking Time: 117
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11197,7 +11197,7 @@ Queuing Time: 10
 Entry to Car Park: 966
 Exit from Car Park: 1050
 Parking Time: 84
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11208,7 +11208,7 @@ Queuing Time: 3
 Entry to Car Park: 939
 Exit from Car Park: 1051
 Parking Time: 112
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11228,7 +11228,7 @@ Queuing Time: 7
 Entry to Car Park: 919
 Exit from Car Park: 1053
 Parking Time: 134
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11239,7 +11239,7 @@ Queuing Time: 9
 Entry to Car Park: 962
 Exit from Car Park: 1054
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11250,7 +11250,7 @@ Queuing Time: 12
 Entry to Car Park: 853
 Exit from Car Park: 1057
 Parking Time: 204
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11261,7 +11261,7 @@ Queuing Time: 12
 Entry to Car Park: 970
 Exit from Car Park: 1058
 Parking Time: 88
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11272,7 +11272,7 @@ Queuing Time: 5
 Entry to Car Park: 930
 Exit from Car Park: 1059
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11283,7 +11283,7 @@ Queuing Time: 4
 Entry to Car Park: 932
 Exit from Car Park: 1060
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11294,7 +11294,7 @@ Queuing Time: 6
 Entry to Car Park: 916
 Exit from Car Park: 1062
 Parking Time: 146
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11305,7 +11305,7 @@ Queuing Time: 5
 Entry to Car Park: 922
 Exit from Car Park: 1063
 Parking Time: 141
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11316,7 +11316,7 @@ Queuing Time: 16
 Entry to Car Park: 901
 Exit from Car Park: 1065
 Parking Time: 164
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11327,7 +11327,7 @@ Queuing Time: 17
 Entry to Car Park: 992
 Exit from Car Park: 1065
 Parking Time: 73
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11338,7 +11338,7 @@ Queuing Time: 1
 Entry to Car Park: 943
 Exit from Car Park: 1068
 Parking Time: 125
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11349,7 +11349,7 @@ Queuing Time: 1
 Entry to Car Park: 942
 Exit from Car Park: 1071
 Parking Time: 129
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11359,7 +11359,7 @@ Vehicle was not queued
 Entry to Car Park: 916
 Exit from Car Park: 1072
 Parking Time: 156
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11370,7 +11370,7 @@ Queuing Time: 4
 Entry to Car Park: 939
 Exit from Car Park: 1072
 Parking Time: 133
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11381,7 +11381,7 @@ Queuing Time: 7
 Entry to Car Park: 916
 Exit from Car Park: 1073
 Parking Time: 157
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11392,7 +11392,7 @@ Queuing Time: 4
 Entry to Car Park: 952
 Exit from Car Park: 1073
 Parking Time: 121
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11403,7 +11403,7 @@ Queuing Time: 20
 Entry to Car Park: 895
 Exit from Car Park: 1074
 Parking Time: 179
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11414,7 +11414,7 @@ Queuing Time: 2
 Entry to Car Park: 939
 Exit from Car Park: 1074
 Parking Time: 135
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11425,7 +11425,7 @@ Queuing Time: 4
 Entry to Car Park: 954
 Exit from Car Park: 1076
 Parking Time: 122
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11436,7 +11436,7 @@ Queuing Time: 17
 Entry to Car Park: 907
 Exit from Car Park: 1080
 Parking Time: 173
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11447,7 +11447,7 @@ Queuing Time: 10
 Entry to Car Park: 914
 Exit from Car Park: 1080
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11457,7 +11457,7 @@ Vehicle was not queued
 Entry to Car Park: 914
 Exit from Car Park: 1080
 Parking Time: 166
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11468,7 +11468,7 @@ Queuing Time: 4
 Entry to Car Park: 923
 Exit from Car Park: 1080
 Parking Time: 157
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11479,7 +11479,7 @@ Queuing Time: 7
 Entry to Car Park: 930
 Exit from Car Park: 1080
 Parking Time: 150
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11489,7 +11489,7 @@ Vehicle was not queued
 Entry to Car Park: 931
 Exit from Car Park: 1080
 Parking Time: 149
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11500,7 +11500,7 @@ Queuing Time: 3
 Entry to Car Park: 933
 Exit from Car Park: 1080
 Parking Time: 147
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11510,7 +11510,7 @@ Vehicle was not queued
 Entry to Car Park: 933
 Exit from Car Park: 1080
 Parking Time: 147
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11521,7 +11521,7 @@ Queuing Time: 4
 Entry to Car Park: 938
 Exit from Car Park: 1080
 Parking Time: 142
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11532,7 +11532,7 @@ Queuing Time: 3
 Entry to Car Park: 948
 Exit from Car Park: 1080
 Parking Time: 132
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11543,7 +11543,7 @@ Queuing Time: 4
 Entry to Car Park: 950
 Exit from Car Park: 1080
 Parking Time: 130
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11554,7 +11554,7 @@ Queuing Time: 3
 Entry to Car Park: 952
 Exit from Car Park: 1080
 Parking Time: 128
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11565,7 +11565,7 @@ Queuing Time: 3
 Entry to Car Park: 954
 Exit from Car Park: 1080
 Parking Time: 126
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11576,7 +11576,7 @@ Queuing Time: 9
 Entry to Car Park: 961
 Exit from Car Park: 1080
 Parking Time: 119
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11587,7 +11587,7 @@ Queuing Time: 13
 Entry to Car Park: 970
 Exit from Car Park: 1080
 Parking Time: 110
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11598,7 +11598,7 @@ Queuing Time: 15
 Entry to Car Park: 975
 Exit from Car Park: 1080
 Parking Time: 105
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11609,7 +11609,7 @@ Queuing Time: 15
 Entry to Car Park: 976
 Exit from Car Park: 1080
 Parking Time: 104
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11620,7 +11620,7 @@ Queuing Time: 17
 Entry to Car Park: 979
 Exit from Car Park: 1080
 Parking Time: 101
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11631,7 +11631,7 @@ Queuing Time: 16
 Entry to Car Park: 979
 Exit from Car Park: 1080
 Parking Time: 101
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11642,7 +11642,7 @@ Queuing Time: 16
 Entry to Car Park: 980
 Exit from Car Park: 1080
 Parking Time: 100
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11653,7 +11653,7 @@ Queuing Time: 18
 Entry to Car Park: 983
 Exit from Car Park: 1080
 Parking Time: 97
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11664,7 +11664,7 @@ Queuing Time: 18
 Entry to Car Park: 984
 Exit from Car Park: 1080
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11675,7 +11675,7 @@ Queuing Time: 14
 Entry to Car Park: 984
 Exit from Car Park: 1080
 Parking Time: 96
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11686,7 +11686,7 @@ Queuing Time: 17
 Entry to Car Park: 988
 Exit from Car Park: 1080
 Parking Time: 92
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11715,7 +11715,7 @@ Queuing Time: 16
 Entry to Car Park: 992
 Exit from Car Park: 1080
 Parking Time: 88
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11726,7 +11726,7 @@ Queuing Time: 18
 Entry to Car Park: 997
 Exit from Car Park: 1080
 Parking Time: 83
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11737,7 +11737,7 @@ Queuing Time: 17
 Entry to Car Park: 998
 Exit from Car Park: 1080
 Parking Time: 82
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11748,7 +11748,7 @@ Queuing Time: 16
 Entry to Car Park: 999
 Exit from Car Park: 1080
 Parking Time: 81
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11758,7 +11758,7 @@ Vehicle was not queued
 Entry to Car Park: 999
 Exit from Car Park: 1080
 Parking Time: 81
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11769,7 +11769,7 @@ Queuing Time: 16
 Entry to Car Park: 1000
 Exit from Car Park: 1080
 Parking Time: 80
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11789,7 +11789,7 @@ Queuing Time: 16
 Entry to Car Park: 1001
 Exit from Car Park: 1080
 Parking Time: 79
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11800,7 +11800,7 @@ Queuing Time: 14
 Entry to Car Park: 1002
 Exit from Car Park: 1080
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11811,7 +11811,7 @@ Queuing Time: 11
 Entry to Car Park: 1002
 Exit from Car Park: 1080
 Parking Time: 78
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11822,7 +11822,7 @@ Queuing Time: 12
 Entry to Car Park: 1004
 Exit from Car Park: 1080
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11833,7 +11833,7 @@ Queuing Time: 11
 Entry to Car Park: 1004
 Exit from Car Park: 1080
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11844,7 +11844,7 @@ Queuing Time: 7
 Entry to Car Park: 1004
 Exit from Car Park: 1080
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11854,7 +11854,7 @@ Vehicle was not queued
 Entry to Car Park: 1004
 Exit from Car Park: 1080
 Parking Time: 76
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11865,7 +11865,7 @@ Queuing Time: 7
 Entry to Car Park: 1005
 Exit from Car Park: 1080
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11876,7 +11876,7 @@ Queuing Time: 5
 Entry to Car Park: 1005
 Exit from Car Park: 1080
 Parking Time: 75
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11887,7 +11887,7 @@ Queuing Time: 5
 Entry to Car Park: 1006
 Exit from Car Park: 1080
 Parking Time: 74
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11898,7 +11898,7 @@ Queuing Time: 6
 Entry to Car Park: 1008
 Exit from Car Park: 1080
 Parking Time: 72
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11909,7 +11909,7 @@ Queuing Time: 9
 Entry to Car Park: 1012
 Exit from Car Park: 1080
 Parking Time: 68
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11920,7 +11920,7 @@ Queuing Time: 9
 Entry to Car Park: 1014
 Exit from Car Park: 1080
 Parking Time: 66
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11931,7 +11931,7 @@ Queuing Time: 8
 Entry to Car Park: 1014
 Exit from Car Park: 1080
 Parking Time: 66
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11942,7 +11942,7 @@ Queuing Time: 8
 Entry to Car Park: 1015
 Exit from Car Park: 1080
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11953,7 +11953,7 @@ Queuing Time: 7
 Entry to Car Park: 1015
 Exit from Car Park: 1080
 Parking Time: 65
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11964,7 +11964,7 @@ Queuing Time: 7
 Entry to Car Park: 1016
 Exit from Car Park: 1080
 Parking Time: 64
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -11975,7 +11975,7 @@ Queuing Time: 7
 Entry to Car Park: 1017
 Exit from Car Park: 1080
 Parking Time: 63
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11986,7 +11986,7 @@ Queuing Time: 6
 Entry to Car Park: 1017
 Exit from Car Park: 1080
 Parking Time: 63
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -11997,7 +11997,7 @@ Queuing Time: 6
 Entry to Car Park: 1018
 Exit from Car Park: 1080
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12008,7 +12008,7 @@ Queuing Time: 5
 Entry to Car Park: 1018
 Exit from Car Park: 1080
 Parking Time: 62
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 
@@ -12019,7 +12019,7 @@ Queuing Time: 5
 Entry to Car Park: 1019
 Exit from Car Park: 1080
 Parking Time: 61
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12030,7 +12030,7 @@ Queuing Time: 7
 Entry to Car Park: 1022
 Exit from Car Park: 1080
 Parking Time: 58
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12041,7 +12041,7 @@ Queuing Time: 9
 Entry to Car Park: 1025
 Exit from Car Park: 1080
 Parking Time: 55
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12052,7 +12052,7 @@ Queuing Time: 11
 Entry to Car Park: 1028
 Exit from Car Park: 1080
 Parking Time: 52
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12063,7 +12063,7 @@ Queuing Time: 14
 Entry to Car Park: 1032
 Exit from Car Park: 1080
 Parking Time: 48
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12074,7 +12074,7 @@ Queuing Time: 13
 Entry to Car Park: 1032
 Exit from Car Park: 1080
 Parking Time: 48
-Customer was satisfied.
+Customer was satisfied
 Car cannot use small parking space
 
 
@@ -12085,7 +12085,7 @@ Queuing Time: 13
 Entry to Car Park: 1033
 Exit from Car Park: 1080
 Parking Time: 47
-Customer was satisfied.
+Customer was satisfied
 Car can use small car parking space
 
 

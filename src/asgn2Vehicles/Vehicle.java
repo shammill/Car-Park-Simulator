@@ -144,10 +144,12 @@ public abstract class Vehicle {
 		
 		if (departureTime < parkingTime) {
 			throw new VehicleException("Unable to exitParkedState. departureTime is less than parkingTime.");
-		}	
+		}
 		
 		isParked = false;
 		this.departureTime = departureTime;
+		
+
 	}
 	
 	

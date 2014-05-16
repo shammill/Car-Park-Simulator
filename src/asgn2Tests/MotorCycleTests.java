@@ -29,9 +29,8 @@ import asgn2Vehicles.Vehicle;
 public class MotorCycleTests {
 
 	// Defaults
-	private string DEFAULT_VEH_ID = "MC1";
+	private String DEFAULT_VEH_ID = "MC1";
 	private int DEFAULT_ARRIVAL_TIME = 1;
-	private int DEFAULT_QUEUE_TIME = 1;
 	private int DEFAULT_PARK_TIME = 1;
 	private int DEFAULT_INTENDED_DURATION = Constants.MINIMUM_STAY;
 	private int DEFAULT_QUEUE_DEPARTURE_TIME = 2;
@@ -41,11 +40,10 @@ public class MotorCycleTests {
 	private int ZERO_ARRIVAL_TIME = 0;
 	private int NEGATIVE_ARRIVAL_TIME = -1;
 	private int NEGATIVE_PARKING_TIME = -1;
-	private int DEFAULT_INTENDED_DURATION = 30;
-	private int INVALID_INTENDED_DURATION = Constants.MINIMUM_STAY--;
+	private int INVALID_INTENDED_DURATION = (Constants.MINIMUM_STAY - 1);
 	
-	private int DEFAULT_PARK_DEPARTURE_TIME = (DEFAULT_ARRIVAL_TIME + Constants.MINIMUM_STAY);
-	private int INVALID_PARK_DEPARTURE_TIME = (DEFAULT_ARRIVAL_TIME + Constants.MINIMUM_STAY--);
+	private int DEFAULT_PARK_DEPARTURE_TIME = (DEFAULT_PARK_TIME + Constants.MINIMUM_STAY);
+	private int INVALID_PARK_DEPARTURE_TIME = 0;
 	
 	private int DEFAULT_EXIT_QUEUE_TIME = 2;
 	private int INVALID_EXIT_QUEUE_TIME = 1;
@@ -185,7 +183,7 @@ public class MotorCycleTests {
 	* Test that the new motorcycle can be parked without error.
 	*/	
 	@Test
-	public void testEnterParkedState() throws VehicleException,
+	public void testEnterParkedState() throws VehicleException  {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		assertTrue(m.isParked());
@@ -199,7 +197,7 @@ public class MotorCycleTests {
 	* Test that the new motorcycle can be parked after being queued without error.
 	*/	
 	@Test
-	public void testEnterParkedStateFromQueue() throws VehicleException,
+	public void testEnterParkedStateFromQueue() throws VehicleException  {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(DEFAULT_QUEUE_DEPARTURE_TIME);
@@ -214,7 +212,7 @@ public class MotorCycleTests {
 	* Test that the new motorcycle parks, and sets the parking time correctly.
 	*/
 	@Test
-	public void testEnterParkedStateParkingTimeValid() throws VehicleException,
+	public void testEnterParkedStateParkingTimeValid() throws VehicleException  {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		assertEquals(m.getParkingTime(), DEFAULT_PARK_TIME);
@@ -227,10 +225,10 @@ public class MotorCycleTests {
 	* Test that the new motorcycle parks, and sets the departure time correctly.
 	*/	
 	@Test
-	public void testEnterParkedStateDepartureTimeValid() throws VehicleException,
+	public void testEnterParkedStateDepartureTimeValid() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
-		assertEquals(m.getDepartureTime(), (DEFAULT_PARK_TIME + DEFAULT_INTENDED_DURATION);
+		assertEquals(m.getDepartureTime(), (DEFAULT_PARK_TIME + DEFAULT_INTENDED_DURATION));
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------
@@ -240,7 +238,7 @@ public class MotorCycleTests {
 	* Test parking an already parked vehicle.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testEnterParkedStateWhileParked() throws VehicleException,
+	public void testEnterParkedStateWhileParked() throws VehicleException  {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
@@ -253,7 +251,7 @@ public class MotorCycleTests {
 	* Test parking a vehicle still in the queue.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testEnterParkedStateWhileQueued() throws VehicleException,
+	public void testEnterParkedStateWhileQueued() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
@@ -266,7 +264,7 @@ public class MotorCycleTests {
 	* Test parking a vehicle with negative parking time.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testEnterParkedStateNegativeParkingTime() throws VehicleException,
+	public void testEnterParkedStateNegativeParkingTime() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(NEGATIVE_PARKING_TIME, DEFAULT_INTENDED_DURATION);
 	}
@@ -278,7 +276,7 @@ public class MotorCycleTests {
 	* Test parking a vehicle with too low of a intended duration.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testEnterParkedStateInvalidDuration() throws VehicleException,
+	public void testEnterParkedStateInvalidDuration() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, INVALID_INTENDED_DURATION);
 	}
@@ -291,7 +289,7 @@ public class MotorCycleTests {
 	* Test that the new motorcycle can be queued without error.
 	*/	
 	@Test
-	public void testEnterQueuedState() throws VehicleException,
+	public void testEnterQueuedState() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		assertTrue(m.isQueued());
@@ -304,7 +302,7 @@ public class MotorCycleTests {
 	* Test that the cannot be queued while it is parked.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testEnterQueuedStateWhileParked() throws VehicleException,
+	public void testEnterQueuedStateWhileParked() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.enterQueuedState();
@@ -317,7 +315,7 @@ public class MotorCycleTests {
 	* Test that vehicle the cannot be queued while it is already queued.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testEnterQueuedStateWhileQueued() throws VehicleException,
+	public void testEnterQueuedStateWhileQueued() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.enterQueuedState();
@@ -332,7 +330,7 @@ public class MotorCycleTests {
 	* Test that the vehicle can successfully unpark after parking.
 	*/	
 	@Test
-	public void testExitParkedState() throws VehicleException,
+	public void testExitParkedState() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
@@ -346,7 +344,7 @@ public class MotorCycleTests {
 	* Test that the vehicle can is successfully marked as having been parked.
 	*/	
 	@Test
-	public void testExitParkedStateWasParked() throws VehicleException,
+	public void testExitParkedStateWasParked() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
@@ -360,7 +358,7 @@ public class MotorCycleTests {
 	* Test that the vehicle can is successfully marked as having been satisfied.
 	*/	
 	@Test
-	public void testExitParkedStateIsSatisfied() throws VehicleException,
+	public void testExitParkedStateIsSatisfied() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
@@ -375,7 +373,7 @@ public class MotorCycleTests {
 	* Test unparking without staying long enough.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitParkedStateInvalidDepartureTime() throws VehicleException,
+	public void testExitParkedStateInvalidDepartureTime() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.exitParkedState(INVALID_PARK_DEPARTURE_TIME);
@@ -389,7 +387,7 @@ public class MotorCycleTests {
 	* Test for VehicleException if vehicle tries to exit park while not parked.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitParkedStateWhenNotParked() throws VehicleException,
+	public void testExitParkedStateWhenNotParked() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
@@ -401,7 +399,7 @@ public class MotorCycleTests {
 	* Test for VehicleException if vehicle tries to exit park while not parked, after parking.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitParkedStateAfterExiting() throws VehicleException,
+	public void testExitParkedStateAfterExiting() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
@@ -415,7 +413,7 @@ public class MotorCycleTests {
 	* Test for VehicleException if vehicle tries to exit park while queued.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitParkedStateWhileQueued() throws VehicleException,
+	public void testExitParkedStateWhileQueued() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
@@ -428,7 +426,7 @@ public class MotorCycleTests {
 	* Test that the vehicle can successfully exit queue after queuing.
 	*/	
 	@Test
-	public void testExitQueuedState() throws VehicleException,
+	public void testExitQueuedState() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
@@ -442,7 +440,7 @@ public class MotorCycleTests {
 	* Test that ExitQueue successfully sets Exit/Departure Time.
 	*/	
 	@Test
-	public void testExitQueuedStateDepartureTime() throws VehicleException,
+	public void testExitQueuedStateDepartureTime() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
@@ -456,7 +454,7 @@ public class MotorCycleTests {
 	* Test that the vehicle is marked as having been queued after exiting.
 	*/	
 	@Test
-	public void testExitQueuedStateWasQueued() throws VehicleException,
+	public void testExitQueuedStateWasQueued() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
@@ -470,9 +468,9 @@ public class MotorCycleTests {
 	* Test that the vehicle can't exit queue when parked.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitQueuedStateWhenParked() throws VehicleException,
+	public void testExitQueuedStateWhenParked() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
-		m.enterParkedState();
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
@@ -484,7 +482,7 @@ public class MotorCycleTests {
 	* Test that the vehicle can't exit queue after already exiting queue.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitQueuedStateWhenParked() throws VehicleException,
+	public void testExitQueuedStateAfterExitingQueue() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
@@ -498,34 +496,22 @@ public class MotorCycleTests {
 	* Test that the vehicle can't exit queue after creation.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitQueuedStateAfterCreation() throws VehicleException,
+	public void testExitQueuedStateAfterCreation() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-		// ------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
 	* Test that the vehicle can't exit queue after creation.
 	*/	
 	@Test(expected = VehicleException.class)
-	public void testExitQueuedStateAfterCreation() throws VehicleException,
+	public void testExitQueuedStateInvalidExitTime() throws VehicleException {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(INVALID_EXIT_QUEUE_TIME);
 	}
-	
-	/* TODO:
-	assertTrue(m.getArrivalTime() instanceof int);
-	assertTrue(m.getDepartureTime() instanceof int);
-	assertTrue(m.getParkingTime() instanceof int);
-	assertTrue(m.getVehID() instanceof String);
-	assertTrue(m.isParked() instanceof boolean);
-	assertTrue(m.isQueued() instanceof boolean);
-	assertTrue(m.wasParked() instanceof boolean);
-	assertTrue(m.wasQueued() instanceof boolean);
-	assertTrue(m.isSatisfied() instanceof boolean);
-	*/
 
 }
