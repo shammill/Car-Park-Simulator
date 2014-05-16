@@ -45,7 +45,7 @@ public class CarPark {
 	private int numSmallCars;
 	private int numMotorCycles;
 	private int numDissatisfied;
-	private String status;
+	private String status = "";
 
 	private final int maxCarSpaces;
 	private final int maxSmallCarSpaces;
@@ -368,7 +368,6 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public void processQueue(int time, Simulator sim) throws VehicleException, SimulationException {
-		
 		boolean ableToPark = true;
 		while (ableToPark) {
 			Vehicle v = queue.peek();
