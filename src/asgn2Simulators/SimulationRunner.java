@@ -15,6 +15,7 @@ import java.io.IOException;
 import asgn2CarParks.CarPark;
 import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
+import asgn2Simulators.GUISimulator;
 
 /**
  * Class to operate the simulation, taking parameters and utility methods from the Simulator
@@ -23,19 +24,8 @@ import asgn2Exceptions.VehicleException;
  *
  */
 public class SimulationRunner {
-	int a = 0;
-	int b = 0;
-	int c = 0;
-	int d = 0;
-	int z = 0;
-	double f = 0;
-	double g = 0;
-	double h = 0;
-	double i = 0;
-	double j = 0;
 	private CarPark carPark;
 	private Simulator sim;
-	
 	private Log log;
 	
 	/**
@@ -44,7 +34,7 @@ public class SimulationRunner {
 	 * @param sim Simulator containing simulation parameters
 	 * @param log Log to provide logging services 
 	 */
-	public SimulationRunner(CarPark carPark, Simulator sim,Log log) {
+	public SimulationRunner(CarPark carPark, Simulator sim, Log log) {
 		this.carPark = carPark;
 		this.sim = sim;
 		this.log = log;
@@ -59,7 +49,8 @@ public class SimulationRunner {
 	 * @throws IOException on logging failures
 	 */
 	public void runSimulation() throws VehicleException, SimulationException, IOException {
-		this.log.initialEntry(this.carPark,this.sim);
+	 	this.log.initialEntry(this.carPark,this.sim);
+		
 		for (int time=0; time<=Constants.CLOSING_TIME; time++) {
 			//queue elements exceed max waiting time
 			if (!this.carPark.queueEmpty()) {
@@ -89,18 +80,19 @@ public class SimulationRunner {
 	 * Main program for the simulation 
 	 * @param args Arguments to the simulation 
 	 * @throws SimulationException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws SimulationException {
-		int a = 0;
-		int b = 0;
-		int c = 0;
-		int d = 0;
-		int z = 0;
-		double f = 0;
-		double g = 0;
-		double h = 0;
-		double i = 0;
-		double j = 0;
+	public static void main(String[] args) throws SimulationException, IOException {
+		int maxCarSpaces = Constants.DEFAULT_MAX_CAR_SPACES;
+		int maxSmallCarSpaces = Constants.DEFAULT_MAX_SMALL_CAR_SPACES;
+		int maxMotorCycleSpaces = Constants.DEFAULT_MAX_MOTORCYCLE_SPACES;
+		int maxQueueSize = Constants.DEFAULT_MAX_QUEUE_SIZE;
+		int seed = Constants.DEFAULT_SEED;
+		double carProb = Constants.DEFAULT_CAR_PROB;
+		double smallCarProb = Constants.DEFAULT_SMALL_CAR_PROB;
+		double motorCycleProb = Constants.DEFAULT_MOTORCYCLE_PROB;
+		double meanStay = Constants.DEFAULT_INTENDED_STAY_MEAN;
+		double staySD = Constants.DEFAULT_INTENDED_STAY_SD;
 			
 		CarPark cp = new CarPark();
 		Simulator s = null;
@@ -112,44 +104,53 @@ public class SimulationRunner {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
-		
-		//TODO: Implement Argument Processing 
-    //    System.out.println(" enter 10 numbers 5 ints, 5 doubles into main");
-		
+		//Argument Processing 
 		if (args.length != 0){
-		if (args.length != 10){
-			System.out.println(" You need to enter 10 numbers 5 ints, 5 doubles into main!!!!!!");
-}
-		try
-		{a = Integer.parseInt(args[0]);
-		b = Integer.parseInt(args[1]);
-		c = Integer.parseInt(args[2]);
-		d = Integer.parseInt(args[3]);
-		z = Integer.parseInt(args[4]);
-		} catch (Exception e)
-		{System.out.println("Wrong input needs to be an int");
-		}
-		
-		try
-		{f = Double.parseDouble(args[5]);
-		g = Double.parseDouble(args[6]);
-		h = Double.parseDouble(args[7]);
-		i = Double.parseDouble(args[8]);
-		j = Double.parseDouble(args[9]);
-		} catch (Exception e)
-		{System.out.println("Wrong input needs to be a double");
-		}
-		if (f <=0 || f >1 || g <=0 || g >1 || h <=0 || h >1 || i <=0 || i >1 || j <=0 || j >1){
-		System.out.println("Wrong input needs to be between 0 and 1 inclusive");}
+			if (args.length != 10) {
+				System.out.println("You need to enter 10 numbers 5 ints, 5 floats, in the following format:");
+				System.out.println("maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces, maxQueueSize, seed.");
+				System.out.println("carProb (0-1), smallCarProb (0-1), motorCycleProb (0-1), meanStay, staySD.");
+				System.exit(-1);
+			}
+			try	{
+				maxCarSpaces = Integer.parseInt(args[0]);
+				maxSmallCarSpaces = Integer.parseInt(args[1]);
+				maxMotorCycleSpaces = Integer.parseInt(args[2]);
+				maxQueueSize = Integer.parseInt(args[3]);
+				seed = Integer.parseInt(args[4]);
+			} catch (Exception e) {
+				System.out.println("Error. First five inputs must be whole numbers. Ex: 100 20 20 10 100");
+				System.exit(-1);
+			}
 			
-		//	System.out.print(a +"  "  +b  +"  " + c  +"  "  +d  +"  " +z +" ");
-		//	System.out.print(f  + "  " +g  +"  " + h  +"  " + i  +"  "+ j);
+			try { 
+				carProb = Double.parseDouble(args[5]);
+				smallCarProb = Double.parseDouble(args[6]);
+				motorCycleProb = Double.parseDouble(args[7]);
+				meanStay = Double.parseDouble(args[8]);
+				staySD = Double.parseDouble(args[9]); 
+			} catch (Exception e) {
+				System.out.println("Error. Last five inputs must be floats. Ex: 1.0 0.2 0.05 120.00 39.6");
+				System.exit(-1);
+			}
+			
+			if (carProb < 0 || carProb > 1 || smallCarProb < 0 || smallCarProb > 1 || motorCycleProb < 0 
+						|| motorCycleProb > 1 || meanStay < 0) {
+				System.out.println("Error. Probability needs to be between 0 and 1 inclusive.\n Ex: carProb (0-1), smallCarProb (0-1), motorCycleProb (0-1)");
+				System.exit(-1);
+		}
 		
-			cp = new CarPark(a,b,c,d);
-			s =  new Simulator(z,f,g,h,i,j);
+		cp = new CarPark(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces, maxQueueSize);
+		s =  new Simulator(seed, carProb, smallCarProb, motorCycleProb, meanStay, staySD);
+		
 		}
 		//Run the simulation 
+		//GUISimulator gui = new GUISimulator("");
 		SimulationRunner sr = new SimulationRunner(cp,s,l);
+
+	//	String n = gui1.cstat(cp);
+	//	gui1.writeToConsole(n);
+		
 		try {
 			sr.runSimulation();
 		} catch (Exception e) {
