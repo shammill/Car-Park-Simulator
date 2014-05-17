@@ -189,7 +189,6 @@ public class CarPark {
 		if (queueFull()) {
 			throw new SimulationException("Queue is full, cannot add to queue.");
 		}
-		
 		v.enterQueuedState();
 		queue.add(v);
 	}
@@ -454,35 +453,13 @@ public class CarPark {
 		if (sim.newCarTrial()) {
 			count++;
 			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());
-			if (spacesAvailable(v)) {
-				parkVehicle(v, time, sim.setDuration());
-				status += setVehicleMsg(v, "N", "P");
-			} 
-			else if (!queueFull()) {
-				enterQueue(v);
-				status += setVehicleMsg(v, "N", "Q");
-			}
-			else {
-				archiveNewVehicle(v);
-				status += setVehicleMsg(v, "N", "A");
-			}
+			processNewVehicle(v, time, sim);
 		}
 
 		if (sim.motorCycleTrial()) {
 			count++;
 			Vehicle v = new MotorCycle("MC"+this.count, time);
-			if (spacesAvailable(v)) {
-				parkVehicle(v, time, sim.setDuration());
-				status += setVehicleMsg(v, "N", "P");
-			} 
-			else if (!queueFull()) {
-				enterQueue(v);
-				status += setVehicleMsg(v, "N", "Q");
-			}
-			else {
-				archiveNewVehicle(v);
-				status += setVehicleMsg(v, "N", "A");
-			}
+			processNewVehicle(v, time, sim);
 		}
 	}
 	
@@ -538,4 +515,33 @@ public class CarPark {
 		}
 		return "|"+str+":"+source+">"+target+"|";
 	}
+	
+	
+	/**
+	 * Helper to process a newly created vehicle. Cuts down on duplicate code.
+	 * @param v The vehicle to be processed.
+	 * @param time Current simulation time.
+	 * @param sim Simulation object controlling vehicle creation.
+	 * @throws SimulationException if no suitable spaces available when operation attempted 
+	 * @throws VehicleException if vehicle creation violates constraints
+	 * @author Samuel Hammill
+	 */
+	private void processNewVehicle(Vehicle v, int time, Simulator sim) throws VehicleException, SimulationException  {
+		if (spacesAvailable(v)) {
+			parkVehicle(v, time, sim.setDuration());
+			status += setVehicleMsg(v, "N", "P");
+		} 
+		else if (!queueFull()) {
+			enterQueue(v);
+			status += setVehicleMsg(v, "N", "Q");
+		}
+		else {
+			archiveNewVehicle(v);
+			status += setVehicleMsg(v, "N", "A");
+		}
+	}
+	
+	
+	
+	
 }

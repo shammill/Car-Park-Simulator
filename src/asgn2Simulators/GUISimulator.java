@@ -14,27 +14,33 @@ import java.awt.HeadlessException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Insets;
 import java.awt.Dimension;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import static javax.swing.border.TitledBorder.*;
+import javax.swing.border.EmptyBorder;
 
+import static javax.swing.border.TitledBorder.*;
 import asgn2CarParks.CarPark;
 import asgn2Simulators.Constants;
 import asgn2Simulators.Simulator;
@@ -53,41 +59,9 @@ public class GUISimulator extends JFrame implements Runnable {
 	
 	// Constants
 	private int WIDTH = 1024;
-	private int HEIGHT = 768;
-	
-	// JPanels
-	private JPanel parameters;
-	private JPanel logArea;
-	
-	// Textboxes for Simulation Components
-	private JTextField seedText;
-	private JTextField carProbText;
-	private JTextField smallCarProbText;
-	private JTextField motorCycleProbText;
-	private JTextField meanStayText;
-	private JTextField staySDText;
-	private JTextField maxCarSpacesText;
-	private JTextField maxSmallCarSpacesText;       
-	private JTextField maxMotorCycleSpacesText;
-	private JTextField maxQueueSizeText;
+	private int HEIGHT = 786;
 	
 	private JTextArea logText;
-	
-	// Labels for text boxes
-	private JLabel seedLabel;
-	private JLabel carProbLabel;
-	private JLabel smallCarProbLabel;
-	private JLabel motorCycleProbLabel;
-	private JLabel meanStayLabel;
-	private JLabel staySDLabel;
-	private JLabel maxCarSpacesLabel;
-	private JLabel maxSmallCarSpacesLabel;
-	private JLabel maxMotorCycleSpacesLabel;
-	private JLabel maxQueueSizeLabel;
-	
-	// Other items.
-	private JScrollPane scroll;
-	private JButton submitButton;
 	
 	// Simulation Components
 	private int seed;
@@ -122,7 +96,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		this.maxQueueSize = maxQueueSize;
 		
 		// Setup our GUI
-		initialiseComponents();
+		initialiseUI();
 		
 		try {
 			startSimulation();
@@ -132,87 +106,141 @@ public class GUISimulator extends JFrame implements Runnable {
 		} 
 	}
 	
-	private void initialiseComponents() {
+	private void initialiseUI() {
 		
-		// Set window parameters.
-		setTitle("Car Park Simulator");
-	    setVisible(true);
-	    setSize(WIDTH, HEIGHT);
-	    setLayout(null);
-	    setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// Create and set frame parameters.
+		JFrame frame = new JFrame("Car Park Simulator");
+		frame.setSize(WIDTH, HEIGHT);
+		frame.setLayout(null);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    
 		// Create our panels and set location.
-		parameters = new JPanel();
-		logArea = new JPanel();
-		logArea.setBounds(400, 10, 620, 700);
-		
-		parameters.setBounds(10, 10, 190, 301);
-		parameters.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
-		
+	    JPanel parameterBox = new JPanel();
+	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
+	    
+	    parameterBox.setBounds(75, 15, 400, 300);
+		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
+	    
+	    JPanel parameters = new JPanel();
+	    parameters.setLayout(new GridLayout(0, 2, 40, 15));
+	    parameters.setBorder(new EmptyBorder(0, 10 , 10, 10));
+	    
+	    JPanel parametersLeft = new JPanel();
+	    parametersLeft.setLayout(new GridLayout(0, 1));
+	    
+	    JPanel parametersRight = new JPanel();
+	    parametersRight.setLayout(new GridLayout(0, 1));
+	    
+	    JPanel logArea = new JPanel();
+		logArea.setBounds(400, 10, 770, 730);
+
+		parameterBox.add(parameters);
+		parameters.add(parametersLeft);
+		parameters.add(parametersRight);
+
+	    
 		// Add components to panels
-		logText = new JTextArea(40,40);
+		logText = new JTextArea(45,38);
 		logText.setEditable(false);
-		scroll = new JScrollPane(logText);
-		//logText.add(scroll, positionConstraints(Position.TOPCENTRE, 20));
-		
 		logText.setLineWrap(true);
+
+	    JScrollPane scrollPane = new JScrollPane(logText);
+	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	    logArea.add(scrollPane);
+		
 	    
 		// Setup parameter text fields and labels.
-		seedText = new JTextField(String.valueOf(seed));
-		carProbText = new JTextField(String.valueOf(carProb));
-		smallCarProbText = new JTextField(String.valueOf(smallCarProb));
-		motorCycleProbText = new JTextField(String.valueOf(motorCycleProb));
-		meanStayText = new JTextField(String.valueOf(meanStay));
-		staySDText = new JTextField(String.valueOf(staySD));
-		maxCarSpacesText = new JTextField(String.valueOf(maxCarSpaces));
-		maxSmallCarSpacesText = new JTextField(String.valueOf(maxSmallCarSpaces));
-		maxMotorCycleSpacesText = new JTextField(String.valueOf(maxMotorCycleSpaces));
-		maxQueueSizeText = new JTextField(String.valueOf(maxQueueSize));
+	    JTextField seedText = new JTextField(String.valueOf(seed));
+	    JTextField carProbText = new JTextField(String.valueOf(carProb));
+	    JTextField smallCarProbText = new JTextField(String.valueOf(smallCarProb));
+	    JTextField motorCycleProbText = new JTextField(String.valueOf(motorCycleProb));
+	    JTextField meanStayText = new JTextField(String.valueOf(meanStay));
+	    JTextField staySDText = new JTextField(String.valueOf(staySD));
+	    JTextField maxCarSpacesText = new JTextField(String.valueOf(maxCarSpaces));
+	    JTextField maxSmallCarSpacesText = new JTextField(String.valueOf(maxSmallCarSpaces));
+	    JTextField maxMotorCycleSpacesText = new JTextField(String.valueOf(maxMotorCycleSpaces));
+	    JTextField maxQueueSizeText = new JTextField(String.valueOf(maxQueueSize));
+	    
+	    /*seedText.setMaximumSize(new Dimension(200,200));
+	    carProbText.setMaximumSize(new Dimension(70,70));
+	    smallCarProbText.setMaximumSize(new Dimension(70,70));
+	    motorCycleProbText.setMaximumSize(new Dimension(70,70));
+	    meanStayText.setMaximumSize(new Dimension(200,200));
+	    staySDText.setMaximumSize(new Dimension(200,200));
+	    maxCarSpacesText.setMaximumSize(new Dimension(200,200));
+	    maxSmallCarSpacesText.setMaximumSize(new Dimension(200,200));
+	    maxMotorCycleSpacesText.setMaximumSize(new Dimension(200,200));
+	    maxQueueSizeText.setMaximumSize(new Dimension(200,200));*/
+	    
+	    seedText.setHorizontalAlignment(JTextField.CENTER);
+	    carProbText.setHorizontalAlignment(JTextField.CENTER);
+	    smallCarProbText.setHorizontalAlignment(JTextField.CENTER);
+	    motorCycleProbText.setHorizontalAlignment(JTextField.CENTER);
+	    meanStayText.setHorizontalAlignment(JTextField.CENTER);
+	    staySDText.setHorizontalAlignment(JTextField.CENTER);
+	    maxCarSpacesText.setHorizontalAlignment(JTextField.CENTER);
+	    maxSmallCarSpacesText.setHorizontalAlignment(JTextField.CENTER);
+	    maxMotorCycleSpacesText.setHorizontalAlignment(JTextField.CENTER);
+	    maxQueueSizeText.setHorizontalAlignment(JTextField.CENTER);
 	
-		seedLabel = new JLabel("Random Seed:");
-		carProbLabel = new JLabel("Car Probabilty:");
-		smallCarProbLabel = new JLabel("Small Car Probabilty:");
-		motorCycleProbLabel = new JLabel("Motor Cycle Probabilty:");
-		meanStayLabel = new JLabel("Average Stay Time:");
-		staySDLabel = new JLabel("Stay Time SD:");
-		maxCarSpacesLabel = new JLabel("Max Car Spaces:");
-		maxSmallCarSpacesLabel = new JLabel("Max Small Car Spaces:");
-		maxMotorCycleSpacesLabel = new JLabel("Max Motor Cycle Spaces:");
-		maxQueueSizeLabel = new JLabel("Max Queue Size:");
+	    JLabel seedLabel = new JLabel("Random Seed:");
+	    JLabel carProbLabel = new JLabel("Car Probabilty:");
+	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty:");
+	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty:");
+	    JLabel meanStayLabel = new JLabel("Average Stay Time:");
+	    JLabel staySDLabel = new JLabel("Stay Time SD:");
+	    JLabel maxCarSpacesLabel = new JLabel("Max Car Spaces:");
+	    JLabel maxSmallCarSpacesLabel = new JLabel("Max Small Car Spaces:");
+	    JLabel maxMotorCycleSpacesLabel = new JLabel("Max Motor Cycle Spaces:");
+	    JLabel maxQueueSizeLabel = new JLabel("Max Queue Size:");
 		
-		//seedLabel.setHorizontalAlignment(JTextField.RIGHT);
-		
-		submitButton = new JButton("Submit");
-		
-		// Add panels to frame.
-		add(parameters);
-		add(logArea);
-		logArea.add(logText);
-		
-		
-		parameters.add(seedLabel);
-		parameters.add(seedText);
-		parameters.add(carProbLabel);
-		parameters.add(carProbText);
-		parameters.add(smallCarProbLabel);
-		parameters.add(smallCarProbText);
-		parameters.add(motorCycleProbLabel);
-		parameters.add(motorCycleProbText);
-		parameters.add(meanStayLabel);
-		parameters.add(meanStayText);
-		parameters.add(staySDLabel);
-		parameters.add(staySDText);
-		parameters.add(maxCarSpacesLabel);
-		parameters.add(maxCarSpacesText);
-		parameters.add(maxSmallCarSpacesLabel);
-		parameters.add(maxSmallCarSpacesText);
-		parameters.add(maxMotorCycleSpacesLabel);
-		parameters.add(maxMotorCycleSpacesText);
-		parameters.add(maxQueueSizeLabel);
-		parameters.add(maxQueueSizeText);
-		parameters.add(maxQueueSizeText);
-		parameters.add(submitButton);
+	    JButton submitButton = new JButton("Submit");
+	    submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+
+		// Add panels to frame.
+		parametersLeft.add(seedLabel);
+		parametersLeft.add(seedText);
+
+		parametersRight.add(maxQueueSizeLabel);
+		parametersRight.add(maxQueueSizeText);
+		
+		parametersLeft.add(carProbLabel);
+		parametersLeft.add(carProbText);
+
+		parametersRight.add(maxCarSpacesLabel);
+		parametersRight.add(maxCarSpacesText);
+		
+		
+		parametersLeft.add(smallCarProbLabel);
+		parametersLeft.add(smallCarProbText);
+
+		parametersRight.add(maxSmallCarSpacesLabel);
+		parametersRight.add(maxSmallCarSpacesText);
+
+		
+		parametersLeft.add(motorCycleProbLabel);
+		parametersLeft.add(motorCycleProbText);
+		
+		parametersRight.add(maxMotorCycleSpacesLabel);
+		parametersRight.add(maxMotorCycleSpacesText);
+
+		parametersLeft.add(meanStayLabel);
+		parametersLeft.add(meanStayText);
+
+		parametersRight.add(staySDLabel);
+		parametersRight.add(staySDText);
+
+
+		//parameters.add(submitButton);
+		parameterBox.add(submitButton);
+		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
+		
+		frame.add(parameterBox);
+		frame.add(logArea);
+		
+		frame.setVisible(true);
 	}
 	
 
@@ -230,7 +258,7 @@ public class GUISimulator extends JFrame implements Runnable {
 		}
 		
 	 	log.initialEntry(carPark, sim);
-	 	initialEntry(carPark, sim);
+	 	initialEntry();
 		
 		for (int time=0; time<=Constants.CLOSING_TIME; time++) {
 			//queue elements exceed max waiting time
@@ -251,36 +279,23 @@ public class GUISimulator extends JFrame implements Runnable {
 			if (newVehiclesAllowed(time)) { 
 				carPark.tryProcessNewVehicles(time, sim);
 			}
-			//Log progress 
+			//Log progress
 			log.logEntry(time, carPark);
 			logEntry(time, carPark);
 		}
 		log.finalise(carPark);
-		finalise(carPark);
 	}
 	
 	
-	public void finalise(CarPark cp) throws IOException {
-		logText.append("\n" + getLogTime() + ": End of Simulation\n");
-		logText.append(cp.finalState());
-	//	String r = cp.finalState();
-	//	gui = new GUISimulator(r);
-	}
-	
-	public void initialEntry(CarPark cp,Simulator sim) throws IOException {
-		logText.append(getLogTime() + ": Start of Simulation\n");
-		logText.append(sim.toString() + "\n");
-		logText.append(cp.initialState() + "\n\n");
+	public void initialEntry() throws IOException {
+		logText.append("Start of Simulation\n\n");
 	}
 
 	public void logEntry(int time,CarPark cp) throws IOException {
-		logText.append(cp.getStatus(time));
+		String statusString = cp.getStatus(time);
+		logText.append(statusString);
 	}
 	
-	private String getLogTime() {
-		String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		return timeLog;
-	}
 	/* (non-Javadoc)
 	 * @see java.lang.Runnable#run()
 	 */
@@ -315,5 +330,5 @@ public class GUISimulator extends JFrame implements Runnable {
 		boolean allowed = (time >=1);
 		return allowed && (time <= (Constants.CLOSING_TIME - 60));
 	}
-
+	
 }

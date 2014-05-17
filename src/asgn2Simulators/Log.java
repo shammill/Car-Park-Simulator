@@ -49,6 +49,7 @@ public class Log {
 		writer.write("\n" + getLogTime() + ": End of Simulation\n");
 		writer.write(cp.finalState());
 		writer.close();
+		
 	}
 	
 	/**
