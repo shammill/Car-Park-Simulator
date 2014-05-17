@@ -27,6 +27,7 @@ public class SimulationRunner {
 	private CarPark carPark;
 	private Simulator sim;
 	private Log log;
+	private static GUISimulator gui;
 	
 	/**
 	 * Constructor just does initialisation 
@@ -49,7 +50,8 @@ public class SimulationRunner {
 	 * @throws IOException on logging failures
 	 */
 	public void runSimulation() throws VehicleException, SimulationException, IOException {
-	 	this.log.initialEntry(this.carPark,this.sim);
+	 	this.log.initialEntry(this.carPark, this.sim);
+	 	gui.initialEntry(this.carPark, this.sim);
 		
 		for (int time=0; time<=Constants.CLOSING_TIME; time++) {
 			//queue elements exceed max waiting time
@@ -71,11 +73,14 @@ public class SimulationRunner {
 				this.carPark.tryProcessNewVehicles(time,this.sim);
 			}
 			//Log progress 
-			this.log.logEntry(time,this.carPark);
+			this.log.logEntry(time, this.carPark);
+			gui.logEntry(time, this.carPark);
 		}
 		this.log.finalise(this.carPark);
+		gui.finalise(this.carPark);
 	}
 
+	
 	/**
 	 * Main program for the simulation 
 	 * @param args Arguments to the simulation 
@@ -94,16 +99,6 @@ public class SimulationRunner {
 		double meanStay = Constants.DEFAULT_INTENDED_STAY_MEAN;
 		double staySD = Constants.DEFAULT_INTENDED_STAY_SD;
 			
-		CarPark cp = new CarPark();
-		Simulator s = null;
-		Log l = null; 
-		try {
-			s = new Simulator();
-			l = new Log();
-		} catch (IOException | SimulationException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
-		}
 		//Argument Processing 
 		if (args.length != 0){
 			if (args.length != 10) {
@@ -138,26 +133,36 @@ public class SimulationRunner {
 						|| motorCycleProb > 1 || meanStay < 0) {
 				System.out.println("Error. Probability needs to be between 0 and 1 inclusive.\n Ex: carProb (0-1), smallCarProb (0-1), motorCycleProb (0-1)");
 				System.exit(-1);
+			}		
 		}
 		
-		cp = new CarPark(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces, maxQueueSize);
-		s =  new Simulator(seed, carProb, smallCarProb, motorCycleProb, meanStay, staySD);
+		// Run GUI
+		gui = new GUISimulator(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces,  maxQueueSize, seed, 
+				meanStay, staySD, carProb, smallCarProb, motorCycleProb);
 		
+		/* OLD SIMULATION. Code is now in GUI Simulator.
+		CarPark cp = new CarPark(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces, maxQueueSize);
+		Simulator s = null;
+		Log l = null;
+		
+		try {
+			s = new Simulator(seed, meanStay, staySD, carProb, smallCarProb, motorCycleProb);
+			l = new Log();
+		} catch (IOException | SimulationException e1) {
+			e1.printStackTrace();
+			System.exit(-1);
 		}
+		
 		//Run the simulation 
-		//GUISimulator gui = new GUISimulator("");
 		SimulationRunner sr = new SimulationRunner(cp,s,l);
-
-	//	String n = gui1.cstat(cp);
-	//	gui1.writeToConsole(n);
-		
 		try {
 			sr.runSimulation();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
-		} 
-	} 
+		} */
+	}
+		
 
 	/**
 	 * Helper method to determine if new vehicles are permitted

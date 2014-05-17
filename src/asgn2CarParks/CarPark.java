@@ -147,7 +147,6 @@ public class CarPark {
 		    if (time - v.getArrivalTime() >= Constants.MAXIMUM_QUEUE_TIME) {
 				past.add(v);
 		    	v.exitQueuedState(time);
-		    	//exitQueue(v, time);
 		    	i.remove();
 				numDissatisfied++;
 				status += setVehicleMsg(v, "Q", "A");

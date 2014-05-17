@@ -27,16 +27,8 @@ import org.junit.Test;
 
 public class CarParkTests {
 
-	MotorCycle mot1;
-	MotorCycle mot2;
-	Car car1;
-	Car car2;
-	Car sCar;
-	Car sCar1;
-	Car sCar2;
-	Simulator sim;
-	Log log;
-	SimulationRunner sr;
+	private MotorCycle mot1;
+	private Car car1;
 	
 	private String DEFAULT_MOTORCYCLE_ID = "MC1";
 	private String DEFAULT_CAR_ID = "C1";
