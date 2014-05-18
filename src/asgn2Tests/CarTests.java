@@ -118,7 +118,7 @@ public class CarTests {
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testCarConstructorZeroArrivalTime() throws VehicleException {
-		 Car c = new Car(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME, NOT_SMALL_CAR);
+		new Car(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME, NOT_SMALL_CAR);
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------
@@ -129,7 +129,7 @@ public class CarTests {
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testCarConstructorNegativeArrivalTime() throws VehicleException {
-		 Car c = new Car(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME, NOT_SMALL_CAR);
+		 new Car(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME, NOT_SMALL_CAR);
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------

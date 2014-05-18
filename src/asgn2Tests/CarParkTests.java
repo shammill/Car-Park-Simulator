@@ -15,8 +15,6 @@ import asgn2CarParks.CarPark;
 import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
 import asgn2Simulators.Constants;
-import asgn2Simulators.Log;
-import asgn2Simulators.SimulationRunner;
 import asgn2Simulators.Simulator;
 import asgn2Vehicles.MotorCycle;
 import asgn2Vehicles.Car;

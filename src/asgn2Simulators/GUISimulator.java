@@ -17,17 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Insets;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.awt.event.*;
 import java.awt.Dimension;
-
-
-
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -44,8 +39,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EmptyBorder;
-
 import static javax.swing.border.TitledBorder.*;
+
 import asgn2CarParks.CarPark;
 import asgn2Simulators.Constants;
 import asgn2Simulators.Simulator;
@@ -56,8 +51,9 @@ import asgn2Exceptions.VehicleException;
 
 
 /**
- * @author hogan
- *
+ * Class to operate the simulation, and display it using a GUI. 
+ * @author Samuel Hammill
+ * @author Laurence Mccabe
  */
 @SuppressWarnings("serial")
 public class GUISimulator extends JFrame implements Runnable {
@@ -66,8 +62,7 @@ public class GUISimulator extends JFrame implements Runnable {
 	private int WIDTH = 1024;
 	private int HEIGHT = 786;
 	
-	private JTextArea logText;
-	
+	// Parameter fields, log, and input button.
 	private JFormattedTextField  seedText;
 	private JFormattedTextField  carProbText;
 	private JFormattedTextField  smallCarProbText;
@@ -78,7 +73,7 @@ public class GUISimulator extends JFrame implements Runnable {
 	private JFormattedTextField  maxSmallCarSpacesText;
 	private JFormattedTextField  maxMotorCycleSpacesText;
 	private JFormattedTextField  maxQueueSizeText;
-	
+	private JTextArea logText;
 	private JButton submitButton;
 	
 	// Simulation Components
@@ -95,13 +90,13 @@ public class GUISimulator extends JFrame implements Runnable {
 	
 
 	/**
-	 * @param arg0
-	 * @throws HeadlessException
+	 * Takes Command Line Input or default simulator parameters and sets up our GUI.
+	 * @author Samuel Hammill
 	 */
 	public GUISimulator(int maxCarSpaces, int maxSmallCarSpaces, int maxMotorCycleSpaces, int maxQueueSize, int seed, 
 		double meanStay, double staySD, double carProb, double smallCarProb, double motorCycleProb) throws HeadlessException {
 		
-		// Take Simulation parameters so we can display them in our GUI.
+		// Take Simulation parameters so we can display them in our GUI, and use them in our simulation.
 		this.seed = seed;
 		this.carProb = carProb;
 		this.smallCarProb = smallCarProb;
@@ -115,10 +110,14 @@ public class GUISimulator extends JFrame implements Runnable {
 		
 		// Setup our GUI
 		initialiseUI();
-		 
 	}
 	
 	
+	/**
+	 * Responsible for creating and displaying our GUI.
+	 * @author Samuel Hammill
+	 * @author Laurence Mccabe
+	 */
 	private void initialiseUI() {
 		
 		// Create and set frame parameters.
@@ -128,11 +127,10 @@ public class GUISimulator extends JFrame implements Runnable {
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    
-		// Create our panels and set location.
+		// Create our panels to manage our customisable parameters.
 	    JPanel parameterBox = new JPanel();
-	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
-	    
 	    parameterBox.setBounds(75, 15, 400, 300);
+	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
 		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
 	    
 	    JPanel parameters = new JPanel();
@@ -140,20 +138,19 @@ public class GUISimulator extends JFrame implements Runnable {
 	    parameters.setBorder(new EmptyBorder(0, 10 , 10, 10));
 	    
 	    JPanel parametersLeft = new JPanel();
-	    parametersLeft.setLayout(new GridLayout(0, 1));
-	    
 	    JPanel parametersRight = new JPanel();
+	    parametersLeft.setLayout(new GridLayout(0, 1));
 	    parametersRight.setLayout(new GridLayout(0, 1));
 	    
-	    JPanel logArea = new JPanel();
-		logArea.setBounds(400, 10, 770, 730);
-
 		parameterBox.add(parameters);
 		parameters.add(parametersLeft);
 		parameters.add(parametersRight);
 
 	    
-		// Add components to panels
+		// Create a panel to display our log. Add a Text Area to go into it.
+	    JPanel logArea = new JPanel();
+		logArea.setBounds(400, 10, 770, 730);
+		
 		logText = new JTextArea(45,38);
 		logText.setEditable(false);
 		logText.setLineWrap(true);
@@ -162,6 +159,8 @@ public class GUISimulator extends JFrame implements Runnable {
 	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	    logArea.add(scrollPane);
 		
+	    
+	    // Create NumberFormats to manage our parameter input easily.
 	    NumberFormat intFormat = NumberFormat.getNumberInstance();
 	    intFormat.setMaximumFractionDigits(0);
 	    intFormat.setMaximumIntegerDigits(9);
@@ -175,8 +174,8 @@ public class GUISimulator extends JFrame implements Runnable {
 	    doubleFormat.setGroupingUsed(false);
 	    
 	    
-		// Setup parameter text fields and labels.
-	    //seedText = new JFormattedTextField(String.valueOf(seed));
+		// Setup parameter text fields and labels and 
+	    // populate them with CLI arguments, or default values.
 	    seedText = new JFormattedTextField(intFormat);
 	    carProbText = new JFormattedTextField(probFormat);
 	    smallCarProbText = new JFormattedTextField(probFormat);
@@ -187,7 +186,6 @@ public class GUISimulator extends JFrame implements Runnable {
 	    maxSmallCarSpacesText = new JFormattedTextField(intFormat);
 	    maxMotorCycleSpacesText = new JFormattedTextField(intFormat);
 	    maxQueueSizeText = new JFormattedTextField(intFormat);
-	    
 	    
 	    seedText.setHorizontalAlignment(JTextField.CENTER);
 	    carProbText.setHorizontalAlignment(JTextField.CENTER);
@@ -211,7 +209,6 @@ public class GUISimulator extends JFrame implements Runnable {
 	    maxMotorCycleSpacesText.setValue(new Integer(maxMotorCycleSpaces));
 	    maxQueueSizeText.setValue(new Integer(maxQueueSize));
 	    
-	
 	    JLabel seedLabel = new JLabel("Random Seed:");
 	    JLabel carProbLabel = new JLabel("Car Probabilty:");
 	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty:");
@@ -223,6 +220,8 @@ public class GUISimulator extends JFrame implements Runnable {
 	    JLabel maxMotorCycleSpacesLabel = new JLabel("Max Motor Cycle Spaces:");
 	    JLabel maxQueueSizeLabel = new JLabel("Max Queue Size:");
 	    
+	    
+	    // Add the individual parameter boxes and labels to the parameter panels.
 		parametersLeft.add(seedLabel);
 		parametersLeft.add(seedText);
 		parametersLeft.add(carProbLabel);
@@ -244,29 +243,32 @@ public class GUISimulator extends JFrame implements Runnable {
 		parametersRight.add(maxMotorCycleSpacesText);
 		parametersRight.add(staySDLabel);
 		parametersRight.add(staySDText);
-	    // End of Parameter boxes and label.
+	    // End of Parameter boxes and labels.
 	    
 	    
-		// Add and setup a submit button.
+		// Create and setup a button to run our simulation.
 	    submitButton = new JButton("RUN SIMULATION");
 	    submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-	    //submitButton.addActionListener(this);
+
 	    submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	processAndStartSimulation();
             }
         });
-
-
 		parameterBox.add(submitButton);
 		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
 
+		// Add our components onto the frame and render it visible.
 		frame.add(parameterBox);
 		frame.add(logArea);
 		frame.setVisible(true);
 	}
 	
 	
+	/**
+	 * Takes input from parameter fields and starts the simulation.
+	 * @author Samuel Hammill
+	 */
 	private void processAndStartSimulation() {
 		
 		submitButton.setEnabled(false);
@@ -293,6 +295,15 @@ public class GUISimulator extends JFrame implements Runnable {
 	}
 	
 
+	/**
+	 * Method to run the simulation from start to finish. Exceptions are propagated upwards from Vehicle,
+	 * Simulation and Log objects as necessary.
+	 * Creates Carpark, Simulator, and Log Objects and runs the simulation in a loop.
+	 * @throws VehicleException if Vehicle creation or operation constraints violated 
+	 * @throws SimulationException if Simulation constraints are violated 
+	 * @throws IOException on logging failures
+	 * @author Samuel Hammill
+	 */
 	private void startSimulation() throws VehicleException, SimulationException, IOException {
 		
 		CarPark carPark = new CarPark(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces, maxQueueSize);
@@ -338,13 +349,30 @@ public class GUISimulator extends JFrame implements Runnable {
 	}
 	
 	
+	/**
+	 * Prints a message after the end of the simulation
+	 * informing the user that the simulation is complete
+	 * and the output file was generated.
+	 * @author Samuel Hammill
+	 */
 	private void finaliseGUI() {
 		submitButton.setEnabled(true);
 		String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 		logText.append("\nSimulation Complete\nOutput file written: " + timeLog);
 	}
 	
-
+	/**
+	 * Helper method to determine if new vehicles are permitted
+	 * @param time int holding current simulation time
+	 * @return true if new vehicles permitted, false if not allowed due to simulation constraints. 
+	 */
+	private boolean newVehiclesAllowed(int time) {
+		boolean allowed = (time >=1);
+		return allowed && (time <= (Constants.CLOSING_TIME - 60));
+	}
+	
+	
+	
 	/**
 	 * @param args
 	 * @throws SimulationException 
@@ -360,17 +388,6 @@ public class GUISimulator extends JFrame implements Runnable {
 
 	}*/
 	
-	
-	/**
-	 * Helper method to determine if new vehicles are permitted
-	 * @param time int holding current simulation time
-	 * @return true if new vehicles permitted, false if not allowed due to simulation constraints. 
-	 */
-	private boolean newVehiclesAllowed(int time) {
-		boolean allowed = (time >=1);
-		return allowed && (time <= (Constants.CLOSING_TIME - 60));
-	}
-	
 	/* (non-Javadoc)
 	 * @see java.lang.Runnable#run()
 	 */
@@ -379,6 +396,4 @@ public class GUISimulator extends JFrame implements Runnable {
 		// TODO Auto-generated method stub
 
 	}
-	
-	
 }

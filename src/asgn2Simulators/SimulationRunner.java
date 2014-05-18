@@ -27,7 +27,6 @@ public class SimulationRunner {
 	private CarPark carPark;
 	private Simulator sim;
 	private Log log;
-	private static GUISimulator gui;
 	
 	/**
 	 * Constructor just does initialisation 
@@ -51,7 +50,6 @@ public class SimulationRunner {
 	 */
 	public void runSimulation() throws VehicleException, SimulationException, IOException {
 	 	this.log.initialEntry(this.carPark, this.sim);
-	 	gui.initialEntry();
 		
 		for (int time=0; time<=Constants.CLOSING_TIME; time++) {
 			//queue elements exceed max waiting time
@@ -74,7 +72,6 @@ public class SimulationRunner {
 			}
 			//Log progress 
 			this.log.logEntry(time, this.carPark);
-			gui.logEntry(time, this.carPark);
 		}
 		this.log.finalise(this.carPark);
 	}
@@ -136,7 +133,7 @@ public class SimulationRunner {
 		}
 		
 		// Run GUI
-		gui = new GUISimulator(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces,  maxQueueSize, seed, 
+		new GUISimulator(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces,  maxQueueSize, seed, 
 				meanStay, staySD, carProb, smallCarProb, motorCycleProb);
 		
 		/* OLD SIMULATION. Code is now in GUI Simulator.

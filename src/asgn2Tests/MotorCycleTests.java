@@ -90,7 +90,7 @@ public class MotorCycleTests {
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testMotorCycleConstructorZeroArrivalTime() throws VehicleException {
-		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME);
+		 new MotorCycle(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME);
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------
@@ -101,7 +101,7 @@ public class MotorCycleTests {
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testMotorCycleConstructorNegativeArrivalTime() throws VehicleException {
-		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME);
+		new MotorCycle(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME);
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------
