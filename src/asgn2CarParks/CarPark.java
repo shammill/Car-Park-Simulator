@@ -196,7 +196,7 @@ public class CarPark {
 	
 	/**
 	 * Method to remove vehicle from the queue after which it will be parked or 
-	 * removed altogether. Includes transition through Vehicle.exitQueuedState.  
+	 * archived. Includes transition through Vehicle.exitQueuedState.  
 	 * @param v Vehicle to be removed from the queue 
 	 * @param exitTime int time at which vehicle exits queue
 	 * @throws SimulationException if vehicle is not in queue 
@@ -498,9 +498,9 @@ public class CarPark {
 	/**
 	 * Helper to set vehicle message for transitions 
 	 * @param v Vehicle making a transition (uses S,C,M)
-	 * @param source String holding starting state of vehicle (N,Q,P,A) 
+	 * @param source String holding starting state of vehicle (N,Q,P) 
 	 * @param target String holding finishing state of vehicle (Q,P,A) 
-	 * @return String containing transition in the form: |(S|C|M):(N|Q|P|A)>(Q|P|A)| 
+	 * @return String containing transition in the form: |(S|C|M):(N|Q|P)>(Q|P|A)| 
 	 */
 	private String setVehicleMsg(Vehicle v, String source, String target) {
 		String str="";
@@ -540,8 +540,5 @@ public class CarPark {
 			status += setVehicleMsg(v, "N", "A");
 		}
 	}
-	
-	
-	
 	
 }

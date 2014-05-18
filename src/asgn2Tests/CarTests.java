@@ -160,10 +160,10 @@ public class CarTests {
 	/**
 	* @author Samuel Hammill
 	* 
-	* Test that the vehicle is not created in a satisfied state.
+	* Test that the vehicle is created in a satisfied state.
 	*/	
 	@Test
-	public void testCarConstructorIsNotSatisfied() throws VehicleException {
+	public void testCarConstructorIsSatisfied() throws VehicleException {
 		 Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
 		 assertFalse(c.isSatisfied());
 	}
@@ -215,6 +215,18 @@ public class CarTests {
 		Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
 		c.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		assertTrue(c.isParked());
+	}
+	
+	// ------------------------------------------------------------------------------------------------------------------
+	/**
+	* @author Samuel Hammill
+	* Test that the new car can be parked and made satisfied.
+	*/	
+	@Test
+	public void testEnterParkedStateSatisfaction() throws VehicleException  {
+		Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		c.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertTrue(c.isSatisfied());
 	}
 	
 	
@@ -321,6 +333,18 @@ public class CarTests {
 		Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
 		c.enterQueuedState();
 		assertTrue(c.isQueued());
+	}
+	
+	// ------------------------------------------------------------------------------------------------------------------
+	/**
+	* @author Samuel Hammill
+	* Test that the new car can be queued and made satisfied.
+	*/	
+	@Test
+	public void testEnterQueuedStateSatisfaction() throws VehicleException  {
+		Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		c.enterQueuedState();
+		assertTrue(c.isSatisfied());
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------
@@ -459,6 +483,19 @@ public class CarTests {
 		c.enterQueuedState();
 		c.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 		assertFalse(c.isQueued());
+	}
+	
+	// ------------------------------------------------------------------------------------------------------------------
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle exits the queue without parking and is dissatisfied.
+	*/	
+	@Test
+	public void testEnterExitQueuedStateSatisfaction() throws VehicleException  {
+		Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		c.enterQueuedState();
+		c.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		assertFalse(c.isSatisfied());
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------

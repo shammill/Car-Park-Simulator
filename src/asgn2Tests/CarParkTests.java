@@ -19,46 +19,29 @@ import asgn2Simulators.Simulator;
 import asgn2Vehicles.MotorCycle;
 import asgn2Vehicles.Car;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class CarParkTests {
 
 	private MotorCycle mot1;
 	private Car car1;
-	
 	private String DEFAULT_MOTORCYCLE_ID = "MC1";
 	private String DEFAULT_CAR_ID = "C1";
-	
 	private boolean SMALL_CAR = true;
 	private boolean NOT_SMALL_CAR = false;
 	private boolean FORCE_LEAVE = true;
 	private boolean NO_FORCE_LEAVE = false;
-	
 	private int DEFAULT_ARRIVAL_TIME = 1;
 	private int DEFAULT_TIME = 1;
 	private int DEFAULT_STAY_DURATION = Constants.MINIMUM_STAY;
 	private int DEFAULT_DEPARTURE_TIME = (DEFAULT_ARRIVAL_TIME + DEFAULT_STAY_DURATION);
-	
 	private int LOW_MAX_CAR_SPACES = 2;
 	private int LOW_MAX_SMALL_CAR_SPACES = 1;
 	private int LOW_MAX_MOTOR_CYCLE_SPACES = 1;
 	private int LOW_MAX_QUEUE_SIZE = 1;
 	
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-	//---------------------------------------------------------------------------------------------------------------------
-
-	// 2 CONSTRUCTORS STILL TO DO
 	
-	// ------------------------------------------------------------------------------------------------------------------------
 	// Test that ArchiveDepartingVehicles archives the vehicles that have
 	// left after they have parked, without forcing them.
 	// passes
@@ -84,7 +67,6 @@ public class CarParkTests {
 	// method, it also checks that ArchiveDepartingVehicles sets the string for
 	// the output as well.
 	// passes
-
 	@Test
 	public void testArchiveDepartingVehiclesForce() throws VehicleException, SimulationException {
 		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
@@ -104,7 +86,6 @@ public class CarParkTests {
 
 	// Test that ArchiveDepartingVehicles unparks the car.
 	// passes
-
 	@Test
 	public void testArchiveDepartingVehiclesUnParked() throws VehicleException,	SimulationException {
 		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
@@ -122,29 +103,10 @@ public class CarParkTests {
 		assertFalse(smallCar.isParked());
 	}
 
-	// Test that ArchiveDepartingVehicles throws a SimulationException when the
-	// vehicle is not parked.
-	// ***** this cannot be thrown as the vehicle needs to be parked to be in the
-	// park.
 
-	@Test(expected = Exception.class)
-	public void testArchiveDepartingVehiclesSimExcep() throws VehicleException,	SimulationException {
-		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
-
-		CarPark carPark = new CarPark();
-		
-		carPark.enterQueue(motorCycle);
-		carPark.archiveDepartingVehicles(DEFAULT_DEPARTURE_TIME, FORCE_LEAVE);
-	}
-
-	// Test that ArchiveDepartingVehicles throws vehicle excep.. ?? how do i **
-	// TO DO
-	// test it's current state.?
-	// ------------------------------------------------------------------------------------------------------------------------
 
 	// Check to see that ArchiveNewVehicle archives new vehicles
 	// passes
-
 	@Test
 	public void testArchiveNewVehicleAddsDissatisfied()	throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 3);
@@ -159,13 +121,14 @@ public class CarParkTests {
 		assertEquals("1::0::P:0::C:0::S:0::M:0::D:3::A:3::Q:0\n", status);
 	}
 
+	
 	// Check to see that ArchiveNewVehicle throws a SimulationException if the
 	// queue contains
 	// the vehicle that is trying to get queued.
 	// passes
 
-	@Test(expected = Exception.class)
-	public void testArchiveNewVehicleQueueExcep() throws VehicleException, SimulationException {
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleQueued() throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 3);
 		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
 		carPark.enterQueue(motorCycle);
@@ -173,20 +136,16 @@ public class CarParkTests {
 	}
 
 	
-
 	// Check to see that ArchiveNewVehicle throws a SimulationException if the
-	// queue contains
-	// the vehicle that is trying to get queued.
-	// passes
-
-	@Test(expected = Exception.class)
-	public void testArchiveNewVehicle() throws VehicleException, SimulationException {
+	// queue contains the vehicle that is trying to get queued.
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleParked() throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 3);
 		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
 		carPark.parkVehicle(motorCycle, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
 		carPark.archiveNewVehicle(motorCycle);
 	}
-	//---------------------------------------------------------------------------------------------------------------------
+
 
 	// Test ArchiveQueueFailures to see if it adds queue failure vehicles to the
 	// archive when it has
@@ -706,7 +665,7 @@ public class CarParkTests {
 //----------------------------------------------------------------------------------------------------------------------
 	
 	// Test Unpark Vehicle to see if it unparks a vehicle when it isn't parked.
-	@Test(expected = Exception.class)
+	@Test(expected = SimulationException.class)
 	public void testUnparkVehicle() throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 4);
 		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
@@ -720,36 +679,33 @@ public class CarParkTests {
 		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
 		carPark.parkVehicle(car, 3, 20);
 		carPark.unparkVehicle(car, 29);
-		assertTrue(car.isParked() == false);
+		assertFalse(car.isParked());
 	}
 
 	// Test Unpark Vehicle to see if it unparks a Small Car when it is parked.
-
 	@Test
 	public void testUnparkVehicleSmallCar() throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 4);
 		Car smallCar = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
 		carPark.parkVehicle(smallCar, 3, 20);
 		carPark.unparkVehicle(smallCar, 5);
-		assertTrue(smallCar.isParked() == false);
+		assertFalse(smallCar.isParked());
 
 	}
 
 	// Test UnparkVehicle to see if it unparks a MotorCycle when it is parked.
-
 	@Test
 	public void testUnparkVehicleMotorCycle() throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 4);
 		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
 		carPark.parkVehicle(motorCycle, 3, 20);
 		carPark.unparkVehicle(motorCycle, 5);
-		assertTrue(motorCycle.isParked() == false);
+		assertFalse(motorCycle.isParked());
 
 	}
 
 	// Test UnparkVehicle to see if it removes the number vehicles once
 	// they have been unparked.
-
 	@Test
 	public void testUnparkVehicleArchived() throws VehicleException, SimulationException {
 		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, 4);

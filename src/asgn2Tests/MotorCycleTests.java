@@ -132,10 +132,10 @@ public class MotorCycleTests {
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
-	* Test that the vehicle is not created in a satisfied state.
+	* Test that the vehicle is created in a satisfied state.
 	*/	
 	@Test
-	public void testMotorCycleConstructorIsNotSatisfied() throws VehicleException {
+	public void testMotorCycleConstructorIsSatisfied() throws VehicleException {
 		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		 assertFalse(m.isSatisfied());
 	}
@@ -187,6 +187,18 @@ public class MotorCycleTests {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 		assertTrue(m.isParked());
+	}
+	
+	// ------------------------------------------------------------------------------------------------------------------
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle can be parked and made satisfied.
+	*/	
+	@Test
+	public void testEnterParkedStateSatisfaction() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertTrue(m.isSatisfied());
 	}
 	
 	
@@ -293,6 +305,18 @@ public class MotorCycleTests {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		assertTrue(m.isQueued());
+	}
+	
+	// ------------------------------------------------------------------------------------------------------------------
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle can be queued and made satisfied.
+	*/	
+	@Test
+	public void testEnterQueuedStateSatisfaction() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		assertTrue(m.isSatisfied());
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------
@@ -431,6 +455,19 @@ public class MotorCycleTests {
 		m.enterQueuedState();
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 		assertFalse(m.isQueued());
+	}
+	
+	// ------------------------------------------------------------------------------------------------------------------
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle exits the queue without parking and is dissatisfied.
+	*/	
+	@Test
+	public void testExitQueuedStateSatisfaction() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		assertFalse(m.isSatisfied());
 	}
 	
 	// ------------------------------------------------------------------------------------------------------------------
