@@ -97,8 +97,7 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public void archiveDepartingVehicles(int time, boolean force) throws VehicleException, SimulationException {
-		
-		for (int i = 0; i < spaces.size(); ){
+		for (int i = 0; i < spaces.size();){
 			Vehicle v = spaces.get(i);
 			
 			if (!v.isParked()) {
@@ -140,7 +139,6 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public void archiveQueueFailures(int time) throws VehicleException {
-		
 		Iterator<Vehicle> i = queue.iterator();
 		while (i.hasNext()) {
 			Vehicle v = i.next();
@@ -410,7 +408,6 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public boolean spacesAvailable(Vehicle v) {
-		
 		if (v instanceof Car) {
 			if (((Car)v).isSmall() == true & (numCars < maxCarSpaces)) {
 					return true;

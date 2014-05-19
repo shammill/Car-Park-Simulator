@@ -12,8 +12,6 @@ package asgn2Tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import asgn2Exceptions.VehicleException;
@@ -33,6 +31,8 @@ public class CarTests {
 	private int DEFAULT_PARK_TIME = 1;
 	private int DEFAULT_INTENDED_DURATION = Constants.MINIMUM_STAY;
 	private int DEFAULT_QUEUE_DEPARTURE_TIME = 2;
+	private int DEFAULT_PARK_DEPARTURE_TIME = (DEFAULT_PARK_TIME + Constants.MINIMUM_STAY);
+	private int DEFAULT_EXIT_QUEUE_TIME = 2;
 	
 	// Conditional
 	private int LATE_PARK_TIME = 2;
@@ -40,25 +40,13 @@ public class CarTests {
 	private int NEGATIVE_ARRIVAL_TIME = -1;
 	private int NEGATIVE_PARKING_TIME = -1;
 	private int INVALID_INTENDED_DURATION = (Constants.MINIMUM_STAY - 1);
-	
-	private int DEFAULT_PARK_DEPARTURE_TIME = (DEFAULT_PARK_TIME + Constants.MINIMUM_STAY);
 	private int INVALID_PARK_DEPARTURE_TIME = 0;
-	
-	private int DEFAULT_EXIT_QUEUE_TIME = 2;
 	private int INVALID_EXIT_QUEUE_TIME = 1;
-	
 	private boolean SMALL_CAR = true;
 	private boolean NOT_SMALL_CAR = false;
 
-	@Before
-	public void setUp() throws Exception {
-	//Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
-	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	
 	/**
 	* Tests Car Constructor correctly sets vehId.
 	* @author Samuel Hammill

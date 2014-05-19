@@ -14,7 +14,6 @@ import asgn2Exceptions.VehicleException;
 import asgn2Simulators.Constants;
 
 
-
 /**
  * Vehicle is an abstract class specifying the basic state of a vehicle and the methods used to 
  * set and access that state. A vehicle is created upon arrival, at which point it must either 
@@ -248,7 +247,6 @@ public abstract class Vehicle {
 	 * @author Samuel Hammill
 	 */
 	public boolean isSatisfied() {
-		
 		if (wasParked | isParked) {
 			return true;
 		}

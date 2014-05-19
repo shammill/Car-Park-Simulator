@@ -13,8 +13,6 @@ package asgn2Tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import asgn2Exceptions.VehicleException;
@@ -24,7 +22,7 @@ import asgn2Vehicles.Vehicle;
 
 /**
  * @author Laurence McCabe (Base Methods)
- * @author Samuel Hammill (Refactoring, Constants, & some methods)
+ * @author Samuel Hammill (Refactoring, Constants, & Methods)
  */
 public class MotorCycleTests {
 
@@ -41,24 +39,12 @@ public class MotorCycleTests {
 	private int NEGATIVE_ARRIVAL_TIME = -1;
 	private int NEGATIVE_PARKING_TIME = -1;
 	private int INVALID_INTENDED_DURATION = (Constants.MINIMUM_STAY - 1);
-	
 	private int DEFAULT_PARK_DEPARTURE_TIME = (DEFAULT_PARK_TIME + Constants.MINIMUM_STAY);
 	private int INVALID_PARK_DEPARTURE_TIME = 0;
-	
 	private int DEFAULT_EXIT_QUEUE_TIME = 2;
 	private int INVALID_EXIT_QUEUE_TIME = 1;
 
-	@Before
-	public void setUp() throws Exception {
-	//MotorCycle defaultValidMotorCycle = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -69,8 +55,7 @@ public class MotorCycleTests {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		assertEquals(m.getVehID(), DEFAULT_VEH_ID);
 	}
-	
-	// ------------------------------------------------------------------------------------------------------------------	
+		
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -82,7 +67,6 @@ public class MotorCycleTests {
 		assertEquals(m.getArrivalTime(), DEFAULT_ARRIVAL_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -93,7 +77,6 @@ public class MotorCycleTests {
 		 new MotorCycle(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME);
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -104,7 +87,6 @@ public class MotorCycleTests {
 		new MotorCycle(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -116,7 +98,6 @@ public class MotorCycleTests {
 		 assertFalse(m.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -128,7 +109,6 @@ public class MotorCycleTests {
 		 assertFalse(m.isQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -140,7 +120,6 @@ public class MotorCycleTests {
 		 assertFalse(m.isSatisfied());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -152,7 +131,6 @@ public class MotorCycleTests {
 		 assertFalse(m.wasParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -164,7 +142,6 @@ public class MotorCycleTests {
 		 assertFalse(m.wasQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -176,7 +153,6 @@ public class MotorCycleTests {
 		 assertTrue(m instanceof Vehicle);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -189,7 +165,6 @@ public class MotorCycleTests {
 		assertTrue(m.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Samuel Hammill
 	* Test that the new motorcycle can be parked and made satisfied.
@@ -201,8 +176,6 @@ public class MotorCycleTests {
 		assertTrue(m.isSatisfied());
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -217,7 +190,6 @@ public class MotorCycleTests {
 		assertTrue(m.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -230,7 +202,6 @@ public class MotorCycleTests {
 		assertEquals(m.getParkingTime(), DEFAULT_PARK_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -243,7 +214,6 @@ public class MotorCycleTests {
 		assertEquals(m.getDepartureTime(), (DEFAULT_PARK_TIME + DEFAULT_INTENDED_DURATION));
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -256,7 +226,6 @@ public class MotorCycleTests {
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -269,7 +238,6 @@ public class MotorCycleTests {
 		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -281,7 +249,6 @@ public class MotorCycleTests {
 		m.enterParkedState(NEGATIVE_PARKING_TIME, DEFAULT_INTENDED_DURATION);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -292,9 +259,7 @@ public class MotorCycleTests {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterParkedState(DEFAULT_PARK_TIME, INVALID_INTENDED_DURATION);
 	}
-	
 
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -307,7 +272,6 @@ public class MotorCycleTests {
 		assertTrue(m.isQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Samuel Hammill
 	* Test that the new motorcycle can be queued and made satisfied.
@@ -319,7 +283,6 @@ public class MotorCycleTests {
 		assertTrue(m.isSatisfied());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -332,7 +295,6 @@ public class MotorCycleTests {
 		m.enterQueuedState();
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -345,9 +307,6 @@ public class MotorCycleTests {
 		m.enterQueuedState();
 	}
 
-	
-
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -361,7 +320,6 @@ public class MotorCycleTests {
 		assertFalse(m.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -375,7 +333,6 @@ public class MotorCycleTests {
 		assertTrue(m.wasParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -389,8 +346,6 @@ public class MotorCycleTests {
 		assertTrue(m.isSatisfied());
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -403,8 +358,6 @@ public class MotorCycleTests {
 		m.exitParkedState(INVALID_PARK_DEPARTURE_TIME);
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -416,7 +369,6 @@ public class MotorCycleTests {
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -430,7 +382,6 @@ public class MotorCycleTests {
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -443,7 +394,6 @@ public class MotorCycleTests {
 		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -457,7 +407,6 @@ public class MotorCycleTests {
 		assertFalse(m.isQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Samuel Hammill
 	* Test that the new motorcycle exits the queue without parking and is dissatisfied.
@@ -470,7 +419,6 @@ public class MotorCycleTests {
 		assertFalse(m.isSatisfied());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -484,7 +432,6 @@ public class MotorCycleTests {
 		assertEquals(m.getDepartureTime(), DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -498,7 +445,6 @@ public class MotorCycleTests {
 		assertTrue(m.wasQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -511,8 +457,6 @@ public class MotorCycleTests {
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -526,7 +470,6 @@ public class MotorCycleTests {
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -538,7 +481,6 @@ public class MotorCycleTests {
 		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
 	* @author Laurence McCabe (Base Methods)
 	* @author Samuel Hammill (Refactoring & Constants)
@@ -550,5 +492,4 @@ public class MotorCycleTests {
 		m.enterQueuedState();
 		m.exitQueuedState(INVALID_EXIT_QUEUE_TIME);
 	}
-
 }
