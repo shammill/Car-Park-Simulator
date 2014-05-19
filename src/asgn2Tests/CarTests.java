@@ -59,24 +59,19 @@ public class CarTests {
 	public void tearDown() throws Exception {
 	}
 
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Tests Car Constructor correctly sets vehId.
+	* @author Samuel Hammill
 	*/
 	@Test
 	public void testCarConstructorVehId() throws VehicleException {
 		Car c = new Car(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
 		assertEquals(c.getVehID(), DEFAULT_VEH_ID);
 	}
-	
-	// ------------------------------------------------------------------------------------------------------------------	
+		
 	/**
-	* @author Samuel Hammill
-	* 
 	* Tests Car Constructor correctly sets arrival time.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorArrivalTime() throws VehicleException {
@@ -85,11 +80,9 @@ public class CarTests {
 	}
 	
 	
-	// ------------------------------------------------------------------------------------------------------------------	
 	/**
-	* @author Samuel Hammill
-	* 
 	* Tests Car Constructor correctly sets if the car is not small.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorIsNotSmall() throws VehicleException {
@@ -97,11 +90,9 @@ public class CarTests {
 		assertFalse(c.isSmall());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------	
 	/**
-	* @author Samuel Hammill
-	* 
 	* Tests Car Constructor correctly sets if the car is small.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorIsSmall() throws VehicleException {
@@ -110,33 +101,27 @@ public class CarTests {
 	}
 	
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that Car throws an exception if the arrival time entered is 0.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testCarConstructorZeroArrivalTime() throws VehicleException {
 		new Car(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME, NOT_SMALL_CAR);
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that Car throws an exception if the arrival time entered less than 0.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testCarConstructorNegativeArrivalTime() throws VehicleException {
 		 new Car(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME, NOT_SMALL_CAR);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle is not created in a parked state.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorIsNotParked() throws VehicleException {
@@ -144,11 +129,9 @@ public class CarTests {
 		 assertFalse(c.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle is not created in a queued state.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorIsNotQueued() throws VehicleException {
@@ -156,11 +139,9 @@ public class CarTests {
 		 assertFalse(c.isQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle is created in a satisfied state.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorIsSatisfied() throws VehicleException {
@@ -168,11 +149,9 @@ public class CarTests {
 		 assertFalse(c.isSatisfied());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new vehicle has not parked yet.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorWasNotParked() throws VehicleException {
@@ -180,11 +159,9 @@ public class CarTests {
 		 assertFalse(c.wasParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new vehicle has not queued yet.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarConstructorWasNotQueued() throws VehicleException {
@@ -192,11 +169,9 @@ public class CarTests {
 		 assertFalse(c.wasQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new Car is a type of vehicle.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testCarIsInstanceOfVehicle() throws VehicleException {
@@ -204,11 +179,9 @@ public class CarTests {
 		 assertTrue(c instanceof Vehicle);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new Car can be parked without error.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterParkedState() throws VehicleException  {
@@ -217,10 +190,9 @@ public class CarTests {
 		assertTrue(c.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
 	* Test that the new car can be parked and made satisfied.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterParkedStateSatisfaction() throws VehicleException  {
@@ -230,11 +202,9 @@ public class CarTests {
 	}
 	
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new Car can be parked after being queued without error.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterParkedStateFromQueue() throws VehicleException  {
@@ -245,11 +215,9 @@ public class CarTests {
 		assertTrue(c.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new Car parks, and sets the parking time correctly.
+	* @author Samuel Hammill
 	*/
 	@Test
 	public void testEnterParkedStateParkingTimeValid() throws VehicleException  {
@@ -258,11 +226,9 @@ public class CarTests {
 		assertEquals(c.getParkingTime(), DEFAULT_PARK_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
-	/**
-	* @author Samuel Hammill
-	* 
+	/*
 	* Test that the new Car parks, and sets the departure time correctly.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterParkedStateDepartureTimeValid() throws VehicleException {
@@ -271,11 +237,9 @@ public class CarTests {
 		assertEquals(c.getDepartureTime(), (DEFAULT_PARK_TIME + DEFAULT_INTENDED_DURATION));
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test parking an already parked vehicle.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testEnterParkedStateWhileParked() throws VehicleException  {
@@ -284,11 +248,9 @@ public class CarTests {
 		c.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test parking a vehicle still in the queue.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testEnterParkedStateWhileQueued() throws VehicleException {
@@ -297,11 +259,9 @@ public class CarTests {
 		c.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test parking a vehicle with negative parking time.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testEnterParkedStateNegativeParkingTime() throws VehicleException {
@@ -309,11 +269,9 @@ public class CarTests {
 		c.enterParkedState(NEGATIVE_PARKING_TIME, DEFAULT_INTENDED_DURATION);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test parking a vehicle with too low of a intended duration.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testEnterParkedStateInvalidDuration() throws VehicleException {
@@ -321,12 +279,9 @@ public class CarTests {
 		c.enterParkedState(DEFAULT_PARK_TIME, INVALID_INTENDED_DURATION);
 	}
 	
-
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the new Car can be queued without error.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterQueuedState() throws VehicleException {
@@ -335,10 +290,9 @@ public class CarTests {
 		assertTrue(c.isQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
 	* Test that the new car can be queued and made satisfied.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterQueuedStateSatisfaction() throws VehicleException  {
@@ -347,11 +301,9 @@ public class CarTests {
 		assertTrue(c.isSatisfied());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the cannot be queued while it is parked.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testEnterQueuedStateWhileParked() throws VehicleException {
@@ -360,11 +312,9 @@ public class CarTests {
 		c.enterQueuedState();
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that vehicle the cannot be queued while it is already queued.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testEnterQueuedStateWhileQueued() throws VehicleException {
@@ -373,13 +323,9 @@ public class CarTests {
 		c.enterQueuedState();
 	}
 
-	
-
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can successfully unpark after parking.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testExitParkedState() throws VehicleException {
@@ -389,11 +335,9 @@ public class CarTests {
 		assertFalse(c.isParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can is successfully marked as having been parked.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testExitParkedStateWasParked() throws VehicleException {
@@ -403,11 +347,9 @@ public class CarTests {
 		assertTrue(c.wasParked());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can is successfully marked as having been satisfied.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testExitParkedStateIsSatisfied() throws VehicleException {
@@ -417,12 +359,9 @@ public class CarTests {
 		assertTrue(c.isSatisfied());
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test unparking without staying long enough.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitParkedStateInvalidDepartureTime() throws VehicleException {
@@ -431,12 +370,9 @@ public class CarTests {
 		c.exitParkedState(INVALID_PARK_DEPARTURE_TIME);
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test for VehicleException if vehicle tries to exit park while not parked.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitParkedStateWhenNotParked() throws VehicleException {
@@ -444,11 +380,9 @@ public class CarTests {
 		c.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test for VehicleException if vehicle tries to exit park while not parked, after parking.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitParkedStateAfterExiting() throws VehicleException {
@@ -458,11 +392,9 @@ public class CarTests {
 		c.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test for VehicleException if vehicle tries to exit park while queued.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitParkedStateWhileQueued() throws VehicleException {
@@ -471,11 +403,9 @@ public class CarTests {
 		c.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can successfully exit queue after queuing.
+	* @author Samuel Hammill	
 	*/	
 	@Test
 	public void testExitQueuedState() throws VehicleException {
@@ -485,10 +415,9 @@ public class CarTests {
 		assertFalse(c.isQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
 	* Test that the new motorcycle exits the queue without parking and is dissatisfied.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testEnterExitQueuedStateSatisfaction() throws VehicleException  {
@@ -498,11 +427,9 @@ public class CarTests {
 		assertFalse(c.isSatisfied());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that ExitQueue successfully sets Exit/Departure Time.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testExitQueuedStateDepartureTime() throws VehicleException {
@@ -512,11 +439,9 @@ public class CarTests {
 		assertEquals(c.getDepartureTime(), DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle is marked as having been queued after exiting.
+	* @author Samuel Hammill
 	*/	
 	@Test
 	public void testExitQueuedStateWasQueued() throws VehicleException {
@@ -526,11 +451,9 @@ public class CarTests {
 		assertTrue(c.wasQueued());
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can't exit queue when parked.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitQueuedStateWhenParked() throws VehicleException {
@@ -539,12 +462,9 @@ public class CarTests {
 		c.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can't exit queue after already exiting queue.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitQueuedStateAfterExitingQueue() throws VehicleException {
@@ -554,11 +474,9 @@ public class CarTests {
 		c.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can't exit queue after creation.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitQueuedStateAfterCreation() throws VehicleException {
@@ -566,11 +484,9 @@ public class CarTests {
 		c.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
 	
-	// ------------------------------------------------------------------------------------------------------------------
 	/**
-	* @author Samuel Hammill
-	* 
 	* Test that the vehicle can't exit queue after creation.
+	* @author Samuel Hammill
 	*/	
 	@Test(expected = VehicleException.class)
 	public void testExitQueuedStateInvalidExitTime() throws VehicleException {
@@ -578,5 +494,4 @@ public class CarTests {
 		c.enterQueuedState();
 		c.exitQueuedState(INVALID_EXIT_QUEUE_TIME);
 	}
-
 }
