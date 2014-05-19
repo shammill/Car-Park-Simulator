@@ -210,9 +210,9 @@ public class GUISimulator extends JFrame implements Runnable {
 	    maxQueueSizeText.setValue(new Integer(maxQueueSize));
 	    
 	    JLabel seedLabel = new JLabel("Random Seed:");
-	    JLabel carProbLabel = new JLabel("Car Probabilty:");
-	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty:");
-	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty:");
+	    JLabel carProbLabel = new JLabel("Car Probabilty: (0-1)");
+	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty: (0-1)");
+	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty: (0-1)");
 	    JLabel meanStayLabel = new JLabel("Average Stay Time:");
 	    JLabel staySDLabel = new JLabel("Stay Time SD:");
 	    JLabel maxCarSpacesLabel = new JLabel("Max Car Spaces:");
@@ -285,6 +285,19 @@ public class GUISimulator extends JFrame implements Runnable {
 		maxSmallCarSpaces = Integer.parseInt(maxSmallCarSpacesText.getText());
 		maxMotorCycleSpaces = Integer.parseInt(maxMotorCycleSpacesText.getText());
 		maxQueueSize = Integer.parseInt(maxQueueSizeText.getText());
+		
+		if (carProb > 1) {
+			carProb = 1.0;
+			carProbText.setText("1.0");
+		}
+		if (smallCarProb > 1) {
+			smallCarProb = 1.0;
+			smallCarProbText.setText("1.0");
+		}
+		if (motorCycleProb > 1) {
+			motorCycleProb = 1.0;
+			motorCycleProbText.setText("1.0");
+		}
 		
 		try {
 			startSimulation();
