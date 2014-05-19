@@ -39,8 +39,61 @@ public class CarParkTests {
 	private int LOW_MAX_SMALL_CAR_SPACES = 1;
 	private int LOW_MAX_MOTOR_CYCLE_SPACES = 1;
 	private int LOW_MAX_QUEUE_SIZE = 1;
+	private int DEFAULT_MAX_CAR_SPACES = 100;
+	private int DEFAULT_MAX_SMALL_CAR_SPACES = 20;
+	private int DEFAULT_MAX_MOTOR_CYCLE_SPACES = 10;
+	private int DEFAULT_MAX_QUEUE_SIZE = 10;
 	
 
+	// Ensure our no parameter constructor works and CarPark is empty.
+	@Test
+	public void testCarParkNoParameterConstructorParkEmpty() {
+		CarPark carPark = new CarPark();
+		assertTrue(carParkEmpty());
+	}
+	
+	// Ensure our no parameter constructor works and queue is empty.
+	@Test
+	public void testCarParkNoParameterConstructorQueueEmpty() {
+		CarPark carPark = new CarPark();
+		assertEquals(0, numVehiclesInQueue());
+	}
+	
+	// Ensure our no parameter constructor works and no cars exist.
+	@Test
+	public void testCarParkNoParameterConstructorNoCars() {
+		CarPark carPark = new CarPark();
+		assertEquals(0, getNumCars());
+		assertEquals(0, getNumSmallCars());
+		assertEquals(0, getNumMotorCycles());
+	}
+	
+	
+	// Ensure our parameter constructor works and CarPark is empty.
+	@Test
+	public void testCarParkConstructorParkEmpty() {
+		CarPark carPark = new CarPark(DEFAULT_MAX_CAR_SPACES, DEFAULT_MAX_SMALL_CAR_SPACES, 
+										DEFAULT_MAX_MOTOR_CYCLE_SPACES, DEFAULT_MAX_QUEUE_SIZE);
+		assertTrue(carParkEmpty());
+	}
+	
+	// Ensure our parameter constructor works and queue is empty.
+	@Test
+	public void testCarParkConstructorQueueEmpty() {
+		CarPark carPark = new CarPark(DEFAULT_MAX_CAR_SPACES, DEFAULT_MAX_SMALL_CAR_SPACES, 
+										DEFAULT_MAX_MOTOR_CYCLE_SPACES, DEFAULT_MAX_QUEUE_SIZE);
+		assertEquals(0, numVehiclesInQueue());
+	}
+	
+	// Ensure our parameter constructor works and no cars exist.
+	@Test
+	public void testCarParkConstructorNoCars() {
+		CarPark carPark = new CarPark(DEFAULT_MAX_CAR_SPACES, DEFAULT_MAX_SMALL_CAR_SPACES, 
+										DEFAULT_MAX_MOTOR_CYCLE_SPACES, DEFAULT_MAX_QUEUE_SIZE);
+		assertEquals(0, getNumCars());
+		assertEquals(0, getNumSmallCars());
+		assertEquals(0, getNumMotorCycles());
+	}
 	
 	// Test that ArchiveDepartingVehicles archives the vehicles that have
 	// left after they have parked, without forcing them.
