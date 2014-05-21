@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
@@ -39,15 +40,17 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EmptyBorder;
-import static javax.swing.border.TitledBorder.*;
 
+import org.jfree.ui.RefineryUtilities;
+
+import static javax.swing.border.TitledBorder.*;
 import asgn2CarParks.CarPark;
 import asgn2Simulators.Constants;
 import asgn2Simulators.Simulator;
 import asgn2Simulators.Log;
 import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
-
+import asgn2Examples.RandomTimeSeries;
 
 
 /**
@@ -56,10 +59,10 @@ import asgn2Exceptions.VehicleException;
  * @author Laurence Mccabe
  */
 @SuppressWarnings("serial")
-public class GUISimulator extends JFrame implements Runnable {
+public class GUISimulator extends JFrame {
 	
 	// Constants
-	private int WIDTH = 1024;
+	private int WIDTH = 825;
 	private int HEIGHT = 786;
 	
 	// Parameter fields, log, and input button.
@@ -88,6 +91,17 @@ public class GUISimulator extends JFrame implements Runnable {
 	private int maxMotorCycleSpaces;
 	private int maxQueueSize;
 	
+	
+	/**
+	 * No argument constructor.
+	 * @author Samuel Hammill
+	 */
+	public GUISimulator() {
+		this(Constants.DEFAULT_MAX_CAR_SPACES, Constants.DEFAULT_MAX_SMALL_CAR_SPACES, Constants.DEFAULT_MAX_MOTORCYCLE_SPACES, 
+			Constants.DEFAULT_MAX_QUEUE_SIZE, Constants.DEFAULT_SEED, Constants.DEFAULT_INTENDED_STAY_MEAN, 
+			Constants.DEFAULT_INTENDED_STAY_SD, Constants.DEFAULT_CAR_PROB, Constants.DEFAULT_SMALL_CAR_PROB, Constants.DEFAULT_MOTORCYCLE_PROB);
+	}
+	
 
 	/**
 	 * Takes Command Line Input or default simulator parameters and sets up our GUI.
@@ -114,6 +128,21 @@ public class GUISimulator extends JFrame implements Runnable {
 	
 	
 	/**
+	 * @param args
+	 * @throws SimulationException 
+	 * @throws IOException 
+	 */
+	public static void main(String[] args) throws SimulationException, IOException {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+            	new GUISimulator();
+            }
+        });
+    }
+	
+	
+	/**
 	 * Responsible for creating and displaying our GUI.
 	 * @author Samuel Hammill
 	 * @author Laurence Mccabe
@@ -121,20 +150,25 @@ public class GUISimulator extends JFrame implements Runnable {
 	private void initialiseUI() {
 		
 		// Create and set frame parameters.
-		JFrame frame = new JFrame("Car Park Simulator");
+		/*JFrame frame = new JFrame("Car Park Simulator");
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setLayout(null);
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);*/
+		this.setTitle("Car Park Simulator");
+		this.setSize(WIDTH, HEIGHT);
+		this.setLayout(null);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    
 		// Create our panels to manage our customisable parameters.
 	    JPanel parameterBox = new JPanel();
-	    parameterBox.setBounds(75, 15, 400, 300);
+	    parameterBox.setBounds(10, 455, 350, 295);
 	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
 		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
 	    
 	    JPanel parameters = new JPanel();
-	    parameters.setLayout(new GridLayout(0, 2, 40, 15));
+	    parameters.setLayout(new GridLayout(0, 2, 20, 15));
 	    parameters.setBorder(new EmptyBorder(0, 10 , 10, 10));
 	    
 	    JPanel parametersLeft = new JPanel();
@@ -146,68 +180,23 @@ public class GUISimulator extends JFrame implements Runnable {
 		parameters.add(parametersLeft);
 		parameters.add(parametersRight);
 
-	    
 		// Create a panel to display our log. Add a Text Area to go into it.
 	    JPanel logArea = new JPanel();
-		logArea.setBounds(400, 10, 770, 730);
+		logArea.setBounds(370, 455, 440, 295);
 		
-		logText = new JTextArea(45,38);
+		logText = new JTextArea(18,38);
 		logText.setEditable(false);
 		logText.setLineWrap(true);
 
 	    JScrollPane scrollPane = new JScrollPane(logText);
 	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	    logArea.add(scrollPane);
-		
 	    
-	    // Create NumberFormats to manage our parameter input easily.
-	    NumberFormat intFormat = NumberFormat.getNumberInstance();
-	    intFormat.setMaximumFractionDigits(0);
-	    intFormat.setMaximumIntegerDigits(9);
-	    intFormat.setGroupingUsed(false);
-	    NumberFormat probFormat = NumberFormat.getNumberInstance();
-	    probFormat.setMinimumFractionDigits(1);
-	    probFormat.setMaximumIntegerDigits(1);
-	    probFormat.setGroupingUsed(false);
-	    NumberFormat doubleFormat = NumberFormat.getNumberInstance();
-	    doubleFormat.setMinimumFractionDigits(1);
-	    doubleFormat.setGroupingUsed(false);
-	    
-	    
-		// Setup parameter text fields and labels and 
-	    // populate them with CLI arguments, or default values.
-	    seedText = new JFormattedTextField(intFormat);
-	    carProbText = new JFormattedTextField(probFormat);
-	    smallCarProbText = new JFormattedTextField(probFormat);
-	    motorCycleProbText = new JFormattedTextField(probFormat);
-	    meanStayText = new JFormattedTextField(doubleFormat);
-	    staySDText = new JFormattedTextField(doubleFormat);
-	    maxCarSpacesText = new JFormattedTextField(intFormat);
-	    maxSmallCarSpacesText = new JFormattedTextField(intFormat);
-	    maxMotorCycleSpacesText = new JFormattedTextField(intFormat);
-	    maxQueueSizeText = new JFormattedTextField(intFormat);
-	    
-	    seedText.setHorizontalAlignment(JTextField.CENTER);
-	    carProbText.setHorizontalAlignment(JTextField.CENTER);
-	    smallCarProbText.setHorizontalAlignment(JTextField.CENTER);
-	    motorCycleProbText.setHorizontalAlignment(JTextField.CENTER);
-	    meanStayText.setHorizontalAlignment(JTextField.CENTER);
-	    staySDText.setHorizontalAlignment(JTextField.CENTER);
-	    maxCarSpacesText.setHorizontalAlignment(JTextField.CENTER);
-	    maxSmallCarSpacesText.setHorizontalAlignment(JTextField.CENTER);
-	    maxMotorCycleSpacesText.setHorizontalAlignment(JTextField.CENTER);
-	    maxQueueSizeText.setHorizontalAlignment(JTextField.CENTER);
-	    
-	    seedText.setValue(new Integer(seed));
-	    carProbText.setValue(new Double(carProb));
-	    smallCarProbText.setValue(new Double(smallCarProb));
-	    motorCycleProbText.setValue(new Double(motorCycleProb));
-	    meanStayText.setValue(new Double(meanStay));
-	    staySDText.setValue(new Double(staySD));
-	    maxCarSpacesText.setValue(new Integer(maxCarSpaces));
-	    maxSmallCarSpacesText.setValue(new Integer(maxSmallCarSpaces));
-	    maxMotorCycleSpacesText.setValue(new Integer(maxMotorCycleSpaces));
-	    maxQueueSizeText.setValue(new Integer(maxQueueSize));
+	    // Create a panel to hold our chart.
+	    JPanel chartPanel = new JPanel();
+	    chartPanel.setBounds(5, 5, 810, 440);
+	    //chartPanel.setBackground(Color.RED);
+	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
 	    
 	    JLabel seedLabel = new JLabel("Random Seed:");
 	    JLabel carProbLabel = new JLabel("Car Probabilty: (0-1)");
@@ -220,6 +209,7 @@ public class GUISimulator extends JFrame implements Runnable {
 	    JLabel maxMotorCycleSpacesLabel = new JLabel("Max Motor Cycle Spaces:");
 	    JLabel maxQueueSizeLabel = new JLabel("Max Queue Size:");
 	    
+	    setupParameterTextFields();
 	    
 	    // Add the individual parameter boxes and labels to the parameter panels.
 		parametersLeft.add(seedLabel);
@@ -259,9 +249,16 @@ public class GUISimulator extends JFrame implements Runnable {
 		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
 
 		// Add our components onto the frame and render it visible.
-		frame.add(parameterBox);
-		frame.add(logArea);
-		frame.setVisible(true);
+		this.add(parameterBox);
+		this.add(logArea);
+		this.add(chartPanel);
+		//frame.add(parameterBox);
+		//frame.add(logArea);
+		//frame.setVisible(true);
+        RefineryUtilities.centerFrameOnScreen(this);
+		this.setVisible(true);
+		
+		//RandomTimeSeries randomTimeSeries = new RandomTimeSeries();
 	}
 	
 	
@@ -384,29 +381,61 @@ public class GUISimulator extends JFrame implements Runnable {
 		return allowed && (time <= (Constants.CLOSING_TIME - 60));
 	}
 	
-	
-	
+		
 	/**
-	 * @param args
-	 * @throws SimulationException 
-	 * @throws IOException 
+	 * Method to setup NumberFormats for input processing, and JFormattedTextFields
+	 * for text input from user before simulation starts.
+	 * @param time int holding current simulation time
+	 * @return true if new vehicles permitted, false if not allowed due to simulation constraints. 
 	 */
-	/*public static void main(String[] args) throws SimulationException, IOException {
-		GUISimulator g = new GUISimulator("l");
-		CarPark cp = new CarPark(20,5,5,5);
-		Simulator sim = new Simulator(1,1,1,1,1,1);
-		g.initialEntry(cp, sim);
-		g.finalise(cp);
-		// TODO Auto-generated method stub
-
-	}*/
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Runnable#run()
-	 */
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-	}
+	private void setupParameterTextFields() {
+	    // Create NumberFormats to manage our parameter input easily.
+	    NumberFormat intFormat = NumberFormat.getNumberInstance();
+	    intFormat.setMaximumFractionDigits(0);
+	    intFormat.setMaximumIntegerDigits(9);
+	    intFormat.setGroupingUsed(false);
+	    NumberFormat probFormat = NumberFormat.getNumberInstance();
+	    probFormat.setMinimumFractionDigits(1);
+	    probFormat.setMaximumIntegerDigits(1);
+	    probFormat.setGroupingUsed(false);
+	    NumberFormat doubleFormat = NumberFormat.getNumberInstance();
+	    doubleFormat.setMinimumFractionDigits(1);
+	    doubleFormat.setGroupingUsed(false);
+	    
+		// Setup parameter text fields and give them NumberFormats
+	    seedText = new JFormattedTextField(intFormat);
+	    carProbText = new JFormattedTextField(probFormat);
+	    smallCarProbText = new JFormattedTextField(probFormat);
+	    motorCycleProbText = new JFormattedTextField(probFormat);
+	    meanStayText = new JFormattedTextField(doubleFormat);
+	    staySDText = new JFormattedTextField(doubleFormat);
+	    maxCarSpacesText = new JFormattedTextField(intFormat);
+	    maxSmallCarSpacesText = new JFormattedTextField(intFormat);
+	    maxMotorCycleSpacesText = new JFormattedTextField(intFormat);
+	    maxQueueSizeText = new JFormattedTextField(intFormat);
+	    
+	    // Center text in the middle of the text box.
+	    seedText.setHorizontalAlignment(JTextField.CENTER);
+	    carProbText.setHorizontalAlignment(JTextField.CENTER);
+	    smallCarProbText.setHorizontalAlignment(JTextField.CENTER);
+	    motorCycleProbText.setHorizontalAlignment(JTextField.CENTER);
+	    meanStayText.setHorizontalAlignment(JTextField.CENTER);
+	    staySDText.setHorizontalAlignment(JTextField.CENTER);
+	    maxCarSpacesText.setHorizontalAlignment(JTextField.CENTER);
+	    maxSmallCarSpacesText.setHorizontalAlignment(JTextField.CENTER);
+	    maxMotorCycleSpacesText.setHorizontalAlignment(JTextField.CENTER);
+	    maxQueueSizeText.setHorizontalAlignment(JTextField.CENTER);
+	    
+	    // Set the initial text to appear as the CLI or Default arguments.
+	    seedText.setValue(new Integer(seed));
+	    carProbText.setValue(new Double(carProb));
+	    smallCarProbText.setValue(new Double(smallCarProb));
+	    motorCycleProbText.setValue(new Double(motorCycleProb));
+	    meanStayText.setValue(new Double(meanStay));
+	    staySDText.setValue(new Double(staySD));
+	    maxCarSpacesText.setValue(new Integer(maxCarSpaces));
+	    maxSmallCarSpacesText.setValue(new Integer(maxSmallCarSpaces));
+	    maxMotorCycleSpacesText.setValue(new Integer(maxMotorCycleSpaces));
+	    maxQueueSizeText.setValue(new Integer(maxQueueSize));
+	}	
 }

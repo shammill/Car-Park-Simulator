@@ -446,7 +446,7 @@ public class CarPark {
 	 * @throws VehicleException if vehicle creation violates constraints
 	 * @author Samuel Hammill
 	 */
-	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {	// Duplicate code. Privatize this.
+	public void tryProcessNewVehicles(int time, Simulator sim) throws VehicleException, SimulationException {
 		if (sim.newCarTrial()) {
 			count++;
 			Vehicle v = new Car("C"+this.count, time, sim.smallCarTrial());

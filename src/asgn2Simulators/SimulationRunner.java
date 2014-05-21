@@ -136,7 +136,8 @@ public class SimulationRunner {
 		new GUISimulator(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces,  maxQueueSize, seed, 
 				meanStay, staySD, carProb, smallCarProb, motorCycleProb);
 		
-		/* OLD SIMULATION. Code is now in GUI Simulator.
+		
+		/* OLD SIMULATION. Code is now in GUI Simulator. Kept for legacy purposes.
 		CarPark cp = new CarPark(maxCarSpaces, maxSmallCarSpaces, maxMotorCycleSpaces, maxQueueSize);
 		Simulator s = null;
 		Log l = null;
