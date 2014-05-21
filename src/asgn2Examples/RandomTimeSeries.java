@@ -82,6 +82,7 @@ public class RandomTimeSeries extends JPanel {
 		Random rng = new Random(250); 
 		
 		int cars = 0;
+		int smallCars = 0;
 		int mc = 0; 
 		
 		//Hack loop to make it interesting. Grows for half of it, then declines
@@ -155,11 +156,11 @@ public class RandomTimeSeries extends JPanel {
         range.setAutoRange(true);
         return result;
     }
-
+/*
     /**
      * Simple main GUI runner 
      * @param args ignored 
-     */
+     *//*
     public static void main(final String[] args) {
         EventQueue.invokeLater(new Runnable() {
             @Override
@@ -170,5 +171,5 @@ public class RandomTimeSeries extends JPanel {
                 demo.setVisible(true);
             }
         });
-    }
+    }*/
 }

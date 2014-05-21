@@ -78,6 +78,7 @@ public class GUISimulator extends JFrame {
 	private JFormattedTextField  maxQueueSizeText;
 	private JTextArea logText;
 	private JButton submitButton;
+	private JPanel chartPanel;
 	
 	// Simulation Components
 	private int seed;
@@ -124,6 +125,7 @@ public class GUISimulator extends JFrame {
 		
 		// Setup our GUI
 		initialiseUI();
+		createChart();
 	}
 	
 	
@@ -163,7 +165,7 @@ public class GUISimulator extends JFrame {
 	    
 		// Create our panels to manage our customisable parameters.
 	    JPanel parameterBox = new JPanel();
-	    parameterBox.setBounds(10, 455, 350, 295);
+	    parameterBox.setBounds(10, 455, 340, 295);
 	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
 		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
 	    
@@ -193,7 +195,7 @@ public class GUISimulator extends JFrame {
 	    logArea.add(scrollPane);
 	    
 	    // Create a panel to hold our chart.
-	    JPanel chartPanel = new JPanel();
+	    chartPanel = new JPanel();
 	    chartPanel.setBounds(5, 5, 810, 440);
 	    //chartPanel.setBackground(Color.RED);
 	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
@@ -352,11 +354,26 @@ public class GUISimulator extends JFrame {
 			}
 			//Log progress
 			log.logEntry(time, carPark);
-			logText.append(carPark.getStatus(time));
+			parseStatus(carPark.getStatus(time));
 		}
 		log.finalise(carPark);
 		finaliseGUI();
 	}
+	
+	
+	private void createChart() {
+		RandomTimeSeries newChart = new RandomTimeSeries("");
+		chartPanel.add(newChart);
+	}
+	
+	
+	private void parseStatus(String status) {
+		logText.append(status);
+		
+		
+		
+	}
+	
 	
 	
 	/**
