@@ -93,6 +93,17 @@ public class GUISimulator extends JFrame {
 	private int maxQueueSize;
 	
 	
+	private int numVeh;
+	private int CurrPark;
+	private int numCars;
+	private int numSmallCars;
+	private int numMot;
+	private int numQueued;
+	private int numArchived;
+	private int numDissatisfied;
+	
+	
+	
 	/**
 	 * No argument constructor.
 	 * @author Samuel Hammill
@@ -285,6 +296,7 @@ public class GUISimulator extends JFrame {
 		maxMotorCycleSpaces = Integer.parseInt(maxMotorCycleSpacesText.getText());
 		maxQueueSize = Integer.parseInt(maxQueueSizeText.getText());
 		
+		// Catch probability over 1.0 and set it back to 1.0 before running the simulation.
 		if (carProb > 1) {
 			carProb = 1.0;
 			carProbText.setText("1.0");
@@ -368,10 +380,21 @@ public class GUISimulator extends JFrame {
 	
 	
 	private void parseStatus(String status) {
+		int[] anArray = new int[9];
 		logText.append(status);
 		
-		
-		
+		 Scanner scanner = new Scanner(status);
+		 scanner.useDelimiter("::");
+		 
+		 while (scanner.hasNext()) {
+      		if (scanner.hasNextInt()) {
+			
+        		System.out.println(src.nextInt());
+				// add to array
+      		} else {
+       			break;
+      		}
+		}
 	}
 	
 	
