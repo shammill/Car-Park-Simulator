@@ -14,14 +14,13 @@ import java.awt.HeadlessException;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.awt.event.*;
 import java.awt.Dimension;
 
@@ -36,7 +35,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EmptyBorder;
@@ -78,6 +76,11 @@ public class GUISimulator extends JFrame {
 	private JFormattedTextField  maxQueueSizeText;
 	private JTextArea logText;
 	private JButton submitButton;
+	private JPanel parameterBox;
+	private JPanel parameters;
+	private JPanel parametersLeft;
+	private JPanel parametersRight;
+	private JPanel logArea;
 	private JPanel chartPanel;
 	
 	// Simulation Components
@@ -92,18 +95,16 @@ public class GUISimulator extends JFrame {
 	private int maxMotorCycleSpaces;
 	private int maxQueueSize;
 	
+	ArrayList<Integer> totalVehicles = new ArrayList<Integer>();
+	ArrayList<Integer> parkedVehicles = new ArrayList<Integer>();
+	ArrayList<Integer> parkedCars = new ArrayList<Integer>();
+	ArrayList<Integer> parkedSmallCars = new ArrayList<Integer>();
+	ArrayList<Integer> parkedMotorCycles = new ArrayList<Integer>();
+	ArrayList<Integer> vehiclesInQueue = new ArrayList<Integer>();
+	ArrayList<Integer> vehiclesArchived = new ArrayList<Integer>();
+	ArrayList<Integer> dissatisfiedVehicles = new ArrayList<Integer>();
 	
-	private int numVeh;
-	private int CurrPark;
-	private int numCars;
-	private int numSmallCars;
-	private int numMot;
-	private int numQueued;
-	private int numArchived;
-	private int numDissatisfied;
-	
-	
-	
+		
 	/**
 	 * No argument constructor.
 	 * @author Samuel Hammill
@@ -136,7 +137,28 @@ public class GUISimulator extends JFrame {
 		
 		// Setup our GUI
 		initialiseUI();
+	}
+	
+
+	/**
+	 * Responsible for creating and displaying our GUI.
+	 * @author Samuel Hammill
+	 * @author Laurence Mccabe
+	 */
+	private void initialiseUI() {
+		setupFrame();
+		setupPanels();
+	    setupParameterTextFields();
+	    addParametersToPanel();
+	    setupRunSimulationButton();
 		createChart();
+	   
+		// Add our top level panels onto the frame and render it visible.
+		this.add(parameterBox);
+		this.add(logArea);
+		this.add(chartPanel);
+        RefineryUtilities.centerFrameOnScreen(this);
+		this.setVisible(true);
 	}
 	
 	
@@ -153,126 +175,6 @@ public class GUISimulator extends JFrame {
             }
         });
     }
-	
-	
-	/**
-	 * Responsible for creating and displaying our GUI.
-	 * @author Samuel Hammill
-	 * @author Laurence Mccabe
-	 */
-	private void initialiseUI() {
-		
-		// Create and set frame parameters.
-		/*JFrame frame = new JFrame("Car Park Simulator");
-		frame.setSize(WIDTH, HEIGHT);
-		frame.setLayout(null);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);*/
-		this.setTitle("Car Park Simulator");
-		this.setSize(WIDTH, HEIGHT);
-		this.setLayout(null);
-		this.setResizable(false);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	    
-		// Create our panels to manage our customisable parameters.
-	    JPanel parameterBox = new JPanel();
-	    parameterBox.setBounds(10, 455, 340, 295);
-	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
-		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
-	    
-	    JPanel parameters = new JPanel();
-	    parameters.setLayout(new GridLayout(0, 2, 20, 15));
-	    parameters.setBorder(new EmptyBorder(0, 10 , 10, 10));
-	    
-	    JPanel parametersLeft = new JPanel();
-	    JPanel parametersRight = new JPanel();
-	    parametersLeft.setLayout(new GridLayout(0, 1));
-	    parametersRight.setLayout(new GridLayout(0, 1));
-	    
-		parameterBox.add(parameters);
-		parameters.add(parametersLeft);
-		parameters.add(parametersRight);
-
-		// Create a panel to display our log. Add a Text Area to go into it.
-	    JPanel logArea = new JPanel();
-		logArea.setBounds(370, 455, 440, 295);
-		
-		logText = new JTextArea(18,38);
-		logText.setEditable(false);
-		logText.setLineWrap(true);
-
-	    JScrollPane scrollPane = new JScrollPane(logText);
-	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-	    logArea.add(scrollPane);
-	    
-	    // Create a panel to hold our chart.
-	    chartPanel = new JPanel();
-	    chartPanel.setBounds(5, 5, 810, 440);
-	    //chartPanel.setBackground(Color.RED);
-	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
-	    
-	    JLabel seedLabel = new JLabel("Random Seed:");
-	    JLabel carProbLabel = new JLabel("Car Probabilty: (0-1)");
-	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty: (0-1)");
-	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty: (0-1)");
-	    JLabel meanStayLabel = new JLabel("Average Stay Time:");
-	    JLabel staySDLabel = new JLabel("Stay Time SD:");
-	    JLabel maxCarSpacesLabel = new JLabel("Max Car Spaces:");
-	    JLabel maxSmallCarSpacesLabel = new JLabel("Max Small Car Spaces:");
-	    JLabel maxMotorCycleSpacesLabel = new JLabel("Max Motor Cycle Spaces:");
-	    JLabel maxQueueSizeLabel = new JLabel("Max Queue Size:");
-	    
-	    setupParameterTextFields();
-	    
-	    // Add the individual parameter boxes and labels to the parameter panels.
-		parametersLeft.add(seedLabel);
-		parametersLeft.add(seedText);
-		parametersLeft.add(carProbLabel);
-		parametersLeft.add(carProbText);
-		parametersLeft.add(smallCarProbLabel);
-		parametersLeft.add(smallCarProbText);
-		parametersLeft.add(motorCycleProbLabel);
-		parametersLeft.add(motorCycleProbText);
-		parametersLeft.add(meanStayLabel);
-		parametersLeft.add(meanStayText);
-
-		parametersRight.add(maxQueueSizeLabel);
-		parametersRight.add(maxQueueSizeText);
-		parametersRight.add(maxCarSpacesLabel);
-		parametersRight.add(maxCarSpacesText);
-		parametersRight.add(maxSmallCarSpacesLabel);
-		parametersRight.add(maxSmallCarSpacesText);
-		parametersRight.add(maxMotorCycleSpacesLabel);
-		parametersRight.add(maxMotorCycleSpacesText);
-		parametersRight.add(staySDLabel);
-		parametersRight.add(staySDText);
-	    // End of Parameter boxes and labels.
-	    
-	    
-		// Create and setup a button to run our simulation.
-	    submitButton = new JButton("RUN SIMULATION");
-	    submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-	    submitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	processAndStartSimulation();
-            }
-        });
-		parameterBox.add(submitButton);
-		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
-
-		// Add our components onto the frame and render it visible.
-		this.add(parameterBox);
-		this.add(logArea);
-		this.add(chartPanel);
-		//frame.add(parameterBox);
-		//frame.add(logArea);
-		//frame.setVisible(true);
-        RefineryUtilities.centerFrameOnScreen(this);
-		this.setVisible(true);
-		
-		//RandomTimeSeries randomTimeSeries = new RandomTimeSeries();
-	}
 	
 	
 	/**
@@ -309,6 +211,15 @@ public class GUISimulator extends JFrame {
 			motorCycleProb = 1.0;
 			motorCycleProbText.setText("1.0");
 		}
+		
+		totalVehicles.clear();
+		parkedVehicles.clear();	  
+		parkedCars.clear();
+		parkedSmallCars.clear();
+		parkedMotorCycles.clear();
+		dissatisfiedVehicles.clear();
+		vehiclesArchived.clear();
+		vehiclesInQueue.clear();
 		
 		try {
 			startSimulation();
@@ -367,37 +278,55 @@ public class GUISimulator extends JFrame {
 			//Log progress
 			log.logEntry(time, carPark);
 			parseStatus(carPark.getStatus(time));
+			
 		}
 		log.finalise(carPark);
 		finaliseGUI();
+		chartPanel.removeAll();
+		createChart();
 	}
 	
 	
+	/**
+	 * Creates the chart and adds it to a panel on our frame.
+	 * @author Samuel Hammill
+	 */
 	private void createChart() {
-		RandomTimeSeries newChart = new RandomTimeSeries("");
+		RandomTimeSeries newChart = new RandomTimeSeries(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles);
 		chartPanel.add(newChart);
+		//chartPanel.repaint();
+		chartPanel.revalidate();
 	}
 	
 	
+	/**
+	 * 
+	 * Parses the status string for us to create a chart based off the simulation data.
+	 * @author Samuel Hammill
+	 */	
 	private void parseStatus(String status) {
-		int[] anArray = new int[9];
+		// Constants for specific data positions in a string array.
+		int VEHICLES_CREATED = 2;
+		int PARKED_VEHICLES = 5;
+		int CARS = 8;
+		int SMALL_CARS = 11;
+		int MOTOR_CYCLES = 14;
+		int DISSATISFIED = 17;
+		int ARCHIVED = 20;
+		int QUEUED = 23;
+		
 		logText.append(status);
 		
-		 Scanner scanner = new Scanner(status);
-		 scanner.useDelimiter("::");
-		 
-		 while (scanner.hasNext()) {
-      		if (scanner.hasNextInt()) {
-			
-        		System.out.println(src.nextInt());
-				// add to array
-      		} else {
-       			break;
-      		}
-		}
+		String [] statusArray = status.split(":");
+		totalVehicles.add(Integer.parseInt(statusArray[VEHICLES_CREATED]));
+		parkedVehicles.add(Integer.parseInt(statusArray[PARKED_VEHICLES]));		  
+		parkedCars.add(Integer.parseInt(statusArray[CARS]));
+		parkedSmallCars.add(Integer.parseInt(statusArray[SMALL_CARS]));	
+		parkedMotorCycles.add(Integer.parseInt(statusArray[MOTOR_CYCLES]));
+		dissatisfiedVehicles.add(Integer.parseInt(statusArray[DISSATISFIED]));
+		vehiclesArchived.add(Integer.parseInt(statusArray[ARCHIVED]));
+		vehiclesInQueue.add(Integer.parseInt(statusArray[QUEUED].replaceAll("[^\\d]", "")));
 	}
-	
-	
 	
 	/**
 	 * Prints a message after the end of the simulation
@@ -421,12 +350,69 @@ public class GUISimulator extends JFrame {
 		return allowed && (time <= (Constants.CLOSING_TIME - 60));
 	}
 	
+	
+	
+	/**
+	 * Method to setup our Jframe parameters.
+	 * @author Samuel Hammill
+	 */
+	private void setupFrame() {
+		this.setTitle("Car Park Simulator");
+		this.setSize(WIDTH, HEIGHT);
+		this.setLayout(null);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+
+	/**
+	 * Method to setup our panels for containing elements and layout.
+	 * @author Samuel Hammill
+	 */
+	private void setupPanels() {
+		// Create our panels to manage our customisable parameters.
+	    parameterBox = new JPanel();
+	    parameterBox.setBounds(10, 455, 340, 295);
+	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
+		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
+	    
+	    parameters = new JPanel();
+	    parameters.setLayout(new GridLayout(0, 2, 20, 15));
+	    parameters.setBorder(new EmptyBorder(0, 10 , 10, 10));
+	    
+	    parametersLeft = new JPanel();
+	    parametersRight = new JPanel();
+	    parametersLeft.setLayout(new GridLayout(0, 1));
+	    parametersRight.setLayout(new GridLayout(0, 1));
+	    
+		parameterBox.add(parameters);
+		parameters.add(parametersLeft);
+		parameters.add(parametersRight);
+
+		// Create a panel to display our log. Add a Text Area to go into it.
+	    logArea = new JPanel();
+		logArea.setBounds(370, 455, 440, 295);
 		
+		logText = new JTextArea(18,38);
+		logText.setEditable(false);
+		logText.setLineWrap(true);
+
+	    JScrollPane scrollPane = new JScrollPane(logText);
+	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	    logArea.add(scrollPane);
+	    
+	    // Create a panel to hold our chart.
+	    chartPanel = new JPanel();
+	    chartPanel.setBounds(5, 5, 810, 440);
+	    //chartPanel.setBackground(Color.RED);
+	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
+	}
+	
+	
 	/**
 	 * Method to setup NumberFormats for input processing, and JFormattedTextFields
 	 * for text input from user before simulation starts.
-	 * @param time int holding current simulation time
-	 * @return true if new vehicles permitted, false if not allowed due to simulation constraints. 
+	 * @author Samuel Hammill
 	 */
 	private void setupParameterTextFields() {
 	    // Create NumberFormats to manage our parameter input easily.
@@ -478,4 +464,60 @@ public class GUISimulator extends JFrame {
 	    maxMotorCycleSpacesText.setValue(new Integer(maxMotorCycleSpaces));
 	    maxQueueSizeText.setValue(new Integer(maxQueueSize));
 	}	
+	
+	
+	/**
+	 * Add the individual parameters and labels to the parameter panels.
+	 * @author Samuel Hammill
+	 */
+	private void addParametersToPanel() {
+	    JLabel seedLabel = new JLabel("Random Seed:");
+	    JLabel carProbLabel = new JLabel("Car Probabilty: (0-1)");
+	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty: (0-1)");
+	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty: (0-1)");
+	    JLabel meanStayLabel = new JLabel("Average Stay Time:");
+	    JLabel staySDLabel = new JLabel("Stay Time SD:");
+	    JLabel maxCarSpacesLabel = new JLabel("Max Car Spaces:");
+	    JLabel maxSmallCarSpacesLabel = new JLabel("Max Small Car Spaces:");
+	    JLabel maxMotorCycleSpacesLabel = new JLabel("Max Motor Cycle Spaces:");
+	    JLabel maxQueueSizeLabel = new JLabel("Max Queue Size:");
+		
+		parametersLeft.add(seedLabel);
+		parametersLeft.add(seedText);
+		parametersLeft.add(carProbLabel);
+		parametersLeft.add(carProbText);
+		parametersLeft.add(smallCarProbLabel);
+		parametersLeft.add(smallCarProbText);
+		parametersLeft.add(motorCycleProbLabel);
+		parametersLeft.add(motorCycleProbText);
+		parametersLeft.add(meanStayLabel);
+		parametersLeft.add(meanStayText);
+
+		parametersRight.add(maxQueueSizeLabel);
+		parametersRight.add(maxQueueSizeText);
+		parametersRight.add(maxCarSpacesLabel);
+		parametersRight.add(maxCarSpacesText);
+		parametersRight.add(maxSmallCarSpacesLabel);
+		parametersRight.add(maxSmallCarSpacesText);
+		parametersRight.add(maxMotorCycleSpacesLabel);
+		parametersRight.add(maxMotorCycleSpacesText);
+		parametersRight.add(staySDLabel);
+		parametersRight.add(staySDText);
+	}
+
+	
+	private void setupRunSimulationButton() {
+		// Create and setup a button to run our simulation.
+	    submitButton = new JButton("RUN SIMULATION");
+	    submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	processAndStartSimulation();
+            }
+        });
+		parameterBox.add(submitButton);
+		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
+	}
+	
 }

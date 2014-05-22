@@ -11,19 +11,14 @@
 package asgn2Examples;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -51,14 +46,22 @@ import org.jfree.ui.RefineryUtilities;
 @SuppressWarnings("serial")
 public class RandomTimeSeries extends JPanel {
 
-    private static final String TITLE = "Car Park";
-    
+	ArrayList<Integer> parkedVehicles;
+	ArrayList<Integer> parkedCars;
+	ArrayList<Integer> parkedSmallCars;
+	ArrayList<Integer> parkedMotorCycles;
+	
     /**
      * Constructor shares the work with the run method. 
      * @param title Frame display title
      */
-    public RandomTimeSeries(final String title) {
-       // super(title);
+    public RandomTimeSeries(ArrayList<Integer> parkedVehicles, ArrayList<Integer> parkedCars, ArrayList<Integer> parkedSmallCars, ArrayList<Integer> parkedMotorCycles) {
+
+    	this.parkedVehicles = parkedVehicles;
+    	this.parkedCars = parkedCars;
+    	this.parkedSmallCars = parkedSmallCars;
+    	this.parkedMotorCycles = parkedMotorCycles;
+    	
         final TimeSeriesCollection dataset = createTimeSeriesData(); 
         JFreeChart chart = createChart(dataset);
         this.add(new ChartPanel(chart), BorderLayout.CENTER);
@@ -75,58 +78,46 @@ public class RandomTimeSeries extends JPanel {
 		TimeSeriesCollection tsc = new TimeSeriesCollection(); 
 		TimeSeries vehTotal = new TimeSeries("Total Vehicles");
 		TimeSeries carTotal = new TimeSeries("Total Cars"); 
+		TimeSeries smallCarTotal = new TimeSeries("Total Small Cars"); 
 		TimeSeries mcTotal = new TimeSeries("MotorCycles");
 		
 		//Base time, data set up - the calendar is needed for the time points
 		Calendar cal = GregorianCalendar.getInstance();
-		Random rng = new Random(250); 
 		
-		int cars = 0;
-		int smallCars = 0;
-		int mc = 0; 
+		int vehicles = 0;
+		int cars = 1;
+		int smallCars = 1;
+		int motorCycles = 0;
 		
-		//Hack loop to make it interesting. Grows for half of it, then declines
-		for (int i=0; i<=18*60; i++) {
-			//These lines are important 
-			cal.set(2014,0,1,6,i);
-	        Date timePoint = cal.getTime();
-	        
-	        //HACK BEGINS
-	        if (i<9*60) {
-	        	if (randomSuccess(0.2,rng)) {
-	        		cars++; 
-	        	}
-	        	if (randomSuccess(0.1,rng)) {
-	        		mc++;
-	        	}
-	        } else if (i < 18*60) {
-	        	if (randomSuccess(0.15,rng)) {
-	        		cars++; 
-	        	} else if (randomSuccess(0.4,rng)) {
-	        		cars = Math.max(cars-1,0);
-	        	}
-	        	if (randomSuccess(0.05,rng)) {
-	        		mc++; 
-	        	} else if (randomSuccess(0.2,rng)) {
-	        		mc = Math.max(mc-1,0);
-	        	}
-	        } else {
-	        	cars=0; 
-	        	mc =0;
-	        }
-	        //HACK ENDS
-	        
-	        //This is important - steal it shamelessly 
-			mcTotal.add(new Minute(timePoint),mc);
-			carTotal.add(new Minute(timePoint),cars);
-			vehTotal.add(new Minute(timePoint),cars+mc);
-		}
+			//Hack loop to make it interesting. Grows for half of it, then declines
+			for (int i=0; i<=18*60; i++) {
+				//These lines are important 
+				cal.set(2014,0,1,6,i);
+		        Date timePoint = cal.getTime();
+		        
+				if (!parkedVehicles.isEmpty()) {
+					vehicles = parkedVehicles.get(i);
+					cars = parkedCars.get(i);
+			        smallCars = parkedSmallCars.get(i);
+			        motorCycles = parkedMotorCycles.get(i);
+			        
+				}
+		        //HACK ENDS
+		        
+		        //This is important - steal it shamelessly 
+				mcTotal.add(new Minute(timePoint),motorCycles);
+				carTotal.add(new Minute(timePoint),cars);
+				smallCarTotal.add(new Minute(timePoint),smallCars);
+				vehTotal.add(new Minute(timePoint),vehicles);
+			}
+
 		
 		//Collection
 		tsc.addSeries(vehTotal);
 		tsc.addSeries(carTotal);
+		tsc.addSeries(smallCarTotal);
 		tsc.addSeries(mcTotal);
-		return tsc; 
+		return tsc;
 	}
 	
 	/**
@@ -148,7 +139,7 @@ public class RandomTimeSeries extends JPanel {
      */
     private JFreeChart createChart(final XYDataset dataset) {
         final JFreeChart result = ChartFactory.createTimeSeriesChart(
-            TITLE, "hh:mm:ss", "Vehicles", dataset, true, true, false);
+            "", "hh:mm:ss", "Vehicles", dataset, true, true, false);
         final XYPlot plot = result.getXYPlot();
         ValueAxis domain = plot.getDomainAxis();
         domain.setAutoRange(true);
