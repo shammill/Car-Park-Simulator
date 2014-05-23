@@ -48,7 +48,6 @@ import asgn2Simulators.Simulator;
 import asgn2Simulators.Log;
 import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
-import asgn2Examples.RandomTimeSeries;
 
 
 /**
@@ -63,7 +62,7 @@ public class GUISimulator extends JFrame {
 	private int WIDTH = 825;
 	private int HEIGHT = 786;
 	
-	// Parameter fields, log, and input button.
+	// Parameter fields, log, and input button and panels.
 	private JFormattedTextField  seedText;
 	private JFormattedTextField  carProbText;
 	private JFormattedTextField  smallCarProbText;
@@ -143,7 +142,6 @@ public class GUISimulator extends JFrame {
 	/**
 	 * Responsible for creating and displaying our GUI.
 	 * @author Samuel Hammill
-	 * @author Laurence Mccabe
 	 */
 	private void initialiseUI() {
 		setupFrame();
@@ -212,14 +210,7 @@ public class GUISimulator extends JFrame {
 			motorCycleProbText.setText("1.0");
 		}
 		
-		totalVehicles.clear();
-		parkedVehicles.clear();	  
-		parkedCars.clear();
-		parkedSmallCars.clear();
-		parkedMotorCycles.clear();
-		dissatisfiedVehicles.clear();
-		vehiclesArchived.clear();
-		vehiclesInQueue.clear();
+		clearArrays();
 		
 		try {
 			startSimulation();
@@ -282,7 +273,6 @@ public class GUISimulator extends JFrame {
 		}
 		log.finalise(carPark);
 		finaliseGUI();
-		chartPanel.removeAll();
 		createChart();
 	}
 	
@@ -292,9 +282,9 @@ public class GUISimulator extends JFrame {
 	 * @author Samuel Hammill
 	 */
 	private void createChart() {
-		RandomTimeSeries newChart = new RandomTimeSeries(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles);
+		chartPanel.removeAll();
+		ChartPanel newChart = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles);
 		chartPanel.add(newChart);
-		//chartPanel.repaint();
 		chartPanel.revalidate();
 	}
 	
@@ -303,6 +293,7 @@ public class GUISimulator extends JFrame {
 	 * 
 	 * Parses the status string for us to create a chart based off the simulation data.
 	 * @author Samuel Hammill
+	 * @author Laurence Mccabe
 	 */	
 	private void parseStatus(String status) {
 		// Constants for specific data positions in a string array.
@@ -340,6 +331,23 @@ public class GUISimulator extends JFrame {
 		logText.append("\nSimulation Complete\nOutput file written: " + timeLog);
 	}
 	
+	
+	/**
+	 * Clears previous simulation array data.
+	 * @author Samuel Hammill
+	 */
+	private void clearArrays() {
+		totalVehicles.clear();
+		parkedVehicles.clear();	  
+		parkedCars.clear();
+		parkedSmallCars.clear();
+		parkedMotorCycles.clear();
+		dissatisfiedVehicles.clear();
+		vehiclesArchived.clear();
+		vehiclesInQueue.clear();
+	}
+	
+	
 	/**
 	 * Helper method to determine if new vehicles are permitted
 	 * @param time int holding current simulation time
@@ -368,6 +376,7 @@ public class GUISimulator extends JFrame {
 	/**
 	 * Method to setup our panels for containing elements and layout.
 	 * @author Samuel Hammill
+	 * @author Laurence Mccabe
 	 */
 	private void setupPanels() {
 		// Create our panels to manage our customisable parameters.

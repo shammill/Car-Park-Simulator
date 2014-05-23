@@ -8,7 +8,7 @@
  * 11/05/2014
  * 
  */
-package asgn2Examples;
+package asgn2Simulators;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -16,24 +16,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Random;
 
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.time.DynamicTimeSeriesCollection;
 import org.jfree.data.time.Minute;
-import org.jfree.data.time.Second;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 
 /** 
  * Example code based on the Stack Overflow example and the 
@@ -44,7 +37,7 @@ import org.jfree.ui.RefineryUtilities;
  * 
  *  */
 @SuppressWarnings("serial")
-public class RandomTimeSeries extends JPanel {
+public class ChartPanel extends JPanel {
 
 	ArrayList<Integer> parkedVehicles;
 	ArrayList<Integer> parkedCars;
@@ -55,7 +48,7 @@ public class RandomTimeSeries extends JPanel {
      * Constructor shares the work with the run method. 
      * @param title Frame display title
      */
-    public RandomTimeSeries(ArrayList<Integer> parkedVehicles, ArrayList<Integer> parkedCars, ArrayList<Integer> parkedSmallCars, ArrayList<Integer> parkedMotorCycles) {
+    public ChartPanel(ArrayList<Integer> parkedVehicles, ArrayList<Integer> parkedCars, ArrayList<Integer> parkedSmallCars, ArrayList<Integer> parkedMotorCycles) {
 
     	this.parkedVehicles = parkedVehicles;
     	this.parkedCars = parkedCars;
@@ -64,7 +57,7 @@ public class RandomTimeSeries extends JPanel {
     	
         final TimeSeriesCollection dataset = createTimeSeriesData(); 
         JFreeChart chart = createChart(dataset);
-        this.add(new ChartPanel(chart), BorderLayout.CENTER);
+        this.add(new org.jfree.chart.ChartPanel(chart), BorderLayout.CENTER);
         JPanel btnPanel = new JPanel(new FlowLayout());
         this.add(btnPanel, BorderLayout.SOUTH);
     }
@@ -72,7 +65,8 @@ public class RandomTimeSeries extends JPanel {
     /**
      * Private method creates the dataset. Lots of hack code in the 
      * middle, but you should use the labelled code below  
-	 * @return collection of time series for the plot 
+	 * @return collection of time series for the plot
+	 * @author Samuel Hammill
 	 */
 	private TimeSeriesCollection createTimeSeriesData() {
 		TimeSeriesCollection tsc = new TimeSeriesCollection(); 
@@ -90,28 +84,25 @@ public class RandomTimeSeries extends JPanel {
 		int smallCars = 1;
 		int motorCycles = 0;
 		
-			//Hack loop to make it interesting. Grows for half of it, then declines
+			// Loop through all time points and plot our graph.
 			for (int i=0; i<=18*60; i++) {
-				//These lines are important 
 				cal.set(2014,0,1,6,i);
 		        Date timePoint = cal.getTime();
 		        
+		        //If there is data plot it, otherwise, plot with default values 
 				if (!parkedVehicles.isEmpty()) {
 					vehicles = parkedVehicles.get(i);
 					cars = parkedCars.get(i);
 			        smallCars = parkedSmallCars.get(i);
-			        motorCycles = parkedMotorCycles.get(i);
-			        
+			        motorCycles = parkedMotorCycles.get(i);   
 				}
-		        //HACK ENDS
 		        
-		        //This is important - steal it shamelessly 
+		        // Add the points to the graph.
 				mcTotal.add(new Minute(timePoint),motorCycles);
 				carTotal.add(new Minute(timePoint),cars);
 				smallCarTotal.add(new Minute(timePoint),smallCars);
 				vehTotal.add(new Minute(timePoint),vehicles);
 			}
-
 		
 		//Collection
 		tsc.addSeries(vehTotal);
@@ -121,17 +112,6 @@ public class RandomTimeSeries extends JPanel {
 		return tsc;
 	}
 	
-	/**
-	 * Utility method to implement a <a href="http://en.wikipedia.org/wiki/Bernoulli_trial">Bernoulli Trial</a>, 
-	 * a coin toss with two outcomes: success (probability successProb) and failure (probability 1-successProb)
-	 * @param successProb double holding the success probability 
-	 * @param rng Random object 
-	 * @return true if trial was successful, false otherwise
-	 */
-	private boolean randomSuccess(double successProb,Random rng) {
-		boolean result = rng.nextDouble() <= successProb;
-		return result;
-	}
 
     /**
      * Helper method to deliver the Chart - currently uses default colours and auto range 
@@ -148,20 +128,4 @@ public class RandomTimeSeries extends JPanel {
         range.setAutoRange(true);
         return result;
     }
-/*
-    /**
-     * Simple main GUI runner 
-     * @param args ignored 
-     *//*
-    public static void main(final String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                RandomTimeSeries demo = new RandomTimeSeries(TITLE);
-                //demo.pack();
-                //RefineryUtilities.centerFrameOnScreen(demo);
-                demo.setVisible(true);
-            }
-        });
-    }*/
 }
