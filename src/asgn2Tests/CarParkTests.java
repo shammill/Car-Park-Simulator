@@ -11,6 +11,9 @@
 package asgn2Tests;
 
 import static org.junit.Assert.*;
+
+import java.lang.reflect.Array;
+
 import asgn2CarParks.CarPark;
 import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
@@ -494,9 +497,7 @@ public class CarParkTests {
 		carPark.archiveNewVehicle(car);
 		carPark.archiveNewVehicle(smallCar);
 		
-		String t = (carPark.finalState());
-		//System.out.println(t);
-		// System.out.println(carPark.finalState());
+		System.out.println(carPark.finalState());
 		// assertTrue("")
 	}
 
@@ -1176,5 +1177,36 @@ public class CarParkTests {
 
 		String status = (carPark.getStatus(DEFAULT_TIME));
 		assertEquals("1::0::P:0::C:0::S:0::M:0::D:0::A:0::Q:0\n", status);
+	}
+	
+	
+	/*
+	 * Confirm that the API spec has not been violated through the
+	 * addition of public fields, constructors or methods that were
+	 * not requested
+	 */
+	@Test
+	public void NoExtraPublicMethods() {
+		//Extends Object, extras less toString() 
+		final int ExtraMethods = 21; 
+		final int NumObjectClassMethods = Array.getLength(Object.class.getMethods());
+		final int NumCarParkClassMethods = Array.getLength(CarPark.class.getMethods());
+		assertTrue("obj:"+NumObjectClassMethods+":cp:"+NumCarParkClassMethods,(NumObjectClassMethods+ExtraMethods)==NumCarParkClassMethods);
+	}
+	
+	@Test 
+	public void NoExtraPublicFields() {
+		//Same as Vehicle 
+		final int NumObjectClassFields = Array.getLength(Object.class.getFields());
+		final int NumCarParkClassFields = Array.getLength(CarPark.class.getFields());
+		assertTrue("obj:"+NumObjectClassFields+":cp:"+NumCarParkClassFields,(NumObjectClassFields)==NumCarParkClassFields);
+	}
+	
+	@Test 
+	public void NoExtraPublicConstructors() {
+		//One extra cons used. 
+		final int NumObjectClassConstructors = Array.getLength(Object.class.getConstructors());
+		final int NumCarParkClassConstructors = Array.getLength(CarPark.class.getConstructors());
+		assertTrue(":obj:"+NumObjectClassConstructors+":cp:"+NumCarParkClassConstructors,(NumObjectClassConstructors+1)==NumCarParkClassConstructors);
 	}
 }

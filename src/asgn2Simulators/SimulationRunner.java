@@ -121,7 +121,7 @@ public class SimulationRunner {
 				meanStay = Double.parseDouble(args[8]);
 				staySD = Double.parseDouble(args[9]); 
 			} catch (Exception e) {
-				System.out.println("Error. Last five inputs must be floats. Ex: 1.0 0.2 0.05 120.00 39.6");
+				System.out.println("Error. Last five inputs must be floats. Ex: 1.0 0.2 0.05 120.0 39.6");
 				System.exit(-1);
 			}
 			
@@ -129,7 +129,7 @@ public class SimulationRunner {
 						|| motorCycleProb > 1 || meanStay < 0) {
 				System.out.println("Error. Probability needs to be between 0 and 1 inclusive.\n Ex: carProb (0-1), smallCarProb (0-1), motorCycleProb (0-1)");
 				System.exit(-1);
-			}		
+			}
 		}
 		
 		// Run GUI

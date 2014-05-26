@@ -11,6 +11,7 @@
 package asgn2Simulators;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,21 +22,24 @@ import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.time.Minute;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
 
 /** 
- * Example code based on the Stack Overflow example and the 
- * standard JFreeChart demos showing the construction of a time series 
- * data set. Some of the data creation code is clearly a quick hack
- * and should not be taken as indicative of the required coding style. 
- * @see http://stackoverflow.com/questions/5048852
+ * A panel that is responsible for displaying our simulation 
+ * data in the form of a chart. 
  * 
- *  */
+ * */
 @SuppressWarnings("serial")
 public class ChartPanel extends JPanel {
 
@@ -43,47 +47,111 @@ public class ChartPanel extends JPanel {
 	ArrayList<Integer> parkedCars;
 	ArrayList<Integer> parkedSmallCars;
 	ArrayList<Integer> parkedMotorCycles;
+	ArrayList<Integer> vehiclesInQueue;
+	ArrayList<Integer> vehiclesArchived;
+	ArrayList<Integer> totalVehicles;
+	ArrayList<Integer> dissatisfiedVehicles;
+	
 	
     /**
-     * Constructor shares the work with the run method. 
+     * Constructor that gets the data from the simulation used to display
+     * simulation information. Also sets up objects for the display.
      * @param title Frame display title
      */
-    public ChartPanel(ArrayList<Integer> parkedVehicles, ArrayList<Integer> parkedCars, ArrayList<Integer> parkedSmallCars, ArrayList<Integer> parkedMotorCycles) {
+    public ChartPanel(ArrayList<Integer> parkedVehicles, ArrayList<Integer> parkedCars, ArrayList<Integer> parkedSmallCars, 
+    					ArrayList<Integer> parkedMotorCycles, ArrayList<Integer> vehiclesInQueue, ArrayList<Integer> vehiclesArchived,
+    					ArrayList<Integer> totalVehicles, ArrayList<Integer> dissatisfiedVehicles) {
 
     	this.parkedVehicles = parkedVehicles;
     	this.parkedCars = parkedCars;
     	this.parkedSmallCars = parkedSmallCars;
     	this.parkedMotorCycles = parkedMotorCycles;
+    	this.vehiclesInQueue = vehiclesInQueue;
+    	this.vehiclesArchived = vehiclesArchived;
+    	this.totalVehicles = totalVehicles;
+    	this.dissatisfiedVehicles = dissatisfiedVehicles;
     	
-        final TimeSeriesCollection dataset = createTimeSeriesData(); 
-        JFreeChart chart = createChart(dataset);
+        final TimeSeriesCollection dataset = createTimeSeriesAllData(); 
+        JFreeChart chart = createTimeSeriesChart(dataset);
         this.add(new org.jfree.chart.ChartPanel(chart), BorderLayout.CENTER);
         JPanel btnPanel = new JPanel(new FlowLayout());
         this.add(btnPanel, BorderLayout.SOUTH);
     }
+    
+    
+    /**
+     * Constructor that gets the data from the simulation used to display
+     * simulation information. Also sets up objects for the display.
+     * @param title Frame display title
+     */
+    public ChartPanel(ArrayList<Integer> parkedVehicles, ArrayList<Integer> parkedCars, ArrayList<Integer> parkedSmallCars, 
+    					ArrayList<Integer> parkedMotorCycles, ArrayList<Integer> vehiclesInQueue) {
+
+    	this.parkedVehicles = parkedVehicles;
+    	this.parkedCars = parkedCars;
+    	this.parkedSmallCars = parkedSmallCars;
+    	this.parkedMotorCycles = parkedMotorCycles;
+    	this.vehiclesInQueue = vehiclesInQueue;
+    	
+        final TimeSeriesCollection dataset = createTimeSeriesVehicleData(); 
+        JFreeChart chart = createTimeSeriesChart(dataset);
+        this.add(new org.jfree.chart.ChartPanel(chart), BorderLayout.CENTER);
+        JPanel btnPanel = new JPanel(new FlowLayout());
+        this.add(btnPanel, BorderLayout.SOUTH);
+    }
+    
+    
+    /**
+     * Constructor that gets the data from the simulation used to display
+     * simulation information. Also sets up objects for the display.
+     * @param title Frame display title
+     */
+    public ChartPanel(ArrayList<Integer> totalVehicles, ArrayList<Integer> dissatisfiedVehicles) {
+
+    	this.totalVehicles = totalVehicles;
+    	this.dissatisfiedVehicles = dissatisfiedVehicles;
+    	
+        final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        if (!totalVehicles.isEmpty()) {
+	        dataset.addValue(dissatisfiedVehicles.get(dissatisfiedVehicles.size()-1), "Dissatisfied Customers", "");
+	        dataset.addValue(totalVehicles.get(totalVehicles.size()-1), "Total Vehicles", "");
+        }
+        JFreeChart chart = createBarChart(dataset);
+        this.add(new org.jfree.chart.ChartPanel(chart), BorderLayout.CENTER);
+        JPanel btnPanel = new JPanel(new FlowLayout());
+        this.add(btnPanel, BorderLayout.SOUTH);
+    }
+    
 
     /**
-     * Private method creates the dataset. Lots of hack code in the 
-     * middle, but you should use the labelled code below  
+     * Private method creates the dataset for each time point
 	 * @return collection of time series for the plot
 	 * @author Samuel Hammill
 	 */
-	private TimeSeriesCollection createTimeSeriesData() {
-		TimeSeriesCollection tsc = new TimeSeriesCollection(); 
-		TimeSeries vehTotal = new TimeSeries("Total Vehicles");
-		TimeSeries carTotal = new TimeSeries("Total Cars"); 
-		TimeSeries smallCarTotal = new TimeSeries("Total Small Cars"); 
-		TimeSeries mcTotal = new TimeSeries("MotorCycles");
+	private TimeSeriesCollection createTimeSeriesAllData() {
+		TimeSeriesCollection tsc = new TimeSeriesCollection();
+		TimeSeries numVehicles = new TimeSeries("Total Vehicles");
+		TimeSeries totalParked = new TimeSeries("Parked Vehicles");
+		TimeSeries totalCars = new TimeSeries("Cars"); 
+		TimeSeries totalSmallCars = new TimeSeries("Small Cars"); 
+		TimeSeries totalMotorCycles = new TimeSeries("MotorCycles");
+		TimeSeries totalQueue = new TimeSeries("Queue");
+		TimeSeries totalDissatisfied = new TimeSeries("Dissatisfied");
+		TimeSeries totalArchived = new TimeSeries("Archived");
+
+		int vehicles = 1;
+		int parked = 1;
+		int cars = 1;
+		int smallCars = 0;
+		int motorCycles = 0;
+		int queued = 0;
+		int dissatisfied = 0;
+		int archived = 0;
 
 		
 		//Base time, data set up - the calendar is needed for the time points
 		Calendar cal = GregorianCalendar.getInstance();
-		
-		int vehicles = 0;
-		int cars = 1;
-		int smallCars = 1;
-		int motorCycles = 0;
-		
+				
 			// Loop through all time points and plot our graph.
 			for (int i=0; i<=18*60; i++) {
 				cal.set(2014,0,1,6,i);
@@ -91,24 +159,95 @@ public class ChartPanel extends JPanel {
 		        
 		        //If there is data plot it, otherwise, plot with default values 
 				if (!parkedVehicles.isEmpty()) {
-					vehicles = parkedVehicles.get(i);
+					vehicles = totalVehicles.get(i);
+					parked = parkedVehicles.get(i);
 					cars = parkedCars.get(i);
 			        smallCars = parkedSmallCars.get(i);
-			        motorCycles = parkedMotorCycles.get(i);   
+			        motorCycles = parkedMotorCycles.get(i);
+			        queued = vehiclesInQueue.get(i);
+			        dissatisfied = dissatisfiedVehicles.get(i);
+			        archived = vehiclesArchived.get(i);
 				}
-		        
+				
+				
 		        // Add the points to the graph.
-				mcTotal.add(new Minute(timePoint),motorCycles);
-				carTotal.add(new Minute(timePoint),cars);
-				smallCarTotal.add(new Minute(timePoint),smallCars);
-				vehTotal.add(new Minute(timePoint),vehicles);
+				numVehicles.add(new Minute(timePoint),vehicles);
+				totalParked.add(new Minute(timePoint),parked);
+				totalCars.add(new Minute(timePoint),cars);
+				totalSmallCars.add(new Minute(timePoint),smallCars);
+				totalMotorCycles.add(new Minute(timePoint),motorCycles);
+				totalQueue.add(new Minute(timePoint),queued);
+				totalDissatisfied.add(new Minute(timePoint),dissatisfied);
+				totalArchived.add(new Minute(timePoint),archived);
 			}
 		
 		//Collection
-		tsc.addSeries(vehTotal);
-		tsc.addSeries(carTotal);
-		tsc.addSeries(smallCarTotal);
-		tsc.addSeries(mcTotal);
+		tsc.addSeries(totalDissatisfied);
+		tsc.addSeries(totalCars);
+		tsc.addSeries(totalArchived);
+		tsc.addSeries(totalQueue);
+		tsc.addSeries(totalSmallCars);
+		tsc.addSeries(totalMotorCycles);
+		tsc.addSeries(totalParked);
+		tsc.addSeries(numVehicles);
+		
+		return tsc;
+	}
+	
+	
+    /**
+     * Private method creates the dataset for each time point
+	 * @return collection of time series for the plot
+	 * @author Samuel Hammill
+	 */
+	private TimeSeriesCollection createTimeSeriesVehicleData() {
+		TimeSeriesCollection tsc = new TimeSeriesCollection();
+		TimeSeries totalParked = new TimeSeries("Parked Vehicles");
+		TimeSeries totalCars = new TimeSeries("Cars"); 
+		TimeSeries totalSmallCars = new TimeSeries("Small Cars"); 
+		TimeSeries totalMotorCycles = new TimeSeries("MotorCycles");
+		TimeSeries totalQueue = new TimeSeries("Queue");
+
+		int parked = 1;
+		int cars = 1;
+		int smallCars = 0;
+		int motorCycles = 0;
+		int queued = 0;
+
+		
+		//Base time, data set up - the calendar is needed for the time points
+		Calendar cal = GregorianCalendar.getInstance();
+				
+			// Loop through all time points and plot our graph.
+			for (int i=0; i<=18*60; i++) {
+				cal.set(2014,0,1,6,i);
+		        Date timePoint = cal.getTime();
+		        
+		        //If there is data plot it, otherwise, plot with default values 
+				if (!parkedVehicles.isEmpty()) {
+					parked = parkedVehicles.get(i);
+					cars = parkedCars.get(i);
+			        smallCars = parkedSmallCars.get(i);
+			        motorCycles = parkedMotorCycles.get(i);
+			        queued = vehiclesInQueue.get(i);
+				}
+				
+				
+		        // Add the points to the graph.
+				totalParked.add(new Minute(timePoint),parked);
+				totalCars.add(new Minute(timePoint),cars);
+				totalSmallCars.add(new Minute(timePoint),smallCars);
+				totalMotorCycles.add(new Minute(timePoint),motorCycles);
+				totalQueue.add(new Minute(timePoint),queued);
+			}
+		
+		//Collection
+		tsc.addSeries(totalParked);
+		tsc.addSeries(totalCars);
+		tsc.addSeries(totalSmallCars);
+		tsc.addSeries(totalMotorCycles);
+		tsc.addSeries(totalQueue);
+		
 		return tsc;
 	}
 	
@@ -118,14 +257,32 @@ public class ChartPanel extends JPanel {
      * @param dataset TimeSeriesCollection for plotting 
      * @returns chart to be added to panel 
      */
-    private JFreeChart createChart(final XYDataset dataset) {
-        final JFreeChart result = ChartFactory.createTimeSeriesChart(
+    private JFreeChart createTimeSeriesChart(final XYDataset dataset) {
+        final JFreeChart chart = ChartFactory.createTimeSeriesChart(
             "", "hh:mm", "Vehicles", dataset, true, true, false);
-        final XYPlot plot = result.getXYPlot();
+        
+        final XYPlot plot = chart.getXYPlot();
         ValueAxis domain = plot.getDomainAxis();
         domain.setAutoRange(true);
         ValueAxis range = plot.getRangeAxis();
         range.setAutoRange(true);
-        return result;
+        return chart;
     }
+    
+    /**
+     * Helper method to deliver the Chart - currently uses default colours and auto range 
+     * @param dataset TimeSeriesCollection for plotting 
+     * @returns chart to be added to panel 
+     */
+    private JFreeChart createBarChart(final DefaultCategoryDataset dataset) {
+        final JFreeChart chart = ChartFactory.createBarChart("End Report", "", "Number of Vehicles", dataset, PlotOrientation.VERTICAL, true, false, false);
+        
+        final CategoryPlot plot = chart.getCategoryPlot();
+        ValueAxis range = plot.getRangeAxis();
+        range.setAutoRange(true);
+        return chart;
+    } 
+    
+    
+    
 }

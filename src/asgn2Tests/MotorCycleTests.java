@@ -13,6 +13,8 @@ package asgn2Tests;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Array;
+
 import org.junit.Test;
 
 import asgn2Exceptions.VehicleException;
@@ -491,5 +493,35 @@ public class MotorCycleTests {
 		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
 		m.enterQueuedState();
 		m.exitQueuedState(INVALID_EXIT_QUEUE_TIME);
+	}
+	
+	
+	/*
+	 * Confirm that the API spec has not been violated through the
+	 * addition of public fields, constructors or methods that were
+	 * not requested
+	 */
+	@Test
+	public void NoExtraPublicMethods() {
+		//MotorCycle Class implements Vehicle
+		final int NumVehicleClassMethods = Array.getLength(Vehicle.class.getMethods());
+		final int NumMotorCycleClassMethods = Array.getLength(MotorCycle.class.getMethods());
+		assertTrue("veh:"+NumVehicleClassMethods+":MotorCycle:"+NumMotorCycleClassMethods,(NumVehicleClassMethods)==NumMotorCycleClassMethods);
+	}
+	
+	@Test 
+	public void NoExtraPublicFields() {
+		//Same as Vehicle 
+		final int NumVehicleClassFields = Array.getLength(Vehicle.class.getFields());
+		final int NumMotorCycleClassFields = Array.getLength(MotorCycle.class.getFields());
+		assertTrue("veh:"+NumVehicleClassFields+":MotorCycle:"+NumMotorCycleClassFields,(NumVehicleClassFields)==NumMotorCycleClassFields);
+	}
+	
+	@Test 
+	public void NoExtraPublicConstructors() {
+		//Same as Vehicle
+		final int NumVehicleClassConstructors = Array.getLength(Vehicle.class.getConstructors());
+		final int NumMotorCycleClassConstructors = Array.getLength(MotorCycle.class.getConstructors());
+		assertTrue(":veh:"+NumVehicleClassConstructors+":mc:"+NumMotorCycleClassConstructors,(NumVehicleClassConstructors)==NumMotorCycleClassConstructors);
 	}
 }

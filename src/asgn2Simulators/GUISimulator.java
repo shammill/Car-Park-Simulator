@@ -63,16 +63,16 @@ public class GUISimulator extends JFrame {
 	private int HEIGHT = 786;
 	
 	// Parameter fields, log, and input button and panels.
-	private JFormattedTextField  seedText;
-	private JFormattedTextField  carProbText;
-	private JFormattedTextField  smallCarProbText;
-	private JFormattedTextField  motorCycleProbText;
-	private JFormattedTextField  meanStayText;
-	private JFormattedTextField  staySDText;
-	private JFormattedTextField  maxCarSpacesText;
-	private JFormattedTextField  maxSmallCarSpacesText;
-	private JFormattedTextField  maxMotorCycleSpacesText;
-	private JFormattedTextField  maxQueueSizeText;
+	private JFormattedTextField seedText;
+	private JFormattedTextField carProbText;
+	private JFormattedTextField smallCarProbText;
+	private JFormattedTextField motorCycleProbText;
+	private JFormattedTextField meanStayText;
+	private JFormattedTextField staySDText;
+	private JFormattedTextField maxCarSpacesText;
+	private JFormattedTextField maxSmallCarSpacesText;
+	private JFormattedTextField maxMotorCycleSpacesText;
+	private JFormattedTextField maxQueueSizeText;
 	private JTextArea logText;
 	private JButton submitButton;
 	private JPanel parameterBox;
@@ -81,6 +81,8 @@ public class GUISimulator extends JFrame {
 	private JPanel parametersRight;
 	private JPanel logArea;
 	private JPanel chartPanel;
+	private JPanel chartPanel2;
+	private JPanel chartPanel3;
 	
 	// Simulation Components
 	private int seed;
@@ -134,7 +136,6 @@ public class GUISimulator extends JFrame {
 		this.maxMotorCycleSpaces = maxMotorCycleSpaces;
 		this.maxQueueSize = maxQueueSize;
 		
-		// Setup our GUI
 		initialiseUI();
 	}
 	
@@ -149,12 +150,17 @@ public class GUISimulator extends JFrame {
 	    setupParameterTextFields();
 	    addParametersToPanel();
 	    setupRunSimulationButton();
+	    setupChartButton1();
+	    setupChartButton2();
+	    setupChartButton3();
 		createChart();
 	   
 		// Add our top level panels onto the frame and render it visible.
 		this.add(parameterBox);
 		this.add(logArea);
 		this.add(chartPanel);
+		this.add(chartPanel2);
+		this.add(chartPanel3);
         RefineryUtilities.centerFrameOnScreen(this);
 		this.setVisible(true);
 	}
@@ -176,39 +182,16 @@ public class GUISimulator extends JFrame {
 	
 	
 	/**
-	 * Takes input from parameter fields and starts the simulation.
+	 * Used by our start simulation button.
+	 * Takes user input from parameter fields, and starts the simulation.
 	 * @author Samuel Hammill
 	 */
 	private void processAndStartSimulation() {
 		submitButton.setEnabled(false);
 		logText.setText("");
 		
-		// Process input parameters.
-		seed = Integer.parseInt(seedText.getText());
-		carProb = Double.parseDouble(carProbText.getText());
-		smallCarProb = Double.parseDouble(smallCarProbText.getText());
-		motorCycleProb = Double.parseDouble( motorCycleProbText.getText());
-		meanStay = Double.parseDouble(meanStayText.getText());
-		staySD = Double.parseDouble(staySDText.getText());
-		maxCarSpaces = Integer.parseInt( maxCarSpacesText.getText());
-		maxSmallCarSpaces = Integer.parseInt(maxSmallCarSpacesText.getText());
-		maxMotorCycleSpaces = Integer.parseInt(maxMotorCycleSpacesText.getText());
-		maxQueueSize = Integer.parseInt(maxQueueSizeText.getText());
-		
-		// Catch probability over 1.0 and set it back to 1.0 before running the simulation.
-		if (carProb > 1) {
-			carProb = 1.0;
-			carProbText.setText("1.0");
-		}
-		if (smallCarProb > 1) {
-			smallCarProb = 1.0;
-			smallCarProbText.setText("1.0");
-		}
-		if (motorCycleProb > 1) {
-			motorCycleProb = 1.0;
-			motorCycleProbText.setText("1.0");
-		}
-		
+		getTextFieldInputs();
+		updateTextFields();
 		clearArrays();
 		
 		try {
@@ -277,13 +260,27 @@ public class GUISimulator extends JFrame {
 	
 	
 	/**
-	 * Creates the chart and adds it to a panel on our frame.
+	 * Creates the charts and adds them to a panel on our frame.
 	 * @author Samuel Hammill
 	 */
 	private void createChart() {
 		chartPanel.removeAll();
-		ChartPanel newChart = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles);
+		chartPanel2.removeAll();
+		chartPanel3.removeAll();
+		
+		ChartPanel newChart = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles, 
+												vehiclesInQueue, vehiclesArchived, totalVehicles, dissatisfiedVehicles);
+		ChartPanel newChart2 = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles, vehiclesInQueue);
+		ChartPanel newChart3 = new ChartPanel(totalVehicles, dissatisfiedVehicles);
+		
 		chartPanel.add(newChart);
+		chartPanel2.add(newChart2);
+		chartPanel3.add(newChart3);
+		
+		chartPanel.setVisible(true);
+		chartPanel2.setVisible(false);
+		chartPanel3.setVisible(false);
+		
 		chartPanel.revalidate();
 	}
 	
@@ -332,7 +329,7 @@ public class GUISimulator extends JFrame {
 	
 	
 	/**
-	 * Clears previous simulation array data.
+	 * Clears previous simulation array data, so we can re-use the arrays.
 	 * @author Samuel Hammill
 	 */
 	private void clearArrays() {
@@ -356,7 +353,6 @@ public class GUISimulator extends JFrame {
 		boolean allowed = (time >=1);
 		return allowed && (time <= (Constants.CLOSING_TIME - 60));
 	}
-	
 	
 	
 	/**
@@ -411,8 +407,16 @@ public class GUISimulator extends JFrame {
 	    
 	    // Create a panel to hold our chart.
 	    chartPanel = new JPanel();
-	    chartPanel.setBounds(5, 5, 810, 440);
+	    chartPanel.setBounds(10, 5, 705, 445);
 	    //chartPanel.setBackground(Color.RED);
+	    
+	    chartPanel2 = new JPanel();
+	    chartPanel2.setBounds(10, 5, 705, 445);
+	    
+	    chartPanel3 = new JPanel();
+	    chartPanel3.setBounds(10, 5, 705, 445);
+	    //chartPanel2.setBackground(Color.BLUE);
+	    
 	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
 	}
 	
@@ -514,8 +518,14 @@ public class GUISimulator extends JFrame {
 	}
 
 	
+	/**
+	 * Create and setup a button to run our simulation.
+	 * When pressed, the text fields are processed and 
+	 * the data is passed to a new chart object.
+	 * @author Samuel Hammill
+	 */	
 	private void setupRunSimulationButton() {
-		// Create and setup a button to run our simulation.
+		
 	    submitButton = new JButton("RUN SIMULATION");
 	    submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -528,4 +538,125 @@ public class GUISimulator extends JFrame {
 		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
 	}
 	
+	
+	/**
+	 * Setup button to display the first chart (All data)
+	 * When pressed, hides/displays appropriate charts.
+	 * @author Samuel Hammill
+	 */	
+	private void setupChartButton1() {
+		JButton chartButton1 = new JButton("All Data");
+	    chartButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    chartButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	toggleChart1();
+            }
+        });
+	    chartButton1.setBounds(715, 150, 90, 30);
+	    this.add(chartButton1);
+	}
+	
+	/**
+	 * Setup button to display the first chart (All data)
+	 * When pressed, hides/displays appropriate charts.
+	 * @author Samuel Hammill
+	 */	
+	private void setupChartButton2() {
+		JButton chartButton2 = new JButton("Vehicles");
+	    chartButton2.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    chartButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	toggleChart2();
+            }
+        });
+	    chartButton2.setBounds(715, 190, 90, 30);
+	    this.add(chartButton2);
+	}
+	
+	/**
+	 * Setup button to display the first chart (All data)
+	 * When pressed, hides/displays appropriate charts.
+	 * @author Samuel Hammill
+	 */
+	private void setupChartButton3() {
+		JButton chartButton2 = new JButton("Bar Chart");
+	    chartButton2.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    chartButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	toggleChart3();
+            }
+        });
+	    chartButton2.setBounds(715, 230, 90, 30);
+	    this.add(chartButton2);
+	}
+	
+	private void toggleChart1() {
+		chartPanel.setVisible(true);
+		chartPanel2.setVisible(false);
+		chartPanel3.setVisible(false);
+	}
+	
+	private void toggleChart2() {
+		chartPanel.setVisible(false);
+		chartPanel2.setVisible(true);
+		chartPanel3.setVisible(false);
+	}
+	
+	private void toggleChart3() {
+		chartPanel.setVisible(false);
+		chartPanel2.setVisible(false);
+		chartPanel3.setVisible(true);
+	}
+	
+	
+	/**
+	 * Get user input from the various text fields on the GUI.
+	 * Parses strings and converts negative values to positives.
+	 * @author Samuel Hammill
+	 */	
+	private void getTextFieldInputs() {
+		double ONE_HUNDRED_PERCENT = 1.0;
+		seed = Math.abs(Integer.parseInt(seedText.getText()));
+		carProb = Math.abs(Double.parseDouble(carProbText.getText()));
+		smallCarProb = Math.abs(Double.parseDouble(smallCarProbText.getText()));
+		motorCycleProb =(Math.abs(Double.parseDouble( motorCycleProbText.getText())));
+		meanStay = Math.abs(Double.parseDouble(meanStayText.getText()));
+		staySD = Math.abs(Double.parseDouble(staySDText.getText()));
+		maxCarSpaces = Math.abs(Integer.parseInt( maxCarSpacesText.getText()));
+		maxSmallCarSpaces = Math.abs(Integer.parseInt(maxSmallCarSpacesText.getText()));
+		maxMotorCycleSpaces = Math.abs(Integer.parseInt(maxMotorCycleSpacesText.getText()));
+		maxQueueSize = Math.abs(Integer.parseInt(maxQueueSizeText.getText()));
+		
+		// Catch probability over 100% (1.0) and set it back to 100% (1.0) before running the simulation.
+		if (carProb > ONE_HUNDRED_PERCENT) {
+			carProb = ONE_HUNDRED_PERCENT;
+		}
+		if (smallCarProb > ONE_HUNDRED_PERCENT) {
+			smallCarProb = ONE_HUNDRED_PERCENT;
+		}
+		if (motorCycleProb > ONE_HUNDRED_PERCENT) {
+			motorCycleProb = ONE_HUNDRED_PERCENT;
+		}	
+	}
+	
+	
+	/**
+	 * Updates text fields with sanitised values for user feedback.
+	 * @author Samuel Hammill
+	 */	
+	private void updateTextFields() {
+		carProbText.setText(String.valueOf(carProb));
+		smallCarProbText.setText(String.valueOf(smallCarProb));
+		motorCycleProbText.setText(String.valueOf(motorCycleProb));
+		seedText.setText(String.valueOf(seed));
+		meanStayText.setText(String.valueOf(meanStay));
+		staySDText.setText(String.valueOf(staySD));
+		maxCarSpacesText.setText(String.valueOf(maxCarSpaces));
+		maxSmallCarSpacesText.setText(String.valueOf(maxSmallCarSpaces));
+		maxMotorCycleSpacesText.setText(String.valueOf(maxMotorCycleSpaces));
+		maxQueueSizeText.setText(String.valueOf(maxQueueSize));
+	}
 }

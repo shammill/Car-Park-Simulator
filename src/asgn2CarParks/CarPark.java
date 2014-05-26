@@ -540,6 +540,11 @@ public class CarPark {
 	}
 	
 	
+	/**
+	 * Helps calculate the number of motorcycles that have overflowed onto small car spaces.
+	 * Needed for spacesAvailable() logic.
+	 * @author Samuel Hammill
+	 */
 	private int motorCyclesInSmallCarSpaces() {
 		if (numMotorCycles - maxMotorCycleSpaces < 0)
 			return 0;
@@ -547,7 +552,12 @@ public class CarPark {
 			return (numMotorCycles - maxMotorCycleSpaces);
 		}
 	}
-	
+
+	/**
+	 * Helps calculate the number of small cars that have overflowed onto normal car spaces.
+	 * Needed for spacesAvailable() logic.
+	 * @author Samuel Hammill
+	 */
 	private int smallCarsInNormalCarSpaces() {
 		int smallCarsInNormalCarSpaces = numSmallCars + motorCyclesInSmallCarSpaces() - maxSmallCarSpaces;
 		if (smallCarsInNormalCarSpaces < 0) {
@@ -556,8 +566,6 @@ public class CarPark {
 		else {
 			return smallCarsInNormalCarSpaces;
 		}
-		
-		
 	}
 	
 }
