@@ -283,14 +283,18 @@ public abstract class Vehicle {
     		str += "Vehicle was not queued\n";
     	}
     	
+    	if (this.wasQueued() & !this.wasParked()) {
+    		str += "Exceeded maximum acceptable queuing time by: " + ((this.getDepartureTime() - this.getArrivalTime()) - Constants.MAXIMUM_QUEUE_TIME)  + "\n";
+    	}
+    	
     	if (this.wasParked()) {
     			str += "Entry to Car Park: " + this.getParkingTime() + "\n"
         			+ "Exit from Car Park: " + this.getDepartureTime() + "\n"
         			+ "Parking Time: " +  (this.getDepartureTime() - this.getParkingTime()) + "\n"
-        			+ "Customer was satisfied\n";
+        			+ "Customer was satisfied";
     	}
     	else {
-    		str += "Customer was not satisfied\n";
+    		str += "Vehicle was not parked\nCustomer was not satisfied";
     	}
     	return str;
     }

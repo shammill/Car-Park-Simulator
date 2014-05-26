@@ -180,7 +180,6 @@ public class GUISimulator extends JFrame {
 	 * @author Samuel Hammill
 	 */
 	private void processAndStartSimulation() {
-		
 		submitButton.setEnabled(false);
 		logText.setText("");
 		
@@ -482,8 +481,8 @@ public class GUISimulator extends JFrame {
 	private void addParametersToPanel() {
 	    JLabel seedLabel = new JLabel("Random Seed:");
 	    JLabel carProbLabel = new JLabel("Car Probabilty: (0-1)");
-	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty: (0-1)");
-	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty: (0-1)");
+	    JLabel smallCarProbLabel = new JLabel("Small Car Probabilty:");
+	    JLabel motorCycleProbLabel = new JLabel("Motor Cycle Probabilty:");
 	    JLabel meanStayLabel = new JLabel("Average Stay Time:");
 	    JLabel staySDLabel = new JLabel("Stay Time SD:");
 	    JLabel maxCarSpacesLabel = new JLabel("Max Car Spaces:");

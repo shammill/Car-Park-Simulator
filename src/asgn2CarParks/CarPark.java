@@ -142,7 +142,7 @@ public class CarPark {
 		Iterator<Vehicle> i = queue.iterator();
 		while (i.hasNext()) {
 			Vehicle v = i.next();
-		    if (time - v.getArrivalTime() >= Constants.MAXIMUM_QUEUE_TIME) {
+		    if (time - v.getArrivalTime() > Constants.MAXIMUM_QUEUE_TIME) {
 				past.add(v);
 		    	v.exitQueuedState(time);
 		    	i.remove();
@@ -217,13 +217,13 @@ public class CarPark {
 	 * @return String containing dump of final carpark state 
 	 */
 	public String finalState() {
-		String str = "Vehicles Processed: count:" + 
+		String str = "Vehicles Processed: count: " + 
 				this.count + ", logged: " + this.past.size() 
-				+ "\nVehicle Record: \n";
+				+ "\nVehicle Record: \n\n";
 		for (Vehicle v : this.past) {
 			str += v.toString() + "\n\n";
 		}
-		return str + "\n";
+		return str;
 	}
 	
 	
@@ -408,15 +408,16 @@ public class CarPark {
 	 * @author Samuel Hammill
 	 */
 	public boolean spacesAvailable(Vehicle v) {
+		int numNormalCars = numCars - numSmallCars;
 		if (v instanceof Car) {
-			if (((Car)v).isSmall() == true & (numCars < maxCarSpaces)) {
-					return true;
+			if ((((Car)v).isSmall()) & (numCars < maxCarSpaces) & (numNormalCars + motorCyclesInSmallCarSpaces()) < (maxCarSpaces - numSmallCars)) {
+				return true;
 			}
-			else if (((Car)v).isSmall() == false & ((numCars - numSmallCars) < (maxCarSpaces - maxSmallCarSpaces) & (numCars < maxCarSpaces))) {
-					return true;
+			else if ((!((Car)v).isSmall()) & (numCars < maxCarSpaces) & (numNormalCars) < (maxCarSpaces - maxSmallCarSpaces) - smallCarsInNormalCarSpaces()) {
+				return true;
 			}
 		}
-		else if (v instanceof MotorCycle & ((numMotorCycles < maxMotorCycleSpaces) | (numSmallCars < maxSmallCarSpaces))) {
+		  else if (v instanceof MotorCycle & ((numMotorCycles < maxMotorCycleSpaces) | (numMotorCycles + numSmallCars) < (maxSmallCarSpaces + maxMotorCycleSpaces))) {
 				return true;
 		}
 		return false;
@@ -432,7 +433,7 @@ public class CarPark {
 				+ " numCars: " + numCars
 				+ " numSmallCars: " + numSmallCars
 				+ " numMotorCycles: " + numMotorCycles
-				+ " queue: " + (queue.size()) 
+				+ " queue: " + (queue.size())
 				+ " numDissatisfied: " + numDissatisfied
 				+ " past: " + past.size() + "]";
 	}
@@ -536,6 +537,27 @@ public class CarPark {
 			archiveNewVehicle(v);
 			status += setVehicleMsg(v, "N", "A");
 		}
+	}
+	
+	
+	private int motorCyclesInSmallCarSpaces() {
+		if (numMotorCycles - maxMotorCycleSpaces < 0)
+			return 0;
+		else {
+			return (numMotorCycles - maxMotorCycleSpaces);
+		}
+	}
+	
+	private int smallCarsInNormalCarSpaces() {
+		int smallCarsInNormalCarSpaces = numSmallCars + motorCyclesInSmallCarSpaces() - maxSmallCarSpaces;
+		if (smallCarsInNormalCarSpaces < 0) {
+			return 0;
+		}
+		else {
+			return smallCarsInNormalCarSpaces;
+		}
+		
+		
 	}
 	
 }

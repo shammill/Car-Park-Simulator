@@ -54,7 +54,7 @@ public class CarParkTests {
 	private int MAX_QUEUE_SIZE_THREE = 3;
 	private int HIGH_QUEUE_TIME = 1000;
 	private int LEAVE_QUEUE_TIME = 10;
-	private int LEAVE_QUEUE_BOUNDRY = 26;
+	private int LEAVE_QUEUE_BOUNDRY = 27;
 	private int LEAVE_QUEUE_LOWER_BOUNDRY = 25;
 
 
@@ -254,6 +254,7 @@ public class CarParkTests {
 		carPark.archiveQueueFailures(LEAVE_QUEUE_BOUNDRY);
 		
 		String status = (carPark.getStatus(DEFAULT_TIME));
+		System.out.println(status);
 		assertEquals("1::0::P:0::C:0::S:0::M:0::D:1::A:1::Q:0|M:Q>A|\n", status);
 	}
 	

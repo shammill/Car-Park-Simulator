@@ -45,7 +45,6 @@ public class CarTests {
 	private boolean SMALL_CAR = true;
 	private boolean NOT_SMALL_CAR = false;
 
-
 	
 	/**
 	* Tests Car Constructor correctly sets vehId.
