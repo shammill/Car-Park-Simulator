@@ -20,6 +20,7 @@ package asgn2Vehicles;
  *
  */
 import asgn2Exceptions.VehicleException;
+import asgn2Simulators.Constants;
 
 public class Car extends Vehicle {
 	
@@ -35,7 +36,6 @@ public class Car extends Vehicle {
 	 * @author Samuel Hammill
 	 */
 	public Car(String vehID, int arrivalTime, boolean small) throws VehicleException {
-		
 		super(vehID, arrivalTime);
 		this.small = small;
 	}
@@ -72,24 +72,28 @@ public class Car extends Vehicle {
     		}
     	}
     	else {
-    		str += "Vehicle was not queued.\n";
+    		str += "Vehicle was not queued\n";
+    	}
+    	
+    	if (this.wasQueued() & !this.wasParked()) {
+    		str += "Exceeded maximum acceptable queuing time by: " + ((this.getDepartureTime() - this.getArrivalTime()) - Constants.MAXIMUM_QUEUE_TIME) + "\n";
     	}
     	
     	if (this.wasParked()) {
     			str += "Entry to Car Park: " + this.getParkingTime() + "\n"
         			+ "Exit from Car Park: " + this.getDepartureTime() + "\n"
         			+ "Parking Time: " +  (this.getDepartureTime() - this.getParkingTime()) + "\n"
-        			+ "Customer was satisfied.\n";
+        			+ "Customer was satisfied\n";
     	}
     	else {
-    		str += "Customer was not satisfied.\n";
+    		str += "Vehicle was not parked\nCustomer was not satisfied\n";
     	}
     			
     	if (this.isSmall()) {
-			str += "Car can use small car parking space.\n";
+			str += "Car can use small car parking space";
     	}
     	else {
-    		str += "Car can not use small car parking space.\n";
+    		str += "Car cannot use small parking space";
     	}
     	return str;
 	}

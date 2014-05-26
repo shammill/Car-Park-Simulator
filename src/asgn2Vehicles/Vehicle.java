@@ -14,7 +14,6 @@ import asgn2Exceptions.VehicleException;
 import asgn2Simulators.Constants;
 
 
-
 /**
  * Vehicle is an abstract class specifying the basic state of a vehicle and the methods used to 
  * set and access that state. A vehicle is created upon arrival, at which point it must either 
@@ -51,7 +50,6 @@ public abstract class Vehicle {
 	
 	private boolean isQueued = false;
 	private boolean isParked = false;
-	private boolean isSatisfied = false;
 	private boolean wasQueued = false;
 	private boolean wasParked = false;
 	
@@ -71,7 +69,6 @@ public abstract class Vehicle {
 		
 		this.vehID = vehID;
 		this.arrivalTime = arrivalTime;
-
 	}
 	
 	
@@ -81,7 +78,7 @@ public abstract class Vehicle {
 	 * @param parkingTime int time (minutes) at which the vehicle was able to park
 	 * @param intendedDuration int time (minutes) for which the vehicle is intended to remain in the car park.
 	 *  	  Note that the parkingTime + intendedDuration yields the departureTime
-	 * @throws VehicleException if the vehicle is already in a parked or queued state, if parkingTime < 0, 
+	 * @throws VehicleException if the vehicle is already in a parked or queued state, if parkingTime <= 0, 
 	 *         or if intendedDuration is less than the minimum prescribed in asgnSimulators.Constants
 	 * @author Samuel Hammill
 	 */
@@ -104,7 +101,6 @@ public abstract class Vehicle {
 		
 		isParked = true;
 		wasParked = true;
-		isSatisfied = true;
 	}
 		
 	
@@ -144,7 +140,7 @@ public abstract class Vehicle {
 		
 		if (departureTime < parkingTime) {
 			throw new VehicleException("Unable to exitParkedState. departureTime is less than parkingTime.");
-		}	
+		}
 		
 		isParked = false;
 		this.departureTime = departureTime;
@@ -244,13 +240,23 @@ public abstract class Vehicle {
 	
 	/**
 	 * Boolean status indicating whether customer is satisfied or not
-	 * Satisfied if they park; dissatisfied if turned away, or queuing for too long 
+	 * Satisfied if they park; dissatisfied if turned away, or queuing for too long
+	 * Vehicles begin in a satisfied state, but this may change over time
 	 * Note that calls to this method may not reflect final status 
 	 * @return true if satisfied, false if never in parked state or if queuing time exceeds max allowable 
 	 * @author Samuel Hammill
 	 */
 	public boolean isSatisfied() {
-    	return isSatisfied;
+		if (wasParked | isParked) {
+			return true;
+		}
+		else if ((wasQueued & !isQueued)) {
+			return false;
+		}
+		else if (!wasQueued) {
+			return false;
+		}
+    	return true;
     }
     
 
@@ -274,17 +280,21 @@ public abstract class Vehicle {
     		}
     	}
     	else {
-    		str += "Vehicle was not queued.\n";
+    		str += "Vehicle was not queued\n";
+    	}
+    	
+    	if (this.wasQueued() & !this.wasParked()) {
+    		str += "Exceeded maximum acceptable queuing time by: " + ((this.getDepartureTime() - this.getArrivalTime()) - Constants.MAXIMUM_QUEUE_TIME)  + "\n";
     	}
     	
     	if (this.wasParked()) {
     			str += "Entry to Car Park: " + this.getParkingTime() + "\n"
         			+ "Exit from Car Park: " + this.getDepartureTime() + "\n"
         			+ "Parking Time: " +  (this.getDepartureTime() - this.getParkingTime()) + "\n"
-        			+ "Customer was satisfied.\n";
+        			+ "Customer was satisfied";
     	}
     	else {
-    		str += "Customer was not satisfied.\n";
+    		str += "Vehicle was not parked\nCustomer was not satisfied";
     	}
     	return str;
     }

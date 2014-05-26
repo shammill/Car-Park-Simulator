@@ -58,7 +58,7 @@ public class Simulator {
 	public Simulator(int seed,double meanStay, double sdStay,
 			double carProb, double smallCarProb, double mcProb) throws SimulationException {
 		checkProbabilties(carProb, smallCarProb, mcProb);
-		if ((meanStay <0) || (sdStay <0)) {
+		if ((meanStay < 0) || (sdStay < 0)) {
 			throw new SimulationException(" Invalid mean or standard deviation");
 		}
 

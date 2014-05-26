@@ -6,452 +6,490 @@
  * CarParkSimulator
  * asgn2Tests 
  * 22/04/2014
+ *
  * 
  */
 package asgn2Tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import asgn2CarParks.CarPark;
-import asgn2Exceptions.SimulationException;
 import asgn2Exceptions.VehicleException;
 import asgn2Simulators.Constants;
-import asgn2Simulators.Simulator;
 import asgn2Vehicles.MotorCycle;
 import asgn2Vehicles.Vehicle;
-import asgn2Vehicles.Car;
 
 /**
- * @author hogan
- * 
+ * @author Laurence McCabe (Base Methods)
+ * @author Samuel Hammill (Refactoring, Constants, & Methods)
  */
 public class MotorCycleTests {
-	MotorCycle mot;
-	CarPark CarP;
-	Car car;
-	Car sCar;
 
-	// All tests done at boundaries - I am pretty sure they are, so not much need so far to be testing many
-	// boundaries in this class.
+	// Defaults
+	private String DEFAULT_VEH_ID = "MC1";
+	private int DEFAULT_ARRIVAL_TIME = 1;
+	private int DEFAULT_PARK_TIME = 1;
+	private int DEFAULT_INTENDED_DURATION = Constants.MINIMUM_STAY;
+	private int DEFAULT_QUEUE_DEPARTURE_TIME = 2;
+	
+	// Conditional
+	private int LATE_PARK_TIME = 2;
+	private int ZERO_ARRIVAL_TIME = 0;
+	private int NEGATIVE_ARRIVAL_TIME = -1;
+	private int NEGATIVE_PARKING_TIME = -1;
+	private int INVALID_INTENDED_DURATION = (Constants.MINIMUM_STAY - 1);
+	private int DEFAULT_PARK_DEPARTURE_TIME = (DEFAULT_PARK_TIME + Constants.MINIMUM_STAY);
+	private int INVALID_PARK_DEPARTURE_TIME = 0;
+	private int DEFAULT_EXIT_QUEUE_TIME = 2;
+	private int INVALID_EXIT_QUEUE_TIME = 1;
 
-	// Do we need this one?
-	@Before
-	public void setUp() throws Exception {
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Tests MotorCycle Constructor correctly sets vehId.
+	*/
+	@Test
+	public void testMotorCycleConstructorVehId() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		assertEquals(m.getVehID(), DEFAULT_VEH_ID);
+	}
+		
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Tests MotorCycle Constructor correctly sets arrival time.
+	*/	
+	@Test
+	public void testMotorCycleConstructorArrivalTime() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		assertEquals(m.getArrivalTime(), DEFAULT_ARRIVAL_TIME);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that motorcycle throws an exception if the arrival time entered is 0.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testMotorCycleConstructorZeroArrivalTime() throws VehicleException {
+		 new MotorCycle(DEFAULT_VEH_ID, ZERO_ARRIVAL_TIME);
 	}
 
 	/**
-	 * @throws java.lang.Exception
-	 */
-	// Do we need this one?
-
-	@After
-	public void tearDown() throws Exception {
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that motorcycle throws an exception if the arrival time entered less than 0.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testMotorCycleConstructorNegativeArrivalTime() throws VehicleException {
+		new MotorCycle(DEFAULT_VEH_ID, NEGATIVE_ARRIVAL_TIME);
 	}
-
-	// ------------------------------------------------------------------------------------------------------------------
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle is not created in a parked state.
+	*/	
 	@Test
-	public void testMotorCycle() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		assertTrue(mot.getVehID() == "b1");
-		assertTrue(mot.getArrivalTime() == 3);
-
+	public void testMotorCycleConstructorIsNotParked() throws VehicleException {
+		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		 assertFalse(m.isParked());
 	}
-
-	// Test that motorcycle throws an exception if the arrival time entered is 0
-	// or less.
-	@Test(expected = Exception.class)
-	public void testMotorCycleException() throws VehicleException {
-		mot = new MotorCycle("b1", 0);
-	}
-
-	// ------------------------------------------------------------------------------------------------------------------
-
-	// Tested using testGetVehId and GetVehArrivalTime. Do we need to test this
-	// again?
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle is not created in a queued state.
+	*/	
 	@Test
-	public void testVehicle() throws VehicleException {
-
+	public void testMotorCycleConstructorIsNotQueued() throws VehicleException {
+		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		 assertFalse(m.isQueued());
 	}
-
-	// ------------------------------------------------------------------------------------------------------------------
-	// Test that GetVehId returns the correct Vehicle id when passed string id's
-	// through it's 2 concrete classes:
-	// MotorCycle and car. should this be done in a separate vehicleTest class?
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle is created in a satisfied state.
+	*/	
 	@Test
-	public void testGetVehID() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		car = new Car("c1", 3, false);
-		sCar = new Car("sc1", 3, true);
-		assertTrue(mot.getVehID() == "b1");
-		assertTrue(car.getVehID() == "c1");
-		assertTrue(sCar.getVehID() == "sc1");
+	public void testMotorCycleConstructorIsSatisfied() throws VehicleException {
+		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		 assertFalse(m.isSatisfied());
 	}
-
-	// ------------------------------------------------------------------------------------------------------------------
-	// Test that GetArrivalTime returns the correct arrival time for car, small
-	// car and motorcycle.
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new vehicle has not parked yet.
+	*/	
 	@Test
-	public void testGetArrivalTime() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		car = new Car("c1", 3, false);
-		sCar = new Car("sc1", 3, true);
-		assertTrue(mot.getArrivalTime() == 3);
-		assertTrue(car.getArrivalTime() == 3);
-		assertTrue(sCar.getArrivalTime() == 3);
+	public void testMotorCycleConstructorWasNotParked() throws VehicleException {
+		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		 assertFalse(m.wasParked());
 	}
-
-	// ------------------------------------------------------------------------------------------------------------------
-	// Adds vehicles to queue then checks to see if EnterQueuedState returns
-	// true.
-	// Too basic, need to test it more as it does not incorporate other ways of
-	// storing
-	// vehicles into queues, like through trynewprocessVehicle...
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new vehicle has not queued yet.
+	*/	
 	@Test
-	public void testEnterQueuedState() throws VehicleException,
-			SimulationException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		MotorCycle mot1 = new MotorCycle("b1", 3);
-		mot1.enterQueuedState();
-		assertTrue(mot1.isQueued() == true);
-
-		// Test to see if EnterQueuedState throws an
-		// exception when
-		// trying to add a vehicle to a queue after it has already been added.
+	public void testMotorCycleConstructorWasNotQueued() throws VehicleException {
+		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		 assertFalse(m.wasQueued());
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new motorcycle is a type of vehicle.
+	*/	
+	@Test
+	public void testMotorCycleIsInstanceOfVehicle() throws VehicleException {
+		 MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		 assertTrue(m instanceof Vehicle);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new motorcycle can be parked without error.
+	*/	
+	@Test
+	public void testEnterParkedState() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertTrue(m.isParked());
+	}
+	
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle can be parked and made satisfied.
+	*/	
+	@Test
+	public void testEnterParkedStateSatisfaction() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertTrue(m.isSatisfied());
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new motorcycle can be parked after being queued without error.
+	*/	
+	@Test
+	public void testEnterParkedStateFromQueue() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_QUEUE_DEPARTURE_TIME);
+		m.enterParkedState(LATE_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertTrue(m.isParked());
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new motorcycle parks, and sets the parking time correctly.
+	*/
+	@Test
+	public void testEnterParkedStateParkingTimeValid() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertEquals(m.getParkingTime(), DEFAULT_PARK_TIME);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new motorcycle parks, and sets the departure time correctly.
+	*/	
+	@Test
+	public void testEnterParkedStateDepartureTimeValid() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		assertEquals(m.getDepartureTime(), (DEFAULT_PARK_TIME + DEFAULT_INTENDED_DURATION));
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test parking an already parked vehicle.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testEnterParkedStateWhileParked() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test parking a vehicle still in the queue.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testEnterParkedStateWhileQueued() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test parking a vehicle with negative parking time.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testEnterParkedStateNegativeParkingTime() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(NEGATIVE_PARKING_TIME, DEFAULT_INTENDED_DURATION);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test parking a vehicle with too low of a intended duration.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testEnterParkedStateInvalidDuration() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, INVALID_INTENDED_DURATION);
 	}
 
-	@Test(expected = Exception.class)
-	public void testEnterQueuedStateQueuedException() throws VehicleException,
-			SimulationException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		mot.enterQueuedState();
-		mot.enterQueuedState();
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the new motorcycle can be queued without error.
+	*/	
+	@Test
+	public void testEnterQueuedState() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		assertTrue(m.isQueued());
+	}
+	
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle can be queued and made satisfied.
+	*/	
+	@Test
+	public void testEnterQueuedStateSatisfaction() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		assertTrue(m.isSatisfied());
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the cannot be queued while it is parked.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testEnterQueuedStateWhileParked() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.enterQueuedState();
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that vehicle the cannot be queued while it is already queued.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testEnterQueuedStateWhileQueued() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.enterQueuedState();
 	}
 
-	// Test to see if EnterQueuedState throws an exception
-	// when
-	// trying to add a vehicle to a queue after it has been parked.
-
-	@Test(expected = Exception.class)
-	public void testEnterQueuedStateParkedException() throws VehicleException,
-			SimulationException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		MotorCycle mot1 = new MotorCycle("b1", 3);
-		mot1.enterParkedState(2, 25);
-		mot1.enterQueuedState();
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can successfully unpark after parking.
+	*/	
+	@Test
+	public void testExitParkedState() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+		assertFalse(m.isParked());
 	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-	// Test that ExitQueuedState removes a queued vehicle from the queue, by
-	// setting
-	// Isqueued to false.
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can is successfully marked as having been parked.
+	*/	
+	@Test
+	public void testExitParkedStateWasParked() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+		assertTrue(m.wasParked());
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can is successfully marked as having been satisfied.
+	*/	
+	@Test
+	public void testExitParkedStateIsSatisfied() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+		assertTrue(m.isSatisfied());
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test unparking without staying long enough.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitParkedStateInvalidDepartureTime() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.exitParkedState(INVALID_PARK_DEPARTURE_TIME);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test for VehicleException if vehicle tries to exit park while not parked.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitParkedStateWhenNotParked() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test for VehicleException if vehicle tries to exit park while not parked, after parking.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitParkedStateAfterExiting() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test for VehicleException if vehicle tries to exit park while queued.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitParkedStateWhileQueued() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitParkedState(DEFAULT_PARK_DEPARTURE_TIME);
+	}
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can successfully exit queue after queuing.
+	*/	
 	@Test
 	public void testExitQueuedState() throws VehicleException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		mot.enterQueuedState();
-		mot.exitQueuedState(4);
-		assertTrue(mot.isQueued() == false);
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		assertFalse(m.isQueued());
 	}
-
-	// Test that ExitQueuedState throws an exception if the vehicle is currently
-	// parked
-
-	@Test(expected = Exception.class)
-	public void testExitQueuedStateParkedException() throws VehicleException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		mot.enterParkedState(25, 25);
-		mot.exitQueuedState(4);
-	}
-
-	// Test that ExitQueuedState throws an exception if the vehicle is not
-	// currently
-	// queued
-
-	@Test(expected = Exception.class)
-	public void testExitQueuedStateQueuedException() throws VehicleException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		mot.exitQueuedState(4);
-	}
-
-	// Test that ExitQueuedState throws an exception if the arrival time of the
-	// vehicle is equal to
-	// or less than it's arrival time.
-
-	@Test(expected = Exception.class)
-	public void testExitQueuedStateTimeException() throws VehicleException {
-		CarP = new CarPark(15, 5, 2, 5);
-		mot = new MotorCycle("b", 3);
-		mot.enterQueuedState();
-		mot.exitQueuedState(3);
-	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-
-	// Test to see that EnterParkedState parks the vehicle by setting isParked
-	// to true.
+	
+	/**
+	* @author Samuel Hammill
+	* Test that the new motorcycle exits the queue without parking and is dissatisfied.
+	*/	
 	@Test
-	public void testEnterParkedState() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(2, 25);
-		assertTrue(mot.isParked() == true);
+	public void testExitQueuedStateSatisfaction() throws VehicleException  {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		assertFalse(m.isSatisfied());
 	}
-
-	// Test to see that EnterParkedState throws an exception if the vehicle is
-	// already parked.
-	@Test(expected = Exception.class)
-	public void testEnterParkedStateParkedException() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(2, 25);
-		mot.enterParkedState(2, 25);
-	}
-
-	// Test to see that EnterParkedState throws an exception if the vehicle is
-	// already queued.
-	@Test(expected = Exception.class)
-	public void testEnterParkedStateQueuedException() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterQueuedState();
-		mot.enterParkedState(2, 25);
-	}
-
-	// Test to see that EnterParkedState throws an exception if the parking time
-	// entered is 0 or less.
-	@Test(expected = Exception.class)
-	public void testEnterParkedStateTimeException() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(0, 25);
-	}
-
-	// Test to see that EnterParkedState sets the parkingTime.
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that ExitQueue successfully sets Exit/Departure Time.
+	*/	
 	@Test
-	public void testEnterParkedStateParkingTime() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		assertTrue(mot.getParkingTime() == 1);
+	public void testExitQueuedStateDepartureTime() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		assertEquals(m.getDepartureTime(), DEFAULT_EXIT_QUEUE_TIME);
 	}
-
-	// Test to see that EnterParkedState sets the departureTime.
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle is marked as having been queued after exiting.
+	*/	
 	@Test
-	public void testEnterParkedStateDepartureTime() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		assertTrue(mot.getParkingTime() == 1);
+	public void testExitQueuedStateWasQueued() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		assertTrue(m.wasQueued());
 	}
-
-	// Test to see that EnterParkedState sets isParked to true.
-	@Test
-	public void testEnterParkedStateIsParked() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		assertTrue(mot.isParked() == true);
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can't exit queue when parked.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitQueuedStateWhenParked() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterParkedState(DEFAULT_PARK_TIME, DEFAULT_INTENDED_DURATION);
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
-
-	// Test to see that EnterParkedState sets wasParked to true.
-	@Test
-	public void testEnterParkedStateWasParked() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		assertTrue(mot.wasParked() == true);
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can't exit queue after already exiting queue.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitQueuedStateAfterExitingQueue() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
-
-	// Test to see that EnterParkedState sets isSatisfied to true.
-	@Test
-	public void testEnterParkedStateIsSatisfied() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		assertTrue(mot.isSatisfied() == true);
-
-		// -------------------------------------------------------------------------------------------------------------------
-
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can't exit queue after creation.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitQueuedStateAfterCreation() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.exitQueuedState(DEFAULT_EXIT_QUEUE_TIME);
 	}
-
-	// Test that ExitParkedState exits the vehicle by setting isParked to false.
-	@Test
-	public void testExitParkedStateIsParked() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		mot.exitParkedState(2);
-		assertTrue(mot.isParked() == false);
+	
+	/**
+	* @author Laurence McCabe (Base Methods)
+	* @author Samuel Hammill (Refactoring & Constants)
+	* Test that the vehicle can't exit queue after creation.
+	*/	
+	@Test(expected = VehicleException.class)
+	public void testExitQueuedStateInvalidExitTime() throws VehicleException {
+		MotorCycle m = new MotorCycle(DEFAULT_VEH_ID, DEFAULT_ARRIVAL_TIME);
+		m.enterQueuedState();
+		m.exitQueuedState(INVALID_EXIT_QUEUE_TIME);
 	}
-
-	// Test that ExitParkedState exits the vehicle by setting the departure time
-	// correctly.
-	@Test
-	public void testExitParkedStateDepartureTime() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		mot.exitParkedState(2);
-		assertTrue(mot.getDepartureTime() == 2);
-	}
-
-	// Test that ExitParkedState throws an exception if the vehicle is not
-	// parked
-	@Test(expected = Exception.class)
-	public void testExitParkedStateNotParked() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.exitParkedState(2);
-	}
-
-	// Test that ExitParkedState throws an exception if the vehicle is queued.
-	// This exception cannot be thrown, as the vehicle cannot be parked and
-	// queued. - Or can it?
-	// If the vehicle is not parked, the the methods first exception is thrown.
-	// -
-	// So we need to park the vehicle first to bypass the first exception, but
-	// then it cannot
-	// be queued (as it is already parked), - so we cannot get to the point to
-	// throw the second exception.
-	@Test(expected = Exception.class)
-	public void testExitParkedStateIsQueuedException() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		mot.enterQueuedState(); // how to do this?
-		mot.exitParkedState(2); // how to do this?
-	}
-
-	// Test that ExitParkedState throws an exception if the departure time is
-	// less than the parking time.
-	@Test(expected = Exception.class)
-	public void testExitParkedStateDepartureTimeException()
-			throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		mot.exitParkedState(0);
-	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-
-	// Test that IsParked returns true after a vehicle has been parked.
-	@Test
-	public void testIsParkedTrue() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		assertTrue(mot.isParked() == true);
-	}
-
-	// Test that IsParked returns false when a vehicle has not been parked.
-	@Test
-	public void testIsParkedFalse() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		assertTrue(mot.isParked() == false);
-	}
-
-	// Test that IsParked returns false when a vehicle has exited parked state.
-	// *** No need to do as the enterState and exitState test for these..?????
-
-	@Test
-	public void testIsParkedFalseAfterParkedAndExited() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(1, Constants.MINIMUM_STAY);
-		mot.exitParkedState(2);
-		assertTrue(mot.isParked() == false);
-	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-
-	// Test that IsQueued returns true after a vehicle has been queued.
-	@Test
-	public void testIsQueuedTrue() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterQueuedState();
-		assertTrue(mot.isQueued() == true);
-	}
-
-	// Test that IsQueued returns false after a vehicle has not been queued.
-	@Test
-	public void testIsQueuedFalse() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		assertTrue(mot.isQueued() == false);
-	}
-
-	// Test that IsQueued returns false after a vehicle has queued and exited.
-	// *** No need to do as the enterQueue and exitQueue test for these..?????
-	@Test
-	public void testIsQueuedFalseAfterQueuedAndExited() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		assertTrue(mot.isQueued() == false);
-	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-
-	// Test that GetParkingTime returns the correct parking time.
-	@Test
-	public void testGetParkingTime() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(2, 25);
-		assertTrue(mot.getParkingTime() == 2);
-	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-
-	// Test that getDepartureTime returns the correct departure time.
-	// Can use enterParkedState or exitParkedState to test this..
-	// Does it really matter which one we use? does it make a difference?
-	// Do more test for this one?
-	@Test
-	public void testGetDepartureTime() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(2, Constants.MINIMUM_STAY);
-		assertTrue(mot.getDepartureTime() == 22);
-	}
-
-	// -------------------------------------------------------------------------------------------------------------------
-	// Test that WasQueued is set to true after the vehicle exits the queue.
-	// Can use enterParkedState or exitParkedState to test this..
-	// Does it really matter which one we use? does it make a difference?
-	// Do more test for this one?
-	@Test
-	public void testWasQueuedTrue() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterQueuedState();
-		assertTrue(mot.wasQueued() == true);
-	}
-
-	// Test that WasQueued is not set to true when a vehicle is not queued.
-	// Can use enterQueuedState or exitQueuedState to test this..
-	// Does it really matter which one we use? does it make a difference?
-	// Do more test for this one?
-	@Test
-	public void testWasQueuedFalse() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterQueuedState();
-		assertTrue(mot.wasQueued() == true);
-	}
-	// -------------------------------------------------------------------------------------------------------------------
-	// Test that WasParked is set to true when a vehicle is parked.
-	// Can use enterParkedState or exitParkedState to test this..
-	// Does it really matter which one we use? does it make a difference?
-	// Do more test for this one?
-	@Test
-	public void testWasParked() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(2, Constants.MINIMUM_STAY);
-		assertTrue(mot.wasParked() == true);
-	}
-	// -------------------------------------------------------------------------------------------------------------------
-
-	// Test to see if IsSatisfied is set to true after a car is parked.
-	// Do more test for this one?
-	@Test
-	public void testIsSatisfied() throws VehicleException {
-		mot = new MotorCycle("b1", 3);
-		mot.enterParkedState(2, Constants.MINIMUM_STAY);
-		assertTrue(mot.isSatisfied() == true);
-	}
-	// -------------------------------------------------------------------------------------------------------------------
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented"); // TODO
-	}
-
 }
