@@ -569,5 +569,4 @@ public class CarPark {
 			return smallCarsInNormalCarSpaces;
 		}
 	}
-	
 }

@@ -1,0 +1,20 @@
+Samuel Hammill -n8811229
+Laurence McCabe -n8104395 
+
+
+Statement of Contribution:
+
+Samuel Hammill:
+All simulation logic and debugging.
+GUI
+Charts
+Unit Testing
+Code Quality
+GUI Tests
+
+
+Laurence McCabe:
+Unit Testing
+CLI Integration
+GUI
+Charts

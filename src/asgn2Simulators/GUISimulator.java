@@ -361,12 +361,26 @@ public class GUISimulator extends JFrame {
 	/**
 	 * Method to setup our panels for containing elements and layout.
 	 * @author Samuel Hammill
-	 * @author Laurence Mccabe
 	 */
 	private void setupPanels() {
-		// Create our panels to manage our customisable parameters.
-	    parameterBox = new JPanel();
-	    parameterBox.setBounds(10, 455, 340, 295);
+		setupParameterPanels();
+		setupLogPanel();
+		setupChartPanels();
+	}
+	
+	
+	/**
+	 * Method to create our panels to manage our customisable parameters..
+	 * @author Samuel Hammill
+	 */
+	private void setupParameterPanels() {
+		int PBOX_X_COORD = 10;
+		int PBOX_Y_COORD = 455;
+		int PBOX_X_SIZE = 340;
+		int PBOX_Y_SIZE = 295;
+		
+		parameterBox = new JPanel();
+	    parameterBox.setBounds(PBOX_X_COORD, PBOX_Y_COORD, PBOX_X_SIZE, PBOX_Y_SIZE);
 	    parameterBox.setLayout(new BoxLayout(parameterBox, BoxLayout.PAGE_AXIS));
 		parameterBox.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Simulation Parameters", CENTER, TOP));
 	    
@@ -382,32 +396,54 @@ public class GUISimulator extends JFrame {
 		parameterBox.add(parameters);
 		parameters.add(parametersLeft);
 		parameters.add(parametersRight);
-
-		// Create a panel to display our log. Add a Text Area to go into it.
-	    logArea = new JPanel();
-		logArea.setBounds(370, 455, 440, 295);
+	}
+	
+	
+	/**
+	 * Method to create our panel to manage our log text.
+	 * @author Samuel Hammill
+	 * @author Laurence Mccabe
+	 */
+	private void setupLogPanel() {
+		int LOG_X_COORD = 370;
+		int LOG_Y_COORD = 455;
+		int LOG_X_SIZE = 440;
+		int LOG_Y_SIZE = 295;
+		int LOG_TEXT_X_SIZE = 18;
+		int LOG_TEXT_Y_SIZE = 38;
 		
-		logText = new JTextArea(18,38);
+	    logArea = new JPanel();
+		logArea.setBounds(LOG_X_COORD, LOG_Y_COORD, LOG_X_SIZE, LOG_Y_SIZE);
+		
+		logText = new JTextArea(LOG_TEXT_X_SIZE, LOG_TEXT_Y_SIZE);
 		logText.setEditable(false);
 		logText.setLineWrap(true);
-
+	
 	    JScrollPane scrollPane = new JScrollPane(logText);
 	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	    logArea.add(scrollPane);
-	    
-	    // Create a panel to hold our chart.
+	}
+	
+	
+	/**
+	 * Method to create our panel to manage our chart panels.
+	 * @author Samuel Hammill
+
+	 */
+	private void setupChartPanels() {
+		int CHART_X_COORD = 10;
+		int CHART_Y_COORD = 5;
+		int CHART_X_SIZE = 700;
+		int CHART_Y_SIZE = 445;
+		
 	    chartPanelAllData = new JPanel();
-	    chartPanelAllData.setBounds(10, 5, 705, 445);
-	    //chartPanel.setBackground(Color.RED);
+	    chartPanelAllData.setBounds(CHART_X_COORD, CHART_Y_COORD, CHART_X_SIZE, CHART_Y_SIZE);
 	    
 	    chartPanelVehicles = new JPanel();
-	    chartPanelVehicles.setBounds(10, 5, 705, 445);
+	    chartPanelVehicles.setBounds(CHART_X_COORD, CHART_Y_COORD, CHART_X_SIZE, CHART_Y_SIZE);
 	    
 	    chartPanelBarGraph = new JPanel();
-	    chartPanelBarGraph.setBounds(10, 5, 705, 445);
-	    //chartPanel2.setBackground(Color.BLUE);
-	    
-	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
+	    chartPanelBarGraph.setBounds(CHART_X_COORD, CHART_Y_COORD, CHART_X_SIZE, CHART_Y_SIZE);
 	}
 	
 	

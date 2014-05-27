@@ -52,8 +52,7 @@ public abstract class Vehicle {
 	private boolean isParked = false;
 	private boolean wasQueued = false;
 	private boolean wasParked = false;
-	
-	int TIME_ZERO = 0;
+
 	
 	/**
 	 * Vehicle Constructor
@@ -65,7 +64,7 @@ public abstract class Vehicle {
 	 */
 	public Vehicle(String vehID, int arrivalTime) throws VehicleException  {
 		
-		if (arrivalTime <= TIME_ZERO) {
+		if (arrivalTime <= 0) {
 			throw new VehicleException("Arrival Time Must Be Greater Than 0.");
 		}
 		
@@ -90,7 +89,7 @@ public abstract class Vehicle {
 			throw new VehicleException("Unable to queue, car already queued or parked.");
 		}
 		
-		if (parkingTime <= TIME_ZERO) {
+		if (parkingTime <= 0) {
 		 	throw new VehicleException("Parking Time Must Be Greater Than 0.");
 		}
 		
