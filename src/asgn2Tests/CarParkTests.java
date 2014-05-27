@@ -195,6 +195,45 @@ public class CarParkTests {
 		assertFalse(car.isParked());
 		assertFalse(smallCar.isParked());
 	}
+	
+	/**
+	*  Test that ArchiveDepartingVehicles unparks all vehicles at the end of the day.
+	*  @author Samuel Hammill
+	*/ 
+	@Test
+	public void testArchiveDepartingVehiclesParkEmpty() throws VehicleException,	SimulationException {
+		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
+		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car smallCar = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		CarPark carPark = new CarPark();
+		
+		carPark.parkVehicle(motorCycle, DEFAULT_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car, DEFAULT_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(smallCar, DEFAULT_TIME, DEFAULT_STAY_DURATION);
+		carPark.archiveDepartingVehicles(DEFAULT_TIME, FORCE_LEAVE);
+		
+		assertTrue(carpark.carParkEmpty());
+	}
+	
+	/**
+	*  Test that ArchiveDepartingVehicles doesn't affect the queue.
+	*  @author Samuel Hammill
+	*/ 
+	@Test
+	public void testArchiveDepartingVehiclesQueueEmpty() throws VehicleException,	SimulationException {
+		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
+		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car smallCar = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		CarPark carPark = new CarPark();
+		carPark.enterQueue(smallCar);
+		carPark.parkVehicle(motorCycle, DEFAULT_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car, DEFAULT_TIME, DEFAULT_STAY_DURATION);
+		carPark.archiveDepartingVehicles(DEFAULT_TIME, FORCE_LEAVE);
+		
+		assertTrue(carpark.queueEmpty());
+	}
+	
+	
 
 	/**
 	*  Check to see that ArchiveNewVehicle archives new vehicles.
@@ -242,6 +281,67 @@ public class CarParkTests {
 		carPark.parkVehicle(motorCycle, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
 		carPark.archiveNewVehicle(motorCycle);
 	}
+	
+	/**
+	*  Check to see that a New Archived Vehicle is dissatisfied.
+	*  @author Samuel Hammill
+	*/
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleDissatisfied() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, MAX_QUEUE_SIZE_THREE);
+		Car car = new Car(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.archiveNewVehicle(car);
+		assertFalse(car.isSatisfied());
+	}
+	
+	/**
+	*  Check to see that a New Archived Vehicle was never parked.
+	*  @author Samuel Hammill
+	*/
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleNeverParked() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, MAX_QUEUE_SIZE_THREE);
+		Car car = new Car(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.archiveNewVehicle(car);
+		assertFalse(car.wasParked());
+	}
+	
+	/**
+	*  Check to see that a New Archived Vehicle was never queued.
+	*  @author Samuel Hammill
+	*/
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleNeverQueued() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, MAX_QUEUE_SIZE_THREE);
+		Car car = new Car(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.archiveNewVehicle(car);
+		assertFalse(car.wasQueued());
+	}
+	
+	/**
+	*  Check to see that a New Archived Vehicle is not parked.
+	*  @author Samuel Hammill
+	*/
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleNotParked() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, MAX_QUEUE_SIZE_THREE);
+		Car car = new Car(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.archiveNewVehicle(car);
+		assertFalse(car.isParked());
+	}
+	
+	/**
+	*  Check to see that a New Archived Vehicle is not queued.
+	*  @author Samuel Hammill
+	*/
+	@Test(expected = SimulationException.class)
+	public void testArchiveNewVehicleNotQueued() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, MAX_QUEUE_SIZE_THREE);
+		Car car = new Car(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.archiveNewVehicle(car);
+		assertFalse(car.isQueued());
+	}
+	
 
 	/**
 	*  Test ArchiveQueueFailures to see if it adds queue failure vehicles to the
@@ -894,6 +994,79 @@ public class CarParkTests {
 		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
 		assertTrue(carPark.spacesAvailable(car));
 	}
+	
+	
+	/**
+	*  Test to see that there are no spaces available for a car.
+	*  @author Samuel Hammill
+	*/
+	@Test
+	public void testSpacesAvailableCarFalseCars() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car car2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car car3 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.parkVehicle(car, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertFalse(carPark.spacesAvailable(car3));
+	}
+	
+	/**
+	*  Test to see that there are no spaces available for a car.
+	*  @author Samuel Hammill
+	*/
+	@Test
+	public void testSpacesAvailableCarFalseSmallCars() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car car2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car car3 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car car4 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		carPark.parkVehicle(car, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car3, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertFalse(carPark.spacesAvailable(car4));
+	}
+	
+	/**
+	*  Test to see that there are no spaces available for a car after small cars and motorcycles have taken some.
+	*  @author Samuel Hammill
+	*/
+	@Test
+	public void testSpacesAvailableCarFalseSmallCarsAndCycles1() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle1 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		MotorCycle motorCycle2 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		Car carN = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car carN2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car carS = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		carPark.parkVehicle(motorCycle1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(motorCycle2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(carS, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(carN, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertFalse(carPark.spacesAvailable(carN2));
+	}
+	
+	
+	/**
+	*  Test to see that there are no spaces available for a car after small cars and motorcycles have taken some.
+	*  @author Samuel Hammill
+	*/
+	@Test
+	public void testSpacesAvailableCarFalseSmallCarsAndCycles2() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle1 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		MotorCycle motorCycle2 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		Car carN = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car carS = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car carS2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		carPark.parkVehicle(motorCycle1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(motorCycle2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(carS, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(carS2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertFalse(carPark.spacesAvailable(carN));
+	}
+	
 
 	/**
 	*  Test to see that there is a space available for a small car.
@@ -906,7 +1079,89 @@ public class CarParkTests {
 		Car smallCar = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
 		assertTrue(carPark.spacesAvailable(smallCar));
 	}
+	
+	/**
+	*  Test to see that there is a space available for a small car after motorcycles park.
+	*  @author Laurence Mccabe (Base Method)
+	*  @author Samuel Hammill (Refactoring & Constants)
+	*/
+	@Test
+	public void testSpacesAvailableTrueSmallCarWithMotorcycles1() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle1 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		MotorCycle motorCycle2 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		carPark.parkVehicle(motorCycle1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(motorCycle2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		Car smallCar = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		assertTrue(carPark.spacesAvailable(smallCar));
+	}
+	
+	/**
+	*  Test to see that there is a space available for a small car after motorcycles park.
+	*  @author Samuel Hammill (Refactoring & Constants)
+	*/
+	@Test
+	public void testSpacesAvailableTrueSmallCarWithMotorcycles2() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle1 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		MotorCycle motorCycle2 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		Car smallCar1 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car smallCar2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		carPark.parkVehicle(motorCycle1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(motorCycle2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(smallCar1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertTrue(carPark.spacesAvailable(smallCar2));
+	}
+	
+	/**
+	*  Test to see that there is a space available for a small car after motorcycles park.
+	*  @author Samuel Hammill (Refactoring & Constants)
+	*/
+	@Test
+	public void testSpacesAvailableFalseSmallCarWithMotorcycles() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle1 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		MotorCycle motorCycle2 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car smallCar1 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car smallCar2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		carPark.parkVehicle(motorCycle1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(motorCycle2, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(smallCar1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertFalse(carPark.spacesAvailable(smallCar2));
+	}
+	
+	/**
+	*  Test to see that there is a space available for a small car after motorcycles park.
+	*  @author Samuel Hammill (Refactoring & Constants)
+	*/
+	@Test
+	public void testSpacesAvailableTrueSmallCarWithMotorcycles3() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(LOW_MAX_CAR_SPACES, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle1 = new MotorCycle(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME);
+		Car car = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, NOT_SMALL_CAR);
+		Car smallCar1 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		Car smallCar2 = new Car(DEFAULT_CAR_ID, DEFAULT_ARRIVAL_TIME, SMALL_CAR);
+		carPark.parkVehicle(motorCycle1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(car, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		carPark.parkVehicle(smallCar1, DEFAULT_ARRIVAL_TIME, DEFAULT_STAY_DURATION);
+		assertTrue(carPark.spacesAvailable(smallCar2));
+	}
+	
 
+	/**
+	*  Test to see that there is a space available for a motorcycle.
+	*  @author Laurence Mccabe (Base Method)
+	*  @author Samuel Hammill (Refactoring & Constants)
+	*/
+	@Test
+	public void testSpacesAvailableMotorCycle() throws VehicleException, SimulationException {
+		CarPark carPark = new CarPark(1, LOW_MAX_SMALL_CAR_SPACES, LOW_MAX_MOTOR_CYCLE_SPACES, LOW_MAX_QUEUE_SIZE);
+		MotorCycle motorCycle = new MotorCycle(DEFAULT_MOTORCYCLE_ID, DEFAULT_ARRIVAL_TIME);
+		assertTrue(carPark.spacesAvailable(motorCycle));
+	}
+	
 	/**
 	*  Test to see that there is a space available for a motorcycle.
 	*  @author Laurence Mccabe (Base Method)
