@@ -1070,8 +1070,7 @@ public class CarParkTests {
 
 	/**
 	*  Test to see that there is a space available for a small car.
-	*  @author Laurence Mccabe (Base Method)
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableSmallCar() throws VehicleException, SimulationException {
@@ -1082,8 +1081,7 @@ public class CarParkTests {
 	
 	/**
 	*  Test to see that there is a space available for a small car after motorcycles park.
-	*  @author Laurence Mccabe (Base Method)
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableTrueSmallCarWithMotorcycles1() throws VehicleException, SimulationException {
@@ -1098,7 +1096,7 @@ public class CarParkTests {
 	
 	/**
 	*  Test to see that there is a space available for a small car after motorcycles park.
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableTrueSmallCarWithMotorcycles2() throws VehicleException, SimulationException {
@@ -1115,7 +1113,7 @@ public class CarParkTests {
 	
 	/**
 	*  Test to see that there is a space available for a small car after motorcycles park.
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableFalseSmallCarWithMotorcycles() throws VehicleException, SimulationException {
@@ -1134,7 +1132,7 @@ public class CarParkTests {
 	
 	/**
 	*  Test to see that there is a space available for a small car after motorcycles park.
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableTrueSmallCarWithMotorcycles3() throws VehicleException, SimulationException {
@@ -1152,8 +1150,7 @@ public class CarParkTests {
 
 	/**
 	*  Test to see that there is a space available for a motorcycle.
-	*  @author Laurence Mccabe (Base Method)
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableMotorCycle() throws VehicleException, SimulationException {
@@ -1164,8 +1161,7 @@ public class CarParkTests {
 	
 	/**
 	*  Test to see that there is a space available for a motorcycle.
-	*  @author Laurence Mccabe (Base Method)
-	*  @author Samuel Hammill (Refactoring & Constants)
+	*  @author Samuel Hammill
 	*/
 	@Test
 	public void testSpacesAvailableMotorCycle() throws VehicleException, SimulationException {
