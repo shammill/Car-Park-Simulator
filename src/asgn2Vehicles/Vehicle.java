@@ -53,6 +53,8 @@ public abstract class Vehicle {
 	private boolean wasQueued = false;
 	private boolean wasParked = false;
 	
+	int TIME_ZERO = 0;
+	
 	/**
 	 * Vehicle Constructor
 	 * @param vehID String identification number or plate of the vehicle
@@ -63,7 +65,7 @@ public abstract class Vehicle {
 	 */
 	public Vehicle(String vehID, int arrivalTime) throws VehicleException  {
 		
-		if (arrivalTime <= 0) {
+		if (arrivalTime <= TIME_ZERO) {
 			throw new VehicleException("Arrival Time Must Be Greater Than 0.");
 		}
 		
@@ -88,7 +90,7 @@ public abstract class Vehicle {
 			throw new VehicleException("Unable to queue, car already queued or parked.");
 		}
 		
-		if (parkingTime <= 0) {
+		if (parkingTime <= TIME_ZERO) {
 		 	throw new VehicleException("Parking Time Must Be Greater Than 0.");
 		}
 		
@@ -260,8 +262,12 @@ public abstract class Vehicle {
     }
     
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * Creates and returns a string detailing information about an individual 
+	 * vehicle at the end of the simulation. Used by the car parks finalState()
+	 * method as it loops through all vehicles.
+	 * @return A string containing all of the information about a vehicle.
+	 * @author Samuel Hammill
 	 */
 	@Override
 	public String toString() {

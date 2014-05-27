@@ -52,8 +52,12 @@ public class Car extends Vehicle {
 	}
 
 	
-	/* (non-Javadoc)
-	 * @see asgn2Vehicles.Vehicle#toString()
+	/**
+	 * Creates and returns a string detailing information about an individual 
+	 * vehicle at the end of the simulation. Used by the car parks finalState()
+	 * method as it loops through all vehicles.
+	 * @return A string containing all of the information about a vehicle.
+	 * @author Samuel Hammill
 	 */
 	@Override
 	public String toString() {

@@ -80,11 +80,11 @@ public class GUISimulator extends JFrame {
 	private JPanel parametersLeft;
 	private JPanel parametersRight;
 	private JPanel logArea;
-	private JPanel chartPanel;
-	private JPanel chartPanel2;
-	private JPanel chartPanel3;
+	private JPanel chartPanelAllData;
+	private JPanel chartPanelVehicles;
+	private JPanel chartPanelBarGraph;
 	
-	// Simulation Components
+	// Simulation Paramters
 	private int seed;
 	private double carProb;
 	private double smallCarProb;
@@ -96,6 +96,7 @@ public class GUISimulator extends JFrame {
 	private int maxMotorCycleSpaces;
 	private int maxQueueSize;
 	
+	// ArrayLists containing our simulation datasets for charting.
 	ArrayList<Integer> totalVehicles = new ArrayList<Integer>();
 	ArrayList<Integer> parkedVehicles = new ArrayList<Integer>();
 	ArrayList<Integer> parkedCars = new ArrayList<Integer>();
@@ -150,17 +151,17 @@ public class GUISimulator extends JFrame {
 	    setupParameterTextFields();
 	    addParametersToPanel();
 	    setupRunSimulationButton();
-	    setupChartButton1();
-	    setupChartButton2();
-	    setupChartButton3();
+	    setupChartButtonAllData();
+	    setupChartButtonVehicles();
+	    setupChartButtonBarGraph();
 		createChart();
 	   
 		// Add our top level panels onto the frame and render it visible.
 		this.add(parameterBox);
 		this.add(logArea);
-		this.add(chartPanel);
-		this.add(chartPanel2);
-		this.add(chartPanel3);
+		this.add(chartPanelAllData);
+		this.add(chartPanelVehicles);
+		this.add(chartPanelBarGraph);
         RefineryUtilities.centerFrameOnScreen(this);
 		this.setVisible(true);
 	}
@@ -264,24 +265,24 @@ public class GUISimulator extends JFrame {
 	 * @author Samuel Hammill
 	 */
 	private void createChart() {
-		chartPanel.removeAll();
-		chartPanel2.removeAll();
-		chartPanel3.removeAll();
+		chartPanelAllData.removeAll();
+		chartPanelVehicles.removeAll();
+		chartPanelBarGraph.removeAll();
 		
-		ChartPanel newChart = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles, 
+		ChartPanel newChartAllData = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles, 
 												vehiclesInQueue, vehiclesArchived, totalVehicles, dissatisfiedVehicles);
-		ChartPanel newChart2 = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles, vehiclesInQueue);
-		ChartPanel newChart3 = new ChartPanel(totalVehicles, dissatisfiedVehicles);
+		ChartPanel newChartVehicles = new ChartPanel(parkedVehicles, parkedCars, parkedSmallCars, parkedMotorCycles, vehiclesInQueue);
+		ChartPanel newChartBarGraph = new ChartPanel(totalVehicles, dissatisfiedVehicles);
 		
-		chartPanel.add(newChart);
-		chartPanel2.add(newChart2);
-		chartPanel3.add(newChart3);
+		chartPanelAllData.add(newChartAllData);
+		chartPanelVehicles.add(newChartVehicles);
+		chartPanelBarGraph.add(newChartBarGraph);
 		
-		chartPanel.setVisible(true);
-		chartPanel2.setVisible(false);
-		chartPanel3.setVisible(false);
+		chartPanelAllData.setVisible(true);
+		chartPanelVehicles.setVisible(false);
+		chartPanelBarGraph.setVisible(false);
 		
-		chartPanel.revalidate();
+		chartPanelAllData.revalidate();
 	}
 	
 	
@@ -345,17 +346,6 @@ public class GUISimulator extends JFrame {
 	
 	
 	/**
-	 * Helper method to determine if new vehicles are permitted
-	 * @param time int holding current simulation time
-	 * @return true if new vehicles permitted, false if not allowed due to simulation constraints. 
-	 */
-	private boolean newVehiclesAllowed(int time) {
-		boolean allowed = (time >=1);
-		return allowed && (time <= (Constants.CLOSING_TIME - 60));
-	}
-	
-	
-	/**
 	 * Method to setup our Jframe parameters.
 	 * @author Samuel Hammill
 	 */
@@ -406,15 +396,15 @@ public class GUISimulator extends JFrame {
 	    logArea.add(scrollPane);
 	    
 	    // Create a panel to hold our chart.
-	    chartPanel = new JPanel();
-	    chartPanel.setBounds(10, 5, 705, 445);
+	    chartPanelAllData = new JPanel();
+	    chartPanelAllData.setBounds(10, 5, 705, 445);
 	    //chartPanel.setBackground(Color.RED);
 	    
-	    chartPanel2 = new JPanel();
-	    chartPanel2.setBounds(10, 5, 705, 445);
+	    chartPanelVehicles = new JPanel();
+	    chartPanelVehicles.setBounds(10, 5, 705, 445);
 	    
-	    chartPanel3 = new JPanel();
-	    chartPanel3.setBounds(10, 5, 705, 445);
+	    chartPanelBarGraph = new JPanel();
+	    chartPanelBarGraph.setBounds(10, 5, 705, 445);
 	    //chartPanel2.setBackground(Color.BLUE);
 	    
 	    //chartPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1, true), "Chart", CENTER, TOP));
@@ -427,17 +417,22 @@ public class GUISimulator extends JFrame {
 	 * @author Samuel Hammill
 	 */
 	private void setupParameterTextFields() {
+		int HIGHEST_DIGITS = 9;
+		int MAX_DECIMAL_PLACES = 1;
+		int MAX_PROBABILITY_DIGITS = 1;
+		int NO_DECIMALS = 0;
+		
 	    // Create NumberFormats to manage our parameter input easily.
 	    NumberFormat intFormat = NumberFormat.getNumberInstance();
-	    intFormat.setMaximumFractionDigits(0);
-	    intFormat.setMaximumIntegerDigits(9);
+	    intFormat.setMaximumFractionDigits(NO_DECIMALS);
+	    intFormat.setMaximumIntegerDigits(HIGHEST_DIGITS);
 	    intFormat.setGroupingUsed(false);
 	    NumberFormat probFormat = NumberFormat.getNumberInstance();
-	    probFormat.setMinimumFractionDigits(1);
-	    probFormat.setMaximumIntegerDigits(1);
+	    probFormat.setMinimumFractionDigits(MAX_DECIMAL_PLACES);
+	    probFormat.setMaximumIntegerDigits(MAX_PROBABILITY_DIGITS);
 	    probFormat.setGroupingUsed(false);
 	    NumberFormat doubleFormat = NumberFormat.getNumberInstance();
-	    doubleFormat.setMinimumFractionDigits(1);
+	    doubleFormat.setMinimumFractionDigits(MAX_DECIMAL_PLACES);
 	    doubleFormat.setGroupingUsed(false);
 	    
 		// Setup parameter text fields and give them NumberFormats
@@ -525,7 +520,9 @@ public class GUISimulator extends JFrame {
 	 * @author Samuel Hammill
 	 */	
 	private void setupRunSimulationButton() {
-		
+		int X_SIZE = 0;
+		int Y_SIZE = 6;
+
 	    submitButton = new JButton("RUN SIMULATION");
 	    submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -535,81 +532,9 @@ public class GUISimulator extends JFrame {
             }
         });
 		parameterBox.add(submitButton);
-		parameterBox.add(Box.createRigidArea(new Dimension(0, 6)));
+		parameterBox.add(Box.createRigidArea(new Dimension(X_SIZE, Y_SIZE)));
 	}
-	
-	
-	/**
-	 * Setup button to display the first chart (All data)
-	 * When pressed, hides/displays appropriate charts.
-	 * @author Samuel Hammill
-	 */	
-	private void setupChartButton1() {
-		JButton chartButton1 = new JButton("All Data");
-	    chartButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-	    chartButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	toggleChart1();
-            }
-        });
-	    chartButton1.setBounds(715, 150, 90, 30);
-	    this.add(chartButton1);
-	}
-	
-	/**
-	 * Setup button to display the first chart (All data)
-	 * When pressed, hides/displays appropriate charts.
-	 * @author Samuel Hammill
-	 */	
-	private void setupChartButton2() {
-		JButton chartButton2 = new JButton("Vehicles");
-	    chartButton2.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-	    chartButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	toggleChart2();
-            }
-        });
-	    chartButton2.setBounds(715, 190, 90, 30);
-	    this.add(chartButton2);
-	}
-	
-	/**
-	 * Setup button to display the first chart (All data)
-	 * When pressed, hides/displays appropriate charts.
-	 * @author Samuel Hammill
-	 */
-	private void setupChartButton3() {
-		JButton chartButton2 = new JButton("Bar Chart");
-	    chartButton2.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-	    chartButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	toggleChart3();
-            }
-        });
-	    chartButton2.setBounds(715, 230, 90, 30);
-	    this.add(chartButton2);
-	}
-	
-	private void toggleChart1() {
-		chartPanel.setVisible(true);
-		chartPanel2.setVisible(false);
-		chartPanel3.setVisible(false);
-	}
-	
-	private void toggleChart2() {
-		chartPanel.setVisible(false);
-		chartPanel2.setVisible(true);
-		chartPanel3.setVisible(false);
-	}
-	
-	private void toggleChart3() {
-		chartPanel.setVisible(false);
-		chartPanel2.setVisible(false);
-		chartPanel3.setVisible(true);
-	}
 	
 	
 	/**
@@ -619,6 +544,7 @@ public class GUISimulator extends JFrame {
 	 */	
 	private void getTextFieldInputs() {
 		double ONE_HUNDRED_PERCENT = 1.0;
+		
 		seed = Math.abs(Integer.parseInt(seedText.getText()));
 		carProb = Math.abs(Double.parseDouble(carProbText.getText()));
 		smallCarProb = Math.abs(Double.parseDouble(smallCarProbText.getText()));
@@ -658,5 +584,117 @@ public class GUISimulator extends JFrame {
 		maxSmallCarSpacesText.setText(String.valueOf(maxSmallCarSpaces));
 		maxMotorCycleSpacesText.setText(String.valueOf(maxMotorCycleSpaces));
 		maxQueueSizeText.setText(String.valueOf(maxQueueSize));
+	}
+	
+	/**
+	 * Setup button to display the first chart (All data)
+	 * When pressed, hides/displays appropriate charts.
+	 * @author Samuel Hammill
+	 */	
+	private void setupChartButtonAllData() {
+		int X_COORD = 710;
+		int Y_COORD = 150;
+		int SIZE_X = 90;
+		int SIZE_Y = 30;
+		
+		JButton chartButton = new JButton("All Data");
+	    chartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    chartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	toggleChartAllData();
+            }
+        });
+	    chartButton.setBounds(X_COORD, Y_COORD, SIZE_X, SIZE_Y);
+	    this.add(chartButton);
+	}
+	
+	/**
+	 * Setup button to display the second chart (Vehicles)
+	 * When pressed, hides/displays appropriate charts.
+	 * @author Samuel Hammill
+	 */	
+	private void setupChartButtonVehicles() {
+		int X_COORD = 710;
+		int Y_COORD = 190;
+		int SIZE_X = 90;
+		int SIZE_Y = 30;
+		
+		JButton chartButton = new JButton("Vehicles");
+	    chartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    chartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	toggleChartVehicles();
+            }
+        });
+	    chartButton.setBounds(X_COORD, Y_COORD, SIZE_X, SIZE_Y);
+	    this.add(chartButton);
+	}
+	
+	/**
+	 * Setup button to display the third chart (Bar Graph)
+	 * When pressed, hides/displays appropriate charts.
+	 * @author Samuel Hammill
+	 */
+	private void setupChartButtonBarGraph() {
+		int X_COORD = 710;
+		int Y_COORD = 230;
+		int SIZE_X = 90;
+		int SIZE_Y = 30;
+		
+		JButton chartButton = new JButton("Bar Chart");
+	    chartButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+	    chartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	toggleChartBarGraph();
+            }
+        });
+	    chartButton.setBounds(X_COORD, Y_COORD, SIZE_X, SIZE_Y);
+	    this.add(chartButton);
+	}
+	
+	
+	/**
+	 * Hides all charts, besides AllData which is set to visible.
+	 * @author Samuel Hammill
+	 */
+	private void toggleChartAllData() {
+		chartPanelAllData.setVisible(true);
+		chartPanelVehicles.setVisible(false);
+		chartPanelBarGraph.setVisible(false);
+	}
+	
+	
+	/**
+	 * Hides all charts, besides Vehicles which is set to visible.
+	 * @author Samuel Hammill
+	 */
+	private void toggleChartVehicles() {
+		chartPanelAllData.setVisible(false);
+		chartPanelVehicles.setVisible(true);
+		chartPanelBarGraph.setVisible(false);
+	}
+	
+	
+	/**
+	 * Hides all charts, besides the Bar Graph which is set to visible.
+	 * @author Samuel Hammill
+	 */
+	private void toggleChartBarGraph() {
+		chartPanelAllData.setVisible(false);
+		chartPanelVehicles.setVisible(false);
+		chartPanelBarGraph.setVisible(true);
+	}
+	
+	/**
+	 * Helper method to determine if new vehicles are permitted
+	 * @param time int holding current simulation time
+	 * @return true if new vehicles permitted, false if not allowed due to simulation constraints. 
+	 */
+	private boolean newVehiclesAllowed(int time) {
+		boolean allowed = (time >=1);
+		return allowed && (time <= (Constants.CLOSING_TIME - 60));
 	}
 }
