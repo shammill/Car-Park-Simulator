@@ -1,0 +1,397 @@
+commit 3a5647b74e507f459564a081c6256bb66cb68dcc
+Author: shammill <shammill88@gmail.com>
+Date:   Tue May 27 22:55:14 2014 +1000
+
+    Code Quality, named constants, etc
+
+commit a3ed0c05b25338ee38ef3b90634d2e0e2ea0be51
+Author: shammill <shammill88@gmail.com>
+Date:   Tue May 27 20:58:36 2014 +1000
+
+    Finalised GUI, and cleaned code.
+
+commit 915e8e36f1e510cc9a678d7fac211f01f1327756
+Author: shammill <shammill88@gmail.com>
+Date:   Tue May 27 18:31:11 2014 +1000
+
+    Updated more CarParkTests
+
+commit 7ee1558632054a030bd46d01aa5997b469c09351
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Tue May 27 01:06:50 2014 +0000
+
+    CarParkTests.java edited online with Bitbucket
+
+commit 4314edf77d34b9382ad0ede39ca410679151aea2
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Tue May 27 00:08:59 2014 +0000
+
+    Added some more CarParkTests. CarParkTests.java edited online with Bitbucket
+
+commit cacee9c8fc214e8f5572c7118ab96a4d8cd3ffbf
+Author: shammill <shammill88@gmail.com>
+Date:   Tue May 27 03:43:37 2014 +1000
+
+    Added Bar Chart, added new TimeSeries Chart, added GUI features
+
+commit 51df7fd4190881a8e736b614009221ba94c8407b
+Merge: bbc774b fec88a4
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Mon May 26 18:53:32 2014 +1000
+
+    Merged in GUI-Development (pull request #3)
+    GUI-Development Completed
+
+commit fec88a4d3d5b6787392ddcab42d301a06efb9756
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 26 18:19:24 2014 +1000
+
+    Massive rework of spacesAvailable logic and fix of string output. The Log now matches example logs perfectly.
+
+commit 13cee44b1f3784fc080330599dcaf4f5cd78a2b3
+Author: shammill <shammill88@gmail.com>
+Date:   Fri May 23 11:39:06 2014 +1000
+
+    Moved charting to ChartPanel.java, various code quality improvements
+
+commit 89676150816040fcfcdb32fe8bfea051685959d3
+Author: shammill <shammill88@gmail.com>
+Date:   Thu May 22 23:39:18 2014 +1000
+
+    Fully implemented charting! Project is almost in a submittable state
+
+commit 32f012765cabbdeaff1187874692ae71aee15891
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Thu May 22 06:45:19 2014 +0000
+
+    Some updates to GUISimulator (namely start of string parsing) GUISimulator.java edited online with Bitbucket.
+
+commit e4c7b75638d759156c32e19e535818a7eb56e35a
+Author: shammill <shammill88@gmail.com>
+Date:   Wed May 21 23:45:08 2014 +1000
+
+    Implemented chart into GUI, needs status string parsing
+
+commit 411c01f94da21ae37530490ce011f2901edf258d
+Author: shammill <shammill88@gmail.com>
+Date:   Wed May 21 22:42:45 2014 +1000
+
+    Overhauled GUI. GUI-Layout+ Code-Quality+ Looking at Chart implementation
+
+commit 743c88aff81b4e1eca92a11a328ea23a5fbf61a5
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 19 23:31:47 2014 +1000
+
+    Temporary fix for probability > 1.
+
+commit fdb6a5b5e016b6142df724304d7383c2a6f89ffe
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 19 23:18:42 2014 +1000
+
+    Added more CarPark Tests and cleaned up a lot of code there
+
+commit 2a3b4c6638bc0bf5bb7c162448d1921c39316134
+Merge: 0c6327f 473e125
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Mon May 19 16:26:49 2014 +1000
+
+    Merged shammill/carparktests-formatting-style-and-qualit-1400480094181 into GUI-Development
+
+commit 473e125de233949214c6129d09d83077298856a1
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Mon May 19 06:14:54 2014 +0000
+
+    CarParkTests formatting, style and quality. CarParkTests.java edited online with Bitbucket
+
+commit 0c6327fb5d35fb71d1dff798f6e58328033c2fdc
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Mon May 19 05:29:09 2014 +0000
+
+    Formatting/appearance fixes in CarTests. CarTests.java edited online with Bitbucket
+
+commit 824cab82a1ae1ff70ca9148d162d627117a21731
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Mon May 19 04:36:56 2014 +0000
+
+    Added some CarPark Tests for constructors. CarParkTests.java edited online with Bitbucket
+
+commit 0f348e4243208d1b14939ef5a68fa71afa1fcfbd
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 18 23:28:27 2014 +1000
+
+    Tweaked satisfaction of vehicles to go with spec changes. Added some satisfaction tests as well.
+
+commit 8da9157af8cf335e08752b5b96e62729e76ac802
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 18 18:39:19 2014 +1000
+
+    Cleaned up a lot of code and added commenting
+
+commit e253956f69eacfa2870e86d32607464cfb9b5804
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 18 14:39:57 2014 +1000
+
+    Text Field Validation and button trigger completed
+
+commit 494f4c628b1dd234c7c3e36daa0de09a8eee8beb
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 18 02:30:48 2014 +1000
+
+    GUI Layout is complete, besides incorperating a graph.
+
+commit b17eed686e137efb6b23d3dc8fd567f4b35f54f2
+Author: shammill <shammill88@gmail.com>
+Date:   Sat May 17 19:54:14 2014 +1000
+
+    GUI Integration
+
+commit 2a17acd99284264522a2b76a74b2f33b768d36a9
+Author: shammill <shammill88@gmail.com>
+Date:   Sat May 17 15:20:42 2014 +1000
+
+    Overhauled CLI input. Works well now.
+
+commit 8f34e9260c4eba196cd8fefdf0099b461678d950
+Author: shammill <shammill88@gmail.com>
+Date:   Sat May 17 00:19:00 2014 +1000
+
+    Started fixing CarParkTests, with constants and cleaner code
+
+commit 21622ac63bf883184bdb29e7caf97aa94f979546
+Author: shammill <shammill88@gmail.com>
+Date:   Fri May 16 21:46:45 2014 +1000
+
+    Added all Car Tests
+
+commit b0e01b688fc553bdad94878b264401c75e7aab41
+Author: shammill <shammill88@gmail.com>
+Date:   Fri May 16 20:27:18 2014 +1000
+
+    Fixed bugs in new tests, all tests pass now
+
+commit 494c9ee537bebfe8ae38a1d17c2c3dc91be10004
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Fri May 16 02:53:35 2014 +0000
+
+    Majorly overhauled MotorCycleTests. Remade all methods.
+    MotorCycleTests.java edited online with Bitbucket
+
+commit 8882d704fb44782b83d39e473024efe27edf1b4b
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Thu May 15 22:59:31 2014 +0000
+
+    CarPark.java edited online with Bitbucket. Status initialisation to avoid null being printed.
+
+commit 42d04a5e5c10456034b9acac1f9e6f163f88036c
+Author: shammill <shammill88@gmail.com>
+Date:   Thu May 15 19:45:22 2014 +1000
+
+    Added Laurences Tests
+
+commit 37fbe3ebc2432bb9f28375f1cf739f5a04bcb265
+Merge: 70f905e c59b0ab
+Author: laurence mccabe <laurence.mccabe@gmail.com>
+Date:   Thu May 15 17:01:09 2014 +1000
+
+    Methods still to test for are: Tostring,setvehicel message, carpark empty and constrcutors
+
+commit 70f905ef02b16c2904424369d22f8a84c18fe829
+Author: laurence mccabe <laurence.mccabe@gmail.com>
+Date:   Wed May 14 09:37:16 2014 +1000
+
+    update to simrunner cli
+
+commit c59b0ab33a934f8c23c405e6de4634642b1e598e
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Tue May 13 22:48:06 2014 +0000
+
+    Fixed incorrect version of Vehicle that was pushed my Laurence.
+
+commit 8bfcec3be4da53d23bf8f99d47dada0197c92a2c
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Tue May 13 22:45:09 2014 +0000
+
+    Fixed incorrect version of Car that was pushed by Laurence.
+
+commit a1ccf00b46ea14f5b536f3055ecf8e7a0cb11b2f
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Tue May 13 22:36:18 2014 +0000
+
+    Fixed incorrect version of CarPark that was pushed from Laurence.
+
+commit c53421c35552f39223697b3d738032bc7b185663
+Author: laurence mccabe <laurence.mccabe@gmail.com>
+Date:   Wed May 14 00:29:28 2014 +1000
+
+    command line adaption almost complete - most of the logic done.
+    Slight additition to carParkTests.
+
+commit 1b01139bbf896d34cb6ace3695124692b18946b3
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 12 23:29:30 2014 +1000
+
+    Fixed a bug in the archiving of vehicles at the end of the day. Output now matches perfectly with example.
+
+commit a5b57fbc0eb6d53dd8e5a0a1e27549980ca2108b
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 12 21:20:11 2014 +1000
+
+    Fixed a major bug causing spaces to be calculated slightly incorrectly. Added status message output
+
+commit 8b2b5f0a3a050611debf3c7f236d6222d3e9fa24
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 11 20:33:52 2014 +1000
+
+    String formatting fix
+
+commit d45c4db30f2bb746db645f42875f43264cdf6b69
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 11 17:08:58 2014 +1000
+
+    GUI Development Begins
+
+commit bbc774b48fc7a944c2a9d95fe967dacda88e2d16
+Merge: 6057bc7 3ea30a2
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Sun May 11 16:59:34 2014 +1000
+
+    Merged in refactoring (pull request #2)
+    Refactoring and bug fixing complete. Merge into Master.
+
+commit 3ea30a27d81b10fff92f2950c33d6ee815e754e3
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Sun May 11 06:58:57 2014 +0000
+
+    Fixed conflict.
+
+commit 6b4407e65127a256b60780ca586a049bab07c252
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 11 16:52:15 2014 +1000
+
+    Major bug fix and update! Parked vehicles archive and leave correctly now.
+    Queued vehicles process and make it into the CarPark now.
+    toString methods completed.
+
+commit 372c1401498541ed35fa9f98fc0e58a64edeb91c
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 11 02:45:39 2014 +1000
+
+    vehID is now correct value. Tweaked vehicle creation. Created toString for CarPark
+
+commit 56aa51df804d5ff38d866aef06204b150c66bedd
+Author: shammill <shammill88@gmail.com>
+Date:   Sun May 11 01:40:26 2014 +1000
+
+    Fixed 'remove object from ArrayList' bug. Now removes the iterator element instead. Fixed missing lines that were accidentally deleted in previous push.
+
+commit 648ae4cc4f83d03a680ae502a5c6a17e2aa73cc2
+Author: laurence mccabe <laurence.mccabe@gmail.com>
+Date:   Fri May 9 22:49:46 2014 +1000
+
+    most tests done in motorcycle tests, still more to do in carpark tests, escpecially the ones involving checking status of number of cars the archive tests, as the only way to access the numcars
+    variables is through the status methods.
+
+commit fc010dc8c8291b458634d879b831ea845891db5f
+Author: laurence mccabe <laurence.mccabe@gmail.com>
+Date:   Wed May 7 23:52:04 2014 +1000
+
+    done a few tests, many more to do though.
+
+commit 6057bc766099622abdebaa4ce89505d2c48cddcd
+Author: laurence mccabe <laurence.mccabe@gmail.com>
+Date:   Wed May 7 10:10:55 2014 +1000
+
+    update test 1 day5
+
+commit 5473a5782a82112525d8904cc0d674acf0402b22
+Author: shammill <shammill88@gmail.com>
+Date:   Tue May 6 15:16:14 2014 +1000
+
+    Added Author tags to comments
+
+commit 1737744979687497a13913caddc2f01c6f181c1a
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 5 23:13:35 2014 +1000
+
+    Testing egit...
+
+commit 9370a0f378dbde884ea1f4b360dcb81f60079044
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 5 22:26:28 2014 +1000
+
+    All functionality completed, besides toString override.
+
+commit e258d787e1dda4ebbd39575229a0f48e5d6ebe00
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 5 19:34:40 2014 +1000
+
+    Processing for: Archiving, queue and leaving parkspace
+
+commit a9fc6c7e86271d3e4d22dde3ca1a52d90bccc9e0
+Author: shammill <shammill88@gmail.com>
+Date:   Mon May 5 18:13:30 2014 +1000
+
+    Fixed Parking and Unparking logic.
+
+commit e8061c36af9b12cbc00c6110ad97ba620d3e9b63
+Merge: ad43704 60d7293
+Author: Samuel Hammill <shammill88@gmail.com>
+Date:   Sat May 3 23:30:52 2014 +1000
+
+    Merged in development (pull request #1)
+    
+    A lot done on CarParks. Logic now more inline with spec.
+
+commit 60d7293752b1524c54b01193aff74303a0da58c3
+Author: shammill <shammill88@gmail.com>
+Date:   Sat May 3 23:25:17 2014 +1000
+
+    A lot done on CarParks. Logic now more inline with spec.
+
+commit ad43704fbb9048843544a820af6f67dc254fee17
+Author: shammill <shammill88@gmail.com>
+Date:   Sat May 3 16:26:33 2014 +1000
+
+    Updated all classes with new templates. Worked on CarPark.
+
+commit c3adf7594fab528232bd4cc05b4db079207924e7
+Author: shammill <shammill88@gmail.com>
+Date:   Sat May 3 00:27:48 2014 +1000
+
+    Started CarPark Class
+
+commit 90ba702a7b56fb11f91ef65d811b239cd6a80f86
+Author: shammill <shammill88@gmail.com>
+Date:   Fri May 2 21:56:43 2014 +1000
+
+    Completed asgn2Vehicles Package, besides toString override
+
+commit 1cfa4630ac2ad0207b286fc26a271d5efeab2bc7
+Author: shammill <shammill88@gmail.com>
+Date:   Fri May 2 19:22:19 2014 +1000
+
+    Completed Vehicle Class 100%, besides the toString override. Will come back to this.
+
+commit e9104058be7ad30fb00677da4e270b4429c02dee
+Author: shammill <shammill88@gmail.com>
+Date:   Thu May 1 23:10:45 2014 +1000
+
+    Created vehicle getters and some exception throwing.
+
+commit 1aa9ef8490296fec176ba1b8bbbf576211523691
+Author: shammill <shammill88@gmail.com>
+Date:   Thu May 1 23:00:09 2014 +1000
+
+    Created Vehicle Constructor
+
+commit ba85b3d3d973cd76dcf22353552d0903e02edd97
+Author: shammill <shammill88@gmail.com>
+Date:   Wed Apr 30 23:00:23 2014 +1000
+
+    Created all classes and methods. We now have a skeleton.
+
+commit b8b62b5d0956910ede92711074dc571d1076fbe6
+Author: shammill <shammill88@gmail.com>
+Date:   Wed Apr 30 21:34:46 2014 +1000
+
+    Project Beginning

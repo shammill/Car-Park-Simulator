@@ -1,15 +1,16 @@
-Samuel Hammill -n8811229
-Laurence McCabe -n8104395 
+Samuel Hammill n8811229
+Laurence McCabe n8104395 
 
 
 Statement of Contribution:
 
 Samuel Hammill:
-All simulation logic and debugging.
+Simulation logic and debugging. (asgnVehicles, asgn2Carparks)
 GUI
 Charts
 Unit Testing
 Code Quality
+CLI Integration
 GUI Tests
 
 
@@ -18,3 +19,18 @@ Unit Testing
 CLI Integration
 GUI
 Charts
+
+Note: Laurence had troubles using git and would share code by sending it via facebook chat.
+
+
+
+Location of class which holds the main method for your GUI:
+\src\asgn2Simulators\GUISimulator.java
+No special instructions required. use run.bat if possible.
+
+Else. From the cmd line navigate to the main directory containing the assignment and run:
+java -cp .;bin;lib/jcommon-1.0.21.jar;lib/jfreechart-1.0.17.jar asgn2Simulators.GUISimulator
+
+Used librarys:
+jcommon-1.0.21.jar
+jfreechart-1.0.17.jar

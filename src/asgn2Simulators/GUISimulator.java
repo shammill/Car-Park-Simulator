@@ -287,7 +287,6 @@ public class GUISimulator extends JFrame {
 	
 	
 	/**
-	 * 
 	 * Parses the status string for us to create a chart based off the simulation data.
 	 * @author Samuel Hammill
 	 * @author Laurence Mccabe
